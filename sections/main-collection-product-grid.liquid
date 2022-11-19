@@ -26,7 +26,7 @@
   }
 {%- endstyle -%}
 
-<div class="section-{{ section.id }}-padding" id="collection-page-container">
+<div class="section-{{ section.id }}-padding">
   {% comment %} Sort is the first tabbable element when filter type is vertical {% endcomment %}
   {%- if section.settings.enable_sorting and section.settings.filter_type == 'vertical' -%}
     <facet-filters-form class="facets facets-vertical-sort page-width small-hide no-js-hidden">
@@ -72,7 +72,6 @@
       </form>
     </facet-filters-form>
   {%- endif -%}
-${test}
   <div class="{% if section.settings.filter_type == 'vertical' %} facets-vertical page-width{% endif %}">
     {{ 'component-facets.css' | asset_url | stylesheet_tag }}
     <script src="{{ 'facets.js' | asset_url }}" defer="defer"></script>
@@ -82,7 +81,9 @@ ${test}
       </aside>
     {%- endif -%}
 
-    <div class="product-grid-container" id="ProductGridContainer">
+    <div class="product-grid-container"  id="collection-page-container">
+${data}
+
         {%- if collection.products.size == 0 -%}
           <div class="collection collection--empty page-width" id="product-grid" data-id="{{ section.id }}">
             <div class="loading-overlay gradient"></div>
@@ -127,11 +128,20 @@ ${test}
 </div>
 
 
+<div id="bags-container" style="padding: 4rem; position: fixed; background: #a3293e; bottom: 0; z-index: 99; width: 100%;">
+<div class="total-product-cart-prices">
+<p class="total-weight"></p>
+<p class="total-price"></p>
+</div>
+<div class="bag-buttons">
+  <button v-if="total-price"class="view-bag">watch your bag</button>
+  <button class="name-bag">Close bag</button>
 
-<script>
+</div>
+</div>
 
 
-</script>
+
 {% schema %}
 {
   "name": "t:sections.main-collection-product-grid.name",
