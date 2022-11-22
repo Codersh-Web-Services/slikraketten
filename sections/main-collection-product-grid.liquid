@@ -120,6 +120,50 @@ ${data}
                   %}
                 </li>
               {%- endfor -%}
+              <section class="product">
+                <div class="container">
+                    <div class="row">
+              {%- for product in collection.products -%}
+                <div class="col-6 col-sm-6 col-md-4 col-xl-3">
+                            <div class="product-box">
+                                <div class="img-wrap">
+                                    <img src="{{ "Slikekspressen_2.avif"| file_url }}" alt="image">
+                                </div>
+                                <svg class="icon-info" width="15" height="15" viewBox="0 0 15 15" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <circle cx="7.5" cy="7.5" r="6.5" fill="#FFEEB0" stroke="#FBD754" stroke-width="2"></circle>
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M8 4H7V5H8V4ZM8 6H7V11H8V6Z" fill="black">
+                                    </path>
+                                </svg>
+                                <div class="product-detail">
+                                    <h4>Center Original</h4>
+                                    <h3>From CLOETTA</h3>
+                                    <a href="#" class="btn-cta">PUT IN BAG</a>
+                                
+                                <div class="qty-btn">
+                                            <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                                                <path
+                                                    d="M64 32C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64H64zm88 200H296c13.3 0 24 10.7 24 24s-10.7 24-24 24H152c-13.3 0-24-10.7-24-24s10.7-24 24-24z" />
+                                            </svg>
+                                            <ul>
+                                                <li>
+                                                    <a href="#">Approx. 4 pieces</a>
+                                                </li>
+                                                <li>
+                                                    <a href="#">32 grams</a>
+                                                </li>
+                                            </ul>
+                                            <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                                                <path
+                                                    d="M64 32C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64H64zM200 344V280H136c-13.3 0-24-10.7-24-24s10.7-24 24-24h64V168c0-13.3 10.7-24 24-24s24 10.7 24 24v64h64c13.3 0 24 10.7 24 24s-10.7 24-24 24H248v64c0 13.3-10.7 24-24 24s-24-10.7-24-24z" />
+                                            </svg>
+                                        </div>  </div>  
+                            </div>
+                        </div>
+                      {%endfor%}
+                    </div>
+                </div>
+            </section>
             </ul>
           </div>
         {%- endif -%}
