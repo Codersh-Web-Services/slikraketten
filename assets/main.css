@@ -305,8 +305,9 @@
   }
   
   
+  html,
   body {
-    margin: 0px;
+    font-size: 16px;
     font-family: 'Amsi Pro', sans-serif;
   }
   
@@ -688,6 +689,119 @@
     color: #f1f1f1;
     text-decoration: none;
     font-size: 1rem;
+  }
+
+  .fixed-bottom {
+    background-color: #fdebea;
+    padding: 1rem 0;
+  }
+  
+  .product-cart {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .product-cart .btn-group {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+  
+  .product-cart .weight span {
+    display: block;
+    font-weight: 600;
+    color: #a13f9f;
+    font-size: 0.95rem;
+  }
+  
+  .product-cart .weight span+span {
+    font-size: 1.2rem;
+  }
+  
+  .product-cart .btn-group a {
+    padding: 0.6rem 2rem;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 0.95rem;
+    display: inline-block;
+    transition: all .35s ease-in-out;
+  }
+  
+  .btn-group .outline-btn {
+    border: 1px solid;
+    color: #000;
+    font-weight: 600;
+  }
+  
+  .btn-group .outline-btn:hover {
+    transform: translateY(-2px);
+    background-color: #a13f9f;
+    color: #fff;
+    border: 1px solid #a13f9f;
+    box-shadow: 0.1rem 1rem 1rem #a13f9f33;
+  }
+  
+  .btn-group .solid-btn {
+    border: 1px solid;
+    background-color: #a13f9f;
+    color: #fff;
+    font-weight: 600;
+  }
+  
+  .btn-group .solid-btn:hover {
+    background-color: transparent;
+    color: #a13f9f;
+    box-shadow: 0.1rem 1rem 1rem #a13f9f33;
+  }
+  
+  .product-detail .qty-btn {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 80%;
+    height: 50px;
+    background: #c367c1;
+    color: #fff;
+    font-size: 15px;
+    font-weight: 700;
+    text-transform: uppercase;
+    line-height: 1.42;
+    text-decoration: none;
+    text-align: center;
+    white-space: normal;
+    border: 1px solid transparent;
+    border-radius: 10px;
+    transition: all .2s ease 0s;
+    transition-property: background, color;
+    cursor: pointer;
+    margin-bottom: 1.5rem;
+    transition: all .4s ease-in-out;
+    margin: 0 auto;
+  }
+  
+  .product-detail .qty-btn ul {
+    display: inline-block;
+    margin-bottom: 0;
+    padding-left: 0;
+  }
+  
+  .qty-btn ul li a {
+    font-size: 0.90rem;
+    color: #000;
+    font-weight: 600;
+    text-decoration: none;
+  }
+  
+  .qty-btn ul li:first-child a {
+    border-bottom: 1px solid #fff;
+    color: #ffda3e;
+  }
+  
+  .qty-btn .icon {
+    height: 30px;
+    width: 30px;
+    fill: #fff;
   }
   
   /*--- MEDIA QUERIES ---*/
