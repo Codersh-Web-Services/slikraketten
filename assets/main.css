@@ -1,767 +1,767 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    list-style-type: none;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style-type: none;
+}
+
+@font-face {
+  font-family: 'AmsiPro';
+  src: url('../fonts/AmsiPro-BlackItalic.eot');
+  src: url('../fonts/A') format('embedded-opentype'),
+    url('../fonts/AmsiPro-BlackItalic.woff2') format('woff2'),
+    url('../fonts/AmsiPro-BlackItalic.woff') format('woff'),
+    url('../fonts/AmsiPro-BlackItalic.ttf') format('truetype'),
+    url('../fonts/AmsiPro-BlackItalic.svg#AmsiPro-BlackItalic') format('svg');
+  font-weight: 900;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'AmsiPro';
+  src: url('../fonts/AmsiPro-Bold.eot');
+  src: url('../fonts/AmsiPro-Bold.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/AmsiPro-Bold.woff2') format('woff2'),
+    url('../fonts/AmsiPro-Bold.woff') format('woff'),
+    url('../fonts/AmsiPro-Bold.ttf') format('truetype'),
+    url('../fonts/AmsiPro-Bold.svg#AmsiPro-Bold') format('svg');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'AmsiProCond';
+  src: url('../fonts/AmsiProCond-BlackItalic.eot');
+  src: url('../fonts/AmsiProCond-BlackItalic.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/AmsiProCond-BlackItalic.woff2') format('woff2'),
+    url('../fonts/AmsiProCond-BlackItalic.woff') format('woff'),
+    url('../fonts/AmsiProCond-BlackItalic.ttf') format('truetype'),
+    url('../fonts/AmsiProCond-BlackItalic.svg#AmsiProCond-BlackItalic') format('svg');
+  font-weight: 900;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'AmsiProCond';
+  src: url('../fonts/AmsiProCond-Black.eot');
+  src: url('../fonts/AmsiProCond-Black.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/AmsiProCond-Black.woff2') format('woff2'),
+    url('../fonts/AmsiProCond-Black.woff') format('woff'),
+    url('../fonts/AmsiProCond-Black.ttf') format('truetype'),
+    url('../fonts/AmsiProCond-Black.svg#AmsiProCond-Black') format('svg');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'AmsiPro';
+  src: url('../fonts/AmsiPro-BoldItalic.eot');
+  src: url('../fonts/AmsiPro-BoldItalic.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/AmsiPro-BoldItalic.woff2') format('woff2'),
+    url('../fonts/AmsiPro-BoldItalic.woff') format('woff'),
+    url('../fonts/AmsiPro-BoldItalic.ttf') format('truetype'),
+    url('../fonts/AmsiPro-BoldItalic.svg#AmsiPro-BoldItalic') format('svg');
+  font-weight: bold;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'AmsiPro';
+  src: url('../fonts/AmsiPro-Black.eot');
+  src: url('../fonts/AmsiPro-Black.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/AmsiPro-Black.woff2') format('woff2'),
+    url('../fonts/AmsiPro-Black.woff') format('woff'),
+    url('../fonts/AmsiPro-Black.ttf') format('truetype'),
+    url('../fonts/AmsiPro-Black.svg#AmsiPro-Black') format('svg');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'AmsiProCond';
+  src: url('../fonts/AmsiProCond-BoldItalic.eot');
+  src: url('../fonts/AmsiProCond-BoldItalic.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/AmsiProCond-BoldItalic.woff2') format('woff2'),
+    url('../fonts/AmsiProCond-BoldItalic.woff') format('woff'),
+    url('../fonts/AmsiProCond-BoldItalic.ttf') format('truetype'),
+    url('../fonts/AmsiProCond-BoldItalic.svg#AmsiProCond-BoldItalic') format('svg');
+  font-weight: bold;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'AmsiProCond';
+  src: url('../fonts/AmsiProCond-LightItalic.eot');
+  src: url('../fonts/AmsiProCond-LightItalic.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/AmsiProCond-LightItalic.woff2') format('woff2'),
+    url('../fonts/AmsiProCond-LightItalic.woff') format('woff'),
+    url('../fonts/AmsiProCond-LightItalic.ttf') format('truetype'),
+    url('../fonts/AmsiProCond-LightItalic.svg#AmsiProCond-LightItalic') format('svg');
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'AmsiProCond';
+  src: url('../fonts/AmsiProCond-Bold.eot');
+  src: url('../fonts/AmsiProCond-Bold.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/AmsiProCond-Bold.woff2') format('woff2'),
+    url('../fonts/AmsiProCond-Bold.woff') format('woff'),
+    url('../fonts/AmsiProCond-Bold.ttf') format('truetype'),
+    url('../fonts/AmsiProCond-Bold.svg#AmsiProCond-Bold') format('svg');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'AmsiProCond';
+  src: url('../fonts/AmsiProCond-Italic.eot');
+  src: url('../fonts/AmsiProCond-Italic.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/AmsiProCond-Italic.woff2') format('woff2'),
+    url('../fonts/AmsiProCond-Italic.woff') format('woff'),
+    url('../fonts/AmsiProCond-Italic.ttf') format('truetype'),
+    url('../fonts/AmsiProCond-Italic.svg#AmsiProCond-Italic') format('svg');
+  font-weight: normal;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'AmsiProCond';
+  src: url('../fonts/AmsiProCond-Regular.eot');
+  src: url('../fonts/AmsiProCond-Regular.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/AmsiProCond-Regular.woff2') format('woff2'),
+    url('../fonts/AmsiProCond-Regular.woff') format('woff'),
+    url('../fonts/AmsiProCond-Regular.ttf') format('truetype'),
+    url('../fonts/AmsiProCond-Regular.svg#AmsiProCond-Regular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'AmsiProCond';
+  src: url('../fonts/AmsiProCond-Light.eot');
+  src: url('../fonts/AmsiProCond-Light.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/AmsiProCond-Light.woff2') format('woff2'),
+    url('../fonts/AmsiProCond-Light.woff') format('woff'),
+    url('../fonts/AmsiProCond-Light.ttf') format('truetype'),
+    url('../fonts/AmsiProCond-Light.svg#AmsiProCond-Light') format('svg');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'AmsiProCond';
+  src: url('../fonts/AmsiProCond-SemiBold.eot');
+  src: url('../fonts/AmsiProCond-SemiBold.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/AmsiProCond-SemiBold.woff2') format('woff2'),
+    url('../fonts/AmsiProCond-SemiBold.woff') format('woff'),
+    url('../fonts/AmsiProCond-SemiBold.ttf') format('truetype'),
+    url('../fonts/AmsiProCond-SemiBold.svg#AmsiProCond-SemiBold') format('svg');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'AmsiProCond';
+  src: url('../fonts/AmsiProCond-Thin.eot');
+  src: url('../fonts/AmsiProCond-Thin.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/AmsiProCond-Thin.woff2') format('woff2'),
+    url('../fonts/AmsiProCond-Thin.woff') format('woff'),
+    url('../fonts/AmsiProCond-Thin.ttf') format('truetype'),
+    url('../fonts/AmsiProCond-Thin.svg#AmsiProCond-Thin') format('svg');
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'AmsiProCond';
+  src: url('../fonts/AmsiProCond-SemiBoldItalic.eot');
+  src: url('../fonts/AmsiProCond-SemiBoldItalic.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/AmsiProCond-SemiBoldItalic.woff2') format('woff2'),
+    url('../fonts/AmsiProCond-SemiBoldItalic.woff') format('woff'),
+    url('../fonts/AmsiProCond-SemiBoldItalic.ttf') format('truetype'),
+    url('../fonts/AmsiProCond-SemiBoldItalic.svg#AmsiProCond-SemiBoldItalic') format('svg');
+  font-weight: 600;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'AmsiProCond-Ultra';
+  src: url('../fonts/AmsiProCond-Ultra.eot');
+  src: url('../fonts/AmsiProCond-Ultra.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/AmsiProCond-Ultra.woff2') format('woff2'),
+    url('../fonts/AmsiProCond-Ultra.woff') format('woff'),
+    url('../fonts/AmsiProCond-Ultra.ttf') format('truetype'),
+    url('../fonts/AmsiProCond-Ultra.svg#AmsiProCond-Ultra') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'AmsiProCond';
+  src: url('../fonts/AmsiProCond-ThinItalic.eot');
+  src: url('../fonts/AmsiProCond-ThinItalic.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/AmsiProCond-ThinItalic.woff2') format('woff2'),
+    url('../fonts/AmsiProCond-ThinItalic.woff') format('woff'),
+    url('../fonts/AmsiProCond-ThinItalic.ttf') format('truetype'),
+    url('../fonts/AmsiProCond-ThinItalic.svg#AmsiProCond-ThinItalic') format('svg');
+  font-weight: 100;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'AmsiProCond-XLight';
+  src: url('../fonts/AmsiProCond-XLight.eot');
+  src: url('../fonts/AmsiProCond-XLight.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/AmsiProCond-XLight.woff2') format('woff2'),
+    url('../fonts/AmsiProCond-XLight.woff') format('woff'),
+    url('../fonts/AmsiProCond-XLight.ttf') format('truetype'),
+    url('../fonts/AmsiProCond-XLight.svg#AmsiProCond-XLight') format('svg');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'AmsiPro';
+  src: url('../fonts/AmsiPro-Italic.eot');
+  src: url('../fonts/AmsiPro-Italic.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/AmsiPro-Italic.woff2') format('woff2'),
+    url('../fonts/AmsiPro-Italic.woff') format('woff'),
+    url('../fonts/AmsiPro-Italic.ttf') format('truetype'),
+    url('../fonts/AmsiPro-Italic.svg#AmsiPro-Italic') format('svg');
+  font-weight: normal;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'AmsiPro';
+  src: url('../fonts/AmsiPro-LightItalic.eot');
+  src: url('../fonts/AmsiPro-LightItalic.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/AmsiPro-LightItalic.woff2') format('woff2'),
+    url('../fonts/AmsiPro-LightItalic.woff') format('woff'),
+    url('../fonts/AmsiPro-LightItalic.ttf') format('truetype'),
+    url('../fonts/AmsiPro-LightItalic.svg#AmsiPro-LightItalic') format('svg');
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'AmsiPro';
+  src: url('../fonts/AmsiPro-Light.eot');
+  src: url('../fonts/AmsiPro-Light.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/AmsiPro-Light.woff2') format('woff2'),
+    url('../fonts/AmsiPro-Light.woff') format('woff'),
+    url('../fonts/AmsiPro-Light.ttf') format('truetype'),
+    url('../fonts/AmsiPro-Light.svg#AmsiPro-Light') format('svg');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'AmsiProCond-XLightItalic';
+  src: url('../fonts/AmsiProCond-XLightItalic.eot');
+  src: url('../fonts/AmsiProCond-XLightItalic.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/AmsiProCond-XLightItalic.woff2') format('woff2'),
+    url('../fonts/AmsiProCond-XLightItalic.woff') format('woff'),
+    url('../fonts/AmsiProCond-XLightItalic.ttf') format('truetype'),
+    url('../fonts/AmsiProCond-XLightItalic.svg#AmsiProCond-XLightItalic') format('svg');
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'AmsiProCond-UltraItalic';
+  src: url('../fonts/AmsiProCond-UltraItalic.eot');
+  src: url('../fonts/AmsiProCond-UltraItalic.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/AmsiProCond-UltraItalic.woff2') format('woff2'),
+    url('../fonts/AmsiProCond-UltraItalic.woff') format('woff'),
+    url('../fonts/AmsiProCond-UltraItalic.ttf') format('truetype'),
+    url('../fonts/AmsiProCond-UltraItalic.svg#AmsiProCond-UltraItalic') format('svg');
+  font-weight: normal;
+  font-style: italic;
+  font-display: swap;
+}
+
+
+body {
+  margin: 0px;
+  font-family: 'Amsi Pro', sans-serif;
+}
+
+header {
+  background-color: #fdebea;
+  box-shadow: 0.1rem 0.5rem 1.5rem rgb(81 28 112 / 20%);
+}
+
+.mainHeader .logo-wrap {
+  display: inline-block;
+}
+
+.mainHeader .logo-wrap img {
+  height: auto;
+  width: 180px;
+}
+
+.mainHeader nav {
+  margin: 0 auto;
+}
+
+.anouncementbar {
+  background-color: rgb(240 146 188);
+  text-align: center;
+  padding: 0.3rem 0;
+  color: #fff;
+  font-weight: 400;
+}
+
+.mainHeader {
+  display: flex;
+  padding: 0.7rem 4rem;
+  flex: 0 0 80px;
+
+}
+
+/*--- MAIN NAV COMMON ---*/
+
+ul.MainNav {
+  margin: 0;
+  padding: 0;
+}
+
+ul.MainNav li {
+  list-style-type: none;
+}
+
+ul.MainNav li a {
+  font-weight: 600;
+  font-size: 16px;
+  text-decoration: none;
+  display: block;
+  color: #010101;
+  text-transform: uppercase;
+  letter-spacing: 0.7px;
+}
+
+
+/*--- MOBILE MENU BUTTON ---*/
+
+.navMobile {
+  position: absolute;
+  z-index: 1;
+  right: 0;
+  top: 60px;
+  padding-right: 4rem;
+}
+
+.navMobile a {
+  display: block;
+  height: 30px;
+  width: 30px;
+}
+
+.navMobile a:after,
+.navMobile a:before,
+.navMobile a div {
+  background-color: #000;
+  border-radius: 3px;
+  content: '';
+  display: block;
+  height: 2.5px;
+  margin: 7px 0;
+  transition: all .3s ease-in-out;
+}
+
+.navigationActive a div {
+  transform: scale(0);
+  background-color: #565656;
+}
+
+.navigationActive a:before {
+  transform: translateY(6px) rotate(135deg);
+  background-color: #565656;
+}
+
+.navigationActive a:after {
+  transform: translateY(-12px) rotate(-135deg);
+  background-color: #565656;
+}
+
+/*animation stopper*/
+.resize-animation-stopper * {
+  animation: none !important;
+  transition: none !important;
+}
+
+/* <-------- HEADER END ---------> */
+
+.hero-section {
+  margin-top: 8.5rem;
+  position: relative;
+  background: url('https://cdn.shopify.com/s/files/1/0671/4471/2493/files/candy-bg.jpg?v=1669112847');
+  background-size: cover;
+  background-position: center;
+  height: 700px;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  z-index: 1;
+  color: #f1f1f1;
+}
+
+.hero-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: rgb(0 0 0 / 37%);
+  z-index: -1;
+}
+
+.hero-section h1 {
+  font-size: 2.5rem;
+  color: #fff;
+  text-transform: capitalize;
+  margin-bottom: 3rem;
+}
+
+.hero-section h1 strong {
+  color: rgb(255 144 197);
+}
+
+.hero-section .btn-cta {
+  text-decoration: none;
+  padding: 0.6rem 3rem;
+  background: rgb(195, 103, 193);
+  border-radius: 10px;
+  font-weight: 500;
+  color: #fff;
+  transition: all .4s ease-in-out;
+  display: inline-block;
+  font-size: 1rem;
+}
+
+.hero-section .btn-cta:hover {
+  background-color: #a13f9f;
+  transform: translateY(-2px);
+  box-shadow: 0.1rem 1rem 2rem #bc99be4f;
+}
+
+/* <-------- HERO SECTION END ---------> */
+
+.product {
+  padding: 5rem 0;
+}
+
+.product-box {
+  position: relative;
+  cursor: pointer;
+}
+
+.product-box::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  margin-top: 50%;
+  width: 100%;
+  border-radius: 10px;
+  background-color: #ffc7e0;
+  transition-property: background;
+  transition-timing-function: cubic-bezier(.4, 0, .2, 1);
+  transition-duration: .15s;
+  transition-duration: .2s;
+  transition-timing-function: cubic-bezier(0, 0, .2, 1);
+  z-index: -1;
+}
+
+.product-box .img-wrap {
+  text-align: center;
+}
+
+.product-box .img-wrap img {
+  height: auto;
+  max-width: 90%;
+  margin: 0 auto;
+}
+
+
+.product-box .product-detail {
+  text-align: center;
+}
+
+.product-detail h4 {
+  font-size: 15PX;
+  color: #000;
+  margin: 1.5rem 0;
+}
+
+.product-detail h3 {
+  font-size: 18PX;
+  color: #000;
+  margin-bottom: 1.5rem;
+}
+
+.product-detail .btn-cta {
+  display: inline-block;
+  align-items: center;
+  justify-content: center;
+  width: 80%;
+  height: 50px;
+  padding: 11px 20px;
+  background: #c367c1;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 700;
+  text-transform: uppercase;
+  line-height: 1.42;
+  text-decoration: none;
+  text-align: center;
+  white-space: normal;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  transition: all .2s ease 0s;
+  transition-property: background, color;
+  cursor: pointer;
+  margin-bottom: 1.5rem;
+  transition: all .4s ease-in-out;
+}
+
+.product-detail .btn-cta:hover {
+  background-color: #a13f9f;
+  transform: translateY(-2px);
+  box-shadow: 0.1rem 1rem 2rem #bc99be4f;
+}
+
+.product-box svg.icon-info {
+  position: absolute;
+  top: 0;
+  right: 10px;
+}
+
+/* <---------- PRODUCT BOX SECTION END ----------> */
+
+.logo-section {
+  padding: 5rem 0;
+  background-color: #ffa4cf;
+}
+
+.logo-section .img-wrap img {
+  height: auto;
+  max-width: 100%;
+}
+
+/* <---------- LOGO SECTION END ----------> */
+
+.newsletter {
+  background-color: #ff94c3;
+  position: relative;
+  z-index: 1;
+  color: #fff;
+  padding: 2.5rem 0;
+}
+
+.newsletter::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  bottom: 0;
+  background-color: #f280b2;
+  z-index: -1;
+}
+
+.newsletter h2 {
+  font-size: 2rem;
+}
+
+.social-links {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  margin-bottom: 0;
+}
+
+.social-links svg {
+  height: 2.5rem;
+  width: 2.5rem;
+  fill: #fff;
+}
+
+.newsletter h3 {
+  font-size: 2rem;
+  margin-bottom: 1.2rem;
+}
+
+.newsletter p {
+  font-size: 1.1rem;
+  color: #fff;
+  font-weight: 500;
+  margin-bottom: 1.5rem;
+}
+
+.newsletter .btn-cta {
+  display: inline-block;
+  font-size: 1rem;
+  background-color: #bf3fb4;
+  color: #fff;
+  font-weight: 500;
+  text-transform: uppercase;
+  padding: 0.7rem 6rem;
+  border-radius: 10px;
+  text-decoration: none;
+  transition: all .4s ease-in-out;
+}
+
+.newsletter .btn-cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0.1rem 1rem 2rem #bc99be4f;
+}
+
+.newsletter h3,
+.newsletter p,
+.newsletter .btn-cta {
+  margin-left: 2.5rem;
+}
+
+/* <---------- NEWSLETTER SECTION END ----------> */
+
+.footer {
+  padding: 5rem 0 1rem 0;
+  background-color: #121212;
+  color: #f1f1f1;
+}
+
+.footer .f-logo {
+  width: 100%;
+  max-width: 200px;
+}
+
+.footer .f-logo img {
+  height: auto;
+  max-width: 100%;
+}
+
+footer p {
+  font-size: 1rem;
+}
+
+.footer h5 {
+  font-size: 1.7rem;
+  margin-bottom: 2rem;
+}
+
+.footer ul {
+  padding-left: 0;
+}
+
+.footer ul li {
+  padding: 0.2rem 0;
+}
+
+.footer ul li a {
+  color: #f1f1f1;
+  text-decoration: none;
+  font-size: 1rem;
+}
+
+/*--- MEDIA QUERIES ---*/
+
+@media (max-width: 1200px) {
+
+  .navigationActive.mainHeader h1 a {
+    position: absolute;
+    z-index: 2;
+    color: #FFF;
   }
-  
-  @font-face {
-    font-family: 'AmsiPro';
-    src: url('../fonts/AmsiPro-BlackItalic.eot');
-    src: url('../fonts/A') format('embedded-opentype'),
-        url('../fonts/AmsiPro-BlackItalic.woff2') format('woff2'),
-        url('../fonts/AmsiPro-BlackItalic.woff') format('woff'),
-        url('../fonts/AmsiPro-BlackItalic.ttf') format('truetype'),
-        url('../fonts/AmsiPro-BlackItalic.svg#AmsiPro-BlackItalic') format('svg');
-    font-weight: 900;
-    font-style: italic;
-    font-display: swap;
+
+
+  .navigationActive ul.MainNav {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+    transition: transform 0.6s cubic-bezier(0.65, 0, 0.07, 1), -webkit-transform 0.6s cubic-bezier(0.65, 0, 0.07, 1);
   }
-  
-  @font-face {
-    font-family: 'AmsiPro';
-    src: url('../fonts/AmsiPro-Bold.eot');
-    src: url('../fonts/AmsiPro-Bold.eot?#iefix') format('embedded-opentype'),
-        url('../fonts/AmsiPro-Bold.woff2') format('woff2'),
-        url('../fonts/AmsiPro-Bold.woff') format('woff'),
-        url('../fonts/AmsiPro-Bold.ttf') format('truetype'),
-        url('../fonts/AmsiPro-Bold.svg#AmsiPro-Bold') format('svg');
-    font-weight: bold;
-    font-style: normal;
-    font-display: swap;
-  }
-  
-  @font-face {
-    font-family: 'AmsiProCond';
-    src: url('../fonts/AmsiProCond-BlackItalic.eot');
-    src: url('../fonts/AmsiProCond-BlackItalic.eot?#iefix') format('embedded-opentype'),
-        url('../fonts/AmsiProCond-BlackItalic.woff2') format('woff2'),
-        url('../fonts/AmsiProCond-BlackItalic.woff') format('woff'),
-        url('../fonts/AmsiProCond-BlackItalic.ttf') format('truetype'),
-        url('../fonts/AmsiProCond-BlackItalic.svg#AmsiProCond-BlackItalic') format('svg');
-    font-weight: 900;
-    font-style: italic;
-    font-display: swap;
-  }
-  
-  @font-face {
-    font-family: 'AmsiProCond';
-    src: url('../fonts/AmsiProCond-Black.eot');
-    src: url('../fonts/AmsiProCond-Black.eot?#iefix') format('embedded-opentype'),
-        url('../fonts/AmsiProCond-Black.woff2') format('woff2'),
-        url('../fonts/AmsiProCond-Black.woff') format('woff'),
-        url('../fonts/AmsiProCond-Black.ttf') format('truetype'),
-        url('../fonts/AmsiProCond-Black.svg#AmsiProCond-Black') format('svg');
-    font-weight: 900;
-    font-style: normal;
-    font-display: swap;
-  }
-  
-  @font-face {
-    font-family: 'AmsiPro';
-    src: url('../fonts/AmsiPro-BoldItalic.eot');
-    src: url('../fonts/AmsiPro-BoldItalic.eot?#iefix') format('embedded-opentype'),
-        url('../fonts/AmsiPro-BoldItalic.woff2') format('woff2'),
-        url('../fonts/AmsiPro-BoldItalic.woff') format('woff'),
-        url('../fonts/AmsiPro-BoldItalic.ttf') format('truetype'),
-        url('../fonts/AmsiPro-BoldItalic.svg#AmsiPro-BoldItalic') format('svg');
-    font-weight: bold;
-    font-style: italic;
-    font-display: swap;
-  }
-  
-  @font-face {
-    font-family: 'AmsiPro';
-    src: url('../fonts/AmsiPro-Black.eot');
-    src: url('../fonts/AmsiPro-Black.eot?#iefix') format('embedded-opentype'),
-        url('../fonts/AmsiPro-Black.woff2') format('woff2'),
-        url('../fonts/AmsiPro-Black.woff') format('woff'),
-        url('../fonts/AmsiPro-Black.ttf') format('truetype'),
-        url('../fonts/AmsiPro-Black.svg#AmsiPro-Black') format('svg');
-    font-weight: 900;
-    font-style: normal;
-    font-display: swap;
-  }
-  
-  @font-face {
-    font-family: 'AmsiProCond';
-    src: url('../fonts/AmsiProCond-BoldItalic.eot');
-    src: url('../fonts/AmsiProCond-BoldItalic.eot?#iefix') format('embedded-opentype'),
-        url('../fonts/AmsiProCond-BoldItalic.woff2') format('woff2'),
-        url('../fonts/AmsiProCond-BoldItalic.woff') format('woff'),
-        url('../fonts/AmsiProCond-BoldItalic.ttf') format('truetype'),
-        url('../fonts/AmsiProCond-BoldItalic.svg#AmsiProCond-BoldItalic') format('svg');
-    font-weight: bold;
-    font-style: italic;
-    font-display: swap;
-  }
-  
-  @font-face {
-    font-family: 'AmsiProCond';
-    src: url('../fonts/AmsiProCond-LightItalic.eot');
-    src: url('../fonts/AmsiProCond-LightItalic.eot?#iefix') format('embedded-opentype'),
-        url('../fonts/AmsiProCond-LightItalic.woff2') format('woff2'),
-        url('../fonts/AmsiProCond-LightItalic.woff') format('woff'),
-        url('../fonts/AmsiProCond-LightItalic.ttf') format('truetype'),
-        url('../fonts/AmsiProCond-LightItalic.svg#AmsiProCond-LightItalic') format('svg');
-    font-weight: 300;
-    font-style: italic;
-    font-display: swap;
-  }
-  
-  @font-face {
-    font-family: 'AmsiProCond';
-    src: url('../fonts/AmsiProCond-Bold.eot');
-    src: url('../fonts/AmsiProCond-Bold.eot?#iefix') format('embedded-opentype'),
-        url('../fonts/AmsiProCond-Bold.woff2') format('woff2'),
-        url('../fonts/AmsiProCond-Bold.woff') format('woff'),
-        url('../fonts/AmsiProCond-Bold.ttf') format('truetype'),
-        url('../fonts/AmsiProCond-Bold.svg#AmsiProCond-Bold') format('svg');
-    font-weight: bold;
-    font-style: normal;
-    font-display: swap;
-  }
-  
-  @font-face {
-    font-family: 'AmsiProCond';
-    src: url('../fonts/AmsiProCond-Italic.eot');
-    src: url('../fonts/AmsiProCond-Italic.eot?#iefix') format('embedded-opentype'),
-        url('../fonts/AmsiProCond-Italic.woff2') format('woff2'),
-        url('../fonts/AmsiProCond-Italic.woff') format('woff'),
-        url('../fonts/AmsiProCond-Italic.ttf') format('truetype'),
-        url('../fonts/AmsiProCond-Italic.svg#AmsiProCond-Italic') format('svg');
-    font-weight: normal;
-    font-style: italic;
-    font-display: swap;
-  }
-  
-  @font-face {
-    font-family: 'AmsiProCond';
-    src: url('../fonts/AmsiProCond-Regular.eot');
-    src: url('../fonts/AmsiProCond-Regular.eot?#iefix') format('embedded-opentype'),
-        url('../fonts/AmsiProCond-Regular.woff2') format('woff2'),
-        url('../fonts/AmsiProCond-Regular.woff') format('woff'),
-        url('../fonts/AmsiProCond-Regular.ttf') format('truetype'),
-        url('../fonts/AmsiProCond-Regular.svg#AmsiProCond-Regular') format('svg');
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap;
-  }
-  
-  @font-face {
-    font-family: 'AmsiProCond';
-    src: url('../fonts/AmsiProCond-Light.eot');
-    src: url('../fonts/AmsiProCond-Light.eot?#iefix') format('embedded-opentype'),
-        url('../fonts/AmsiProCond-Light.woff2') format('woff2'),
-        url('../fonts/AmsiProCond-Light.woff') format('woff'),
-        url('../fonts/AmsiProCond-Light.ttf') format('truetype'),
-        url('../fonts/AmsiProCond-Light.svg#AmsiProCond-Light') format('svg');
-    font-weight: 300;
-    font-style: normal;
-    font-display: swap;
-  }
-  
-  @font-face {
-    font-family: 'AmsiProCond';
-    src: url('../fonts/AmsiProCond-SemiBold.eot');
-    src: url('../fonts/AmsiProCond-SemiBold.eot?#iefix') format('embedded-opentype'),
-        url('../fonts/AmsiProCond-SemiBold.woff2') format('woff2'),
-        url('../fonts/AmsiProCond-SemiBold.woff') format('woff'),
-        url('../fonts/AmsiProCond-SemiBold.ttf') format('truetype'),
-        url('../fonts/AmsiProCond-SemiBold.svg#AmsiProCond-SemiBold') format('svg');
-    font-weight: 600;
-    font-style: normal;
-    font-display: swap;
-  }
-  
-  @font-face {
-    font-family: 'AmsiProCond';
-    src: url('../fonts/AmsiProCond-Thin.eot');
-    src: url('../fonts/AmsiProCond-Thin.eot?#iefix') format('embedded-opentype'),
-        url('../fonts/AmsiProCond-Thin.woff2') format('woff2'),
-        url('../fonts/AmsiProCond-Thin.woff') format('woff'),
-        url('../fonts/AmsiProCond-Thin.ttf') format('truetype'),
-        url('../fonts/AmsiProCond-Thin.svg#AmsiProCond-Thin') format('svg');
-    font-weight: 100;
-    font-style: normal;
-    font-display: swap;
-  }
-  
-  @font-face {
-    font-family: 'AmsiProCond';
-    src: url('../fonts/AmsiProCond-SemiBoldItalic.eot');
-    src: url('../fonts/AmsiProCond-SemiBoldItalic.eot?#iefix') format('embedded-opentype'),
-        url('../fonts/AmsiProCond-SemiBoldItalic.woff2') format('woff2'),
-        url('../fonts/AmsiProCond-SemiBoldItalic.woff') format('woff'),
-        url('../fonts/AmsiProCond-SemiBoldItalic.ttf') format('truetype'),
-        url('../fonts/AmsiProCond-SemiBoldItalic.svg#AmsiProCond-SemiBoldItalic') format('svg');
-    font-weight: 600;
-    font-style: italic;
-    font-display: swap;
-  }
-  
-  @font-face {
-    font-family: 'AmsiProCond-Ultra';
-    src: url('../fonts/AmsiProCond-Ultra.eot');
-    src: url('../fonts/AmsiProCond-Ultra.eot?#iefix') format('embedded-opentype'),
-        url('../fonts/AmsiProCond-Ultra.woff2') format('woff2'),
-        url('../fonts/AmsiProCond-Ultra.woff') format('woff'),
-        url('../fonts/AmsiProCond-Ultra.ttf') format('truetype'),
-        url('../fonts/AmsiProCond-Ultra.svg#AmsiProCond-Ultra') format('svg');
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap;
-  }
-  
-  @font-face {
-    font-family: 'AmsiProCond';
-    src: url('../fonts/AmsiProCond-ThinItalic.eot');
-    src: url('../fonts/AmsiProCond-ThinItalic.eot?#iefix') format('embedded-opentype'),
-        url('../fonts/AmsiProCond-ThinItalic.woff2') format('woff2'),
-        url('../fonts/AmsiProCond-ThinItalic.woff') format('woff'),
-        url('../fonts/AmsiProCond-ThinItalic.ttf') format('truetype'),
-        url('../fonts/AmsiProCond-ThinItalic.svg#AmsiProCond-ThinItalic') format('svg');
-    font-weight: 100;
-    font-style: italic;
-    font-display: swap;
-  }
-  
-  @font-face {
-    font-family: 'AmsiProCond-XLight';
-    src: url('../fonts/AmsiProCond-XLight.eot');
-    src: url('../fonts/AmsiProCond-XLight.eot?#iefix') format('embedded-opentype'),
-        url('../fonts/AmsiProCond-XLight.woff2') format('woff2'),
-        url('../fonts/AmsiProCond-XLight.woff') format('woff'),
-        url('../fonts/AmsiProCond-XLight.ttf') format('truetype'),
-        url('../fonts/AmsiProCond-XLight.svg#AmsiProCond-XLight') format('svg');
-    font-weight: 300;
-    font-style: normal;
-    font-display: swap;
-  }
-  
-  @font-face {
-    font-family: 'AmsiPro';
-    src: url('../fonts/AmsiPro-Italic.eot');
-    src: url('../fonts/AmsiPro-Italic.eot?#iefix') format('embedded-opentype'),
-        url('../fonts/AmsiPro-Italic.woff2') format('woff2'),
-        url('../fonts/AmsiPro-Italic.woff') format('woff'),
-        url('../fonts/AmsiPro-Italic.ttf') format('truetype'),
-        url('../fonts/AmsiPro-Italic.svg#AmsiPro-Italic') format('svg');
-    font-weight: normal;
-    font-style: italic;
-    font-display: swap;
-  }
-  
-  @font-face {
-    font-family: 'AmsiPro';
-    src: url('../fonts/AmsiPro-LightItalic.eot');
-    src: url('../fonts/AmsiPro-LightItalic.eot?#iefix') format('embedded-opentype'),
-        url('../fonts/AmsiPro-LightItalic.woff2') format('woff2'),
-        url('../fonts/AmsiPro-LightItalic.woff') format('woff'),
-        url('../fonts/AmsiPro-LightItalic.ttf') format('truetype'),
-        url('../fonts/AmsiPro-LightItalic.svg#AmsiPro-LightItalic') format('svg');
-    font-weight: 300;
-    font-style: italic;
-    font-display: swap;
-  }
-  
-  @font-face {
-    font-family: 'AmsiPro';
-    src: url('../fonts/AmsiPro-Light.eot');
-    src: url('../fonts/AmsiPro-Light.eot?#iefix') format('embedded-opentype'),
-        url('../fonts/AmsiPro-Light.woff2') format('woff2'),
-        url('../fonts/AmsiPro-Light.woff') format('woff'),
-        url('../fonts/AmsiPro-Light.ttf') format('truetype'),
-        url('../fonts/AmsiPro-Light.svg#AmsiPro-Light') format('svg');
-    font-weight: 300;
-    font-style: normal;
-    font-display: swap;
-  }
-  
-  @font-face {
-    font-family: 'AmsiProCond-XLightItalic';
-    src: url('../fonts/AmsiProCond-XLightItalic.eot');
-    src: url('../fonts/AmsiProCond-XLightItalic.eot?#iefix') format('embedded-opentype'),
-        url('../fonts/AmsiProCond-XLightItalic.woff2') format('woff2'),
-        url('../fonts/AmsiProCond-XLightItalic.woff') format('woff'),
-        url('../fonts/AmsiProCond-XLightItalic.ttf') format('truetype'),
-        url('../fonts/AmsiProCond-XLightItalic.svg#AmsiProCond-XLightItalic') format('svg');
-    font-weight: 300;
-    font-style: italic;
-    font-display: swap;
-  }
-  
-  @font-face {
-    font-family: 'AmsiProCond-UltraItalic';
-    src: url('../fonts/AmsiProCond-UltraItalic.eot');
-    src: url('../fonts/AmsiProCond-UltraItalic.eot?#iefix') format('embedded-opentype'),
-        url('../fonts/AmsiProCond-UltraItalic.woff2') format('woff2'),
-        url('../fonts/AmsiProCond-UltraItalic.woff') format('woff'),
-        url('../fonts/AmsiProCond-UltraItalic.ttf') format('truetype'),
-        url('../fonts/AmsiProCond-UltraItalic.svg#AmsiProCond-UltraItalic') format('svg');
-    font-weight: normal;
-    font-style: italic;
-    font-display: swap;
-  }
-  
-  
-  body {
-    margin: 0px;
-    font-family: 'Amsi Pro', sans-serif;
-  }
-  
-  header {
-    background-color: #fdebea;
-    box-shadow: 0.1rem 0.5rem 1.5rem rgb(81 28 112 / 20%);
-  }
-  
-  .mainHeader .logo-wrap {
-    display: inline-block;
-  }
-  
-  .mainHeader .logo-wrap img {
-    height: auto;
-    width: 180px;
-  }
-  
-  .mainHeader nav {
-    margin: 0 auto;
-  }
-  
-  .anouncementbar {
-    background-color: rgb(240 146 188);
-    text-align: center;
-    padding: 0.3rem 0;
-    color: #fff;
-    font-weight: 400;
-  }
-  
-  .mainHeader {
-    display: flex;
-    padding: 0.7rem 4rem;
-    flex: 0 0 80px;
-  
-  }
-  
-  /*--- MAIN NAV COMMON ---*/
-  
+
   ul.MainNav {
+    background-color: #ef94bf;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    margin-top: 2em;
+    padding: 100px 0 0 0;
+    text-align: center;
+    transition: transform 0.6s cubic-bezier(0.65, 0, 0.07, 1), opacity 0.01s linear 0.6s, -webkit-transform 0.6s cubic-bezier(0.65, 0, 0.07, 1);
+    -webkit-transform: translate(100%, 0);
+    transform: translate(100%, 0);
     margin: 0;
-    padding: 0;
+    height: 100vh;
+    width: 100vw;
   }
-  
-  ul.MainNav li {
-    list-style-type: none;
-  }
-  
+
   ul.MainNav li a {
-    font-weight: 600;
-    font-size: 16px;
-    text-decoration: none;
-    display: block;
-    color: #010101;
-    text-transform: uppercase;
-    letter-spacing: 0.7px;
-  }
-  
-  
-  /*--- MOBILE MENU BUTTON ---*/
-  
-  .navMobile {
-    position: absolute;
-    z-index: 1;
-    right: 0;
-    top: 60px;
-    padding-right: 4rem;
-  }
-  
-  .navMobile a {
-    display: block;
-    height: 30px;
-    width: 30px;
-  }
-  
-  .navMobile a:after,
-  .navMobile a:before,
-  .navMobile a div {
-    background-color: #000;
-    border-radius: 3px;
-    content: '';
-    display: block;
-    height: 2.5px;
-    margin: 7px 0;
-    transition: all .3s ease-in-out;
-  }
-  
-  .navigationActive a div {
-    transform: scale(0);
-    background-color: #565656;
-  }
-  
-  .navigationActive a:before {
-    transform: translateY(6px) rotate(135deg);
-    background-color: #565656;
-  }
-  
-  .navigationActive a:after {
-    transform: translateY(-12px) rotate(-135deg);
-    background-color: #565656;
-  }
-  
-  /*animation stopper*/
-  .resize-animation-stopper * {
-    animation: none !important;
-    transition: none !important;
-  }
-  
-  /* <-------- HEADER END ---------> */
-  
-  .hero-section {
-    margin-top: 8.5rem;
-    position: relative;
-    background: url('../images/candy-bg.jpg');
-    background-size: cover;
-    background-position: center;
-    height: 700px;
-    background-repeat: no-repeat;
-    display: flex;
-    align-items: center;
-    z-index: 1;
-    color: #f1f1f1;
-  }
-  
-  .hero-section::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    background-color: rgb(0 0 0 / 37%);
-    z-index: -1;
-  }
-  
-  .hero-section h1 {
-    font-size: 2.5rem;
-    color: #fff;
-    text-transform: capitalize;
-    margin-bottom: 3rem;
-  }
-  
-  .hero-section h1 strong {
-    color: rgb(255 144 197);
-  }
-  
-  .hero-section .btn-cta {
-    text-decoration: none;
-    padding: 0.6rem 3rem;
-    background: rgb(195, 103, 193);
-    border-radius: 10px;
-    font-weight: 500;
-    color: #fff;
-    transition: all .4s ease-in-out;
-    display: inline-block;
-    font-size: 1rem;
-  }
-  
-  .hero-section .btn-cta:hover {
-    background-color: #a13f9f;
-    transform: translateY(-2px);
-    box-shadow: 0.1rem 1rem 2rem #bc99be4f;
-  }
-  
-  /* <-------- HERO SECTION END ---------> */
-  
-  .product {
-    padding: 5rem 0;
-  }
-  
-  .product-box {
-    position: relative;
-    cursor: pointer;
-  }
-  
-  .product-box::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    margin-top: 50%;
-    width: 100%;
-    border-radius: 10px;
-    background-color: #ffc7e0;
-    transition-property: background;
-    transition-timing-function: cubic-bezier(.4, 0, .2, 1);
-    transition-duration: .15s;
-    transition-duration: .2s;
-    transition-timing-function: cubic-bezier(0, 0, .2, 1);
-    z-index: -1;
-  }
-  
-  .product-box .img-wrap {
-    text-align: center;
-  }
-  
-  .product-box .img-wrap img {
-    height: auto;
-    max-width: 90%;
-    margin: 0 auto;
-  }
-  
-  
-  .product-box .product-detail {
-    text-align: center;
-  }
-  
-  .product-detail h4 {
-    font-size: 15PX;
-    color: #000;
-    margin: 1.5rem 0;
-  }
-  
-  .product-detail h3 {
-    font-size: 18PX;
-    color: #000;
-    margin-bottom: 1.5rem;
-  }
-  
-  .product-detail .btn-cta {
-    display: inline-block;
-    align-items: center;
-    justify-content: center;
-    width: 80%;
-    height: 50px;
-    padding: 11px 20px;
-    background: #c367c1;
-    color: #fff;
+    color: #565656;
     font-size: 15px;
-    font-weight: 700;
-    text-transform: uppercase;
-    line-height: 1.42;
-    text-decoration: none;
-    text-align: center;
-    white-space: normal;
-    border: 1px solid transparent;
-    border-radius: 10px;
-    transition: all .2s ease 0s;
-    transition-property: background, color;
-    cursor: pointer;
-    margin-bottom: 1.5rem;
-    transition: all .4s ease-in-out;
-  }
-  
-  .product-detail .btn-cta:hover {
-    background-color: #a13f9f;
-    transform: translateY(-2px);
-    box-shadow: 0.1rem 1rem 2rem #bc99be4f;
-  }
-  
-  .product-box svg.icon-info {
-    position: absolute;
-    top: 0;
-    right: 10px;
-  }
-  
-  /* <---------- PRODUCT BOX SECTION END ----------> */
-  
-  .logo-section {
-    padding: 5rem 0;
-    background-color: #ffa4cf;
-  }
-  
-  .logo-section .img-wrap img {
-    height: auto;
-    max-width: 100%;
-  }
-  
-  /* <---------- LOGO SECTION END ----------> */
-  
-  .newsletter {
-    background-color: #ff94c3;
-    position: relative;
-    z-index: 1;
-    color: #fff;
-    padding: 2.5rem 0;
-  }
-  
-  .newsletter::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 50%;
-    bottom: 0;
-    background-color: #f280b2;
-    z-index: -1;
-  }
-  
-  .newsletter h2 {
-    font-size: 2rem;
-  }
-  
-  .social-links {
-    display: flex;
-    align-items: center;
-    gap: 2rem;
-    margin-bottom: 0;
-  }
-  
-  .social-links svg {
-    height: 2.5rem;
-    width: 2.5rem;
-    fill: #fff;
-  }
-  
-  .newsletter h3 {
-    font-size: 2rem;
-    margin-bottom: 1.2rem;
-  }
-  
-  .newsletter p {
-    font-size: 1.1rem;
-    color: #fff;
-    font-weight: 500;
-    margin-bottom: 1.5rem;
-  }
-  
-  .newsletter .btn-cta {
-    display: inline-block;
-    font-size: 1rem;
-    background-color: #bf3fb4;
-    color: #fff;
-    font-weight: 500;
-    text-transform: uppercase;
-    padding: 0.7rem 6rem;
-    border-radius: 10px;
-    text-decoration: none;
-    transition: all .4s ease-in-out;
-  }
-  
-  .newsletter .btn-cta:hover {
-    transform: translateY(-2px);
-    box-shadow: 0.1rem 1rem 2rem #bc99be4f;
-  }
-  
-  .newsletter h3,
-  .newsletter p, 
-  .newsletter .btn-cta {
-    margin-left: 2.5rem;
-  }
-  
-  /* <---------- NEWSLETTER SECTION END ----------> */
-  
-  .footer {
-    padding: 5rem 0 1rem 0;
-    background-color: #121212;
-    color: #f1f1f1;
-  }
-  
-  .footer .f-logo {
+    line-height: 1.45em;
     width: 100%;
-    max-width: 200px;
+    display: block;
+    border-bottom: 1px solid #f6f6f6;
+    padding: 0.5rem 0;
   }
-  
-  .footer .f-logo img {
-    height: auto;
-    max-width: 100%;
+
+}
+
+@media (min-width: 1200px) {
+
+  .mainHeader {
+    flex-direction: row;
   }
-  
-  footer p {
-    font-size: 1rem;
+
+  ul.MainNav {
+    height: 80px;
+    display: block;
   }
-  
-  .footer h5 {
-    font-size: 1.7rem;
-    margin-bottom: 2rem;
+
+  ul.MainNav li {
+    float: left;
   }
-  
-  .footer ul {
-    padding-left: 0;
+
+  ul.MainNav li a {
+    line-height: 80px;
+    padding: 0 1em;
   }
-  
-  .footer ul li {
-    padding: 0.2rem 0;
+
+  .mainHeader nav {
+    margin-left: auto;
   }
-  
-  .footer ul li a {
-    color: #f1f1f1;
-    text-decoration: none;
-    font-size: 1rem;
+
+  .navMobile {
+    display: none;
   }
-  
-  /*--- MEDIA QUERIES ---*/
-  
-  @media (max-width: 1200px) {
-  
-    .navigationActive.mainHeader h1 a {
-      position: absolute;
-      z-index: 2;
-      color: #FFF;
-    }
-  
-  
-    .navigationActive ul.MainNav {
-      -webkit-transform: translateX(0);
-      transform: translateX(0);
-      transition: transform 0.6s cubic-bezier(0.65, 0, 0.07, 1), -webkit-transform 0.6s cubic-bezier(0.65, 0, 0.07, 1);
-    }
-  
-    ul.MainNav {
-      background-color: #ef94bf;
-      position: fixed;
-      z-index: 1;
-      top: 0;
-      left: 0;
-      margin-top: 2em;
-      padding: 100px 0 0 0;
-      text-align: center;
-      transition: transform 0.6s cubic-bezier(0.65, 0, 0.07, 1), opacity 0.01s linear 0.6s, -webkit-transform 0.6s cubic-bezier(0.65, 0, 0.07, 1);
-      -webkit-transform: translate(100%, 0);
-      transform: translate(100%, 0);
-      margin: 0;
-      height: 100vh;
-      width: 100vw;
-    }
-  
-    ul.MainNav li a {
-      color: #565656;
-      font-size: 15px;
-      line-height: 1.45em;
-      width: 100%;
-      display: block;
-      border-bottom: 1px solid #f6f6f6;
-      padding: 0.5rem 0;
-    }
-  
-  }
-  
-  @media (min-width: 1200px) {
-  
-    .mainHeader {
-      flex-direction: row;
-    }
-  
-    ul.MainNav {
-      height: 80px;
-      display: block;
-    }
-  
-    ul.MainNav li {
-      float: left;
-    }
-  
-    ul.MainNav li a {
-      line-height: 80px;
-      padding: 0 1em;
-    }
-  
-    .mainHeader nav {
-      margin-left: auto;
-    }
-  
-    .navMobile {
-      display: none;
-    }
-  
-  }
+
+}
