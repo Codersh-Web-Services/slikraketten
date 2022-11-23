@@ -21,11 +21,11 @@ if (document.querySelector('#collection-page-container')) {
                 event.preventDefault()
                 let data = this.data
                 console.log(data)
-                axios.post('/cart/add.js', data)
-                    .then((response) => {
-                        console.log(response)
-                    })
-                    .catch(errors => console.log(errors))
+                // axios.post('/cart/add.js', data)
+                //     .then((response) => {
+                //         console.log(response)
+                //     })
+                //     .catch(errors => console.log(errors))
             }
         }
 
