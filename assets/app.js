@@ -66,6 +66,7 @@ if (document.querySelector('#product-box')) {
             return {
                 counter: 1,
                 added: 0
+
             }
         },
         methods: {
@@ -78,7 +79,12 @@ if (document.querySelector('#product-box')) {
                 }
                 this.counter -= 1
 
+            },
+            putInBag() {
+                this.counter += 1
+                this.added = 1
             }
+
         }
     })
 
