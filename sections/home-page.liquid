@@ -8,7 +8,7 @@
                         <strong> Even Candy brought directly</strong> <br>
                         to you - with express speed
                     </h1>
-                    <a href="#" class="btn-cta">ORDER HERE</a>
+                    <a href="{{ settings.section.herolink }}" class="btn-cta">ORDER HERE</a>
                 </div>
             </div>
         </div>
@@ -18,7 +18,7 @@
     <div class="container">
         <div class="row">
             <div class="col-6 col-sm-6 col-md-4 col-xl-3">
-                <div class="product-box">
+                <div id="product-box" class="product-box">
                     <div class="img-wrap">
                         <img src="{{ "Slikekspressen_2.avif"| file_url }}" alt="image">
                     </div>
@@ -30,8 +30,8 @@
                     </svg>
                     <div class="product-detail">
                         <h4>Center Original</h4>
-                        <h3>From CLOETTA</h3>
-                        <div class="qty-btn mb-3">
+                        <h3>${product_sub}</h3>
+                        <div v-if="addedtobag" class="qty-btn mb-3">
                             <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
                                 <path
                                     d="M64 32C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64H64zm88 200H296c13.3 0 24 10.7 24 24s-10.7 24-24 24H152c-13.3 0-24-10.7-24-24s10.7-24 24-24z" />
@@ -274,7 +274,10 @@
 {% schema %}
 {
 "name": "home page",
-"settings":[],
+"settings":[{
+"type": "url",
+"id": "herolink",
+"label": "hero link"}],
 "presets": [
 {
 "name": "Home Page",

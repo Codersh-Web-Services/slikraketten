@@ -30,4 +30,17 @@ if (document.querySelector('#collection-page-container')) {
         }
 
     }).mount('#collection-page-container')
+
+
+
+}
+if (document.querySelector('#product-box')) {
+    const productbox = Vue.createApp({
+        delimiters: ['${', '}'],
+        data: function () {
+            return {
+                product_sub: "From vendor"
+            }
+        }
+    }).mount("#product-box")
 }
