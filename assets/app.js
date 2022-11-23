@@ -61,7 +61,7 @@ if (document.querySelector('#product-box')) {
         template: '#product-component',
         delimiters: ['${', '}'],
 
-        props: ['image', 'url', "variant", "title"],
+        props: ['image', 'url', "variant", "title", "vendor"],
         data() {
             return {
                 counter: 1,
