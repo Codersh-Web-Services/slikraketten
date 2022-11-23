@@ -13,7 +13,6 @@ if (document.querySelector('#collection-page-container')) {
             }
         },
         created() {
-            axios.get()
         }
         ,
         methods: {
@@ -39,8 +38,17 @@ if (document.querySelector('#product-box')) {
         delimiters: ['${', '}'],
         data: function () {
             return {
-                product_sub: "From vendor"
+                product_sub: "From vendor",
+                products: {}
             }
+        },
+        created() {
+            axios.get('collections/frontpage/products.json')
+                .then((response) => this.products = response.data)
+                .catch(error =>
+                    console.log(error))
+
+
         }
     }).mount("#product-box")
 }
