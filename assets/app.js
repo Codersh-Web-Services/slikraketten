@@ -64,7 +64,7 @@ if (document.querySelector('#product-box')) {
         props: ['image', 'url', "variant", "title", "vendor"],
         data() {
             return {
-                counter: 1,
+                counter: 0,
                 added: 0
 
             }

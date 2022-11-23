@@ -590,7 +590,6 @@ ul.MainNav li a:hover {
   line-height: 1.42;
   text-decoration: none;
   text-align: center;
-  white-space: normal;
   border: 1px solid transparent;
   border-radius: 10px;
   transition: all .2s ease 0s;
