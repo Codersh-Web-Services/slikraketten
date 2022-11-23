@@ -34,6 +34,7 @@ if (document.querySelector('#collection-page-container')) {
 
 }
 if (document.querySelector('#product-box')) {
+
     const productbox = Vue.createApp({
         delimiters: ['${', '}'],
         data: function () {
@@ -44,11 +45,31 @@ if (document.querySelector('#product-box')) {
         },
         created() {
             axios.get('collections/frontpage/products.json')
-                .then((response) => this.products = response.data)
+                .then((response) => {
+                    this.products = response.data.products
+                    console.log(response)
+                    console.log("this.products", this.products)
+                })
                 .catch(error =>
                     console.log(error))
 
 
         }
-    }).mount("#product-box")
+    })
+
+    productbox.component('product-component', {
+        template: '#product-component',
+        delimiters: ['${', '}'],
+
+        props: ['image', 'url', "variant", "title"],
+        data() {
+            return {
+                counter: 0,
+                added: 0
+            }
+        }
+    })
+
+
+    productbox.mount("#product-box")
 }
