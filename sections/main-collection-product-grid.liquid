@@ -39,7 +39,6 @@
     {%- endif -%}
 
     <div class="product-grid-container"  id="collection-page-container">
-
         {%- if collection.products.size == 0 -%}
           <div class="collection collection--empty page-width" id="product-grid" data-id="{{ section.id }}">
             <div class="loading-overlay gradient"></div>
@@ -53,8 +52,6 @@
         {%- else -%}
           <div class="collection{% if section.settings.filter_type != 'vertical' %} page-width{% endif %}">
             <div class="loading-overlay gradient"></div>
-    
-           
               <section class="product">
                 <div class="container">
                     <div class="row">
