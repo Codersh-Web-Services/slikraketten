@@ -239,7 +239,7 @@
                 <p>
                     Receive our <b> Newsletter </b> and get News and special discount codes, as one of the first.
                 </p>
-                <a href="#" class="btn-cta">
+                <a href="{{ section.settings.registerlink }}" class="btn-cta">
                     Register
                 </a>
             </div>
@@ -277,7 +277,13 @@
 "settings":[{
 "type": "url",
 "id": "herolink",
-"label": "hero link"}],
+"label": "hero link"
+},
+{"type": "url",
+"id": "registerlink",
+"label" : "register link"
+}
+],
 "presets": [
 {
 "name": "Home Page",
