@@ -606,6 +606,10 @@ ul.MainNav li a:hover {
   padding-left: 0;
 }
 
+.product-detail .qty-btn {
+  margin: 0 auto 1.5rem auto;
+}
+
 .qty-btn ul li a {
   font-size: 0.90rem;
   color: #000;
@@ -864,7 +868,7 @@ footer p {
   opacity: 1;
 }
 
-.modal-header .btn-close:focus{
+.modal-header .btn-close:focus {
   box-shadow: none;
 }
 
@@ -948,7 +952,7 @@ footer p {
 
 }
 
-.modal-body input{
+.modal-body input {
   width: 100%;
   -webkit-appearance: none;
   -moz-appearance: none;
