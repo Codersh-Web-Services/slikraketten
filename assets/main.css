@@ -577,7 +577,7 @@ ul.MainNav li a:hover {
 /* quantity selector */
 .product-detail .qty-btn {
   display: flex;
-  white-space: no-wrap;
+  white-space: nowrap;
   align-items: center;
   justify-content: space-between;
   width: 80%;
