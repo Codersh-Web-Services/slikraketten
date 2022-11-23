@@ -4,10 +4,12 @@ if (document.querySelector('#collection-page-container')) {
         delimiters: ['${', '}'],
         data() {
             return {
+
                 data: {
                     id: 44040886911277,
                     quantity: 1
                 }
+
             }
         },
         created() {
