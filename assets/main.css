@@ -575,9 +575,9 @@ ul.MainNav li a:hover {
 }
 
 /* quantity selector */
-
 .product-detail .qty-btn {
   display: flex;
+  white-space: no-wrap;
   align-items: center;
   justify-content: space-between;
   width: 80%;

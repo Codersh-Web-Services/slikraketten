@@ -67,6 +67,18 @@ if (document.querySelector('#product-box')) {
                 counter: 1,
                 added: 0
             }
+        },
+        methods: {
+            increaseQuantity() {
+                this.counter += 1
+            },
+            decreaseQuantity() {
+                if (this.counter == 1) {
+                    this.added = 0
+                }
+                this.counter -= 1
+
+            }
         }
     })
 
