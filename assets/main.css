@@ -586,6 +586,7 @@ ul.MainNav li a:hover {
   color: #fff;
   font-size: 15px;
   font-weight: 700;
+  user-select: none;
   text-transform: uppercase;
   line-height: 1.42;
   text-decoration: none;
