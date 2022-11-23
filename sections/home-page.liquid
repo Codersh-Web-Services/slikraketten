@@ -36,7 +36,7 @@
         </svg>
         <div class="product-detail">
             <h4>${ title }</h4>
-            <h3>From ${ vendor } ${counter}</h3>
+            <h3>From ${ vendor }</h3>
             <div v-if="added" class="qty-btn">
                 <svg @click="decreaseQuantity()" class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
                     <path
@@ -44,10 +44,10 @@
                 </svg>
                 <ul>
                     <li>
-                        <a href="#">Approx. ${counter * 4} pieces</a>
+                        <a>Approx. ${counter * 4} pieces</a>
                     </li>
                     <li>
-                        <a href="#">${counter * 32}  grams</a>
+                        <a>${counter * 32}  grams</a>
                     </li>
                 </ul>
                 <svg @click="increaseQuantity()" class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
