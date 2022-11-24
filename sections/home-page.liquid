@@ -105,16 +105,16 @@
     </div>
 </section>
 <div>
-    <div class="fixed-bottom">
+    <div id="bags-container" class="fixed-bottom">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-12">
                     <div class="product-cart">
                         <div class="weight">
-                            <span>Gram:31 g.</span>
-                            <span>Price: DKK 5.00.</span>
+                            <span v-if="data.details.weight"  >Gram:${data.details.weight} g.</span>
+                            <span v-if="data.details.total" >Price: DKK ${data.details.total}.00.</span>
                         </div>
-                        <div class="btn-group">
+                        <div v-if="data.details.total" class="btn-group">
                             <a href="#" class="outline-btn" data-bs-toggle="modal" data-bs-target="#AddProDuct">
                                 WATCH YOUR BAG
                             </a>
@@ -123,10 +123,11 @@
                             </a>
                         </div>
                     </div>
+      
                 </div>
             </div>
         </div>
-    </div>
+      </div>
 </div>
 <div class="modal" id="AddProDuct" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
     aria-labelledby="addproduct" aria-hidden="true">
