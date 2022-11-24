@@ -104,8 +104,8 @@
         </div>
     </div>
 </section>
-<div>
-    <div id="bags-container" class="fixed-bottom">
+<div id="bags-container" >
+    <div class="fixed-bottom">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-12">
@@ -128,7 +128,7 @@
             </div>
         </div>
       </div>
-</div>
+
 <div class="modal" id="AddProDuct" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
     aria-labelledby="addproduct" aria-hidden="true">
     <div class="modal-dialog">
@@ -138,13 +138,13 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body custom">
-                <div class="item-container">
+                <div v-for="product in data.bags" class="item-container">
                     <div class="added-product">
                         <div class="img-wrap">
-                            <img height="auto" width="auto" src="{{ "small.avif" | file_url }}" alt="alt">
+                            <img height="auto" width="auto" :src="product.image" alt="alt">
                         </div>
                         <div class="item-name">
-                            <h6>Chocolate</h6>
+                            <h6>${product.title}</h6>
                             <h5>Approx 4 pieces</h5>
                         </div>
                     </div>
@@ -184,6 +184,7 @@
                         </svg>
                     </div>
                 </div>
+                
             </div>
         </div>
     </div>
@@ -207,7 +208,7 @@
     </div>
 </div>
 
-
+</div>
 {% schema %}
 {
 "name": "home page",

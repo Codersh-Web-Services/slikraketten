@@ -58,7 +58,8 @@ if (document.querySelector('#bags-container')) {
         data() {
             return {
                 data: {
-                    details: store.state.bottomCart
+                    details: store.state.bottomCart,
+                    bags: store.state.bags
                 }
 
             }
@@ -128,7 +129,11 @@ if (document.querySelector('#product-box')) {
 
                 store.state.bottomCart.total += this.price
                 store.state.bottomCart.weight += this.weight
-
+                store.state.bags.unshift({
+                    image: this.image,
+                    title: this.title,
+                    weight: this.weight
+                })
 
             }
 
