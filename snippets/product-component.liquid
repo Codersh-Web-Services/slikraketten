@@ -1,9 +1,9 @@
 <script type="text/x-template"  id="product-component">
-    <div class="product-box">
-        <div class="img-wrap">
+    <div  class="product-box">
+        <div  class="img-wrap">
             <img :src="image" alt="image">
         </div>
-        <svg class="icon-info" width="15" height="15" viewBox="0 0 15 15" fill="none"
+        <svg  @click="mtoggle()"  class="icon-info" width="15" height="15" viewBox="0 0 15 15" fill="none"
             xmlns="http://www.w3.org/2000/svg">
             <circle cx="7.5" cy="7.5" r="6.5" fill="#FFEEB0" stroke="#FBD754" stroke-width="2"></circle>
             <path fill-rule="evenodd" clip-rule="evenodd" d="M8 4H7V5H8V4ZM8 6H7V11H8V6Z" fill="black">
@@ -20,6 +20,7 @@
                 <ul>
                     <li>
                         <a>Approx. ${counter * 4} pieces</a>
+                        ${body_html}
                     </li>
                     <li>
                         <a>${counter * 32}  grams</a>
