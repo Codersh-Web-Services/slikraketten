@@ -102,20 +102,18 @@ if (document.querySelector('#product-box')) {
 		template: '#product-component',
 		delimiters: ['${', '}'],
 
-		props: ['image', 'url', "variants", "title", "vendor", "desc", "id"],
+		props: ['image', 'url', "variants", "title", "vendor", "desc", "id", "weight", "price"],
 		data() {
 			return {
 				counter: 0,
 				added: false,
-				weight: 20,
-				price: 5,
 			}
 		},
 
 		methods: {
 			increaseQuantity() {
 				this.counter += 1
-				store.state.bottomCart.total += this.price
+				store.state.bottomCart.total += Number(this.price)
 				store.state.bottomCart.weight += this.weight
 			},
 			decreaseQuantity() {
@@ -123,7 +121,7 @@ if (document.querySelector('#product-box')) {
 					this.added = false
 				}
 				this.counter -= 1
-				store.state.bottomCart.total -= this.price
+				store.state.bottomCart.total -= Number(this.price)
 				store.state.bottomCart.weight -= this.weight
 
 
@@ -141,7 +139,7 @@ if (document.querySelector('#product-box')) {
 				this.counter += 1
 				this.added = true
 
-				store.state.bottomCart.total += this.price
+				store.state.bottomCart.total += Number(this.price)
 				store.state.bottomCart.weight += this.weight
 				store.state.bags.unshift({
 					image: this.image,

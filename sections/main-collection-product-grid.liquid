@@ -55,7 +55,7 @@
                 <div class="container">
                     <div class="row">
                 <div class="col-6 col-sm-6 col-md-4 col-xl-4  mb-5" v-for="product in  products">
-                  <product-component :title="product.title" :desc="product.desc" :image="product.images[0].src" :vendor="product.vendor"> 
+                  <product-component :weight="product.variants[0].grams" :price="product.variants[0].price" :title="product.title" :desc="product.desc" :image="product.images[0].src" :vendor="product.vendor"> 
                   <product-component/>
                 </div>
             </section>
@@ -82,9 +82,14 @@
                       <a href="#" class="outline-btn" data-bs-toggle="modal" data-bs-target="#AddProDuct">
                           WATCH YOUR BAG
                       </a>
-                      <a href="#" class="solid-btn" data-bs-toggle="modal" data-bs-target="#CloseBag">
-                          BUY FOR 150K MORE
-                      </a>
+                      
+                      <a v-if="data.details.total >= 25" href="#" class="solid-btn" data-bs-toggle="modal" data-bs-target="#CloseBag" 
+                      >
+                        Close the Bag
+                    </a>
+                    <a v-else class="solid-btn" disabled >
+                      BUY FOR ${25 - data.details.total}K MORE
+                    </a>
                   </div>
               </div>
 
