@@ -1,34 +1,73 @@
-if (document.querySelector('#collection-page-container')) {
+// Reactive State 
+const store = Vue.reactive({
+    state: {
+        cartState: [],
+        bottomCart: {
+            total: 0,
+            weight: 0,
+        },
+        bags: [],
+        currentbagitems: [],
+        products: []
+
+    },
+
+    getCart() {
+        axios.get('/cart.js')
+            .then(response => {
+                this.state.cartState.unshift(response.data)
+            })
+            .catch(error => {
+                console.log(error)
+            })
+    },
+    getProducts() {
+        console.log("first")
+        axios.get('/collections/frontpage/products.json')
+            .then((response) => {
+                response.data.products.forEach(element => {
+                    this.state.products.unshift(element)
+
+                });
+                this.state.products.push()
+            })
+            .catch(error =>
+                console.log(error))
+    }
+
+})
+
+const miniCartState = Vue.reactive({
+    hidden: true
+})
+
+const toggleMiniCart = {
+    openCart() {
+        miniCartState.hidden = !miniCartState.hidden
+        menuState.hidden = true
+    }
+}
+
+
+// App 
+
+if (document.querySelector('#bags-container')) {
 
     const collectionContainer = Vue.createApp({
         delimiters: ['${', '}'],
         data() {
             return {
-
                 data: {
-                    id: 44040886911277,
-                    quantity: 1
+                    details: store.state.bottomCart
                 }
 
             }
         },
-        created() {
-        }
-        ,
         methods: {
-            addtobag(event) {
-                event.preventDefault()
-                let data = this.data
-                console.log(data)
-                // axios.post('/cart/add.js', data)
-                //     .then((response) => {
-                //         console.log(response)
-                //     })
-                //     .catch(errors => console.log(errors))
-            }
+
         }
 
-    }).mount('#collection-page-container')
+    }).mount('#bags-container')
 
 
 
@@ -40,19 +79,15 @@ if (document.querySelector('#product-box')) {
         data: function () {
             return {
                 product_sub: "From vendor",
-                products: {}
+                products: store.state.products
             }
         },
         created() {
-            axios.get('collections/frontpage/products.json')
-                .then((response) => {
-                    this.products = response.data.products
-                    console.log(response)
-                    console.log("this.products", this.products)
-                })
-                .catch(error =>
-                    console.log(error))
-
+            (async () => {
+                await store.getProducts()
+            })()
+        },
+        methods: {
 
         }
     })
@@ -65,24 +100,36 @@ if (document.querySelector('#product-box')) {
         data() {
             return {
                 counter: 0,
-                added: 0
-
+                added: false,
+                weight: 20,
+                price: 5
             }
         },
         methods: {
             increaseQuantity() {
                 this.counter += 1
+                store.state.bottomCart.total += this.price
+                store.state.bottomCart.weight += this.weight
+
             },
             decreaseQuantity() {
                 if (this.counter == 1) {
-                    this.added = 0
+                    this.added = false
                 }
                 this.counter -= 1
+                store.state.bottomCart.total -= this.price
+                store.state.bottomCart.weight -= this.weight
+
 
             },
             putInBag() {
                 this.counter += 1
-                this.added = 1
+                this.added = true
+
+                store.state.bottomCart.total += this.price
+                store.state.bottomCart.weight += this.weight
+
+
             }
 
         }
