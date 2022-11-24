@@ -133,12 +133,31 @@ if (document.querySelector('#product-box')) {
 			decreaseQuantity() {
 				if (this.counter == 1) {
 					this.added = false
+					// let currentbag = store.state.bags
+					// while (store.state.bags.length > 0) {
+					// 	store.state.bags.pop();
+					// }
+					store.state.bags.map((el, i) => {
+						if (el.title == this.title) {
+
+							store.state.bags.splice(i, 1)
+
+						}
+
+
+					})
+
+					store.state.bags.unshift()
 				}
 				this.counter -= 1
 				store.state.bottomCart.total -= Number(this.price)
 				store.state.bottomCart.weight -= this.weight
-
-
+				store.state.bags.map((el, i) => {
+					el.title == this.title ?
+						store.state.bags[i].weight = this.counter * this.weight : false
+					el.title == this.title ?
+						store.state.bags[i].pieces = this.counter * this.pieces : false
+				})
 			},
 			mtoggle() {
 				store.state.modalData.currentProductInfo = this.desc
