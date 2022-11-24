@@ -27,7 +27,7 @@
 {%- endstyle -%}
 
 <div class="section-{{ section.id }}-padding">
-  {% comment %} Sort is the first tabbable element when filter type is vertical {% endcomment %}
+    
   
   <div class="{% if section.settings.filter_type == 'vertical' %} facets-vertical page-width{% endif %}">
     {{ 'component-facets.css' | asset_url | stylesheet_tag }}
@@ -55,7 +55,7 @@
                 <div class="container">
                     <div class="row">
                 <div class="col-6 col-sm-6 col-md-4 col-xl-4  mb-5" v-for="product in  products">
-                  <product-component :weight="product.variants[0].grams" :price="product.variants[0].price" :title="product.title" :desc="product.desc" :image="product.images[0].src" :vendor="product.vendor"> 
+                  <product-component :tags="product.tags" :weight="product.variants[0].grams" :price="product.variants[0].price" :title="product.title" :desc="product.desc" :image="product.images[0].src" :vendor="product.vendor"> 
                   <product-component/>
                 </div>
             </section>
@@ -113,7 +113,7 @@
                         </div>
                         <div class="item-name">
                             <h6>${product.title}</h6>
-                            <h5>Approx 4 pieces</h5>
+                            <h5>Approx ${product.amount} pieces</h5>
                         </div>
                     </div>
                     <div class="buttons">
@@ -135,7 +135,7 @@
                                     <!-- <a href="#">Approx. 4 pieces</a> -->
                                 </li>
                                 <li>
-                                    <a href="#">For 32 grams</a>
+                                    <a href="#">For ${product.weight} grams</a>
                                 </li>
                             </ul>
                             <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
@@ -168,8 +168,8 @@
               <p>You just have to name your bag so you can easily find it again</p>
               <input class="mb-4" type="text" placeholder="Enter the name of the bag" data-name-prompt-input="">
               <div class="modal-btn-group">
-                  <a href="#" class="put-basket-btn">PUT IN BASKET</a>
-                  <a href="#" class="put-bag-btn">...or put more in the bag</a>
+                <a href="#" @click="putInBasket()" class="put-basket-btn">PUT IN BASKET</a>
+                <a href="#" data-bs-dismiss="modal" class="put-bag-btn">...or put more in the bag</a>
               </div>
           </div>
       </div>
@@ -184,7 +184,8 @@
         <strong>${data.modalData.currentProductTitle}</strong>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      <div class="modal-body text-center pading" v-html="data.modalData.currentProductInfo">/>
+      <div class="modal-body pading" v-html="data.modalData.currentProductInfo" >
+      </div>
     </div>
   </div>
 </div>

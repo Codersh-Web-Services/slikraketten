@@ -27,9 +27,8 @@ const store = Vue.reactive({
 		axios.get('/collections/frontpage/products.json')
 			.then((response) => {
 				response.data.products.forEach(element => {
-					let { body_html: desc, title, variants, url, images, vendor } = element
-					this.state.products.unshift({ desc, title, variants, url, images, vendor })
-
+					let { body_html: desc, title, variants, url, images, vendor, tags } = element
+					this.state.products.unshift({ desc, title, variants, url, images, vendor, tags })
 				});
 				this.state.products.push()
 				console.log(this.state.products)
@@ -102,12 +101,21 @@ if (document.querySelector('#product-box')) {
 		template: '#product-component',
 		delimiters: ['${', '}'],
 
-		props: ['image', 'url', "variants", "title", "vendor", "desc", "id", "weight", "price"],
+		props: ['image', 'url', "variants", "title", "vendor", "desc", "id", "weight", "price", "tags"],
 		data() {
 			return {
 				counter: 0,
 				added: false,
+				amount: 0
 			}
+		},
+		mounted() {
+			this.tags.map((el, i) => {
+				if (el.split("__")[0] == "amount") {
+					this.amount = el.split("__")[1]
+				}
+			})
+
 		},
 
 		methods: {
@@ -115,6 +123,12 @@ if (document.querySelector('#product-box')) {
 				this.counter += 1
 				store.state.bottomCart.total += Number(this.price)
 				store.state.bottomCart.weight += this.weight
+				store.state.bags.map((el, i) => {
+					el.title == this.title ?
+						store.state.bags[i].weight = this.counter * this.weight : false
+					el.title == this.title ?
+						store.state.bags[i].pieces = this.counter * this.pieces : false
+				})
 			},
 			decreaseQuantity() {
 				if (this.counter == 1) {
@@ -144,7 +158,8 @@ if (document.querySelector('#product-box')) {
 				store.state.bags.unshift({
 					image: this.image,
 					title: this.title,
-					weight: this.weight
+					weight: this.weight,
+					amount: this.amount
 				})
 			}
 		}
