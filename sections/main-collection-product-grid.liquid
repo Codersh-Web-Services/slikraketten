@@ -123,8 +123,7 @@
       </h2>
                       <h2 class="mobile-facets__heading small-hide">Filter
       </h2>
-                      <p class="mobile-facets__count">8 products
-      </p>
+                      
                     </div>
                   </div>
                   <div class="mobile-facets__main has-submenu gradient">
@@ -136,10 +135,7 @@
         <path fill-rule="evenodd" clip-rule="evenodd" d="M8.537.808a.5.5 0 01.817-.162l4 4a.5.5 0 010 .708l-4 4a.5.5 0 11-.708-.708L11.793 5.5H1a.5.5 0 010-1h10.793L8.646 1.354a.5.5 0 01-.109-.546z" fill="currentColor">
       </path></svg>
       </span>
-                                <noscript><svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-caret" viewBox="0 0 10 6">
-        <path fill-rule="evenodd" clip-rule="evenodd" d="M9.354.646a.5.5 0 00-.708 0L5 4.293 1.354.646a.5.5 0 00-.708.708l4 4a.5.5 0 00.708 0l4-4a.5.5 0 000-.708z" fill="currentColor">
-      </svg>
-      </noscript>
+      
                               </div>
                             </summary>
                             <div id="FacetMobile-1-template--16973864698157__product-grid" class="mobile-facets__submenu gradient">
@@ -186,28 +182,12 @@
                                     </label>
                                   </li></ul>
       
-                              <div class="no-js-hidden mobile-facets__footer gradient">
-                                <facet-remove class="mobile-facets__clear-wrapper">
-                                  <a href="/collections/candies" class="mobile-facets__clear underlined-link" role="button">Clear</a>
-                                </facet-remove>
-                                <button type="button" class="no-js-hidden button button--primary" onclick="this.closest('.mobile-facets__wrapper').querySelector('summary').click()">Apply</button>
-                                <noscript><button class="button button--primary">Apply</button></noscript>
-                              </div>
+                            
                             </div>
                           </details>
-                        
-      
-                          
-                        
       <div class="mobile-facets__details js-filter" data-index="mobile-">
                        
-                      </div><div class="mobile-facets__footer">
-                      <facet-remove class="mobile-facets__clear-wrapper">
-                        <a href="/collections/candies" class="mobile-facets__clear underlined-link" role="button">Remove all</a>
-                      </facet-remove>
-                      <button type="button" class="no-js-hidden button button--primary" onclick="this.closest('.mobile-facets__wrapper').querySelector('summary').click()">Apply</button>
-                      <noscript><button class="button button--primary">Apply</button></noscript>
-                    </div>
+                      </div>
                   </div>
       
                   
@@ -238,30 +218,17 @@
       
             </aside>
     <div class="product-grid-container"  id="collection-page-container">
-        {%- if collection.products.size == 0 -%}
-          <div class="collection collection--empty page-width" id="product-grid" data-id="{{ section.id }}">
-            <div class="loading-overlay gradient"></div>
-            <div class="title-wrapper center">
-              <h2 class="title title--primary">
-                {{ 'sections.collection_template.empty' | t }}<br>
-                {{ 'sections.collection_template.use_fewer_filters_html' | t: link: collection.url, class: "underlined-link link" }}
-              </h2>
-            </div>
-          </div>
-        {%- else -%}
           <div class="collection{% if section.settings.filter_type != 'vertical' %} page-width{% endif %}">
             <div class="loading-overlay gradient"></div>
               <section class="product" id="product-box">
                 <div class="container">
                     <div class="row">
                 <div class="col-6 col-sm-6 col-md-4 col-xl-4  mb-5" v-for="product in  products">
-                  <product-component :tags="product.tags" :weight="product.variants[0].grams" :price="product.variants[0].price" :title="product.title" :desc="product.desc" :image="product.images[0].src" :vendor="product.vendor"> 
+                  <product-component :id="product.variants[0].id" :tags="product.tags" :weight="product.variants[0].grams" :price="product.variants[0].price" :title="product.title" :desc="product.desc" :image="product.images[0].src" :vendor="product.vendor"> 
                   <product-component/>
                 </div>
             </section>
-            
           </div>
-        {%- endif -%}
     </div>
   </div>
 </div>
@@ -366,7 +333,7 @@
           <div class="modal-body text-center pading">
               <h3>moment :)</h3>
               <p>You just have to name your bag so you can easily find it again</p>
-              <input class="mb-4" type="text" placeholder="Enter the name of the bag" data-name-prompt-input="">
+              <input class="mb-4" type="text" placeholder="Enter the name of the bag" v-model="bagName">
               <div class="modal-btn-group">
                 <a href="#" @click="putInBasket()" class="put-basket-btn">PUT IN BASKET</a>
                 <a href="#" data-bs-dismiss="modal" class="put-bag-btn">...or put more in the bag</a>

@@ -10,7 +10,7 @@ const store = Vue.reactive({
 		currentbagitems: [],
 		products: [],
 		modalData: {
-			currentProductInfo: "hello"
+			currentProductInfo: "Hello there? General kenobi"
 		}
 	},
 
@@ -36,6 +36,12 @@ const store = Vue.reactive({
 			.catch(error =>
 				console.log(error))
 	},
+	setBag(bagName) {
+		console.log(this.state.currentbagitems, bagName)
+		let text = ""
+		this.state.currentbagitems.map((el) => console.log(el))
+		alert("Got the items " + text + " for " + bagName)
+	}
 
 
 })
@@ -56,19 +62,23 @@ const toggleMiniCart = {
 
 if (document.querySelector('#bags-container')) {
 
-	const collectionContainer = Vue.createApp({
+	const BagsContainer = Vue.createApp({
 		delimiters: ['${', '}'],
 		data() {
 			return {
 				data: {
 					details: store.state.bottomCart,
-					bags: store.state.bags,
-					modalData: store.state.modalData
+					bags: store.state.currentbagitems,
+					modalData: store.state.modalData,
+					bagName: "Jamie's bag"
 				}
 			}
 		},
 		methods: {
-
+			putInBasket() {
+				store.setBag(this.bagName)
+				// after the bags are set remove the currentbag items 
+			}
 		}
 
 	}).mount('#bags-container')
@@ -121,30 +131,36 @@ if (document.querySelector('#product-box')) {
 				this.counter += 1
 				store.state.bottomCart.total += Number(this.price)
 				store.state.bottomCart.weight += this.weight
-				store.state.bags.map((el, i) => {
+				store.state.currentbagitems.map((el, i) => {
 					el.title == this.title ?
-						store.state.bags[i].weight = this.counter * this.weight : false
+						store.state.currentbagitems[i].weight = this.counter * this.weight : false
 					el.title == this.title ?
-						store.state.bags[i].amount = Number(this.amount) * Number(this.counter) : false
+						store.state.currentbagitems[i].amount = Number(this.amount) * Number(this.counter) : false
+					el.title == this.title ?
+						store.state.currentbagitems[i].qty = Number(this.counter) : false
+
+
 				})
 			},
 			decreaseQuantity() {
 				if (this.counter == 1) {
 					this.added = false
-					store.state.bags.map((el, i) => {
-						el.title == this.title ? store.state.bags.splice(i, 1) : false
+					store.state.currentbagitems.map((el, i) => {
+						el.title == this.title ? store.state.currentbagitems.splice(i, 1) : false
 					})
 
-					store.state.bags.unshift()
+
 				}
 				this.counter -= 1
 				store.state.bottomCart.total -= Number(this.price)
 				store.state.bottomCart.weight -= this.weight
-				store.state.bags.map((el, i) => {
+				store.state.currentbagitems.map((el, i) => {
 					el.title == this.title ?
-						store.state.bags[i].weight = this.counter * this.weight : false
+						store.state.currentbagitems[i].weight = this.counter * this.weight : false
 					el.title == this.title ?
-						store.state.bags[i].amount = Number(this.amount) * Number(this.counter) : false
+						store.state.currentbagitems[i].amount = Number(this.amount) * Number(this.counter) : false
+					el.title == this.title ?
+						store.state.currentbagitems[i].qty = Number(this.counter) : false
 				})
 			},
 			mtoggle() {
@@ -162,11 +178,12 @@ if (document.querySelector('#product-box')) {
 
 				store.state.bottomCart.total += Number(this.price)
 				store.state.bottomCart.weight += this.weight
-				store.state.bags.unshift({
+				store.state.currentbagitems.unshift({
 					image: this.image,
 					title: this.title,
 					weight: this.weight,
-					amount: this.amount
+					amount: this.amount,
+					qty: this.counter
 
 				})
 			}
