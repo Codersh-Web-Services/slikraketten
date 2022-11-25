@@ -9,6 +9,7 @@ const store = Vue.reactive({
 		bags: [],
 		currentbagitems: [],
 		products: [],
+		filteredProducts: [],
 		modalData: {
 			currentProductInfo: "Hello there? General kenobi"
 		}
@@ -29,18 +30,15 @@ const store = Vue.reactive({
 				response.data.products.forEach(element => {
 					let { body_html: desc, title, variants, url, images, vendor, tags } = element
 					this.state.products.unshift({ desc, title, variants, url, images, vendor, tags })
+					this.state.filteredProducts.unshift({ desc, title, variants, url, images, vendor, tags })
 				});
-				this.state.products.push()
-				console.log(this.state.products)
 			})
 			.catch(error =>
 				console.log(error))
 	},
 	setBag(bagName) {
 		console.log(this.state.currentbagitems, bagName)
-		let text = ""
-		this.state.currentbagitems.map((el) => console.log(el))
-		alert("Got the items " + text + " for " + bagName)
+		alert("Got the all currentbag items for " + bagName)
 	}
 
 
@@ -91,7 +89,7 @@ if (document.querySelector('#product-box')) {
 		data: function () {
 			return {
 				product_sub: "From vendor",
-				products: store.state.products
+				products: store.state.filteredProducts
 			}
 		},
 		created() {
@@ -109,7 +107,7 @@ if (document.querySelector('#product-box')) {
 		template: '#product-component',
 		delimiters: ['${', '}'],
 
-		props: ['image', 'url', "variants", "title", "vendor", "desc", "id", "weight", "price", "tags"],
+		props: ['image', "title", "vendor", "desc", "id", "weight", "price", "tags"],
 		data() {
 			return {
 				counter: 0,
