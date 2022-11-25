@@ -17,7 +17,7 @@ padding-bottom: {{ section.settings.padding_bottom }}px;
 <div class="section-{{ section.id }}-padding">
 
 
-  <div class="{% if section.settings.filter_type == 'vertical' %} facets-vertical page-width{% endif %}" id="product-box">
+  <div class="{% if section.settings.filter_type == 'vertical' %} facets-vertical page-width{% endif %}" id="product-box" >
     {{ 'component-facets.css' | asset_url | stylesheet_tag }}
 
     <aside aria-labelledby="verticalTitle" class="facets-wrapper" id="main-collection-filters"
@@ -58,8 +58,8 @@ padding-bottom: {{ section.settings.padding_bottom }}px;
                   <fieldset class="facets-wrap parent-wrap  facets-wrap-vertical">
                     <legend class="visually-hidden">Availability</legend>
                     <ul class=" list-unstyled " role="list">
-                      <li v-for="filtername in filternames" class="list-menu__item facets__item">
-
+                      <li v-for="filtername in filterNames" class="list-menu__item facets__item">
+                        <filter-component :name="filtername"> </filter-component>
                       </li>
                     </ul>
                   </fieldset>
@@ -228,14 +228,14 @@ padding-bottom: {{ section.settings.padding_bottom }}px;
       </div>
 
     </aside>
-    <div class="product-grid-container" id="collection-page-container">
+    <div class="product-grid-container" >
       <div class="collection{% if section.settings.filter_type != 'vertical' %} page-width{% endif %}">
         <div class="loading-overlay gradient"></div>
         <section class="product" >
           <div class="container">
             <div class="row">
               <div class="col-6 col-sm-6 col-md-4 col-xl-4  mb-5" v-for="product in  products">
-                <product-component :id="product.variants[0].id" :tags="product.tags" :weight="product.variants[0].grams"
+                <product-component :show="product.show" :id="product.variants[0].id" :tags="product.tags" :weight="product.variants[0].grams"
                   :price="product.variants[0].price" :title="product.title" :desc="product.desc"
                   :image="product.images[0].src" :vendor="product.vendor">
                   <product-component />

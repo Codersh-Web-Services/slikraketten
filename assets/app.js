@@ -29,8 +29,8 @@ const store = Vue.reactive({
 			.then((response) => {
 				response.data.products.forEach(element => {
 					let { body_html: desc, title, variants, url, images, vendor, tags } = element
-					this.state.products.unshift({ desc, title, variants, url, images, vendor, tags })
-					this.state.filteredProducts.unshift({ desc, title, variants, url, images, vendor, tags })
+					this.state.products.unshift({ desc, title, variants, url, images, vendor, tags, show: true })
+					this.state.filteredProducts.unshift({ desc, title, variants, url, images, vendor, tags, show: true })
 				});
 			})
 			.catch(error =>
@@ -75,7 +75,7 @@ if (document.querySelector('#bags-container')) {
 		methods: {
 			putInBasket() {
 				store.setBag(this.bagName)
-				// after the bags are set remove the currentbag items 
+				// after the bags are set remove the currentbag items using pop
 			}
 		}
 
@@ -88,8 +88,8 @@ if (document.querySelector('#product-box')) {
 		delimiters: ['${', '}'],
 		data: function () {
 			return {
-				product_sub: "From vendor",
-				products: store.state.filteredProducts
+				products: store.state.filteredProducts,
+				filterNames: ["Chocolate", "Resic", "peanuts", "Sugarfree"]
 			}
 		},
 		created() {
@@ -98,21 +98,42 @@ if (document.querySelector('#product-box')) {
 				console.log(this.products)
 			})()
 		},
-		methods: {
 
+	})
+	productbox.component('filter-component', {
+		template: '#filter-component',
+		delimiters: ['${', '}'],
+		props: ['name'],
+		data: function () {
+			return {
+			}
+		},
+		methods: {
+			filterProducts() {
+
+				store.state.filteredProducts.map((el, i) => {
+					store.state.filteredProducts[i].show = false
+					for (let tag of el.tags) {
+						if (tag == this.name.toLowerCase()) {
+							store.state.filteredProducts[i].show = true
+							break
+						}
+					}
+				})
+			}
 		}
 	})
-
 	productbox.component('product-component', {
 		template: '#product-component',
 		delimiters: ['${', '}'],
 
-		props: ['image', "title", "vendor", "desc", "id", "weight", "price", "tags"],
+		props: ['image', "title", "vendor", "desc", "id", "weight", "price", "tags", "show"],
 		data() {
 			return {
 				counter: 0,
 				added: false,
-				amount: 0
+				amount: 0,
+
 			}
 		},
 		mounted() {
@@ -136,8 +157,6 @@ if (document.querySelector('#product-box')) {
 						store.state.currentbagitems[i].amount = Number(this.amount) * Number(this.counter) : false
 					el.title == this.title ?
 						store.state.currentbagitems[i].qty = Number(this.counter) : false
-
-
 				})
 			},
 			decreaseQuantity() {
