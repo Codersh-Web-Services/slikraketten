@@ -1,3 +1,11 @@
+:root {
+  --sr-light-pink-color: #ef92be;
+  --sr-light-yellow-color: #f6f6b6;
+  --sr-purple-color: #c394c2;
+  --sr-black-color: #080808;
+  --sr-white-color: #f4f4f4;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -312,7 +320,7 @@ body {
 }
 
 header {
-  background-color: #fdebea;
+  background-color: var(--sr-light-yellow-color);
   box-shadow: 0.1rem 0.5rem 1.5rem rgb(81 28 112 / 20%);
 }
 
@@ -334,7 +342,7 @@ header {
 }
 
 .anouncementbar {
-  background-color: rgb(240 146 188);
+  background-color: var(--sr-light-pink-color);
   text-align: center;
   padding: 0.3rem 0;
   color: #fff;
@@ -466,10 +474,10 @@ ul.MainNav li a:hover {
 .hero-section .btn-cta {
   text-decoration: none;
   padding: 0.6rem 3rem;
-  background: rgb(195, 103, 193);
+  background: var(--sr-light-pink-color);
   border-radius: 10px;
-  font-weight: 500;
-  color: #fff;
+  font-weight: 700;
+  color: var(--sr-white-color);
   transition: all .4s ease-in-out;
   display: inline-block;
   font-size: 1rem;
@@ -501,7 +509,7 @@ ul.MainNav li a:hover {
   margin-top: 50%;
   width: 100%;
   border-radius: 10px;
-  background-color: #ffc7e0;
+  background-color: var(--sr-light-yellow-color);
   transition-property: background;
   transition-timing-function: cubic-bezier(.4, 0, .2, 1);
   transition-duration: .15s;
@@ -528,13 +536,15 @@ ul.MainNav li a:hover {
 
 .product-detail h4 {
   font-size: 15PX;
-  color: #000;
-  margin: 1.5rem 0;
+  color: var(--sr-black-color);
+  margin: 1.5rem 0 0.5rem 0;
+  text-transform: capitalize;
+  
 }
 
 .product-detail h3 {
   font-size: 18PX;
-  color: #000;
+  color: var(--sr-black-color);
   margin-bottom: 1.5rem;
   font-weight: 600;
 }
@@ -575,6 +585,7 @@ ul.MainNav li a:hover {
 }
 
 /* quantity selector */
+.item-container .qty-btn,
 .product-detail .qty-btn {
   display: flex;
   white-space: nowrap;
@@ -613,7 +624,7 @@ ul.MainNav li a:hover {
 
 .qty-btn ul li a {
   font-size: 0.90rem;
-  color: #000;
+  color: var(--sr-black-color);
   font-weight: 600;
   text-decoration: none;
 }
@@ -629,11 +640,12 @@ ul.MainNav li a:hover {
   fill: #fff;
 }
 
+
 /* <---------- PRODUCT BOX SECTION END ----------> */
 
 .logo-section {
   padding: 5rem 0;
-  background-color: #f6f6b5;
+  background-color: var(--sr-light-yellow-color);
 }
 
 .logo-section .img-wrap img {
@@ -644,7 +656,7 @@ ul.MainNav li a:hover {
 /* <---------- LOGO SECTION END ----------> */
 
 .newsletter {
-  background-color: #ff94c3;
+  background-color: #e891be;
   position: relative;
   z-index: 1;
   color: #fff;
@@ -658,7 +670,7 @@ ul.MainNav li a:hover {
   left: 0;
   width: 50%;
   bottom: 0;
-  background-color: #f280b2;
+  background-color: #dd87b4;
   z-index: -1;
 }
 
@@ -699,9 +711,9 @@ ul.MainNav li a:hover {
 .newsletter .btn-cta {
   display: inline-block;
   font-size: 1rem;
-  background-color: #bf3fb4;
-  color: #fff;
-  font-weight: 500;
+  background-color: var(--sr-white-color);
+  color: var(--sr-light-pink-color);
+  font-weight: 700;
   text-transform: uppercase;
   padding: 0.7rem 6rem;
   border-radius: 10px;
@@ -805,7 +817,7 @@ footer p {
 
 .btn-group .outline-btn {
   border: 1px solid;
-  color: #000;
+  color: var(--sr-black-color);
   font-weight: 600;
 }
 
@@ -930,7 +942,7 @@ footer p {
 .item-name h6 {
   font-size: 1rem;
   margin-bottom: 0.3rem;
-  color: #000;
+  color: var(--sr-black-color);
   font-weight: 600;
 }
 
