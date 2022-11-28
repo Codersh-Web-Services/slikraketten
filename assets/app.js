@@ -6,6 +6,11 @@ const store = Vue.reactive({
 			total: 0,
 			weight: 0,
 		},
+		mainCart: {
+			total: 0,
+			bags: []
+
+		},
 		bags: [],
 		currentbagitems: [],
 		products: [],
@@ -38,22 +43,14 @@ const store = Vue.reactive({
 	},
 	setBag(bagName) {
 		console.log(this.state.currentbagitems, bagName)
-		alert("Got the all currentbag items for " + bagName)
+		this.state.mainCart.bags.push({ bagName, bags: this.state.currentbagitems, total: this.state.bottomCart.total })
+		let prevmodal = new bootstrap.Modal('#CloseBag')
+		prevmodal._hideModal()
+		let modal = new bootstrap.Modal('#Slide-Left')
+		modal.toggle()
 	}
-
-
 })
 
-const miniCartState = Vue.reactive({
-	hidden: true
-})
-
-const toggleMiniCart = {
-	openCart() {
-		miniCartState.hidden = !miniCartState.hidden
-		menuState.hidden = true
-	}
-}
 
 
 // App Vue
@@ -69,6 +66,9 @@ if (document.querySelector('#bags-container')) {
 					bags: store.state.currentbagitems,
 					modalData: store.state.modalData,
 					bagName: "Jamie's bag"
+				},
+				mainCart: {
+					bags: store.state.mainCart.bags
 				}
 			}
 		},
