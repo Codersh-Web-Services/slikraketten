@@ -181,8 +181,7 @@
             <p class="mb-0">Buy forDKK 129.00. more to reach the minimum amount.</p>
           </div>
           <h3>Your candy bags</h3>
-          <p class="sub-title">Your basket is empty.</p>
-          <div class="candy-content" v-for="bag in mainCart.bags">
+          <div v-if="mainCart.bags.length > 0" class="candy-content" v-for="bag in mainCart.bags">
             <div class="candy-container">
               <img :src="bag.bags[0].image" alt="image" width="52">
               <div class="title">
@@ -225,10 +224,11 @@
               <b>DKK ${bag.total}</b>
             </div>
           </div>
+          <p v-else class="sub-title">Your basket is empty.</p>
         </div>
         <div class="modal-footer">
           <div class="mix-bag">
-            <a href="#" class="another-bag-btn"> Mix Another Bags </a>
+            <a href="#" class="another-bag-btn" data-bs-dismiss="modal"> Mix Another Bags </a>
             <p class="text-center">or fill more in one of the bags above</p>
             <div class="order">
               <h4>Your Order</h4>
@@ -319,7 +319,6 @@
 </div>
 
 <style>
- 
   /* <--------- sidepanel --------> */
 
   .side-panel .modal-dialog {
