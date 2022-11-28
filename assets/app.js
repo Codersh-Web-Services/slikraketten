@@ -9,8 +9,9 @@ const store = Vue.reactive({
 		bags: [],
 		currentbagitems: [],
 		products: [],
+		filteredProducts: [],
 		modalData: {
-			currentProductInfo: "hello"
+			currentProductInfo: "Hello there? General kenobi"
 		}
 	},
 
@@ -28,14 +29,17 @@ const store = Vue.reactive({
 			.then((response) => {
 				response.data.products.forEach(element => {
 					let { body_html: desc, title, variants, url, images, vendor, tags } = element
-					this.state.products.unshift({ desc, title, variants, url, images, vendor, tags })
+					this.state.products.unshift({ desc, title, variants, url, images, vendor, tags, show: true })
+					this.state.filteredProducts.unshift({ desc, title, variants, url, images, vendor, tags, show: true })
 				});
-				this.state.products.push()
-				console.log(this.state.products)
 			})
 			.catch(error =>
 				console.log(error))
 	},
+	setBag(bagName) {
+		console.log(this.state.currentbagitems, bagName)
+		alert("Got the all currentbag items for " + bagName)
+	}
 
 
 })
@@ -56,19 +60,23 @@ const toggleMiniCart = {
 
 if (document.querySelector('#bags-container')) {
 
-	const collectionContainer = Vue.createApp({
+	const BagsContainer = Vue.createApp({
 		delimiters: ['${', '}'],
 		data() {
 			return {
 				data: {
 					details: store.state.bottomCart,
-					bags: store.state.bags,
-					modalData: store.state.modalData
+					bags: store.state.currentbagitems,
+					modalData: store.state.modalData,
+					bagName: "Jamie's bag"
 				}
 			}
 		},
 		methods: {
-
+			putInBasket() {
+				store.setBag(this.bagName)
+				// after the bags are set remove the currentbag items using pop
+			}
 		}
 
 	}).mount('#bags-container')
@@ -80,8 +88,8 @@ if (document.querySelector('#product-box')) {
 		delimiters: ['${', '}'],
 		data: function () {
 			return {
-				product_sub: "From vendor",
-				products: store.state.products
+				products: store.state.filteredProducts,
+				filterNames: ["Chocolate", "Resic", "peanuts", "Sugarfree"]
 			}
 		},
 		created() {
@@ -90,21 +98,42 @@ if (document.querySelector('#product-box')) {
 				console.log(this.products)
 			})()
 		},
-		methods: {
 
+	})
+	productbox.component('filter-component', {
+		template: '#filter-component',
+		delimiters: ['${', '}'],
+		props: ['name'],
+		data: function () {
+			return {
+			}
+		},
+		methods: {
+			filterProducts() {
+
+				store.state.filteredProducts.map((el, i) => {
+					store.state.filteredProducts[i].show = false
+					for (let tag of el.tags) {
+						if (tag == this.name.toLowerCase()) {
+							store.state.filteredProducts[i].show = true
+							break
+						}
+					}
+				})
+			}
 		}
 	})
-
 	productbox.component('product-component', {
 		template: '#product-component',
 		delimiters: ['${', '}'],
 
-		props: ['image', 'url', "variants", "title", "vendor", "desc", "id", "weight", "price", "tags"],
+		props: ['image', "title", "vendor", "desc", "id", "weight", "price", "tags", "show"],
 		data() {
 			return {
 				counter: 0,
 				added: false,
-				amount: 0
+				amount: 0,
+
 			}
 		},
 		mounted() {
@@ -121,30 +150,34 @@ if (document.querySelector('#product-box')) {
 				this.counter += 1
 				store.state.bottomCart.total += Number(this.price)
 				store.state.bottomCart.weight += this.weight
-				store.state.bags.map((el, i) => {
+				store.state.currentbagitems.map((el, i) => {
 					el.title == this.title ?
-						store.state.bags[i].weight = this.counter * this.weight : false
+						store.state.currentbagitems[i].weight = this.counter * this.weight : false
 					el.title == this.title ?
-						store.state.bags[i].amount = Number(this.amount) * Number(this.counter) : false
+						store.state.currentbagitems[i].amount = Number(this.amount) * Number(this.counter) : false
+					el.title == this.title ?
+						store.state.currentbagitems[i].qty = Number(this.counter) : false
 				})
 			},
 			decreaseQuantity() {
 				if (this.counter == 1) {
 					this.added = false
-					store.state.bags.map((el, i) => {
-						el.title == this.title ? store.state.bags.splice(i, 1) : false
+					store.state.currentbagitems.map((el, i) => {
+						el.title == this.title ? store.state.currentbagitems.splice(i, 1) : false
 					})
 
-					store.state.bags.unshift()
+
 				}
 				this.counter -= 1
 				store.state.bottomCart.total -= Number(this.price)
 				store.state.bottomCart.weight -= this.weight
-				store.state.bags.map((el, i) => {
+				store.state.currentbagitems.map((el, i) => {
 					el.title == this.title ?
-						store.state.bags[i].weight = this.counter * this.weight : false
+						store.state.currentbagitems[i].weight = this.counter * this.weight : false
 					el.title == this.title ?
-						store.state.bags[i].amount = Number(this.amount) * Number(this.counter) : false
+						store.state.currentbagitems[i].amount = Number(this.amount) * Number(this.counter) : false
+					el.title == this.title ?
+						store.state.currentbagitems[i].qty = Number(this.counter) : false
 				})
 			},
 			mtoggle() {
@@ -162,11 +195,12 @@ if (document.querySelector('#product-box')) {
 
 				store.state.bottomCart.total += Number(this.price)
 				store.state.bottomCart.weight += this.weight
-				store.state.bags.unshift({
+				store.state.currentbagitems.unshift({
 					image: this.image,
 					title: this.title,
 					weight: this.weight,
-					amount: this.amount
+					amount: this.amount,
+					qty: this.counter
 
 				})
 			}

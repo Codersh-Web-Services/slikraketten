@@ -1,232 +1,115 @@
 
 <section class="hero-section">
-    <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <div class="content">
-                    <h1>Huge selection of Mix<br>
-                        <strong> Even Candy brought directly</strong> <br>
-                        to you - with express speed
-                    </h1>
-                    <a href="{{ section.settings.herolink }}" class="btn-cta">ORDER HERE</a>
-                </div>
-            </div>
-        </div>
-    </div>
+<div class="container">
+		<div class="row">
+				<div class="col-12">
+						<div class="content">
+								<h1>Huge selection of Mix<br>
+										<strong> Even Candy brought directly</strong> <br>
+										to you - with express speed
+								</h1>
+								<a href="{{ section.settings.herolink }}" class="btn-cta">ORDER HERE</a>
+						</div>
+				</div>
+		</div>
+</div>
 </section>
 <section class="product" id="product-box">
-    <div class="container">
-        <div class="row">
-            <div class="col-6 col-sm-6 col-md-4 col-xl-3 mb-5"  v-for="product in products">
-               <product-component :tags="product.tags" :weight="product.variants[0].grams" :price="product.variants[0].price" :title="product.title" :desc="product.desc" :image="product.images[0].src" :vendor="product.vendor"> 
-               <product-component/>
-        </div>
-    </div>
+<div class="container">
+		<div class="row">
+				<div class="col-6 col-sm-6 col-md-4 col-xl-3 mb-5"  v-for="product in products">
+						<product-component :show="product.show" :id="product.variants[0].id" :tags="product.tags" :weight="product.variants[0].grams"
+							:price="product.variants[0].price" :title="product.title" :desc="product.desc"
+							:image="product.images[0].src" :vendor="product.vendor"> 
+						<product-component/>
+		</div>
+</div>
 </section>
 {% render 'product-component'%}
 <section class="logo-section">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-6 col-sm-4 col-md-2 text-center">
-                <div class="img-wrap">
-                    <img src="{{"toms.svg" | file_url}}" alt="image">
-                </div>
-            </div>
-            <div class="col-6 col-sm-4 col-md-2 text-center">
-                <div class="img-wrap">
-                    <img src="{{"toms.svg" | file_url}}" alt="image">
-                </div>
-            </div>
-            <div class="col-6 col-sm-4 col-md-2 text-center">
-                <div class="img-wrap">
-                    <img src="{{"toms.svg" | file_url}}" alt="image">
-                </div>
-            </div>
-            <div class="col-6 col-sm-4 col-md-2 text-center">
-                <div class="img-wrap">
-                    <img src="{{"toms.svg" | file_url}}" alt="image">
-                </div>
-            </div>
-            <div class="col-6 col-sm-4 col-md-2 text-center">
-                <div class="img-wrap">
-                    <img src="{{"toms.svg" | file_url}}" alt="image">
-                </div>
-            </div>
-            <div class="col-6 col-sm-4 col-md-2 text-center">
-                <div class="img-wrap">
-                    <img src="{{"toms.svg" | file_url}}" alt="image">
-                </div>
-            </div>
-        </div>
-    </div>
+<div class="container-fluid">
+		<div class="row">
+				<div class="col-6 col-sm-4 col-md-2 text-center">
+						<div class="img-wrap">
+								<img loading="lazy" src="{{"toms.svg" | file_url}}" alt="image">
+						</div>
+				</div>
+				<div class="col-6 col-sm-4 col-md-2 text-center">
+						<div class="img-wrap">
+								<img loading="lazy" src="{{"toms.svg" | file_url}}" alt="image">
+						</div>
+				</div>
+				<div class="col-6 col-sm-4 col-md-2 text-center">
+						<div class="img-wrap">
+								<img loading="lazy" src="{{"toms.svg" | file_url}}" alt="image">
+						</div>
+				</div>
+				<div class="col-6 col-sm-4 col-md-2 text-center">
+						<div class="img-wrap">
+								<img loading="lazy" src="{{"toms.svg" | file_url}}" alt="image">
+						</div>
+				</div>
+				<div class="col-6 col-sm-4 col-md-2 text-center">
+						<div class="img-wrap">
+								<img src="{{"toms.svg" | file_url}}" alt="image">
+						</div>
+				</div>
+				<div class="col-6 col-sm-4 col-md-2 text-center">
+						<div class="img-wrap">
+								<img src="{{"toms.svg" | file_url}}" alt="image">
+						</div>
+				</div>
+		</div>
+</div>
 </section>
 <section class="newsletter">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-6 d-flex align-items-center flex-wrap">
-                <h2>Follow SlikRaketten:</h2>
-                <ul class="social-links">
-                    <li>
-                        <a href="#">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
-                                <path
-                                    d="M400 32H48A48 48 0 0 0 0 80v352a48 48 0 0 0 48 48h137.25V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.27c-30.81 0-40.42 19.12-40.42 38.73V256h68.78l-11 71.69h-57.78V480H400a48 48 0 0 0 48-48V80a48 48 0 0 0-48-48z" />
-                            </svg>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
-                                <path
-                                    d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z" />
-                            </svg>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
-                                <path
-                                    d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z" />
-                            </svg>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-            <div class="col-md-6">
-                <h3>Newsletter</h3>
-                <p>
-                    Receive our <b> Newsletter </b> and get News and special discount codes, as one of the first.
-                </p>
-                <a href="{{ section.settings.registerlink }}" class="btn-cta">
-                    Register
-                </a>
-            </div>
-        </div>
-    </div>
+<div class="container">
+		<div class="row">
+				<div class="col-md-6 d-flex align-items-center flex-wrap">
+						<h2>Follow SlikRaketten:</h2>
+						<ul class="social-links">
+								<li>
+										<a href="#">
+												<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+														<path
+																d="M400 32H48A48 48 0 0 0 0 80v352a48 48 0 0 0 48 48h137.25V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.27c-30.81 0-40.42 19.12-40.42 38.73V256h68.78l-11 71.69h-57.78V480H400a48 48 0 0 0 48-48V80a48 48 0 0 0-48-48z" />
+												</svg>
+										</a>
+								</li>
+								<li>
+										<a href="#">
+												<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+														<path
+																d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z" />
+												</svg>
+										</a>
+								</li>
+								<li>
+										<a href="#">
+												<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+														<path
+																d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z" />
+												</svg>
+										</a>
+								</li>
+						</ul>
+				</div>
+				<div class="col-md-6">
+						<h3>Newsletter</h3>
+						<p>
+								Receive our <b> Newsletter </b> and get News and special discount codes, as one of the first.
+						</p>
+						<a href="{{ section.settings.registerlink }}" class="btn-cta">
+								Register
+						</a>
+				</div>
+		</div>
+</div>
 </section>
-<div id="bags-container" class="fixed-bottom">
-    <div class="container">
-        <div class="row align-items-center">
-            <div class="col-12">
-                <div class="product-cart">
-                    <div class="weight">
-                        <span v-if="data.details.weight"  >Gram:${data.details.weight} g.</span>
-                        <span v-if="data.details.total" >Price: DKK ${data.details.total}.00.</span>
-                    </div>
-                    <div v-if="data.details.total" class="btn-group">
-                        <a href="#" class="outline-btn" data-bs-toggle="modal" data-bs-target="#AddProDuct">
-                            WATCH YOUR BAG
-                        </a>
-                        
-                        <a v-if="data.details.total >= 25" href="#" class="solid-btn" data-bs-toggle="modal" data-bs-target="#CloseBag" 
-                        >
-                          Close the Bag
-                      </a>
-                      <a v-else class="solid-btn" disabled >
-                        BUY FOR ${25 - data.details.total}K MORE
-                      </a>
-                    </div>
-                </div>
-  
-            </div>
-        </div>
-    </div>
-  
-    <div class="modal" id="AddProDuct" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-      aria-labelledby="addproduct" aria-hidden="true">
-      <div class="modal-dialog">
-          <div class="modal-content">
-              <div class="modal-header">
-                  <h3 class="modal-title" id="staticBackdropLabel">Your Bag</h3>
-                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-              </div>
-              <div class="modal-body custom">
-                  <div v-for="product in data.bags" class="item-container">
-                      <div class="added-product">
-                          <div class="img-wrap">
-                              <img height="auto" width="auto" :src="product.image" alt="alt">
-                          </div>
-                          <div class="item-name">
-                              <h6>${product.title}</h6>
-                              <h5>Approx ${product.amount} pieces</h5>
-                          </div>
-                      </div>
-                      <div class="buttons">
-                          <svg class="Icon Icon--info" width="15" height="15" viewBox="0 0 15 15" fill="none"
-                              xmlns="http://www.w3.org/2000/svg">
-                              <circle cx="7.5" cy="7.5" r="6.5" fill="#FFEEB0" stroke="#FBD754" stroke-width="2">
-                              </circle>
-                              <path fill-rule="evenodd" clip-rule="evenodd" d="M8 4H7V5H8V4ZM8 6H7V11H8V6Z"
-                                  fill="black"></path>
-                          </svg>
-                          <div class="qty-btn">
-                              <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
-                                  <path
-                                      d="M64 32C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64H64zm88 200H296c13.3 0 24 10.7 24 24s-10.7 24-24 24H152c-13.3 0-24-10.7-24-24s10.7-24 24-24z">
-                                  </path>
-                              </svg>
-                              <ul>
-                                  <li>
-                                      <!-- <a href="#">Approx. 4 pieces</a> -->
-                                  </li>
-                                  <li>
-                                      <a href="#">For ${product.weight} grams</a>
-                                  </li>
-                              </ul>
-                              <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
-                                  <path
-                                      d="M64 32C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64H64zM200 344V280H136c-13.3 0-24-10.7-24-24s10.7-24 24-24h64V168c0-13.3 10.7-24 24-24s24 10.7 24 24v64h64c13.3 0 24 10.7 24 24s-10.7 24-24 24H248v64c0 13.3-10.7 24-24 24s-24-10.7-24-24z">
-                                  </path>
-                              </svg>
-                          </div>
-                          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                              fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                              stroke-linejoin="round" class="feather feather-x">
-                              <line x1="18" y1="6" x2="6" y2="18"></line>
-                              <line x1="6" y1="6" x2="18" y2="18"></line>
-                          </svg>
-                      </div>
-                  </div>
-                  
-              </div>
-          </div>
-      </div>
-  </div>
-  <div class="modal fading" id="CloseBag" tabindex="-1"  data-bs-backdrop="static" data-bs-keyboard="false"aria-labelledby="CloseBag" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-            <div class="modal-header border-bottom-0">
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body text-center pading">
-                <h3>moment :)</h3>
-                <p>You just have to name your bag so you can easily find it again</p>
-                <input class="mb-4" type="text" placeholder="Enter the name of the bag" data-name-prompt-input="">
-                <div class="modal-btn-group">
-                  <a href="#" @click="putInBasket()" class="put-basket-btn">PUT IN BASKET</a>
-                  <a href="#" data-bs-dismiss="modal" class="put-bag-btn">...or put more in the bag</a>
-                </div>
-            </div>
-        </div>
-    </div>
-  </div>
-  <div class="modal fading" id="productInfo" tabindex="-1"  data-bs-backdrop="static" data-bs-keyboard="false"aria-labelledby="productInfo" aria-hidden="true">
-    
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-header border-bottom-0">
-          <img :src="data.modalData.currentProductImg" loading="lazy" width="50" height="50" :alt="data.modalData.currentProductTitle"/>
-          <strong>${data.modalData.currentProductTitle}</strong>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body pading" v-html="data.modalData.currentProductInfo" >
-        </div>
-      </div>
-    </div>
-  </div>
-  </div>
+{% render 'bags-container'%}
 
-  {% schema %}
+
+{% schema %}
 {
 "name": "home page",
 "settings":[{
