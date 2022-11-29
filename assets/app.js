@@ -79,6 +79,30 @@ if (document.querySelector('#bags-container')) {
 			},
 			removeBag() {
 				// store.removeBag(this.bagId)
+			},
+			checkOut() {
+				finalCheckoutData = {
+					items: []
+				}
+				store.state.mainCart.bags.map((currentBag) => {
+					currentBag.bags.map((orderProduct) => {
+						finalCheckoutData.items.unshift({
+							id: orderProduct.id,
+							quantity: orderProduct.qty,
+							properties: {
+								'Bag Name': currentBag.bagName
+							}
+						})
+					})
+				})
+				console.log(finalCheckoutData)
+				axios.post('/cart/add.js', finalCheckoutData).then((response) => {
+					console.log(response)
+					window.location.pathname = "/checkout"
+
+				}).catch((er) => {
+					console.log(er)
+				})
 			}
 		}
 
@@ -202,6 +226,7 @@ if (document.querySelector('#product-box')) {
 					image: this.image,
 					title: this.title,
 					weight: this.weight,
+					id: this.id,
 					amount: this.amount,
 					qty: this.counter
 
