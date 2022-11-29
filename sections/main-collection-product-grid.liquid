@@ -234,7 +234,7 @@ padding-bottom: {{ section.settings.padding_bottom }}px;
         <section class="product" >
           <div class="container">
             <div class="row">
-              <div class="col-6 col-sm-6 col-md-4 col-xl-4  mb-5" v-for="product in  products">
+              <div class="col-6 col-sm-6 col-md-6 col-xl-4 mb-5" v-for="product in  products">
                 <product-component :show="product.show" :id="product.variants[0].id" :tags="product.tags" :weight="product.variants[0].grams"
                   :price="product.variants[0].price" :title="product.title" :desc="product.desc"
                   :image="product.images[0].src" :vendor="product.vendor">
