@@ -16,6 +16,12 @@
 </section>
 <section class="product" id="product-box">
 <div class="container">
+<div class="row">
+                <div class="product-title">
+                    <h2>Mix today —</h2>
+                    <h4>Get it delivered by express.</h4>
+                </div>
+            </div>
 		<div class="row">
 				<div class="col-6 col-sm-6 col-md-4 col-xl-3 mb-5"  v-for="product in products">
 						<product-component :show="product.show" :id="product.variants[0].id" :tags="product.tags" :weight="product.variants[0].grams"
