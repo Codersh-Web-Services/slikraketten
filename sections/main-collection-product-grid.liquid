@@ -17,7 +17,7 @@ padding-bottom: {{ section.settings.padding_bottom }}px;
 <div class="section-{{ section.id }}-padding">
 
 
-  <div class="{% if section.settings.filter_type == 'vertical' %} facets-vertical page-width{% endif %}" id="product-box" >
+  <div class="custom-padding {% if section.settings.filter_type == 'vertical' %} facets-vertical page-width{% endif %}" id="product-box" >
     {{ 'component-facets.css' | asset_url | stylesheet_tag }}
 
     <aside aria-labelledby="verticalTitle" class="facets-wrapper" id="main-collection-filters"

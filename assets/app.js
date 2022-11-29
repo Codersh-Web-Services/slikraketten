@@ -76,6 +76,9 @@ if (document.querySelector('#bags-container')) {
 			putInBasket() {
 				store.setBag(this.bagName)
 				// after the bags are set remove the currentbag items using pop
+			},
+			removeBag() {
+				// store.removeBag(this.bagId)
 			}
 		}
 
