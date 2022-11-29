@@ -562,7 +562,7 @@ ul.MainNav li a:hover {
   line-height: 1.42;
   text-decoration: none;
   text-align: center;
-  white-space: normal;
+  white-space: nowrap;
   border: 1px solid transparent;
   border-radius: 10px;
   transition: all .2s ease 0s;
@@ -908,7 +908,7 @@ footer p {
   display: flex;
   align-items: center;
   justify-content: space-around;
-  flex-wrap: wrap;
+  /* flex-wrap: wrap; */
   margin-bottom: 1rem;
 }
 
@@ -933,6 +933,15 @@ footer p {
   gap: 20px;
   border-left: 1px solid #f6f6f6;
   padding-left: 1rem;
+}
+
+.item-container .buttons ul {
+  padding-left: 0;
+}
+
+.item-container .qty-btn ul {
+  padding-left: 0;
+  margin-bottom: 0;
 }
 
 .added-product .item-name {
@@ -1107,6 +1116,29 @@ footer p {
 
 }
 
+@media (max-width: 768px) {
+  .product-cart {
+    flex-direction: column;
+  }
+
+  .product-cart .weight {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .product-cart .btn-group {
+    width: 100%;
+    margin-top: 1rem;
+    justify-content: space-between;
+  }
+
+  .product-cart .btn-group a {
+    padding: 0.6rem;
+  }
+}
+
 @media (max-width: 420px) {
 
   .product-detail .btn-cta {
@@ -1126,7 +1158,6 @@ footer p {
     width: 100%;
     display: flex;
     align-items: center;
-    margin-bottom: 1rem;
     justify-content: space-between;
   }
 
@@ -1140,7 +1171,7 @@ footer p {
   }
 
   #AddProDuct .modal-dialog {
-    right: -8px;
+    right: -1px;
   }
 
   .item-container .added-product {
@@ -1158,7 +1189,7 @@ footer p {
   }
 
   .side-panel .modal-dialog {
-    width: auto;
+    width: auto !important;
   }
 
   .page-width.custom-padding {
