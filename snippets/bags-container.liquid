@@ -54,7 +54,7 @@
             </div>
             <div class="buttons">
                 <!-- Cart Information modal -->
-           <a href="#" class="cart-info" @click="product.mtoggle()">
+           <div class="cart-info" @click="product.mtoggle()" style="cursor: pointer">
               <svg
                 class="Icon Icon--info"
                 width="15"
@@ -67,7 +67,7 @@
                 </circle>
                 <path fill-rule="evenodd" clip-rule="evenodd" d="M8 4H7V5H8V4ZM8 6H7V11H8V6Z" fill="black"></path>
               </svg>
-            </a>
+            </div>
               <div class="qty-btn">
                 <svg @click="product.decreaseQuantity()" class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
                   <path
