@@ -54,7 +54,7 @@
             </div>
             <div class="buttons">
                 <!-- Cart Information modal -->
-    <a href="#" class="cart-info" data-bs-toggle="modal" data-bs-target="#InfoModal">
+           <a href="#" class="cart-info" @click="product.mtoggle()">
               <svg
                 class="Icon Icon--info"
                 width="15"
@@ -69,7 +69,7 @@
               </svg>
             </a>
               <div class="qty-btn">
-                <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                <svg @click="product.decreaseQuantity()" class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
                   <path
                     d="M64 32C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64H64zm88 200H296c13.3 0 24 10.7 24 24s-10.7 24-24 24H152c-13.3 0-24-10.7-24-24s10.7-24 24-24z">
                   </path>
@@ -82,18 +82,19 @@
                     <a href="#">For ${product.weight} grams</a>
                   </li>
                 </ul>
-                <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                <svg @click="product.increaseQuantity()" class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
                   <path
                     d="M64 32C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64H64zM200 344V280H136c-13.3 0-24-10.7-24-24s10.7-24 24-24h64V168c0-13.3 10.7-24 24-24s24 10.7 24 24v64h64c13.3 0 24 10.7 24 24s-10.7 24-24 24H248v64c0 13.3-10.7 24-24 24s-24-10.7-24-24z">
                   </path>
                 </svg>
               </div>
-              <svg
+              <svg @click="product.removeProduct()"
                 xmlns="http://www.w3.org/2000/svg"
                 width="24"
                 height="24"
                 viewBox="0 0 24 24"
                 fill="none"
+                style="cursor: pointer;"
                 stroke="currentColor"
                 stroke-width="2"
                 stroke-linecap="round"
@@ -135,32 +136,7 @@
       </div>
     </div>
   </div>
-  <div
-    class="modal fading"
-    id="productInfo"
-    tabindex="-1"
-    data-bs-backdrop="static"
-    data-bs-keyboard="false"
-    aria-labelledby="productInfo"
-    aria-hidden="true"
-  >
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-header border-bottom-0">
-          <img
-            :src="data.modalData.currentProductImg"
-            loading="lazy"
-            width="50"
-            height="50"
-            :alt="data.modalData.currentProductTitle"
-          >
-          <strong>${data.modalData.currentProductTitle}</strong>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body pading" v-html="data.modalData.currentProductInfo"></div>
-      </div>
-    </div>
-  </div>
+
 
   <!-- <--------- SIDE PANEL ------ -->
 
@@ -327,58 +303,13 @@
         <div class="modal-content information">
             <div class="modal-header">
                 <div class="title-img">
-                    <img src="images/chocolates.avif" alt="image" width="48">
+                    <img :src="data.modalData.currentProductImg" alt="image" width="48">
                 </div>
-                <h3 class="modal-title">Milk chocolate with caramel filling</h3>
+                <h3 class="modal-title">${data.modalData.currentProductTitle}</h3>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="modal-body">
-                <h4>CONTENTS :-</h4>
-                <p>
-                    Sugar, glucose syrup, cocoa butter, <b> whole milk powder </b>, vegetable fats (palm, shea),
-                    cocoa mass,
-                    <b> skimmed milk powder </b>, <b> whey powder (milk) </b>, salt, emulsifier (<b>soya
-                        lecithin</b>), flavors (e.g.
-                    vanillin). <b> Milk chocolate also contains vegetable fats other than cocoa butter. The milk
-                        chocolate contains at least 25% cocoa components.
-                        May contain hazelnuts.</b>
-                </p>
-                <p class="click-here">
-                    <a href="#">Click Here</a>
-                    <span>If you want to see more about how we handle allergens.</span>
-                </p>
-                <div class="nutritional-value">
-                    <h5>NUTRITIONAL VALUE </h5>
-                    <p>PER 100G</p>
-                    <div class="d-flex align-items-center justify-content-between">
-                        <p><b>Energy</b></p>
-                        <p>2022 kj / 482 <sub>kcal</sub></p>
-                    </div>
-                    <div class="d-flex align-items-center justify-content-between">
-                        <p><b>Cool</b></p>
-                        <p>23 <sub>g</sub></p>
-                    </div>
-                    <div class="d-flex align-items-center justify-content-between">
-                        <p><b>- Satisfied of this</b></p>
-                        <p>14 <sub>g</sub></p>
-                    </div>
-                    <div class="d-flex align-items-center justify-content-between">
-                        <p><b>Carbohydrate</b></p>
-                        <p>63 <sub>g</sub></p>
-                    </div>
-                    <div class="d-flex align-items-center justify-content-between">
-                        <p><b>- Of which sugars</b></p>
-                        <p>48 <sub>g</sub></p>
-                    </div>
-                    <div class="d-flex align-items-center justify-content-between">
-                        <p><b>Protein</b></p>
-                        <p>4.1 <sub>g</sub></p>
-                    </div>
-                    <div class="d-flex align-items-center justify-content-between">
-                        <p><b>Salt</b></p>
-                        <p>43.3 g <sub>_</sub></p>
-                    </div>
-                </div>
+            <div class="modal-body" v-html="data.modalData.currentProductInfo">
+               
             </div>
 
         </div>

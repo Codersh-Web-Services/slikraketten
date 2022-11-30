@@ -33,9 +33,9 @@ const store = Vue.reactive({
 		axios.get('/collections/frontpage/products.json')
 			.then((response) => {
 				response.data.products.forEach(element => {
-					let { body_html: desc, title, variants, url, images, vendor, tags } = element
-					this.state.products.unshift({ desc, title, variants, url, images, vendor, tags, show: true })
-					this.state.filteredProducts.unshift({ desc, title, variants, url, images, vendor, tags, show: true })
+					let { body_html: desc, title, variants, images, vendor, tags, id } = element
+					this.state.products.unshift({ desc, id, title, variants, images, vendor, tags, show: true })
+					this.state.filteredProducts.unshift({ desc, title, id, variants, images, vendor, tags, show: true })
 				});
 			})
 			.catch(error =>
@@ -48,7 +48,20 @@ const store = Vue.reactive({
 		prevmodal._hideModal()
 		let modal = new bootstrap.Modal('#Slide-Left')
 		modal.toggle()
-	}
+	},
+	mtoggle(productID) {
+		this.state.filteredProducts.map(product => {
+			if (product.id == productID) {
+				this.state.modalData.currentProductInfo = product.desc
+				this.state.modalData.currentProductImg = product.images[0].src
+				this.state.modalData.currentProductTitle = product.title
+			}
+		})
+
+
+		let modal = new bootstrap.Modal('#InfoModal')
+		modal.toggle()
+	},
 })
 
 
@@ -80,6 +93,7 @@ if (document.querySelector('#bags-container')) {
 			removeBag() {
 				// store.removeBag(this.bagId)
 			},
+
 			checkOut() {
 				finalCheckoutData = {
 					items: []
@@ -154,10 +168,10 @@ if (document.querySelector('#product-box')) {
 		template: '#product-component',
 		delimiters: ['${', '}'],
 
-		props: ['image', "title", "vendor", "desc", "id", "weight", "price", "tags", "show"],
+		props: ['image', "title", "vendor", "desc", "id", "weight", "price", "tags", "show", "productid", "countercurrent"],
 		data() {
 			return {
-				counter: 0,
+				counter: this.countercurrent || 0,
 				added: false,
 				amount: 0,
 
@@ -208,12 +222,8 @@ if (document.querySelector('#product-box')) {
 				})
 			},
 			mtoggle() {
-				store.state.modalData.currentProductInfo = this.desc
-				store.state.modalData.currentProductImg = this.image
-				store.state.modalData.currentProductTitle = this.title
-
-				let modal = new bootstrap.Modal('#productInfo')
-				modal.toggle()
+				console.log(this.productid + " from the component")
+				store.mtoggle(this.productid)
 			},
 
 			putInBag() {
@@ -223,13 +233,54 @@ if (document.querySelector('#product-box')) {
 				store.state.bottomCart.total += Number(this.price)
 				store.state.bottomCart.weight += this.weight
 				store.state.currentbagitems.unshift({
+
 					image: this.image,
 					title: this.title,
 					weight: this.weight,
+					orginalWeight: this.weight,
 					id: this.id,
+					desc: this.desc,
+					orginalAmount: this.amount,
 					amount: this.amount,
-					qty: this.counter
+					qty: this.counter,
+					productId: this.productid,
+					increaseQuantity() {
+						this.qty++
+						this.amount = this.orginalAmount * this.qty
+						this.weight = this.orginalWeight * this.qty
+						store.state.filteredProducts.map((el, i) => {
+							el.id == this.productId ?
+								el.countercurrent = this.qty
+								: false
+							console.log(el)
 
+						})
+					},
+					decreaseQuantity() {
+						if (this.qty > 1) {
+							this.qty--
+							this.amount = this.orginalAmount * this.qty
+							this.weight = this.orginalWeight * this.qty
+							store.state.filteredProducts.map((el, i) => {
+								el.id == this.productId ? el.countercurrent = this.qty
+									: false
+								console.log(el)
+							})
+						} else {
+							this.qty--
+							store.state.currentbagitems.map((el, i) => {
+								el.productId == this.productId ? store.state.currentbagitems.splice(i, 1) : false
+							})
+						}
+					},
+					removeProduct() {
+						store.state.currentbagitems.map((el, i) => {
+							el.productId == this.productId ? store.state.currentbagitems.splice(i, 1) : false
+						})
+					},
+					mtoggle() {
+						store.mtoggle(this.productId)
+					}
 				})
 			}
 		}
