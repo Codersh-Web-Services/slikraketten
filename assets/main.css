@@ -15,12 +15,12 @@
 
 @font-face {
   font-family: 'AmsiPro';
-  src: url('../fonts/AmsiPro-BlackItalic.eot');
-  src: url('../fonts/A') format('embedded-opentype'),
-    url('../fonts/AmsiPro-BlackItalic.woff2') format('woff2'),
-    url('../fonts/AmsiPro-BlackItalic.woff') format('woff'),
-    url('../fonts/AmsiPro-BlackItalic.ttf') format('truetype'),
-    url('../fonts/AmsiPro-BlackItalic.svg#AmsiPro-BlackItalic') format('svg');
+  src: url('https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiPro-BlackItalic.eot');
+  src: url('https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/A') format('embedded-opentype'),
+    url('https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiPro-BlackItalic.woff2') format('woff2'),
+    url('https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiPro-BlackItalic.woff') format('woff'),
+    url('https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiPro-BlackItalic.ttf') format('truetype'),
+    url('https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiPro-BlackItalic.svg#AmsiPro-BlackItalic') format('svg');
   font-weight: 900;
   font-style: italic;
   font-display: swap;
@@ -1131,6 +1131,7 @@ footer p {
   .hero-section h1 {
     font-size: 2.2rem;
   }
+
   .product-cart {
     flex-direction: column;
   }
@@ -1161,7 +1162,9 @@ footer p {
     width: 100%;
   }
 
-  .newsletter h3, .newsletter p, .newsletter .btn-cta {
+  .newsletter h3,
+  .newsletter p,
+  .newsletter .btn-cta {
     margin-left: 0;
   }
 
@@ -1219,7 +1222,7 @@ footer p {
     align-items: center;
     justify-content: space-between;
   }
-  
+
 
   .product-cart .btn-group {
     width: 100%;

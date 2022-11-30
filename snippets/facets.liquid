@@ -148,15 +148,7 @@
                     {{ 'products.facets.filter_button' | t }}
                   {%- endif -%}
                 </h2>
-                <p class="mobile-facets__count">
-                    {%- if results.results_count -%}
-                      {{ 'templates.search.results_with_count' | t: terms: results.terms, count: results.results_count }}
-                    {%- elsif results.products_count == results.all_products_count -%}
-                      {{ 'products.facets.product_count_simple' | t: count: results.products_count }}
-                    {%- else -%}
-                      {{ 'products.facets.product_count' | t: product_count: results.products_count, count: results.all_products_count }}
-                    {%- endif -%}
-                </p>
+               
               </div>
             </div>
             <div class="mobile-facets__main has-submenu gradient">
