@@ -907,7 +907,7 @@ footer p {
 
 
 .modal-backdrop {
-  opacity: 0 !important;
+  opacity: 0.2 !important;
 }
 
 .item-container {
