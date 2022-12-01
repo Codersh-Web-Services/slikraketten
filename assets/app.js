@@ -100,6 +100,9 @@ const store = Vue.reactive({
 		this.state.mainCart.bags.push({
 			bagName, bags: newBag, total: this.state.bottomCart.total, editBag() {
 				store.editBag(bagName)
+			},
+			updateTotal() {
+
 			}
 		})
 		let prevmodal = new bootstrap.Modal('#CloseBag')
@@ -113,10 +116,11 @@ const store = Vue.reactive({
 	},
 	editBag(bagName) {
 		this.state.editBag.bagName = bagName
+		this.state.editBag.total = this.state.mainCart.bags[i].total
+
 		this.state.mainCart.bags.map((bag, i) => {
 			if (bag.bagName == bagName) {
 				this.state.editBag.editProducts = ([...bag.bags])
-				this.state.editBag.total = this.state.mainCart.bags[i].total
 			}
 		})
 	},
