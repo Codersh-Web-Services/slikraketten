@@ -315,8 +315,8 @@
 
 html,
 body {
-  font-size: 16px;
-  font-family: 'AmsiPro', sans-serif;
+  font-size: 16px !important;
+  font-family: 'AmsiPro', sans-serif !important;
 }
 
 header {
@@ -850,6 +850,10 @@ footer p {
 
 /* <---------- MODAL CSS --------> */
 
+.modal.show {
+  padding-right: 0 !important;
+}
+
 .modal-open {
   overflow-y: auto !important;
   padding-right: 0 !important;
@@ -950,6 +954,12 @@ footer p {
   margin-bottom: 0;
 }
 
+.custom .item-container .qty-btn {
+  width: 100%;
+  max-width: 200px;
+  white-space: normal;
+}
+
 .added-product .item-name {
   margin-left: 0.5rem;
 }
@@ -973,6 +983,10 @@ footer p {
 
 .modal-dialog .modal-content {
   transition: all .8s ease-in-out;
+}
+
+.modal .modal-dialog {
+  pointer-events: auto;
 }
 
 .modal-body.pading {
@@ -1059,7 +1073,6 @@ footer p {
     z-index: 2;
     color: #FFF;
   }
-
 
   .navigationActive ul.MainNav {
     -webkit-transform: translateX(0);
@@ -1198,6 +1211,10 @@ footer p {
   .copyright {
     margin-bottom: 2rem;
   }
+
+  .custom .item-container {
+    flex-wrap: wrap;
+  }
 }
 
 
@@ -1261,5 +1278,11 @@ footer p {
 
   .page-width.custom-padding {
     padding: 0 0.5rem;
+  }
+
+  .item-container .qty-btn {
+    width: auto;
+    max-width: max-content;
+
   }
 }

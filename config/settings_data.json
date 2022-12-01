@@ -117,6 +117,7 @@
     "predictive_search_enabled": true,
     "predictive_search_show_vendor": false,
     "predictive_search_show_price": false,
+    "favicon": "shopify:\/\/shop_images\/favicon.jpg",
     "currency_code_enabled": true,
     "cart_type": "notification",
     "show_vendor": false,
@@ -145,7 +146,6 @@
         "type": "header",
         "settings": {
           "color_scheme": "background-1",
-          "logo": "shopify:\/\/shop_images\/silkraketten_logo_final_1-01.jpg",
           "logo_width": 220,
           "logo_position": "middle-left",
           "menu": "main-menu",
