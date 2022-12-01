@@ -1,4 +1,4 @@
-// Shallo Reactive State
+// Shallow Reactive State
 
 // const store = Vue.shallowReactive({
 // 	state: {
@@ -56,7 +56,46 @@ const store = Vue.reactive({
 	setBag(bagName) {
 		let newBag = []
 		store.state.currentbagitems.map(item => {
-			newBag.push({ title: item.title, image: item.image, qty: item.qty, weight: item.weight, amount: item.amount, id: item.id })
+			newBag.push({
+				title: item.title,
+				orginalWeight: item.orginalWeight,
+				orginalAmount: item.orginalAmount,
+				price: item.price,
+				image: item.image, qty: item.qty,
+				weight: item.weight,
+				amount: item.amount,
+				productId: item.productid,
+				id: item.id, increaseQuantity() {
+					this.qty++
+					this.amount = this.orginalAmount * this.qty
+					this.weight = this.orginalWeight * this.qty
+					store.state.bottomCart.total += Number(this.price)
+					store.state.bottomCart.weight += this.orginalWeight
+
+				}
+				,
+				decreaseQuantity() {
+					if (this.qty > 1) {
+						this.qty--
+						this.amount = this.orginalAmount * this.qty
+						this.weight = this.orginalWeight * this.qty
+						store.state.bottomCart.total -= Number(this.price)
+						store.state.bottomCart.weight -= this.orginalWeight
+
+					} else {
+						this.qty--
+						store.state.editBag.editProducts.map((el, i) => {
+							el.productId == this.productId ? store.state.editBag.editProducts.splice(i, 1) : false
+						})
+
+					}
+				},
+				removeItem() {
+					store.state.editBag.editProducts.map((el, i) => {
+						el.productId == this.productId ? store.state.editBag.editProducts.splice(i, 1) : false
+					})
+				},
+			})
 		})
 		this.state.mainCart.bags.push({
 			bagName, bags: newBag, total: this.state.bottomCart.total, editBag() {
@@ -77,7 +116,7 @@ const store = Vue.reactive({
 		this.state.mainCart.bags.map((bag, i) => {
 			if (bag.bagName == bagName) {
 				this.state.editBag.editProducts = ([...bag.bags])
-				this.state.editBag.total = bag.total
+				this.state.editBag.total = this.state.mainCart.bags[i].total
 			}
 		})
 	},
@@ -143,7 +182,11 @@ if (document.querySelector('#bags-container')) {
 				store.removeBag(bag)
 			},
 
+			backToBasket() {
+				let prevmodal = new bootstrap.Modal('#Slide-Left-Second')
+				prevmodal._hideModal()
 
+			},
 			checkOut() {
 				finalCheckoutData = {
 					items: []
@@ -299,13 +342,7 @@ if (document.querySelector('#product-box')) {
 						this.weight = this.orginalWeight * this.qty
 						store.state.bottomCart.total += Number(this.price)
 						store.state.bottomCart.weight += this.orginalWeight
-						store.state.filteredProducts.map((el, i) => {
-							el.id == this.productId ?
-								el.countercurrent = this.qty
-								: false
-							console.log(el)
 
-						})
 					},
 					decreaseQuantity() {
 						if (this.qty > 1) {
@@ -321,9 +358,7 @@ if (document.querySelector('#product-box')) {
 							})
 						} else {
 							this.qty--
-							store.state.editBag.editProducts.map((el, i) => {
-								el.productId == this.productId ? store.state.editBag.editProducts.splice(i, 1) : false
-							})
+
 							store.state.currentbagitems.map((el, i) => {
 								el.productId == this.productId ? store.state.currentbagitems.splice(i, 1) : false
 							})

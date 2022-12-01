@@ -240,6 +240,7 @@
         <div class="modal-header">
           <h5>Back to basket</h5>
           <button
+          @click="backToBasket()"
             type="button"
             class="btn-close"
            
@@ -256,10 +257,11 @@
             <div class="edit-container" v-for="item in editBag.editProducts" >
               <div class="img-name">
                 <svg
-                @click="removeItem(editBag.bagName, item.id)"
+                @click="item.removeItem()"
                   class="delete"
                   xmlns="http://www.w3.org/2000/svg"
                   width="16"
+                  style="cursor: pointer"
                   height="18"
                   viewBox="0 0 16 18"
                   fill="none"
