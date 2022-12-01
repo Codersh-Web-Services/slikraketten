@@ -166,7 +166,7 @@
               <div class="title">
                 <h6>${bag.bagName}</h6>
                 <div class="edit">
-                  <a href="#" data-bs-toggle="modal" data-bs-target="#Slide-Left-Second">
+                  <a href="#" @click="bag.editBag()" data-bs-toggle="modal" data-bs-target="#Slide-Left-Second">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       width="19"
@@ -242,21 +242,21 @@
           <button
             type="button"
             class="btn-close"
-            data-bs-toggle="modal"
-            data-bs-target="#Slide-Left"
+           
             aria-label="Back to basket"
           ></button>
         </div>
         <div class="modal-body">
           <div class="edit-content">
             <div class="title">
-              <h6>Joe's Bag</h6>
-              <p>There are for DKK 50.00. in the bag</p>
+              <h6>${editBag.bagName}'s Bag</h6>
+              <p>There are for DKK ${editBag.total}.00. in the bag</p>
               <a href="#" class="btn-add-candy">Add more candy</a>
             </div>
-            <div class="edit-contener">
+            <div class="edit-container" v-for="item in editBag.editProducts[0]" >
               <div class="img-name">
                 <svg
+                @click="removeItem(editBag.bagName, item.id)"
                   class="delete"
                   xmlns="http://www.w3.org/2000/svg"
                   width="16"
@@ -268,22 +268,22 @@
                       d="M0.5 4.69231H15.5M6.33714 7.15385V14.5385M9.76571 7.15385V14.5385M2.85714 4.69231H13.1429V16C13.1429 16.5523 12.6951 17 12.1429 17H3.85714C3.30486 17 2.85714 16.5523 2.85714 16V4.69231ZM10.7017 4.69231V2C10.7017 1.44772 10.254 1 9.70171 1H5.98743C5.43514 1 4.98743 1.44772 4.98743 2V4.69231H10.7017Z"
                       stroke="#9954C2" stroke-width="1.5" />
                 </svg>
-                <img src="images/cart-candy.avif" alt="image" width="52">
+                <img :src="item.image" alt="image" width="52">
                 <div class="name">
-                  <h6>Center Original</h6>
-                  <span style="color: #f280b2;">28pcs</span>
-                  <span style="color: #bf3fb4;">68g</span>
+                  <h6>${item.title}</h6>
+                  <span style="color: #f280b2;">${item.amount}pcs</span>
+                  <span style="color: #bf3fb4;">${item.weight}g</span>
                 </div>
               </div>
               <div class="btn_group">
-                <a href="#">
+                <a href="#" @click="item.decreaseQuantity()">
                   <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
                     <path fill="#c395c2"
                         d="M64 32C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64H64zm88 200H296c13.3 0 24 10.7 24 24s-10.7 24-24 24H152c-13.3 0-24-10.7-24-24s10.7-24 24-24z">
                     </path>
                   </svg>
                 </a>
-                <a href="#">
+                <a href="#" @click="item.increaseQuantity()">
                   <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
                     <path fill="#e891be"
                         d="M64 32C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64H64zM200 344V280H136c-13.3 0-24-10.7-24-24s10.7-24 24-24h64V168c0-13.3 10.7-24 24-24s24 10.7 24 24v64h64c13.3 0 24 10.7 24 24s-10.7 24-24 24H248v64c0 13.3-10.7 24-24 24s-24-10.7-24-24z">
@@ -534,14 +534,14 @@
     border-radius: 5px;
   }
 
-  .edit-content .edit-contener {
+  .edit-content .edit-container {
     display: flex;
     align-items: center;
     justify-content: space-between;
     margin-top: 1.5rem;
   }
 
-  .edit-contener .img-name {
+  .edit-container .img-name {
     display: flex;
     align-items: center;
   }
@@ -569,7 +569,7 @@
     font-weight: 600;
   }
 
-  .edit-contener .btn_group {
+  .edit-container .btn_group {
     display: flex;
     align-items: center;
     gap: 20px;
