@@ -184,7 +184,7 @@
                     View & Edit
                   </a>
                   <svg
-                    @click="removeBag()"
+                    @click="removeBag(bag.bagName)"
                     class="delete"
                     xmlns="http://www.w3.org/2000/svg"
                     width="16"
@@ -225,7 +225,7 @@
                 <b>Total</b>
                 <b>DKK ${mainCart.total}</b>
               </div>
-              <p>The minimum order is DKK 129.00. Mix a little more :-)</p>
+              <p v-if="mainCart.total < 129"  >The minimum order is DKK 129.00. Mix a little more :-)</p>
               <a @click="checkOut()" href="#"  class="btn-checkout">Checkout</a>
             </div>
           </div>

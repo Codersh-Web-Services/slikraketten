@@ -56,7 +56,10 @@ const store = Vue.reactive({
 	},
 	removeBag(bagName) {
 		this.state.mainCart.bags.map((bag, i) => {
+			console.log(bagName, bag.bagName)
+
 			if (bagName == bag.bagName) {
+				console.log(bagName)
 				this.state.mainCart.total -= bag.total
 				this.state.mainCart.bags.splice(i, 1)
 			}
@@ -101,8 +104,8 @@ if (document.querySelector('#bags-container')) {
 				store.setBag(this.bagName)
 				// after the bags are set remove the currentbag items using pop
 			},
-			removeBag() {
-				store.removeBag(this.bagName)
+			removeBag(bag) {
+				store.removeBag(bag)
 			},
 
 			checkOut() {
