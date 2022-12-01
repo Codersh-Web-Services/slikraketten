@@ -253,7 +253,7 @@
               <p>There are for DKK ${editBag.total}.00. in the bag</p>
               <a href="#" class="btn-add-candy">Add more candy</a>
             </div>
-            <div class="edit-container" v-for="item in editBag.editProducts[0]" >
+            <div class="edit-container" v-for="item in editBag.editProducts" >
               <div class="img-name">
                 <svg
                 @click="removeItem(editBag.bagName, item.id)"

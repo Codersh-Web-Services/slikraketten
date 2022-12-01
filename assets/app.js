@@ -1,3 +1,11 @@
+// Shallo Reactive State
+
+// const store = Vue.shallowReactive({
+// 	state: {
+// 		currentbagitems: [],
+// 	}
+// })
+
 // Reactive State 
 const store = Vue.reactive({
 	state: {
@@ -46,9 +54,12 @@ const store = Vue.reactive({
 				console.log(error))
 	},
 	setBag(bagName) {
-		console.log(this.state.currentbagitems, bagName)
+		let newBag = []
+		store.state.currentbagitems.map(item => {
+			newBag.push({ title: item.title, image: item.image, qty: item.qty, weight: item.weight, amount: item.amount, id: item.id })
+		})
 		this.state.mainCart.bags.push({
-			bagName, bags: this.state.currentbagitems, total: this.state.bottomCart.total, editBag() {
+			bagName, bags: newBag, total: this.state.bottomCart.total, editBag() {
 				store.editBag(bagName)
 			}
 		})
@@ -65,7 +76,7 @@ const store = Vue.reactive({
 		this.state.editBag.bagName = bagName
 		this.state.mainCart.bags.map((bag, i) => {
 			if (bag.bagName == bagName) {
-				this.state.editBag.editProducts.push([...bag.bags])
+				this.state.editBag.editProducts = ([...bag.bags])
 				this.state.editBag.total = bag.total
 			}
 		})
@@ -99,7 +110,14 @@ const store = Vue.reactive({
 
 
 // App Vue
-
+const header = Vue.createApp({
+	delimiters: ['${', '}'],
+	data() {
+		return {
+			weekend: Date()
+		}
+	}
+}).mount('#anouncementbar')
 if (document.querySelector('#bags-container')) {
 
 	const BagsContainer = Vue.createApp({
@@ -303,8 +321,8 @@ if (document.querySelector('#product-box')) {
 							})
 						} else {
 							this.qty--
-							store.state.editBag.editProducts[0].map((el, i) => {
-								el.productId == this.productId ? store.state.editBag.editProducts[0].splice(i, 1) : false
+							store.state.editBag.editProducts.map((el, i) => {
+								el.productId == this.productId ? store.state.editBag.editProducts.splice(i, 1) : false
 							})
 							store.state.currentbagitems.map((el, i) => {
 								el.productId == this.productId ? store.state.currentbagitems.splice(i, 1) : false
