@@ -8,7 +8,8 @@ const store = Vue.reactive({
 		},
 		mainCart: {
 			total: 0,
-			bags: []
+			bags: [],
+
 
 		},
 		bags: [],
@@ -48,6 +49,18 @@ const store = Vue.reactive({
 		prevmodal._hideModal()
 		let modal = new bootstrap.Modal('#Slide-Left')
 		modal.toggle()
+		// calculate the total 
+		this.state.mainCart.bags.map((bag) => {
+			this.state.mainCart.total += bag.total
+		})
+	},
+	removeBag(bagName) {
+		this.state.mainCart.bags.map((bag, i) => {
+			if (bagName == bag.bagName) {
+				this.state.mainCart.total -= bag.total
+				this.state.mainCart.bags.splice(i, 1)
+			}
+		})
 	},
 	mtoggle(productID) {
 		this.state.filteredProducts.map(product => {
@@ -80,9 +93,7 @@ if (document.querySelector('#bags-container')) {
 					modalData: store.state.modalData,
 					bagName: "Jamie's bag"
 				},
-				mainCart: {
-					bags: store.state.mainCart.bags
-				}
+				mainCart: store.state.mainCart
 			}
 		},
 		methods: {
@@ -91,7 +102,7 @@ if (document.querySelector('#bags-container')) {
 				// after the bags are set remove the currentbag items using pop
 			},
 			removeBag() {
-				// store.removeBag(this.bagId)
+				store.removeBag(this.bagName)
 			},
 
 			checkOut() {
@@ -168,10 +179,10 @@ if (document.querySelector('#product-box')) {
 		template: '#product-component',
 		delimiters: ['${', '}'],
 
-		props: ['image', "title", "vendor", "desc", "id", "weight", "price", "tags", "show", "productid", "countercurrent"],
+		props: ['image', "title", "vendor", "desc", "id", "weight", "price", "tags", "show", "productid"],
 		data() {
 			return {
-				counter: this.countercurrent || 0,
+				counter: 0,
 				added: false,
 				amount: 0,
 
@@ -206,8 +217,6 @@ if (document.querySelector('#product-box')) {
 					store.state.currentbagitems.map((el, i) => {
 						el.title == this.title ? store.state.currentbagitems.splice(i, 1) : false
 					})
-
-
 				}
 				this.counter -= 1
 				store.state.bottomCart.total -= Number(this.price)
@@ -240,6 +249,7 @@ if (document.querySelector('#product-box')) {
 					orginalWeight: this.weight,
 					id: this.id,
 					desc: this.desc,
+					price: this.price,
 					orginalAmount: this.amount,
 					amount: this.amount,
 					qty: this.counter,
@@ -248,6 +258,8 @@ if (document.querySelector('#product-box')) {
 						this.qty++
 						this.amount = this.orginalAmount * this.qty
 						this.weight = this.orginalWeight * this.qty
+						store.state.bottomCart.total += Number(this.price)
+						store.state.bottomCart.weight += this.orginalWeight
 						store.state.filteredProducts.map((el, i) => {
 							el.id == this.productId ?
 								el.countercurrent = this.qty
@@ -261,6 +273,8 @@ if (document.querySelector('#product-box')) {
 							this.qty--
 							this.amount = this.orginalAmount * this.qty
 							this.weight = this.orginalWeight * this.qty
+							store.state.bottomCart.total -= Number(this.price)
+							store.state.bottomCart.weight -= this.orginalWeight
 							store.state.filteredProducts.map((el, i) => {
 								el.id == this.productId ? el.countercurrent = this.qty
 									: false
