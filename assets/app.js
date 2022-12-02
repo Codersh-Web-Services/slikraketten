@@ -199,11 +199,11 @@ const store = Vue.reactive({
 
 					} else {
 						this.qty--
+						store.state.mainCart.total -= Number(this.price)
+						store.state.editBag.total -= Number(this.price)
 						store.state.editBag.editProducts.map((el, i) => {
 							el.productId == this.productId ? store.state.editBag.editProducts.splice(i, 1) : false
 						})
-						store.state.mainCart.total -= Number(this.price)
-						store.state.editBag.total -= Number(this.price)
 
 						store.state.mainCart.bags.forEach(bag => {
 							if (bag.bagName == bagName) {
@@ -229,7 +229,9 @@ const store = Vue.reactive({
 					}
 				},
 				removeItem() {
-					this.qty--
+					this.qty = 0
+					store.state.mainCart.total -= Number(this.price)
+					store.state.editBag.total -= Number(this.price)
 					store.state.filteredProducts.map((product, i) => {
 						if (product.id == this.productId) {
 							product.keepcounter = this.qty
