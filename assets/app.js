@@ -1,3 +1,11 @@
+// Shallow Reactive State
+
+// const store = Vue.shallowReactive({
+// 	state: {
+// 		currentbagitems: [],
+// 	}
+// })
+
 // Reactive State 
 const store = Vue.reactive({
 	state: {
@@ -8,8 +16,7 @@ const store = Vue.reactive({
 		},
 		mainCart: {
 			total: 0,
-			bags: []
-
+			bags: [],
 		},
 		bags: [],
 		currentbagitems: [],
@@ -17,6 +24,11 @@ const store = Vue.reactive({
 		filteredProducts: [],
 		modalData: {
 			currentProductInfo: "Hello there? General kenobi"
+		},
+		editBag: {
+			bagName: "",
+			total: 0,
+			editProducts: []
 		}
 	},
 
@@ -34,20 +46,90 @@ const store = Vue.reactive({
 			.then((response) => {
 				response.data.products.forEach(element => {
 					let { body_html: desc, title, variants, images, vendor, tags, id } = element
-					this.state.products.unshift({ desc, id, title, variants, images, vendor, tags, show: true })
 					this.state.filteredProducts.unshift({ desc, title, id, variants, images, vendor, tags, show: true })
+					this.state.products.unshift({ desc, id, title, variants, images, vendor, tags, show: true })
 				});
 			})
 			.catch(error =>
 				console.log(error))
 	},
 	setBag(bagName) {
-		console.log(this.state.currentbagitems, bagName)
-		this.state.mainCart.bags.push({ bagName, bags: this.state.currentbagitems, total: this.state.bottomCart.total })
+		let newBag = []
+		store.state.currentbagitems.map(item => {
+			newBag.push({
+				title: item.title,
+				orginalWeight: item.orginalWeight,
+				orginalAmount: item.orginalAmount,
+				price: item.price,
+				image: item.image, qty: item.qty,
+				weight: item.weight,
+				amount: item.amount,
+				productId: item.productid,
+				id: item.id, increaseQuantity() {
+					this.qty++
+					this.amount = this.orginalAmount * this.qty
+					this.weight = this.orginalWeight * this.qty
+					store.state.bottomCart.total += Number(this.price)
+					store.state.bottomCart.weight += this.orginalWeight
+
+				}
+				,
+				decreaseQuantity() {
+					if (this.qty > 1) {
+						this.qty--
+						this.amount = this.orginalAmount * this.qty
+						this.weight = this.orginalWeight * this.qty
+						store.state.bottomCart.total -= Number(this.price)
+						store.state.bottomCart.weight -= this.orginalWeight
+
+					} else {
+						this.qty--
+						store.state.editBag.editProducts.map((el, i) => {
+							el.productId == this.productId ? store.state.editBag.editProducts.splice(i, 1) : false
+						})
+
+					}
+				},
+				removeItem() {
+					store.state.editBag.editProducts.map((el, i) => {
+						el.productId == this.productId ? store.state.editBag.editProducts.splice(i, 1) : false
+					})
+				},
+			})
+		})
+		this.state.mainCart.bags.push({
+			bagName, bags: newBag, total: this.state.bottomCart.total, editBag() {
+				store.editBag(bagName)
+			}
+		})
 		let prevmodal = new bootstrap.Modal('#CloseBag')
 		prevmodal._hideModal()
 		let modal = new bootstrap.Modal('#Slide-Left')
 		modal.toggle()
+		// calculate the total 
+		this.state.mainCart.bags.map((bag) => {
+			this.state.mainCart.total += bag.total
+		})
+	},
+	editBag(bagName) {
+		this.state.editBag.bagName = bagName
+
+		this.state.mainCart.bags.map((bag, i) => {
+			if (bag.bagName == bagName) {
+				this.state.editBag.editProducts = ([...bag.bags])
+			}
+		})
+	},
+	removeBag(bagName) {
+		this.state.mainCart.bags.map((bag, i) => {
+			console.log(bagName, bag.bagName)
+
+			if (bagName == bag.bagName) {
+				console.log(bagName)
+				this.state.mainCart.total -= bag.total
+				this.state.mainCart.bags.splice(i, 1)
+			}
+		})
 	},
 	mtoggle(productID) {
 		this.state.filteredProducts.map(product => {
@@ -67,7 +149,14 @@ const store = Vue.reactive({
 
 
 // App Vue
-
+const header = Vue.createApp({
+	delimiters: ['${', '}'],
+	data() {
+		return {
+			weekend: Date()
+		}
+	}
+}).mount('#anouncementbar')
 if (document.querySelector('#bags-container')) {
 
 	const BagsContainer = Vue.createApp({
@@ -80,9 +169,8 @@ if (document.querySelector('#bags-container')) {
 					modalData: store.state.modalData,
 					bagName: "Jamie's bag"
 				},
-				mainCart: {
-					bags: store.state.mainCart.bags
-				}
+				mainCart: store.state.mainCart,
+				editBag: store.state.editBag
 			}
 		},
 		methods: {
@@ -90,10 +178,15 @@ if (document.querySelector('#bags-container')) {
 				store.setBag(this.bagName)
 				// after the bags are set remove the currentbag items using pop
 			},
-			removeBag() {
-				// store.removeBag(this.bagId)
+			removeBag(bag) {
+				store.removeBag(bag)
 			},
 
+			backToBasket() {
+				let prevmodal = new bootstrap.Modal('#Slide-Left-Second')
+				prevmodal._hideModal()
+
+			},
 			checkOut() {
 				finalCheckoutData = {
 					items: []
@@ -168,10 +261,10 @@ if (document.querySelector('#product-box')) {
 		template: '#product-component',
 		delimiters: ['${', '}'],
 
-		props: ['image', "title", "vendor", "desc", "id", "weight", "price", "tags", "show", "productid", "countercurrent"],
+		props: ['image', "title", "vendor", "desc", "id", "weight", "price", "tags", "show", "productid"],
 		data() {
 			return {
-				counter: this.countercurrent || 0,
+				counter: 0,
 				added: false,
 				amount: 0,
 
@@ -206,8 +299,6 @@ if (document.querySelector('#product-box')) {
 					store.state.currentbagitems.map((el, i) => {
 						el.title == this.title ? store.state.currentbagitems.splice(i, 1) : false
 					})
-
-
 				}
 				this.counter -= 1
 				store.state.bottomCart.total -= Number(this.price)
@@ -240,6 +331,7 @@ if (document.querySelector('#product-box')) {
 					orginalWeight: this.weight,
 					id: this.id,
 					desc: this.desc,
+					price: this.price,
 					orginalAmount: this.amount,
 					amount: this.amount,
 					qty: this.counter,
@@ -248,19 +340,17 @@ if (document.querySelector('#product-box')) {
 						this.qty++
 						this.amount = this.orginalAmount * this.qty
 						this.weight = this.orginalWeight * this.qty
-						store.state.filteredProducts.map((el, i) => {
-							el.id == this.productId ?
-								el.countercurrent = this.qty
-								: false
-							console.log(el)
+						store.state.bottomCart.total += Number(this.price)
+						store.state.bottomCart.weight += this.orginalWeight
 
-						})
 					},
 					decreaseQuantity() {
 						if (this.qty > 1) {
 							this.qty--
 							this.amount = this.orginalAmount * this.qty
 							this.weight = this.orginalWeight * this.qty
+							store.state.bottomCart.total -= Number(this.price)
+							store.state.bottomCart.weight -= this.orginalWeight
 							store.state.filteredProducts.map((el, i) => {
 								el.id == this.productId ? el.countercurrent = this.qty
 									: false
@@ -268,9 +358,12 @@ if (document.querySelector('#product-box')) {
 							})
 						} else {
 							this.qty--
+
 							store.state.currentbagitems.map((el, i) => {
 								el.productId == this.productId ? store.state.currentbagitems.splice(i, 1) : false
 							})
+
+
 						}
 					},
 					removeProduct() {
