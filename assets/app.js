@@ -31,7 +31,6 @@ const store = Vue.reactive({
 			editProducts: []
 		}
 	},
-
 	getCart() {
 		axios.get('/cart.js')
 			.then(response => {
@@ -41,18 +40,32 @@ const store = Vue.reactive({
 				console.log(error)
 			})
 	},
+	updatePricesAndWeights() {
+		this.state.bottomCart.total = 0
+		this.state.bottomCart.weight = 0
+
+		this.state.filteredProducts.map(product => {
+			let totalPrice = Number(product.variants[0].price) * product.keepcounter
+			let totalWeight = Number(product.variants[0].grams) * product.keepcounter
+			console.log(totalPrice, totalWeight)
+			this.state.bottomCart.total += totalPrice
+			this.state.bottomCart.weight += totalWeight
+		})
+	},
+	// fetch products from collection 
 	getProducts() {
 		axios.get('/collections/frontpage/products.json')
 			.then((response) => {
 				response.data.products.forEach(element => {
 					let { body_html: desc, title, variants, images, vendor, tags, id } = element
-					this.state.filteredProducts.unshift({ desc, title, id, variants, images, vendor, tags, show: true })
-					this.state.products.unshift({ desc, id, title, variants, images, vendor, tags, show: true })
+					this.state.filteredProducts.unshift({ desc, title, id, variants, images, vendor, tags, show: true, keepcounter: 0 })
+					this.state.products.unshift({ desc, id, title, variants, images, vendor, tags, show: true, keepcounter: 0 })
 				});
 			})
 			.catch(error =>
 				console.log(error))
 	},
+	// bag mutations
 	setBag(bagName) {
 		let newBag = []
 		store.state.currentbagitems.map(item => {
@@ -65,7 +78,8 @@ const store = Vue.reactive({
 				weight: item.weight,
 				amount: item.amount,
 				productId: item.productid,
-				id: item.id, increaseQuantity() {
+				id: item.id,
+				increaseQuantity() {
 					this.qty++
 					this.amount = this.orginalAmount * this.qty
 					this.weight = this.orginalWeight * this.qty
@@ -187,6 +201,7 @@ if (document.querySelector('#bags-container')) {
 				prevmodal._hideModal()
 
 			},
+
 			checkOut() {
 				finalCheckoutData = {
 					items: []
@@ -261,7 +276,7 @@ if (document.querySelector('#product-box')) {
 		template: '#product-component',
 		delimiters: ['${', '}'],
 
-		props: ['image', "title", "vendor", "desc", "id", "weight", "price", "tags", "show", "productid"],
+		props: ['image', "title", "vendor", "desc", "id", "weight", "price", "tags", "show", "productid", "keepcounter"],
 		data() {
 			return {
 				counter: 0,
@@ -282,8 +297,6 @@ if (document.querySelector('#product-box')) {
 		methods: {
 			increaseQuantity() {
 				this.counter += 1
-				store.state.bottomCart.total += Number(this.price)
-				store.state.bottomCart.weight += this.weight
 				store.state.currentbagitems.map((el, i) => {
 					el.title == this.title ?
 						store.state.currentbagitems[i].weight = this.counter * this.weight : false
@@ -292,6 +305,13 @@ if (document.querySelector('#product-box')) {
 					el.title == this.title ?
 						store.state.currentbagitems[i].qty = Number(this.counter) : false
 				})
+				store.state.filteredProducts.map((product, i) => {
+					if (product.id == this.productid) {
+						product.keepcounter = this.counter
+					}
+				})
+				store.updatePricesAndWeights()
+
 			},
 			decreaseQuantity() {
 				if (this.counter == 1) {
@@ -301,8 +321,7 @@ if (document.querySelector('#product-box')) {
 					})
 				}
 				this.counter -= 1
-				store.state.bottomCart.total -= Number(this.price)
-				store.state.bottomCart.weight -= this.weight
+
 				store.state.currentbagitems.map((el, i) => {
 					el.title == this.title ?
 						store.state.currentbagitems[i].weight = this.counter * this.weight : false
@@ -311,6 +330,13 @@ if (document.querySelector('#product-box')) {
 					el.title == this.title ?
 						store.state.currentbagitems[i].qty = Number(this.counter) : false
 				})
+				store.state.filteredProducts.map((product, i) => {
+					if (product.id == this.productid) {
+						product.keepcounter = this.counter
+					}
+				})
+				store.updatePricesAndWeights()
+
 			},
 			mtoggle() {
 				console.log(this.productid + " from the component")
@@ -320,9 +346,18 @@ if (document.querySelector('#product-box')) {
 			putInBag() {
 				this.counter += 1
 				this.added = true
+				store.state.filteredProducts.map((product, i) => {
+					if (product.id == this.productid) {
+						product.keepcounter = this.counter
+					}
+				})
+				store.updatePricesAndWeights()
 
-				store.state.bottomCart.total += Number(this.price)
-				store.state.bottomCart.weight += this.weight
+				store.state.filteredProducts.map((product, i) => {
+					if (product.id == this.productid) {
+						product.keepcounter = this.counter
+					}
+				})
 				store.state.currentbagitems.unshift({
 
 					image: this.image,
@@ -340,8 +375,12 @@ if (document.querySelector('#product-box')) {
 						this.qty++
 						this.amount = this.orginalAmount * this.qty
 						this.weight = this.orginalWeight * this.qty
-						store.state.bottomCart.total += Number(this.price)
-						store.state.bottomCart.weight += this.orginalWeight
+						store.state.filteredProducts.map((product, i) => {
+							if (product.id == this.productId) {
+								product.keepcounter = this.qty
+							}
+						})
+						store.updatePricesAndWeights()
 
 					},
 					decreaseQuantity() {
@@ -349,19 +388,27 @@ if (document.querySelector('#product-box')) {
 							this.qty--
 							this.amount = this.orginalAmount * this.qty
 							this.weight = this.orginalWeight * this.qty
-							store.state.bottomCart.total -= Number(this.price)
-							store.state.bottomCart.weight -= this.orginalWeight
-							store.state.filteredProducts.map((el, i) => {
-								el.id == this.productId ? el.countercurrent = this.qty
-									: false
-								console.log(el)
+							store.state.filteredProducts.map((product, i) => {
+								if (product.id == this.productId) {
+									product.keepcounter = this.qty
+								}
 							})
+							store.updatePricesAndWeights()
+
 						} else {
 							this.qty--
 
+							store.state.filteredProducts.map((product, i) => {
+								if (product.id == this.productId) {
+									product.keepcounter = this.qty
+								}
+							})
 							store.state.currentbagitems.map((el, i) => {
 								el.productId == this.productId ? store.state.currentbagitems.splice(i, 1) : false
 							})
+
+							store.updatePricesAndWeights()
+
 
 
 						}
