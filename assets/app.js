@@ -229,9 +229,9 @@ const store = Vue.reactive({
 					}
 				},
 				removeItem() {
+					store.state.mainCart.total -= Number(this.price) * this.qty
+					store.state.editBag.total -= Number(this.price) * this.qty
 					this.qty = 0
-					store.state.mainCart.total -= Number(this.price)
-					store.state.editBag.total -= Number(this.price)
 					store.state.filteredProducts.map((product, i) => {
 						if (product.id == this.productId) {
 							product.keepcounter = this.qty
