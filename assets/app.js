@@ -50,6 +50,7 @@ const store = Vue.reactive({
 			console.log(totalPrice, totalWeight)
 			this.state.bottomCart.total += totalPrice
 			this.state.bottomCart.weight += totalWeight
+			product.keepcounter > 0 ? product.added = true : product.added = false
 		})
 	},
 	// fetch products from collection 
@@ -58,8 +59,8 @@ const store = Vue.reactive({
 			.then((response) => {
 				response.data.products.forEach(element => {
 					let { body_html: desc, title, variants, images, vendor, tags, id } = element
-					this.state.filteredProducts.unshift({ desc, title, id, variants, images, vendor, tags, show: true, keepcounter: 0 })
-					this.state.products.unshift({ desc, id, title, variants, images, vendor, tags, show: true, keepcounter: 0 })
+					this.state.filteredProducts.unshift({ desc, title, id, variants, images, vendor, tags, show: true, keepcounter: 0, added: false })
+					this.state.products.unshift({ desc, id, title, variants, images, vendor, tags, show: true, keepcounter: 0, added: false })
 				});
 			})
 			.catch(error =>
@@ -276,11 +277,10 @@ if (document.querySelector('#product-box')) {
 		template: '#product-component',
 		delimiters: ['${', '}'],
 
-		props: ['image', "title", "vendor", "desc", "id", "weight", "price", "tags", "show", "productid", "keepcounter"],
+		props: ['image', "title", "vendor", "desc", "id", "weight", "price", "tags", "show", "productid", "keepcounter", "added"],
 		data() {
 			return {
 				counter: 0,
-				added: false,
 				amount: 0,
 
 			}
