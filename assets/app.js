@@ -43,14 +43,92 @@ const store = Vue.reactive({
 	updatePricesAndWeights() {
 		this.state.bottomCart.total = 0
 		this.state.bottomCart.weight = 0
-
+		store.state.currentbagitems.length = 0
 		this.state.filteredProducts.map(product => {
 			let totalPrice = Number(product.variants[0].price) * product.keepcounter
 			let totalWeight = Number(product.variants[0].grams) * product.keepcounter
 			console.log(totalPrice, totalWeight)
 			this.state.bottomCart.total += totalPrice
 			this.state.bottomCart.weight += totalWeight
-			product.keepcounter > 0 ? product.added = true : product.added = false
+			if (product.keepcounter > 0) {
+				product.added = true
+				store.state.currentbagitems.unshift({
+
+					image: product.images[0].src,
+					title: product.title,
+					weight: product.variants[0].grams * product.keepcounter,
+					orginalWeight: product.variants[0].grams,
+					id: product.id,
+					desc: product.desc,
+					price: product.variants[0].price,
+					orginalAmount: product.amount,
+					amount: product.amount * product.keepcounter,
+					qty: product.keepcounter,
+					productId: product.id,
+					increaseQuantity() {
+						this.qty++
+						console.log(this.amount)
+
+						this.amount = this.orginalAmount * this.qty
+						this.weight = this.orginalWeight * this.qty
+						store.state.filteredProducts.map((product, i) => {
+							if (product.id == this.productId) {
+								product.keepcounter = this.qty
+							}
+						})
+						store.updatePricesAndWeights()
+
+					},
+					decreaseQuantity() {
+						if (this.qty > 1) {
+							this.qty--
+							this.amount = this.orginalAmount * this.qty
+							this.weight = this.orginalWeight * this.qty
+							store.state.filteredProducts.map((product, i) => {
+								if (product.id == this.productId) {
+									product.keepcounter = this.qty
+								}
+							})
+							store.updatePricesAndWeights()
+
+						} else {
+							this.qty--
+
+							store.state.filteredProducts.map((product, i) => {
+								if (product.id == this.productId) {
+									product.keepcounter = this.qty
+								}
+							})
+							store.state.currentbagitems.map((el, i) => {
+								el.productId == this.productId ? store.state.currentbagitems.splice(i, 1) : false
+							})
+
+							store.updatePricesAndWeights()
+
+						}
+					},
+					removeProduct() {
+						this.qty = 0
+						store.state.filteredProducts.map((product, i) => {
+							if (product.id == this.productId) {
+								product.keepcounter = this.qty
+							}
+						})
+						store.updatePricesAndWeights()
+
+						store.state.currentbagitems.map((el, i) => {
+							el.productId == this.productId ? store.state.currentbagitems.splice(i, 1) : false
+						})
+					},
+					mtoggle() {
+						store.mtoggle(this.productId)
+					}
+				})
+			}
+			else {
+				product.added = false
+			}
+
 		})
 	},
 	// fetch products from collection 
@@ -78,7 +156,7 @@ const store = Vue.reactive({
 				image: item.image, qty: item.qty,
 				weight: item.weight,
 				amount: item.amount,
-				productId: item.productid,
+				productId: item.productId,
 				id: item.id,
 				increaseQuantity() {
 					this.qty++
@@ -132,12 +210,23 @@ const store = Vue.reactive({
 		this.state.mainCart.bags.map((bag, i) => {
 			if (bag.bagName == bagName) {
 				this.state.editBag.editProducts = ([...bag.bags])
+				store.state.filteredProducts.map((product, i) => {
+					product.keepcounter = 0
+
+				})
+				bag.bags.forEach(bagProduct => {
+					store.state.filteredProducts.map((product, i) => {
+						if (product.id == bagProduct.productId) {
+							product.keepcounter = bagProduct.qty
+						}
+					})
+				})
+				store.updatePricesAndWeights()
 			}
 		})
 	},
 	removeBag(bagName) {
 		this.state.mainCart.bags.map((bag, i) => {
-			console.log(bagName, bag.bagName)
 
 			if (bagName == bag.bagName) {
 				console.log(bagName)
@@ -145,6 +234,9 @@ const store = Vue.reactive({
 				this.state.mainCart.bags.splice(i, 1)
 			}
 		})
+		this.state.filteredProducts.forEach(product => product.keepcounter = 0)
+		store.updatePricesAndWeights()
+
 	},
 	mtoggle(productID) {
 		this.state.filteredProducts.map(product => {
@@ -245,7 +337,6 @@ if (document.querySelector('#product-box')) {
 		created() {
 			(async () => {
 				await store.getProducts()
-				console.log(this.products)
 			})()
 		},
 
@@ -289,6 +380,11 @@ if (document.querySelector('#product-box')) {
 			this.tags.map((el, i) => {
 				if (el.split("__")[0] == "amount") {
 					this.amount = el.split("__")[1]
+				}
+			})
+			store.state.filteredProducts.map(product => {
+				if (product.id == this.productid) {
+					product.amount = this.amount
 				}
 			})
 
@@ -358,70 +454,7 @@ if (document.querySelector('#product-box')) {
 						product.keepcounter = this.counter
 					}
 				})
-				store.state.currentbagitems.unshift({
 
-					image: this.image,
-					title: this.title,
-					weight: this.weight,
-					orginalWeight: this.weight,
-					id: this.id,
-					desc: this.desc,
-					price: this.price,
-					orginalAmount: this.amount,
-					amount: this.amount,
-					qty: this.counter,
-					productId: this.productid,
-					increaseQuantity() {
-						this.qty++
-						this.amount = this.orginalAmount * this.qty
-						this.weight = this.orginalWeight * this.qty
-						store.state.filteredProducts.map((product, i) => {
-							if (product.id == this.productId) {
-								product.keepcounter = this.qty
-							}
-						})
-						store.updatePricesAndWeights()
-
-					},
-					decreaseQuantity() {
-						if (this.qty > 1) {
-							this.qty--
-							this.amount = this.orginalAmount * this.qty
-							this.weight = this.orginalWeight * this.qty
-							store.state.filteredProducts.map((product, i) => {
-								if (product.id == this.productId) {
-									product.keepcounter = this.qty
-								}
-							})
-							store.updatePricesAndWeights()
-
-						} else {
-							this.qty--
-
-							store.state.filteredProducts.map((product, i) => {
-								if (product.id == this.productId) {
-									product.keepcounter = this.qty
-								}
-							})
-							store.state.currentbagitems.map((el, i) => {
-								el.productId == this.productId ? store.state.currentbagitems.splice(i, 1) : false
-							})
-
-							store.updatePricesAndWeights()
-
-
-
-						}
-					},
-					removeProduct() {
-						store.state.currentbagitems.map((el, i) => {
-							el.productId == this.productId ? store.state.currentbagitems.splice(i, 1) : false
-						})
-					},
-					mtoggle() {
-						store.mtoggle(this.productId)
-					}
-				})
 			}
 		}
 	})
