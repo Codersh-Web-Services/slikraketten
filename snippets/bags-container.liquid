@@ -169,8 +169,8 @@
                   <a href="#" @click="bag.editBag()" data-bs-toggle="modal" data-bs-target="#Slide-Left-Second">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
-                      width="19"
-                      height="19"
+                      width="17"
+                      height="17"
                       viewBox="0 0 19 19"
                       fill="none"
                     >
@@ -274,7 +274,7 @@
                 <div class="name">
                   <h6>${item.title}</h6>
                   <span style="color: #f280b2;">${item.amount}pcs</span>
-                  <span style="color: #bf3fb4;">${item.weight}g</span>
+                  <span style="color: #bf3fb4; margin-left: 0.3rem;">${item.weight}g</span>
                 </div>
               </div>
               <div class="btn_group">
@@ -408,7 +408,7 @@
   }
 
   .candy-container .edit a {
-    padding: 0.5rem 0.3rem;
+    padding: 0.4rem 0.3rem;
     background-color: #c395c0;
     border-radius: 5px;
     color: #fff;
@@ -447,7 +447,7 @@
     margin: 0 auto;
     border-radius: 10px;
     text-decoration: none;
-    color: #fff;
+    color: var(--sr-black-color);
     font-weight: 600;
     font-size: 20px;
     text-transform: uppercase;
@@ -517,6 +517,10 @@
     height: 100vh;
   }
 
+  .edit-content .title {
+    margin: 0;
+  }
+
   .edit-content h6 {
     font-size: 24px;
     font-weight: 700;
@@ -529,11 +533,17 @@
 
   .edit-content .btn-add-candy {
     text-decoration: none;
-    background-color: #c394c6;
-    color: #000;
+    background-color: var(--sr-purple-color);
+    color: var(--sr-black-color);
     font-weight: 500;
-    padding: 0.5rem 2rem;
+    padding: 0.8rem 2rem;
     border-radius: 5px;
+    transition: all .35s ease-in-out;
+  }
+
+  .edit-content .btn-add-candy:hover {
+    background-color: var(--sr-light-pink-color);
+    transform: translateY(-2px); 
   }
 
   .edit-content .edit-container {
@@ -651,7 +661,7 @@
 .information .modal-body h4 {
   margin-top: 1rem;
   font-size: 1.275rem;
-  font-weight: 400;
+  font-weight: 600;
 }
 
 .information .modal-body p {

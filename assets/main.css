@@ -4,6 +4,7 @@
   --sr-purple-color: #c394c2;
   --sr-black-color: #080808;
   --sr-white-color: #f4f4f4;
+  --sr-light-grey-color: #f1f1f14a;
 }
 
 * {
@@ -319,9 +320,20 @@ body {
   font-family: 'AmsiPro', sans-serif !important;
 }
 
+h1,h2,h3,h4,h5,h6 {
+  font-family: 'AmsiPro', sans-serif !important;
+}
+
+.modal .modal-header,
+.modal .modal-body,
+.modal .modal-footer {
+  background-color: var(--sr-light-grey-color);
+}
+
 header {
   background-color: var(--sr-light-yellow-color);
   box-shadow: 0.1rem 0.5rem 1.5rem rgb(81 28 112 / 20%);
+  padding-right: 0 !important;
 }
 
 .header.fixed-top {
@@ -368,6 +380,7 @@ ul.MainNav li {
 }
 
 ul.MainNav li a {
+  position: relative;
   font-weight: 600;
   font-size: 16px;
   text-decoration: none;
@@ -376,6 +389,24 @@ ul.MainNav li a {
   text-transform: uppercase;
   letter-spacing: 0.7px;
   transition: all .35s ease-in-out;
+}
+
+ul.MainNav li a::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 1.2px;
+  bottom: -4px;
+  left: 0;
+  background-color: #a13f9f;
+  transform-origin: bottom right;
+  transition: transform 0.30s ease;
+}
+
+ul.MainNav li a:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
 }
 
 ul.MainNav li a:hover {
@@ -497,11 +528,21 @@ ul.MainNav li a:hover {
 
 .product {
   padding: 5rem 0;
+  background-color: var(--sr-light-grey-color);
 }
 
 .product-box {
   position: relative;
   cursor: pointer;
+  box-shadow: rgb(245 245 199 / 63%) 0px 18px 50px -10px;
+  border-radius: 10px;
+  transition: all .35s ease-in-out;
+}
+
+.product-box:hover {
+  transform: translateY(-2px);
+  box-shadow: rgb(195 149 194 / 69%) 0px 18px 50px -10px;
+  background: linear-gradient(to bottom, #c097c2, transparent);
 }
 
 .product-box::before {
@@ -536,6 +577,10 @@ ul.MainNav li a:hover {
 .product-box .product-detail {
   padding-bottom: 1.5rem;
   text-align: center;
+  border-bottom: 2px solid #c295c2cc;
+  border-radius: 10px;
+  box-shadow: rgb(195 149 194 / 33%) 0px 18px 50px -10px;
+  transition: all .35s ease-in-out;
 }
 
 .product-detail h4 {
@@ -584,8 +629,8 @@ ul.MainNav li a:hover {
 
 .product-box svg.icon-info {
   position: absolute;
-  top: 0;
-  right: 10px;
+  top: 13px;
+  right: 12px;
 }
 
 /* quantity selector */
@@ -596,7 +641,7 @@ ul.MainNav li a:hover {
   align-items: center;
   justify-content: space-between;
   width: 80%;
-  height: 50px;
+  padding: 0.8rem 2rem;
   background: #c367c1;
   color: #fff;
   font-size: 15px;
@@ -607,7 +652,7 @@ ul.MainNav li a:hover {
   text-decoration: none;
   text-align: center;
   border: 1px solid transparent;
-  border-radius: 10px;
+  border-radius: 5px;
   transition: all .2s ease 0s;
   transition-property: background, color;
   cursor: pointer;
@@ -642,6 +687,7 @@ ul.MainNav li a:hover {
   height: 30px;
   width: 30px;
   fill: #fff;
+  margin: 0 0.3rem;
 }
 
 
@@ -741,9 +787,26 @@ ul.MainNav li a:hover {
 /* <---------- NEWSLETTER SECTION END ----------> */
 
 .footer {
+  background: url('https://cdn.shopify.com/s/files/1/0671/4471/2493/files/footer-candy-bg.jpg?v=1669975172') #000;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-blend-mode: hard-light;
+  position: relative;
+  z-index: 1;
   padding: 5rem 0 1rem 0;
-  background-color: #121212;
   color: #f1f1f1;
+}
+
+.footer::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  background: linear-gradient( to right, #000000cf, rgba(0, 0, 0, 0.634));
+  bottom: 0;
+  z-index: -1;
 }
 
 .footer .f-logo {
@@ -779,6 +842,12 @@ footer p {
   color: #f1f1f1;
   text-decoration: none;
   font-size: 1rem;
+  display: inline-block;
+  transition: all .35s ease-in-out;
+}
+
+.footer ul li a:hover {
+  transform: scaleX(2px);
 }
 
 .fixed-bottom {
@@ -813,7 +882,7 @@ footer p {
 }
 
 .product-cart .btn-group a {
-  padding: 0.6rem 2rem;
+  padding: 0.8rem 2rem;
   border-radius: 5px;
   text-decoration: none;
   font-size: 0.95rem;
@@ -1068,6 +1137,10 @@ footer p {
 
 @media (max-width: 1200px) {
 
+  ul.MainNav li a:hover::after {
+    content: none;
+  }
+
   .navigationActive.mainHeader h1 a {
     position: absolute;
     z-index: 2;
@@ -1124,9 +1197,8 @@ footer p {
     float: left;
   }
 
-  ul.MainNav li a {
-    line-height: 80px;
-    padding: 0 1em;
+  ul.MainNav li {
+    padding: 1.7rem 1rem;
   }
 
   .mainHeader nav {
@@ -1175,6 +1247,10 @@ footer p {
     width: 100%;
   }
 
+  .newsletter::before {
+    content: none;
+  }
+
   .newsletter h3,
   .newsletter p,
   .newsletter .btn-cta {
@@ -1214,6 +1290,14 @@ footer p {
 
   .custom .item-container {
     flex-wrap: wrap;
+  }
+
+  .product-detail .qty-btn {
+    white-space: nowrap;
+  }
+
+  .qty-btn ul li a {
+    font-size: 0.7rem;
   }
 }
 
@@ -1284,5 +1368,9 @@ footer p {
     width: auto;
     max-width: max-content;
 
+  }
+
+  .product-detail .qty-btn {
+    white-space: normal;
   }
 }
