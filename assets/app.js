@@ -1,10 +1,3 @@
-// Shallow Reactive State
-
-// const store = Vue.shallowReactive({
-// 	state: {
-// 		currentbagitems: [],
-// 	}
-// })
 
 // Reactive State 
 const store = Vue.reactive({
@@ -292,14 +285,7 @@ const store = Vue.reactive({
 
 
 // App Vue
-const header = Vue.createApp({
-	delimiters: ['${', '}'],
-	data() {
-		return {
-			weekend: Date()
-		}
-	}
-}).mount('#anouncementbar')
+
 if (document.querySelector('#bags-container')) {
 
 	const BagsContainer = Vue.createApp({
