@@ -33,6 +33,13 @@ const store = Vue.reactive({
 				console.log(error)
 			})
 	},
+	calculateCartTotal() {
+		this.state.mainCart.total = 0
+		// calculate the total 
+		this.state.mainCart.bags.map((bag) => {
+			this.state.mainCart.total += bag.total
+		})
+	},
 	updatePricesAndWeights() {
 		this.state.bottomCart.total = 0
 		this.state.bottomCart.weight = 0
@@ -188,6 +195,17 @@ const store = Vue.reactive({
 								bag.total = store.state.bottomCart.total
 							}
 						})
+						store.state.mainCart.bags.map(bag => {
+							if (bagName == bag.bagName) {
+								bag.bags.map((el, i) => {
+									if (bag.bags.length == 1) {
+										store.state.mainCart.bags.splice(0, 1)
+									} else {
+										el.productId == this.productId ? bag.bags.splice(i, 1) : false
+									}
+								})
+							}
+						})
 						store.updatePricesAndWeights()
 
 					} else {
@@ -198,7 +216,6 @@ const store = Vue.reactive({
 						store.state.mainCart.total -= Number(this.price)
 
 						store.state.mainCart.bags.forEach(bag => {
-							console.log("the bag name is " + bagName)
 							if (bag.bagName == bagName) {
 								bag.total = store.state.bottomCart.total
 							}
@@ -208,30 +225,56 @@ const store = Vue.reactive({
 								product.keepcounter = this.qty
 							}
 						})
+
 						store.updatePricesAndWeights()
 					}
 				},
 				removeItem() {
+					this.qty--
+					store.state.filteredProducts.map((product, i) => {
+						if (product.id == this.productId) {
+							product.keepcounter = this.qty
+						}
+					})
 					store.state.editBag.editProducts.map((el, i) => {
 						el.productId == this.productId ? store.state.editBag.editProducts.splice(i, 1) : false
-
 					})
+					store.state.mainCart.bags.map(bag => {
+						if (bagName == bag.bagName) {
+							bag.bags.map((el, i) => {
+								if (bag.bags.length == 1) {
+									store.state.mainCart.bags.splice(0, 1)
+								} else {
+									el.productId == this.productId ? bag.bags.splice(i, 1) : false
+								}
+							})
+						}
+					})
+					store.updatePricesAndWeights()
+
+					store.calculateCartTotal()
 				},
 			})
 		})
+
+		this.state.mainCart.bags.forEach((bag, i) => {
+			if (bag.bagName == bagName) {
+				this.state.mainCart.bags.splice(i, 1)
+
+			}
+		})
+
 		this.state.mainCart.bags.push({
 			bagName, bags: newBag, total: this.state.bottomCart.total, editBag() {
 				store.editBag(bagName)
 			}
 		})
+
 		let prevmodal = new bootstrap.Modal('#CloseBag')
 		prevmodal._hideModal()
 		let modal = new bootstrap.Modal('#Slide-Left')
 		modal.toggle()
-		// calculate the total 
-		this.state.mainCart.bags.map((bag) => {
-			this.state.mainCart.total += bag.total
-		})
+		store.calculateCartTotal()
 	},
 	editBag(bagName) {
 		this.state.editBag.bagName = bagName
