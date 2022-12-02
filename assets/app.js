@@ -47,7 +47,6 @@ const store = Vue.reactive({
 		this.state.filteredProducts.map(product => {
 			let totalPrice = Number(product.variants[0].price) * product.keepcounter
 			let totalWeight = Number(product.variants[0].grams) * product.keepcounter
-			console.log(totalPrice, totalWeight)
 			this.state.bottomCart.total += totalPrice
 			this.state.bottomCart.weight += totalWeight
 			if (product.keepcounter > 0) {
@@ -67,8 +66,6 @@ const store = Vue.reactive({
 					productId: product.id,
 					increaseQuantity() {
 						this.qty++
-						console.log(this.amount)
-
 						this.amount = this.orginalAmount * this.qty
 						this.weight = this.orginalWeight * this.qty
 						store.state.filteredProducts.map((product, i) => {
@@ -163,6 +160,8 @@ const store = Vue.reactive({
 					this.amount = this.orginalAmount * this.qty
 					this.weight = this.orginalWeight * this.qty
 					store.state.mainCart.total += Number(this.price)
+					store.state.editBag.total += Number(this.price)
+
 					store.state.filteredProducts.map((product, i) => {
 						if (product.id == this.productId) {
 							product.keepcounter = this.qty
@@ -170,7 +169,6 @@ const store = Vue.reactive({
 					})
 					store.updatePricesAndWeights()
 					store.state.mainCart.bags.forEach(bag => {
-						console.log("the bag name is " + bagName)
 						if (bag.bagName == bagName) {
 							bag.total = store.state.bottomCart.total
 						}
@@ -188,9 +186,9 @@ const store = Vue.reactive({
 							}
 						})
 						store.state.mainCart.total -= Number(this.price)
+						store.state.editBag.total -= Number(this.price)
 
 						store.state.mainCart.bags.forEach(bag => {
-							console.log("the bag name is " + bagName)
 							if (bag.bagName == bagName) {
 								bag.total = store.state.bottomCart.total
 							}
@@ -214,6 +212,7 @@ const store = Vue.reactive({
 							el.productId == this.productId ? store.state.editBag.editProducts.splice(i, 1) : false
 						})
 						store.state.mainCart.total -= Number(this.price)
+						store.state.editBag.total -= Number(this.price)
 
 						store.state.mainCart.bags.forEach(bag => {
 							if (bag.bagName == bagName) {
@@ -278,10 +277,10 @@ const store = Vue.reactive({
 	},
 	editBag(bagName) {
 		this.state.editBag.bagName = bagName
-
 		this.state.mainCart.bags.map((bag, i) => {
 			if (bag.bagName == bagName) {
 				this.state.editBag.editProducts = ([...bag.bags])
+
 				store.state.filteredProducts.map((product) => {
 					product.keepcounter = 0
 
@@ -293,6 +292,8 @@ const store = Vue.reactive({
 						}
 					})
 				})
+				this.state.editBag.total = bag.total
+
 				store.updatePricesAndWeights()
 			}
 		})
@@ -301,7 +302,6 @@ const store = Vue.reactive({
 		this.state.mainCart.bags.map((bag, i) => {
 
 			if (bagName == bag.bagName) {
-				console.log(bagName)
 				this.state.mainCart.total -= bag.total
 				this.state.mainCart.bags.splice(i, 1)
 			}
@@ -375,7 +375,6 @@ if (document.querySelector('#bags-container')) {
 						})
 					})
 				})
-				console.log(finalCheckoutData)
 				axios.post('/cart/clear.js').then((response) => {
 					console.log(response)
 
@@ -504,7 +503,6 @@ if (document.querySelector('#product-box')) {
 
 			},
 			mtoggle() {
-				console.log(this.productid + " from the component")
 				store.mtoggle(this.productid)
 			},
 
