@@ -318,10 +318,17 @@ html,
 body {
   font-size: 16px !important;
   font-family: 'AmsiPro', sans-serif !important;
+  background-color: var(--sr-light-grey-color) !important;
 }
 
-h1,h2,h3,h4,h5,h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: 'AmsiPro', sans-serif !important;
+  text-transform: capitalize !important;
 }
 
 .modal .modal-header,
@@ -584,7 +591,7 @@ ul.MainNav li a:hover {
 }
 
 .product-detail h4 {
-  font-size: 15PX;
+  font-size: 15px;
   color: var(--sr-black-color);
   margin: 1.5rem 0 0.5rem 0;
   text-transform: capitalize;
@@ -644,7 +651,7 @@ ul.MainNav li a:hover {
   height: 50px;
   background: #c367c1;
   color: #fff;
-  font-size: 15px;
+  font-size: 1em;
   font-weight: 700;
   user-select: none;
   text-transform: uppercase;
@@ -672,7 +679,7 @@ ul.MainNav li a:hover {
 }
 
 .qty-btn ul li a {
-  font-size: 0.90rem;
+  font-size: 1em;
   color: var(--sr-black-color);
   font-weight: 600;
   text-decoration: none;
@@ -804,7 +811,7 @@ ul.MainNav li a:hover {
   left: 0;
   top: 0;
   width: 100%;
-  background: linear-gradient( to right, #000000cf, rgba(0, 0, 0, 0.634));
+  background: linear-gradient(to right, #000000cf, rgba(0, 0, 0, 0.634));
   bottom: 0;
   z-index: -1;
 }
@@ -1297,12 +1304,20 @@ footer p {
   }
 
   .qty-btn ul li a {
-    font-size: 0.7rem;
+    font-size: 0.8em;
   }
 }
 
 
 @media (max-width: 420px) {
+
+  .mainHeader .logo-wrap img {
+    width: 160px;
+  }
+
+  .mobile-facets__inner {
+    transition: transform 0.55s ease-in-out !important;
+  }
 
   .product-detail .btn-cta {
     white-space: nowrap;
@@ -1358,6 +1373,7 @@ footer p {
 
   .side-panel .modal-dialog {
     width: auto !important;
+    height: 82%;
   }
 
   .page-width.custom-padding {
@@ -1370,7 +1386,48 @@ footer p {
 
   }
 
+  .product {
+    padding: 3rem 0;
+  }
+
   .product-detail .qty-btn {
-    white-space: normal;
+    white-space: nowrap;
+    font-size: 0.5em;
+  }
+
+  .mobile-facets__main .facet-checkbox {
+    padding: 0.5rem 2rem 0.5rem 2.6rem !important;
+  }
+
+  .mobile-facets__close {
+    top: 0;
+  }
+
+  .mobile-facets__close svg {
+    font-size: 1.3rem !important;
+  }
+
+  .mobile-facets__header-inner {
+    text-align: left !important;
+  }
+
+  .mobile-facets__open svg {
+    width: 1.5rem !important;
+  }
+
+  span.mobile-facets__open-label.button-label.medium-hide.large-up-hide {
+    font-size: 1.4rem !important;
+  }
+
+  .product-count__text {
+    font-size: 1.25rem !important;
+  }
+
+  .item-name h5 {
+    font-size: 0.90rem;
+  }
+
+  .product-cart .weight span+span {
+    font-size: 1.1rem;
   }
 }
