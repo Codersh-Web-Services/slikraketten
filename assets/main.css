@@ -541,7 +541,6 @@ ul.MainNav li a:hover {
 .product-box {
   position: relative;
   cursor: pointer;
-  box-shadow: rgb(245 245 199 / 63%) 0px 18px 50px -10px;
   border-radius: 10px;
   transition: all .35s ease-in-out;
 }
@@ -599,7 +598,7 @@ ul.MainNav li a:hover {
 }
 
 .product-detail h3 {
-  font-size: 18PX;
+  font-size: 18px;
   color: var(--sr-light-pink-color);
   margin-bottom: 1.5rem;
   font-weight: 600;
@@ -651,7 +650,7 @@ ul.MainNav li a:hover {
   height: 50px;
   background: #c367c1;
   color: #fff;
-  font-size: 1em;
+  font-size: 0.95em;
   font-weight: 700;
   user-select: none;
   text-transform: uppercase;
@@ -676,6 +675,7 @@ ul.MainNav li a:hover {
 
 .product-detail .qty-btn {
   margin: 0 auto 1.5rem auto;
+  text-transform: capitalize;
 }
 
 .qty-btn ul li a {
@@ -683,6 +683,8 @@ ul.MainNav li a:hover {
   color: var(--sr-black-color);
   font-weight: 600;
   text-decoration: none;
+  white-space: nowrap;
+  text-transform: capitalize;
 }
 
 .qty-btn ul li:first-child a {
@@ -1048,7 +1050,7 @@ footer p {
 }
 
 .item-name h5 {
-  font-size: 1.15rem;
+  font-size: 0.95rem;
   font-weight: 700;
   color: #d938d6;
 }
@@ -1306,6 +1308,31 @@ footer p {
   .qty-btn ul li a {
     font-size: 0.8em;
   }
+  
+}
+
+@media (max-width: 700px) {
+
+  .mobile-facets__header {
+    padding: 1rem 1.5rem;
+  }
+
+  .mobile-facets__heading {
+    text-align: left;
+  }
+
+  .mobile-facets__close {
+    top: 0;
+    right: 0;
+  }
+
+  .mobile-facets__close svg v {
+    width: 1.2rem;
+  }
+
+  .facets__item .facet-checkbox {
+    padding: 1rem 1.5rem;
+  }
 }
 
 
@@ -1325,7 +1352,7 @@ footer p {
   }
 
   .qty-btn ul li a {
-    font-size: 8px;
+    font-size: 0.9em;
   }
 
   .product-cart {
@@ -1428,6 +1455,56 @@ footer p {
   }
 
   .product-cart .weight span+span {
-    font-size: 1.1rem;
+    font-size: 0.95rem;
+  }
+
+  .qty-btn .icon {
+    height: 20px;
+    width: 20px;
+  }
+
+  .product-box svg.icon-info {
+    top: 5px;
+    right: 4px;
+  }
+}
+
+@media (max-width: 320px) {
+
+  .anouncementbar p {
+    font-size: 12px;
+  }
+
+  .mainHeader .logo-wrap img {
+    width: 120px;
+  }
+
+  .navMobile {
+    top: 52px;
+  }
+
+  .hero-section {
+    margin-top: 6.3rem;
+  }
+
+  .product-box svg.icon-info {
+    top: 3px;
+    right: 3px;
+    height: 12px;
+    width: 12px;
+  }
+
+  .product-detail h3 {
+    font-size: 0.9rem;
+  }
+
+  .product-box .product-detail {
+    padding-bottom: 1rem;
+  }
+
+  .product-detail .btn-cta {
+    height: 40px;
+    padding: 0.5rem 0.1rem;
+    font-size: 0.8em;
   }
 }
