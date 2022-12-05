@@ -703,6 +703,9 @@ ul.MainNav li a:hover {
 .qty-btn .icon {
   height: 30px;
   width: 30px;
+  min-height: 30px;
+  min-width: 30px;
+
   fill: #fff;
   margin: 0 1px !important;
 }
@@ -1481,6 +1484,8 @@ footer p {
   .qty-btn .icon {
     min-height: 20px;
     min-width: 20px;
+    height: 20px;
+    width: 20px;
   }
 
   .product-box svg.icon-info {
