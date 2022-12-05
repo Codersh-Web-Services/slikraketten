@@ -489,12 +489,14 @@ if (document.querySelector('#product-box')) {
 							product.keepcounter = 0
 						}
 					})
+				} else {
+					store.state.filteredProducts.map((product, i) => {
+						if (product.id == this.productid) {
+							product.keepcounter--
+						}
+					})
 				}
-				store.state.filteredProducts.map((product, i) => {
-					if (product.id == this.productid) {
-						product.keepcounter--
-					}
-				})
+
 
 				store.state.currentbagitems.map((el, i) => {
 					el.title == this.title ?
