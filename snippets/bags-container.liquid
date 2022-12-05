@@ -8,18 +8,17 @@
             <span v-if="data.details.total">Price: DKK ${data.details.total}.00.</span>
           </div>
           <div v-if="data.details.total" class="btn-group">
-            <a href="#" class="outline-btn" data-bs-toggle="modal" data-bs-target="#AddProDuct"> WATCH YOUR BAG </a>
+            <button class="outline-btn" data-bs-toggle="modal" data-bs-target="#AddProDuct"> WATCH YOUR BAG </button>
 
-            <a
+            <button
               v-if="data.details.total >= 25"
-              href="#"
               class="solid-btn"
               data-bs-toggle="modal"
               data-bs-target="#CloseBag"
             >
               Close the Bag
-            </a>
-            <a v-else class="solid-btn" disabled> BUY FOR ${25 - data.details.total}K MORE </a>
+            </button>
+            <button v-else class="solid-btn" disabled> BUY FOR ${25 - data.details.total}K MORE </button>
           </div>
         </div>
       </div>
@@ -76,10 +75,10 @@
                 </svg>
                 <ul>
                   <li>
-                    <!-- <a href="#">Approx. 4 pieces</a> -->
+                   
                   </li>
                   <li>
-                    <a href="#">For ${product.weight} grams</a>
+                    <p class="mb-0">For ${product.weight} grams</p>
                   </li>
                 </ul>
                 <svg @click="product.increaseQuantity()" class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
@@ -129,9 +128,13 @@
           <p>You just have to name your bag so you can easily find it again</p>
           <input class="mb-4" type="text" placeholder="Enter the name of the bag" v-model="data.bagName">
           <div class="modal-btn-group">
-            <a v-if="data.bagName" href="#" @click="putInBasket()" class="put-basket-btn">PUT IN BASKET</a>
-            <a v-else disabled class="put-basket-btn">PUT IN BASKET</a>
-            <a href="#" data-bs-dismiss="modal" class="put-bag-btn">...or put more in the bag</a>
+
+            <button v-if="data.bagName"  @click="putInBasket()" class="put-basket-btn">PUT IN BASKET</button>
+            <button  v-else disabled class="put-basket-btn">PUT IN BASKET</button>
+            
+            <button data-bs-dismiss="modal" class="put-bag-btn">...or put more in the bag</button>
+
+
           </div>
         </div>
       </div>
@@ -210,7 +213,7 @@
         </div>
         <div class="modal-footer">
           <div class="mix-bag">
-            <a href="#" class="another-bag-btn" data-bs-dismiss="modal"> Mix Another Bags </a>
+            <button class="another-bag-btn" data-bs-dismiss="modal"> Mix Another Bags </button>
             <p class="text-center">or fill more in one of the bags above</p>
             <div class="order">
               <h4>Your Order</h4>
@@ -254,7 +257,9 @@
             <div class="title">
               <h6>${editBag.bagName}'s Bag</h6>
               <p>There are for DKK ${editBag.total}.00. in the bag</p>
-              <a href="#" @click="backToBasket()" class="btn-add-candy">Add more candy</a>
+
+              <button href="#" @click="backToBasket()" class="btn-add-candy">Add more candy</button>
+
             </div>
             <div class="edit-container" v-for="item in editBag.editProducts" >
               <div class="img-name">
@@ -280,20 +285,20 @@
                 </div>
               </div>
               <div class="btn_group">
-                <a href="#" @click="item.decreaseQuantity()">
+                <button @click="item.decreaseQuantity()">
                   <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
                     <path fill="#c395c2"
                         d="M64 32C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64H64zm88 200H296c13.3 0 24 10.7 24 24s-10.7 24-24 24H152c-13.3 0-24-10.7-24-24s10.7-24 24-24z">
                     </path>
                   </svg>
-                </a>
-                <a href="#" @click="item.increaseQuantity()">
+                </button>
+                <button @click="item.increaseQuantity()">
                   <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
                     <path fill="#e891be"
                         d="M64 32C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64H64zM200 344V280H136c-13.3 0-24-10.7-24-24s10.7-24 24-24h64V168c0-13.3 10.7-24 24-24s24 10.7 24 24v64h64c13.3 0 24 10.7 24 24s-10.7 24-24 24H248v64c0 13.3-10.7 24-24 24s-24-10.7-24-24z">
                     </path>
                   </svg>
-                </a>
+                </button>
               </div>
             </div>
           </div>
