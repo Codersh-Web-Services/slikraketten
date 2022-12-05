@@ -5,10 +5,10 @@
         <div class="product-cart">
           <div class="weight">
             <span v-if="data.details.weight">Gram:${data.details.weight} g.</span>
-            <span v-if="data.details.total">Price: DKK ${data.details.total}.00.</span>
+            <span v-if="data.details.total">Pris: ${data.details.total}.00. Kr.</span>
           </div>
           <div v-if="data.details.total" class="btn-group">
-            <button class="outline-btn" data-bs-toggle="modal" data-bs-target="#AddProDuct">WATCH YOUR BAG</button>
+            <button class="outline-btn" data-bs-toggle="modal" data-bs-target="#AddProDuct">SE DIN POSE</button>
 
             <button
               v-if="data.details.total >= 25"
@@ -16,9 +16,9 @@
               data-bs-toggle="modal"
               data-bs-target="#CloseBag"
             >
-              Close the Bag
+              LUK POSEN
             </button>
-            <button v-else class="solid-btn" disabled>BUY FOR ${25 - data.details.total}K MORE</button>
+            <button v-else class="solid-btn" disabled>KØB FOR ${25 - data.details.total} KR. MERE</button>
           </div>
         </div>
       </div>
@@ -133,14 +133,14 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body text-center pading">
-          <h3>moment :)</h3>
-          <p>You just have to name your bag so you can easily find it again</p>
-          <input class="mb-4" type="text" placeholder="Enter the name of the bag" v-model="data.bagName">
+          <h3>Øjeblik :)</h3>
+          <p>Du skal lige navngive din pose, så du har let ved at finde den igen</p>
+          <input class="mb-4" type="text" placeholder="Indtast navn på pose" v-model="data.bagName">
           <div class="modal-btn-group">
-            <button v-if="data.tbagName" @click="putInBasket()" class="put-basket-btn">PUT IN BASKET</button>
-            <button v-else disabled class="put-basket-btn">PUT IN BASKET</button>
+            <button v-if="data.tbagName" @click="putInBasket()" class="put-basket-btn">PUT I KURV</button>
+            <button v-else disabled class="put-basket-btn">PUT I KURV</button>
 
-            <button data-bs-dismiss="modal" class="put-bag-btn">...or put more in the bag</button>
+            <button data-bs-dismiss="modal" class="put-bag-btn">...eller put mere i posen</button>
           </div>
         </div>
       </div>
@@ -241,8 +241,11 @@
                 <b>Total</b>
                 <b>DKK ${mainCart.total}</b>
               </div>
-              <p v-if="mainCart.total < 129">The minimum order is DKK 129.00. Mix a little more :-)</p>
-              <a @click="checkOut()" href="#" class="btn-checkout">Checkout</a>
+              <p v-if="mainCart.total < {{ minimumorderamount }}">{{ minimumorder }}</p>
+              <a disabled v-if="mainCart.total < {{ minimumorderamount }}" class="btn-checkout"
+                >Checkout {{ minimumorderamount -}}
+              </a>
+              <a v-else @click="checkOut()" href class="btn-checkout">Checkout</a>
             </div>
           </div>
         </div>
