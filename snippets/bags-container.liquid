@@ -126,10 +126,15 @@
         <div class="modal-body text-center pading">
           <h3>moment :)</h3>
           <p>You just have to name your bag so you can easily find it again</p>
-          <input class="mb-4" type="text" placeholder="Enter the name of the bag" v-model="bagName">
+          <input class="mb-4" type="text" placeholder="Enter the name of the bag" v-model="data.bagName">
           <div class="modal-btn-group">
-            <button @click="putInBasket()" class="put-basket-btn">PUT IN BASKET</button>
+
+            <button v-if="data.bagName"  @click="putInBasket()" class="put-basket-btn">PUT IN BASKET</button>
+            <button  v-else disabled class="put-basket-btn">PUT IN BASKET</button>
+            
             <button data-bs-dismiss="modal" class="put-bag-btn">...or put more in the bag</button>
+
+
           </div>
         </div>
       </div>
@@ -252,7 +257,9 @@
             <div class="title">
               <h6>${editBag.bagName}'s Bag</h6>
               <p>There are for DKK ${editBag.total}.00. in the bag</p>
-              <button href="#" class="btn-add-candy">Add more candy</button>
+
+              <button href="#" @click="backToBasket()" class="btn-add-candy">Add more candy</button>
+
             </div>
             <div class="edit-container" v-for="item in editBag.editProducts" >
               <div class="img-name">

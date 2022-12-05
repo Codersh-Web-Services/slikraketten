@@ -1,10 +1,3 @@
-// Shallow Reactive State
-
-// const store = Vue.shallowReactive({
-// 	state: {
-// 		currentbagitems: [],
-// 	}
-// })
 
 // Reactive State 
 const store = Vue.reactive({
@@ -31,7 +24,6 @@ const store = Vue.reactive({
 			editProducts: []
 		}
 	},
-
 	getCart() {
 		axios.get('/cart.js')
 			.then(response => {
@@ -41,18 +33,115 @@ const store = Vue.reactive({
 				console.log(error)
 			})
 	},
+	calculateCartTotal() {
+		this.state.mainCart.total = 0
+		// calculate the total 
+		this.state.mainCart.bags.map((bag) => {
+			this.state.mainCart.total += bag.total
+		})
+	},
+	updatePricesAndWeights() {
+		this.state.bottomCart.total = 0
+		this.state.bottomCart.weight = 0
+		store.state.currentbagitems.length = 0
+		this.state.filteredProducts.map(product => {
+			let totalPrice = Number(product.variants[0].price) * product.keepcounter
+			let totalWeight = Number(product.variants[0].grams) * product.keepcounter
+			this.state.bottomCart.total += totalPrice
+			this.state.bottomCart.weight += totalWeight
+			if (product.keepcounter > 0) {
+				product.added = true
+				store.state.currentbagitems.unshift({
+
+					image: product.images[0].src,
+					title: product.title,
+					weight: product.variants[0].grams * product.keepcounter,
+					orginalWeight: product.variants[0].grams,
+					id: product.variants[0].id,
+					desc: product.desc,
+					price: product.variants[0].price,
+					orginalAmount: product.amount,
+					amount: product.amount * product.keepcounter,
+					qty: product.keepcounter,
+					productId: product.id,
+					increaseQuantity() {
+						this.qty++
+						this.amount = this.orginalAmount * this.qty
+						this.weight = this.orginalWeight * this.qty
+						store.state.filteredProducts.map((product, i) => {
+							if (product.id == this.productId) {
+								product.keepcounter = this.qty
+							}
+						})
+						store.updatePricesAndWeights()
+
+					},
+					decreaseQuantity() {
+						if (this.qty > 1) {
+							this.qty--
+							this.amount = this.orginalAmount * this.qty
+							this.weight = this.orginalWeight * this.qty
+							store.state.filteredProducts.map((product, i) => {
+								if (product.id == this.productId) {
+									product.keepcounter = this.qty
+								}
+							})
+							store.updatePricesAndWeights()
+
+						} else {
+							this.qty--
+
+							store.state.filteredProducts.map((product, i) => {
+								if (product.id == this.productId) {
+									product.keepcounter = this.qty
+								}
+							})
+							store.state.currentbagitems.map((el, i) => {
+								el.productId == this.productId ? store.state.currentbagitems.splice(i, 1) : false
+							})
+
+							store.updatePricesAndWeights()
+
+						}
+					},
+					removeProduct() {
+						this.qty = 0
+						store.state.filteredProducts.map((product, i) => {
+							if (product.id == this.productId) {
+								product.keepcounter = this.qty
+							}
+						})
+						store.updatePricesAndWeights()
+
+						store.state.currentbagitems.map((el, i) => {
+							el.productId == this.productId ? store.state.currentbagitems.splice(i, 1) : false
+						})
+					},
+					mtoggle() {
+						store.mtoggle(this.productId)
+					}
+				})
+			}
+			else {
+				product.added = false
+			}
+
+		})
+	},
+	// fetch products from collection 
 	getProducts() {
 		axios.get('/collections/frontpage/products.json')
 			.then((response) => {
 				response.data.products.forEach(element => {
 					let { body_html: desc, title, variants, images, vendor, tags, id } = element
-					this.state.filteredProducts.unshift({ desc, title, id, variants, images, vendor, tags, show: true })
-					this.state.products.unshift({ desc, id, title, variants, images, vendor, tags, show: true })
+					this.state.filteredProducts.unshift({ desc, title, id, variants, images, vendor, tags, show: true, keepcounter: 0, added: false })
+					this.state.products.unshift({ desc, id, title, variants, images, vendor, tags, show: true, keepcounter: 0, added: false })
 				});
 			})
 			.catch(error =>
 				console.log(error))
 	},
+	// bag mutations
 	setBag(bagName) {
 		let newBag = []
 		store.state.currentbagitems.map(item => {
@@ -64,14 +153,26 @@ const store = Vue.reactive({
 				image: item.image, qty: item.qty,
 				weight: item.weight,
 				amount: item.amount,
-				productId: item.productid,
-				id: item.id, increaseQuantity() {
+				productId: item.productId,
+				id: item.id,
+				increaseQuantity() {
 					this.qty++
 					this.amount = this.orginalAmount * this.qty
 					this.weight = this.orginalWeight * this.qty
-					store.state.bottomCart.total += Number(this.price)
-					store.state.bottomCart.weight += this.orginalWeight
+					store.state.mainCart.total += Number(this.price)
+					store.state.editBag.total += Number(this.price)
 
+					store.state.filteredProducts.map((product, i) => {
+						if (product.id == this.productId) {
+							product.keepcounter = this.qty
+						}
+					})
+					store.updatePricesAndWeights()
+					store.state.mainCart.bags.forEach(bag => {
+						if (bag.bagName == bagName) {
+							bag.total = store.state.bottomCart.total
+						}
+					})
 				}
 				,
 				decreaseQuantity() {
@@ -79,57 +180,137 @@ const store = Vue.reactive({
 						this.qty--
 						this.amount = this.orginalAmount * this.qty
 						this.weight = this.orginalWeight * this.qty
-						store.state.bottomCart.total -= Number(this.price)
-						store.state.bottomCart.weight -= this.orginalWeight
+
+						store.state.mainCart.total -= Number(this.price)
+						store.state.editBag.total -= Number(this.price)
+
+						store.state.filteredProducts.map((product, i) => {
+							if (product.id == this.productId) {
+								product.keepcounter = this.qty
+							}
+						})
+						store.updatePricesAndWeights()
+						store.state.mainCart.bags.forEach(bag => {
+							if (bag.bagName == bagName) {
+								bag.total = store.state.bottomCart.total
+							}
+						})
+
 
 					} else {
 						this.qty--
+						store.state.mainCart.total -= Number(this.price)
+						store.state.editBag.total -= Number(this.price)
 						store.state.editBag.editProducts.map((el, i) => {
 							el.productId == this.productId ? store.state.editBag.editProducts.splice(i, 1) : false
 						})
 
+						store.state.mainCart.bags.forEach(bag => {
+							if (bag.bagName == bagName) {
+								bag.total = store.state.bottomCart.total
+							}
+						})
+						store.state.mainCart.bags.map(bag => {
+							if (bagName == bag.bagName) {
+								bag.bags.map((el, i) => {
+									if (bag.bags.length == 1) {
+										store.state.mainCart.bags.splice(0, 1)
+									}
+								})
+							}
+						})
+						store.state.filteredProducts.map((product, i) => {
+							if (product.id == this.productId) {
+								product.keepcounter = this.qty
+							}
+						})
+
+						store.updatePricesAndWeights()
 					}
 				},
 				removeItem() {
+					store.state.mainCart.total -= Number(this.price) * this.qty
+					store.state.editBag.total -= Number(this.price) * this.qty
+					this.qty = 0
+					store.state.filteredProducts.map((product, i) => {
+						if (product.id == this.productId) {
+							product.keepcounter = this.qty
+						}
+					})
 					store.state.editBag.editProducts.map((el, i) => {
 						el.productId == this.productId ? store.state.editBag.editProducts.splice(i, 1) : false
 					})
+					store.state.mainCart.bags.map(bag => {
+						if (bagName == bag.bagName) {
+							bag.bags.map((el, i) => {
+								if (bag.bags.length == 1) {
+									store.state.mainCart.bags.splice(0, 1)
+								} else {
+									el.productId == this.productId ? bag.bags.splice(i, 1) : false
+								}
+							})
+						}
+					})
+					store.updatePricesAndWeights()
+
+					store.calculateCartTotal()
 				},
 			})
 		})
+
+		this.state.mainCart.bags.forEach((bag, i) => {
+			if (bag.bagName == bagName) {
+				this.state.mainCart.bags.splice(i, 1)
+
+			}
+		})
+
 		this.state.mainCart.bags.push({
 			bagName, bags: newBag, total: this.state.bottomCart.total, editBag() {
 				store.editBag(bagName)
 			}
 		})
+
 		let prevmodal = new bootstrap.Modal('#CloseBag')
 		prevmodal._hideModal()
 		let modal = new bootstrap.Modal('#Slide-Left')
 		modal.toggle()
-		// calculate the total 
-		this.state.mainCart.bags.map((bag) => {
-			this.state.mainCart.total += bag.total
-		})
+		store.calculateCartTotal()
 	},
 	editBag(bagName) {
 		this.state.editBag.bagName = bagName
-
 		this.state.mainCart.bags.map((bag, i) => {
 			if (bag.bagName == bagName) {
 				this.state.editBag.editProducts = ([...bag.bags])
+
+				store.state.filteredProducts.map((product) => {
+					product.keepcounter = 0
+
+				})
+				bag.bags.forEach(bagProduct => {
+					store.state.filteredProducts.map((product) => {
+						if (product.id == bagProduct.productId) {
+							product.keepcounter = bagProduct.qty
+						}
+					})
+				})
+				this.state.editBag.total = bag.total
+
+				store.updatePricesAndWeights()
 			}
 		})
 	},
 	removeBag(bagName) {
 		this.state.mainCart.bags.map((bag, i) => {
-			console.log(bagName, bag.bagName)
 
 			if (bagName == bag.bagName) {
-				console.log(bagName)
 				this.state.mainCart.total -= bag.total
 				this.state.mainCart.bags.splice(i, 1)
 			}
 		})
+		this.state.filteredProducts.forEach(product => product.keepcounter = 0)
+		store.updatePricesAndWeights()
+
 	},
 	mtoggle(productID) {
 		this.state.filteredProducts.map(product => {
@@ -149,14 +330,7 @@ const store = Vue.reactive({
 
 
 // App Vue
-const header = Vue.createApp({
-	delimiters: ['${', '}'],
-	data() {
-		return {
-			weekend: Date()
-		}
-	}
-}).mount('#anouncementbar')
+
 if (document.querySelector('#bags-container')) {
 
 	const BagsContainer = Vue.createApp({
@@ -167,7 +341,7 @@ if (document.querySelector('#bags-container')) {
 					details: store.state.bottomCart,
 					bags: store.state.currentbagitems,
 					modalData: store.state.modalData,
-					bagName: "Jamie's bag"
+					bagName: ""
 				},
 				mainCart: store.state.mainCart,
 				editBag: store.state.editBag
@@ -175,7 +349,7 @@ if (document.querySelector('#bags-container')) {
 		},
 		methods: {
 			putInBasket() {
-				store.setBag(this.bagName)
+				store.setBag(this.data.bagName)
 				// after the bags are set remove the currentbag items using pop
 			},
 			removeBag(bag) {
@@ -187,6 +361,7 @@ if (document.querySelector('#bags-container')) {
 				prevmodal._hideModal()
 
 			},
+
 			checkOut() {
 				finalCheckoutData = {
 					items: []
@@ -202,13 +377,16 @@ if (document.querySelector('#bags-container')) {
 						})
 					})
 				})
-				console.log(finalCheckoutData)
-				axios.post('/cart/add.js', finalCheckoutData).then((response) => {
+				axios.post('/cart/clear.js').then((response) => {
 					console.log(response)
-					window.location.pathname = "/checkout"
 
-				}).catch((er) => {
-					console.log(er)
+					axios.post('/cart/add.js', finalCheckoutData).then((response) => {
+						console.log(response)
+						window.location.pathname = "/checkout"
+
+					}).catch((er) => {
+						console.log(er)
+					})
 				})
 			}
 		}
@@ -229,45 +407,42 @@ if (document.querySelector('#product-box')) {
 		created() {
 			(async () => {
 				await store.getProducts()
-				console.log(this.products)
 			})()
 		},
 
 	})
-	productbox.component('filter-component', {
-		template: '#filter-component',
-		delimiters: ['${', '}'],
-		props: ['name'],
-		data: function () {
-			return {
-			}
-		},
-		methods: {
-			filterProducts() {
+	productbox.component('filter-component',
+		{
+			template: '#filter-component',
+			delimiters: ['${', '}'],
+			props: ['name'],
+			data: function () {
+				return {
+				}
+			},
+			methods: {
+				filterProducts() {
 
-				store.state.filteredProducts.map((el, i) => {
-					store.state.filteredProducts[i].show = false
-					for (let tag of el.tags) {
-						if (tag == this.name.toLowerCase()) {
-							store.state.filteredProducts[i].show = true
-							break
+					store.state.filteredProducts.map((el, i) => {
+						store.state.filteredProducts[i].show = false
+						for (let tag of el.tags) {
+							if (tag == this.name.toLowerCase()) {
+								store.state.filteredProducts[i].show = true
+								break
+							}
 						}
-					}
-				})
+					})
+				}
 			}
-		}
-	})
+		})
 	productbox.component('product-component', {
 		template: '#product-component',
 		delimiters: ['${', '}'],
 
-		props: ['image', "title", "vendor", "desc", "id", "weight", "price", "tags", "show", "productid"],
+		props: ['image', "title", "vendor", "desc", "id", "weight", "price", "tags", "show", "productid", "keepcounter", "added"],
 		data() {
 			return {
-				counter: 0,
-				added: false,
 				amount: 0,
-
 			}
 		},
 		mounted() {
@@ -276,105 +451,81 @@ if (document.querySelector('#product-box')) {
 					this.amount = el.split("__")[1]
 				}
 			})
+			store.state.filteredProducts.map(product => {
+				if (product.id == this.productid) {
+					product.amount = this.amount
+				}
+			})
 
 		},
 
 		methods: {
 			increaseQuantity() {
-				this.counter += 1
-				store.state.bottomCart.total += Number(this.price)
-				store.state.bottomCart.weight += this.weight
+				console.log(this.keepcounter)
+				store.state.filteredProducts.map((product, i) => {
+					if (product.id == this.productid) {
+						product.keepcounter++
+					}
+				})
 				store.state.currentbagitems.map((el, i) => {
 					el.title == this.title ?
-						store.state.currentbagitems[i].weight = this.counter * this.weight : false
+						store.state.currentbagitems[i].weight = this.keepcounter * this.weight : false
 					el.title == this.title ?
-						store.state.currentbagitems[i].amount = Number(this.amount) * Number(this.counter) : false
+						store.state.currentbagitems[i].amount = Number(this.amount) * Number(this.keepcounter) : false
 					el.title == this.title ?
-						store.state.currentbagitems[i].qty = Number(this.counter) : false
+						store.state.currentbagitems[i].qty = Number(this.keepcounter) : false
 				})
+
+				store.updatePricesAndWeights()
+
 			},
 			decreaseQuantity() {
-				if (this.counter == 1) {
-					this.added = false
+				if (this.keepcounter == 1) {
+
 					store.state.currentbagitems.map((el, i) => {
 						el.title == this.title ? store.state.currentbagitems.splice(i, 1) : false
 					})
+					store.state.filteredProducts.map((product, i) => {
+						if (product.id == this.productid) {
+							product.keepcounter = 0
+							product.added = false
+						}
+					})
+				} else {
+					store.state.filteredProducts.map((product, i) => {
+						if (product.id == this.productid) {
+							product.keepcounter--
+						}
+					})
 				}
-				this.counter -= 1
-				store.state.bottomCart.total -= Number(this.price)
-				store.state.bottomCart.weight -= this.weight
+
+
 				store.state.currentbagitems.map((el, i) => {
 					el.title == this.title ?
-						store.state.currentbagitems[i].weight = this.counter * this.weight : false
+						store.state.currentbagitems[i].weight = this.keepcounter * this.weight : false
 					el.title == this.title ?
-						store.state.currentbagitems[i].amount = Number(this.amount) * Number(this.counter) : false
+						store.state.currentbagitems[i].amount = Number(this.amount) * Number(this.keepcounter) : false
 					el.title == this.title ?
-						store.state.currentbagitems[i].qty = Number(this.counter) : false
+						store.state.currentbagitems[i].qty = Number(this.keepcounter) : false
 				})
+
+				store.updatePricesAndWeights()
+
 			},
 			mtoggle() {
-				console.log(this.productid + " from the component")
 				store.mtoggle(this.productid)
 			},
-
 			putInBag() {
-				this.counter += 1
-				this.added = true
 
-				store.state.bottomCart.total += Number(this.price)
-				store.state.bottomCart.weight += this.weight
-				store.state.currentbagitems.unshift({
-
-					image: this.image,
-					title: this.title,
-					weight: this.weight,
-					orginalWeight: this.weight,
-					id: this.id,
-					desc: this.desc,
-					price: this.price,
-					orginalAmount: this.amount,
-					amount: this.amount,
-					qty: this.counter,
-					productId: this.productid,
-					increaseQuantity() {
-						this.qty++
-						this.amount = this.orginalAmount * this.qty
-						this.weight = this.orginalWeight * this.qty
-						store.state.bottomCart.total += Number(this.price)
-						store.state.bottomCart.weight += this.orginalWeight
-
-					},
-					decreaseQuantity() {
-						if (this.qty > 1) {
-							this.qty--
-							this.amount = this.orginalAmount * this.qty
-							this.weight = this.orginalWeight * this.qty
-							store.state.bottomCart.total -= Number(this.price)
-							store.state.bottomCart.weight -= this.orginalWeight
-							store.state.filteredProducts.map((el, i) => {
-								el.id == this.productId ? el.countercurrent = this.qty
-									: false
-								console.log(el)
-							})
-						} else {
-							this.qty--
-
-							store.state.currentbagitems.map((el, i) => {
-								el.productId == this.productId ? store.state.currentbagitems.splice(i, 1) : false
-							})
-
-
-						}
-					},
-					removeProduct() {
-						store.state.currentbagitems.map((el, i) => {
-							el.productId == this.productId ? store.state.currentbagitems.splice(i, 1) : false
-						})
-					},
-					mtoggle() {
-						store.mtoggle(this.productId)
+				store.state.filteredProducts.map((product, i) => {
+					if (product.id == this.productid) {
+						product.keepcounter++
+						product.added = true
 					}
 				})
+				
+				store.updatePricesAndWeights()
+
 			}
 		}
 	})
