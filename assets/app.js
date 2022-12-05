@@ -481,13 +481,14 @@ if (document.querySelector('#product-box')) {
 			},
 			decreaseQuantity() {
 				if (this.keepcounter == 1) {
-					this.added = false
+
 					store.state.currentbagitems.map((el, i) => {
 						el.title == this.title ? store.state.currentbagitems.splice(i, 1) : false
 					})
 					store.state.filteredProducts.map((product, i) => {
 						if (product.id == this.productid) {
 							product.keepcounter = 0
+							product.added = false
 						}
 					})
 				} else {
@@ -519,9 +520,10 @@ if (document.querySelector('#product-box')) {
 				store.state.filteredProducts.map((product, i) => {
 					if (product.id == this.productid) {
 						product.keepcounter++
+						product.added = true
 					}
 				})
-				this.added = true
+				
 				store.updatePricesAndWeights()
 
 			}
