@@ -331,6 +331,10 @@ h6 {
   text-transform: capitalize !important;
 }
 
+button {
+  border: none;
+}
+
 .modal .modal-header,
 .modal .modal-body,
 .modal .modal-footer {
@@ -678,7 +682,7 @@ ul.MainNav li a:hover {
   text-transform: capitalize;
 }
 
-.qty-btn ul li a {
+.qty-btn ul li p {
   font-size: 1em;
   color: var(--sr-black-color);
   font-weight: 600;
@@ -890,7 +894,7 @@ footer p {
   font-size: 1.2rem;
 }
 
-.product-cart .btn-group a {
+.product-cart .btn-group button {
   padding: 0.8rem 2rem;
   border-radius: 5px;
   text-decoration: none;
@@ -1096,7 +1100,7 @@ footer p {
   opacity: 0.95;
 }
 
-.modal-body .modal-btn-group a {
+.modal-body .modal-btn-group button {
   display: block;
   width: 100%;
   padding: 0.90rem 0;
@@ -1243,7 +1247,7 @@ footer p {
     justify-content: space-between;
   }
 
-  .product-cart .btn-group a {
+  .product-cart .btn-group button {
     padding: 0.6rem;
   }
 
@@ -1305,7 +1309,7 @@ footer p {
     white-space: nowrap;
   }
 
-  .qty-btn ul li a {
+  .qty-btn ul li p {
     font-size: 0.8em;
   }
   
@@ -1326,7 +1330,7 @@ footer p {
     right: 0;
   }
 
-  .mobile-facets__close svg v {
+  .mobile-facets__close svg {
     width: 1.2rem;
   }
 
@@ -1351,7 +1355,7 @@ footer p {
     padding: 0.8rem 0.4rem;
   }
 
-  .qty-btn ul li a {
+  .qty-btn ul li p {
     font-size: 0.9em;
   }
 
@@ -1372,7 +1376,7 @@ footer p {
     margin-top: 1rem;
   }
 
-  .product-cart .btn-group a {
+  .product-cart .btn-group button {
     padding: 0.6rem;
   }
 
@@ -1459,8 +1463,8 @@ footer p {
   }
 
   .qty-btn .icon {
-    height: 20px;
-    width: 20px;
+    min-height: 20px;
+    min-width: 20px;
   }
 
   .product-box svg.icon-info {
@@ -1508,7 +1512,7 @@ footer p {
     font-size: 0.8em;
   }
 
-  .product-detail .qty-btn ul li a {
+  .product-detail .qty-btn ul li p {
     white-space: normal;
   } 
 }
