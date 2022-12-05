@@ -441,9 +441,7 @@ if (document.querySelector('#product-box')) {
 		props: ['image', "title", "vendor", "desc", "id", "weight", "price", "tags", "show", "productid", "keepcounter", "added"],
 		data() {
 			return {
-				counter: 0,
 				amount: 0,
-
 			}
 		},
 		mounted() {
@@ -462,45 +460,51 @@ if (document.querySelector('#product-box')) {
 
 		methods: {
 			increaseQuantity() {
-				this.counter += 1
-				store.state.currentbagitems.map((el, i) => {
-					el.title == this.title ?
-						store.state.currentbagitems[i].weight = this.counter * this.weight : false
-					el.title == this.title ?
-						store.state.currentbagitems[i].amount = Number(this.amount) * Number(this.counter) : false
-					el.title == this.title ?
-						store.state.currentbagitems[i].qty = Number(this.counter) : false
-				})
+				console.log(this.keepcounter)
 				store.state.filteredProducts.map((product, i) => {
 					if (product.id == this.productid) {
-						product.keepcounter = this.counter
+						product.keepcounter++
 					}
 				})
+				store.state.currentbagitems.map((el, i) => {
+					el.title == this.title ?
+						store.state.currentbagitems[i].weight = this.keepcounter * this.weight : false
+					el.title == this.title ?
+						store.state.currentbagitems[i].amount = Number(this.amount) * Number(this.keepcounter) : false
+					el.title == this.title ?
+						store.state.currentbagitems[i].qty = Number(this.keepcounter) : false
+				})
+
 				store.updatePricesAndWeights()
 
 			},
 			decreaseQuantity() {
-				if (this.counter == 1) {
+				if (this.keepcounter == 1) {
 					this.added = false
 					store.state.currentbagitems.map((el, i) => {
 						el.title == this.title ? store.state.currentbagitems.splice(i, 1) : false
 					})
+					store.state.filteredProducts.map((product, i) => {
+						if (product.id == this.productid) {
+							product.keepcounter = 0
+						}
+					})
 				}
-				this.counter -= 1
+				store.state.filteredProducts.map((product, i) => {
+					if (product.id == this.productid) {
+						product.keepcounter--
+					}
+				})
 
 				store.state.currentbagitems.map((el, i) => {
 					el.title == this.title ?
-						store.state.currentbagitems[i].weight = this.counter * this.weight : false
+						store.state.currentbagitems[i].weight = this.keepcounter * this.weight : false
 					el.title == this.title ?
-						store.state.currentbagitems[i].amount = Number(this.amount) * Number(this.counter) : false
+						store.state.currentbagitems[i].amount = Number(this.amount) * Number(this.keepcounter) : false
 					el.title == this.title ?
-						store.state.currentbagitems[i].qty = Number(this.counter) : false
+						store.state.currentbagitems[i].qty = Number(this.keepcounter) : false
 				})
-				store.state.filteredProducts.map((product, i) => {
-					if (product.id == this.productid) {
-						product.keepcounter = this.counter
-					}
-				})
+
 				store.updatePricesAndWeights()
 
 			},
@@ -509,20 +513,14 @@ if (document.querySelector('#product-box')) {
 			},
 
 			putInBag() {
-				this.counter += 1
-				this.added = true
-				store.state.filteredProducts.map((product, i) => {
-					if (product.id == this.productid) {
-						product.keepcounter = this.counter
-					}
-				})
-				store.updatePricesAndWeights()
 
 				store.state.filteredProducts.map((product, i) => {
 					if (product.id == this.productid) {
-						product.keepcounter = this.counter
+						product.keepcounter++
 					}
 				})
+				this.added = true
+				store.updatePricesAndWeights()
 
 			}
 		}
