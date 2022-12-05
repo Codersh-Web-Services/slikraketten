@@ -127,9 +127,10 @@
         <div class="modal-body text-center pading">
           <h3>moment :)</h3>
           <p>You just have to name your bag so you can easily find it again</p>
-          <input class="mb-4" type="text" placeholder="Enter the name of the bag" v-model="bagName">
+          <input class="mb-4" type="text" placeholder="Enter the name of the bag" v-model="data.bagName">
           <div class="modal-btn-group">
-            <a href="#" @click="putInBasket()" class="put-basket-btn">PUT IN BASKET</a>
+            <a v-if="data.bagName" href="#" @click="putInBasket()" class="put-basket-btn">PUT IN BASKET</a>
+            <a v-else disabled class="put-basket-btn">PUT IN BASKET</a>
             <a href="#" data-bs-dismiss="modal" class="put-bag-btn">...or put more in the bag</a>
           </div>
         </div>

@@ -341,7 +341,7 @@ if (document.querySelector('#bags-container')) {
 					details: store.state.bottomCart,
 					bags: store.state.currentbagitems,
 					modalData: store.state.modalData,
-					bagName: "Jamie's bag"
+					bagName: ""
 				},
 				mainCart: store.state.mainCart,
 				editBag: store.state.editBag
@@ -349,7 +349,7 @@ if (document.querySelector('#bags-container')) {
 		},
 		methods: {
 			putInBasket() {
-				store.setBag(this.bagName)
+				store.setBag(this.data.bagName)
 				// after the bags are set remove the currentbag items using pop
 			},
 			removeBag(bag) {
@@ -411,29 +411,30 @@ if (document.querySelector('#product-box')) {
 		},
 
 	})
-	productbox.component('filter-component', {
-		template: '#filter-component',
-		delimiters: ['${', '}'],
-		props: ['name'],
-		data: function () {
-			return {
-			}
-		},
-		methods: {
-			filterProducts() {
+	productbox.component('filter-component',
+		{
+			template: '#filter-component',
+			delimiters: ['${', '}'],
+			props: ['name'],
+			data: function () {
+				return {
+				}
+			},
+			methods: {
+				filterProducts() {
 
-				store.state.filteredProducts.map((el, i) => {
-					store.state.filteredProducts[i].show = false
-					for (let tag of el.tags) {
-						if (tag == this.name.toLowerCase()) {
-							store.state.filteredProducts[i].show = true
-							break
+					store.state.filteredProducts.map((el, i) => {
+						store.state.filteredProducts[i].show = false
+						for (let tag of el.tags) {
+							if (tag == this.name.toLowerCase()) {
+								store.state.filteredProducts[i].show = true
+								break
+							}
 						}
-					}
-				})
+					})
+				}
 			}
-		}
-	})
+		})
 	productbox.component('product-component', {
 		template: '#product-component',
 		delimiters: ['${', '}'],
@@ -513,7 +514,6 @@ if (document.querySelector('#product-box')) {
 			mtoggle() {
 				store.mtoggle(this.productid)
 			},
-
 			putInBag() {
 
 				store.state.filteredProducts.map((product, i) => {
