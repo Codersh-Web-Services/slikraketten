@@ -166,7 +166,7 @@
               <div class="title">
                 <h6>${bag.bagName}</h6>
                 <div class="edit">
-                  <a href="#" @click="bag.editBag()" data-bs-toggle="modal" data-bs-target="#Slide-Left-Second">
+                  <button type="button" @click="bag.editBag()" data-bs-toggle="modal" data-bs-target="#Slide-Left-Second">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       width="17"
@@ -182,7 +182,7 @@
                           fill="white" />
                     </svg>
                     View & Edit
-                  </a>
+                  </button>
                   <svg
                     @click="removeBag(bag.bagName)"
                     class="delete"
@@ -234,7 +234,8 @@
     </div>
   </div>
 
-  <div class="modal edit-item" id="Slide-Left-Second">
+  <div class="edit-item">
+  <div class="modal" id="Slide-Left-Second">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
         <div class="modal-header">
@@ -299,6 +300,7 @@
       </div>
     </div>
   </div>
+</div>
 
    <!-- Cart Information Modal -->
    <div class="modal fade" id="InfoModal" tabindex="-1" aria-labelledby="infoModalLabel" aria-hidden="true">
@@ -407,7 +409,7 @@
     font-weight: 700;
   }
 
-  .candy-container .edit a {
+  .candy-container .edit button {
     padding: 0.4rem 0.3rem;
     background-color: #c395c0;
     border-radius: 5px;
@@ -415,10 +417,15 @@
     text-decoration: none;
     font-size: 12px;
     font-weight: 600;
+    border: 0;
   }
 
   .candy-container .edit .delete {
     margin-left: 0.5rem;
+  }
+
+  .candy-container .price b {
+    font-size: 1.3rem;
   }
 
   .side-panel .modal-footer {
@@ -508,7 +515,7 @@
     left: auto;
   }
 
-  .modal.edit-item.show .modal-dialog {
+  .edit-item .modal.show .modal-dialog {
     right: -1px;
     transition: right 0.8s ease;
   }
