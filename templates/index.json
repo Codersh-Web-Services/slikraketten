@@ -3,8 +3,12 @@
     "4333adec-b447-4e7f-8f05-25fe3ce5c2a2": {
       "type": "home-page",
       "settings": {
+        "herotext": "<p>Mix Candies<\/p>",
         "herolink": "shopify:\/\/collections\/candies",
-        "registerlink": ""
+        "registerlink": "",
+        "ordertext": "OrderNow",
+        "mixtitle": "Mix Candies",
+        "mixtitle2": "Mix more"
       }
     }
   },
