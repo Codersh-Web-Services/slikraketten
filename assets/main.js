@@ -20,7 +20,13 @@ window.addEventListener("resize", () => {
 });
 
 try {
-  document.querySelector(".mobile-facets__disclosure").addEventListener("click", (e) => document.querySelector(".mobile-facets__disclosure").classList.toggle("menu-opening"))
+  document.querySelector(".mobile-facets__disclosure").addEventListener("click", (e) => document.querySelector(".mobile-facets__disclosure").classList.toggle("menu-opening")
+  )
+
+  document.querySelector(".mobile-facets__inner").addEventListener("click", (e) =>
+    document.querySelector(".mobile-facets__disclosure").removeAttribute("open")
+  )
+
 } catch (error) {
   // console.log(error)
 }

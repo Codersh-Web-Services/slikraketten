@@ -23,7 +23,7 @@ padding-bottom: {{ section.settings.padding_bottom }}px;
     <aside aria-labelledby="verticalTitle" class="facets-wrapper" id="main-collection-filters"
       data-id="template--16973864698157__product-grid">
 
-      {% render 'facets', results: collection, enable_filtering: section.settings.enable_filtering, enable_sorting: section.settings.enable_sorting, filter_type: section.settings.filter_type %}
+      {% render 'facets', results: collection, enable_filtering: section.settings.enable_filtering, enable_sorting: true, filter_type: section.settings.filter_type %}
      
     </aside>
     <div class="product-grid-container" >
@@ -144,12 +144,7 @@ padding-bottom: {{ section.settings.padding_bottom }}px;
       "label": "t:sections.main-collection-product-grid.settings.filter_type.label",
       "info": "t:sections.main-collection-product-grid.settings.filter_type.info"
     },
-    {
-      "type": "checkbox",
-      "id": "enable_sorting",
-      "default": true,
-      "label": "t:sections.main-collection-product-grid.settings.enable_sorting.label"
-    },
+
     {
       "type": "header",
       "content": "t:sections.main-collection-product-grid.settings.header_mobile.content"

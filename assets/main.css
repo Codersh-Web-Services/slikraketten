@@ -700,7 +700,7 @@ ul.MainNav li a:hover {
   height: 30px;
   width: 30px;
   fill: #fff;
-  margin: 0 0.3rem !important;
+  margin: 0 1px !important;
 }
 
 
@@ -1312,7 +1312,7 @@ footer p {
   .qty-btn ul li p {
     font-size: 0.8em;
   }
-  
+
 }
 
 @media (max-width: 700px) {
@@ -1341,6 +1341,15 @@ footer p {
 
 
 @media (max-width: 420px) {
+
+  .item-container .qty-btn,
+  .product-detail .qty-btn {
+    width: 90%;
+  }
+
+  .page-width {
+    padding: 0 0.5em;
+  }
 
   .mainHeader .logo-wrap img {
     width: 160px;
@@ -1514,5 +1523,5 @@ footer p {
 
   .product-detail .qty-btn ul li p {
     white-space: normal;
-  } 
+  }
 }
