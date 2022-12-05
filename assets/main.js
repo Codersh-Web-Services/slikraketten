@@ -18,4 +18,9 @@ window.addEventListener("resize", () => {
     document.body.classList.remove("resize-animation-stopper");
   }, 400);
 });
-document.querySelector(".mobile-facets__disclosure").addEventListener("click", (e) => document.querySelector(".mobile-facets__disclosure").classList.toggle("menu-opening"))
+
+try {
+  document.querySelector(".mobile-facets__disclosure").addEventListener("click", (e) => document.querySelector(".mobile-facets__disclosure").classList.toggle("menu-opening"))
+} catch (error) {
+  // console.log(error)
+}
