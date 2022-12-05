@@ -23,7 +23,7 @@ padding-bottom: {{ section.settings.padding_bottom }}px;
     <aside aria-labelledby="verticalTitle" class="facets-wrapper" id="main-collection-filters"
       data-id="template--16973864698157__product-grid">
 
-      {% render 'facets', results: collection, enable_filtering: section.settings.enable_filtering, enable_sorting: section.settings.enable_sorting, filter_type: section.settings.filter_type %}
+      {% render 'facets', results: collection, enable_filtering: true, enable_sorting: false, filter_type: "vertical" %}
      
     </aside>
     <div class="product-grid-container" >
