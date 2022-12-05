@@ -135,16 +135,13 @@
             }
           }
         },
-        "block_order": [
-          "announcement-bar-0"
-        ],
-        "settings": {
-        }
+        "block_order": ["announcement-bar-0"],
+        "settings": {}
       },
       "header": {
         "type": "header",
         "settings": {
-          "logo": "shopify:\/\/shop_images\/silkraketten_logo_final_1-01.jpg",
+          "logo": "shopify://shop_images/silkraketten_logo_final_1-01.jpg",
           "logo_width": 220,
           "logo_position": "middle-left",
           "menu": "main-menu",
@@ -155,11 +152,11 @@
         "type": "footer",
         "settings": {
           "heading": "Quick links",
-          "aboutInfo": "<p>lorem ipsum<\/p>",
+          "aboutInfo": "<p>lorem ipsum</p>",
           "menu": "main-menu",
           "menu2": "main-menu",
-          "Addressdesc": "<p>Lorem ipsum<\/p>",
-          "copyrighttext": "<p>Copyright @2022. All Rights Reserved<\/p>"
+          "Addressdesc": "<p>Lorem ipsum</p>",
+          "copyrighttext": "<p>Copyright @2022. All Rights Reserved</p>"
         }
       },
       "main-password-header": {
@@ -177,9 +174,7 @@
         }
       }
     },
-    "content_for_index": [
-
-    ]
+    "content_for_index": []
   },
   "presets": {
     "Default": {
@@ -318,11 +313,8 @@
               }
             }
           },
-          "block_order": [
-            "announcement-bar-0"
-          ],
-          "settings": {
-          }
+          "block_order": ["announcement-bar-0"],
+          "settings": {}
         },
         "header": {
           "type": "header",
@@ -343,34 +335,7 @@
         },
         "footer": {
           "type": "footer",
-          "blocks": {
-            "footer-0": {
-              "type": "link_list",
-              "settings": {
-                "heading": "Quick links",
-                "menu": "footer"
-              }
-            },
-            "footer-1": {
-              "type": "link_list",
-              "settings": {
-                "heading": "Info",
-                "menu": "footer"
-              }
-            },
-            "footer-2": {
-              "type": "text",
-              "settings": {
-                "heading": "Our mission",
-                "subtext": "<p>Share contact information, store details, and brand content with your customers.<\/p>"
-              }
-            }
-          },
-          "block_order": [
-            "footer-0",
-            "footer-1",
-            "footer-2"
-          ],
+
           "settings": {
             "color_scheme": "background-1",
             "newsletter_enable": true,
