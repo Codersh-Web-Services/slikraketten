@@ -1507,4 +1507,8 @@ footer p {
     padding: 0.5rem 0.1rem;
     font-size: 0.8em;
   }
+
+  .product-detail .qty-btn ul li a {
+    white-space: normal;
+  } 
 }
