@@ -23,60 +23,6 @@ padding-bottom: {{ section.settings.padding_bottom }}px;
     <aside aria-labelledby="verticalTitle" class="facets-wrapper" id="main-collection-filters"
       data-id="template--16973864698157__product-grid">
 
-
-
-      {%- comment -%} <div class="facets-container">
-        <facet-filters-form class="facets small-hide">
-          <form id="FacetFiltersForm" class="facets__form-vertical">
-
-            <div id="FacetsWrapperDesktop">
-              <div class="active-facets active-facets-desktop">
-                <div class="active-facets-vertical-filter">
-                  <h2 class="facets__heading facets__heading--vertical caption-large text-body" id="verticalTitle"
-                    tabindex="-1">Filter:</h2>
-                </div>
-              </div>
-
-              <details id="Details-1-template--16973864698157__product-grid"
-                class=" facets__disclosure-vertical js-filter" data-index="1" open="">
-                <summary class="facets__summary caption-large focus-offset" aria-label="Availability (0 selected)"
-                  role="button" aria-expanded="true" aria-controls="Facet-1-template--16973864698157__product-grid">
-                  <div>
-                    <span>Availability<span class="facets__selected no-js-hidden hidden"> (0)</span></span>
-                    <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-caret"
-                      viewBox="0 0 10 6">
-                      <path fill-rule="evenodd" clip-rule="evenodd"
-                        d="M9.354.646a.5.5 0 00-.708 0L5 4.293 1.354.646a.5.5 0 00-.708.708l4 4a.5.5 0 00.708 0l4-4a.5.5 0 000-.708z"
-                        fill="currentColor">
-                      </path>
-                    </svg>
-
-                  </div>
-                </summary>
-                <div id="Facet-1-template--16973864698157__product-grid"
-                  class="parent-display facets__display-vertical">
-                  <fieldset class="facets-wrap parent-wrap  facets-wrap-vertical">
-                    <legend class="visually-hidden">Availability</legend>
-                    <ul class=" list-unstyled " role="list">
-                      <li v-for="filtername in filterNames" class="list-menu__item facets__item">
-                        <filter-component :name="filtername"> </filter-component>
-                      </li>
-                    </ul>
-                  </fieldset>
-                </div>
-              </details>
-
-            </div>
-          </form>
-        </facet-filters-form>
-
-
-      
-
-      
-
-        
-      </div> {%- endcomment -%}
       {% render 'facets', results: collection, enable_filtering: section.settings.enable_filtering, enable_sorting: section.settings.enable_sorting, filter_type: section.settings.filter_type %}
      
     </aside>
