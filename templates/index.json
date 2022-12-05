@@ -3,7 +3,12 @@
     "4333adec-b447-4e7f-8f05-25fe3ce5c2a2": {
       "type": "home-page",
       "settings": {
-        "herolink": "shopify:\/\/collections\/candies"
+        "herotext": "<p>Huge Selection Of Mix<\/p><p><strong>Even Candy Brought Directly<\/strong><\/p><p>To You - With Express Speed<\/p>",
+        "herolink": "shopify:\/\/collections\/candies",
+        "registerlink": "",
+        "ordertext": "Ordernow",
+        "mixtitle": "Mix now",
+        "mixtitle2": "MIx forever"
       }
     }
   },
