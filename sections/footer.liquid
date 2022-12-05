@@ -14,41 +14,68 @@
 <noscript>{{ 'component-rte.css' | asset_url | stylesheet_tag }}</noscript>
 <noscript>{{ 'disclosure.css' | asset_url | stylesheet_tag }}</noscript>
 
+
+
 <footer class="footer">
   <div class="container">
-    <div class="row">
-      <div class="col-12 col-sm-6 col-xl-3">
-        <div class="f-logo">
-          <img loading="lazy" src="{{"logo1.png" | file_url }}" alt="logo">
-        </div>
-        <p class="mt-4">
-          {{ section.settings.aboutInfo }}
-        </p>
+      <div class="row">
+          <div class="col-12 col-sm-6 col-xl-3">
+              <div class="f-logo">
+                  <img src="{{"logo1.png" | file_url }}" alt="logo">
+              </div>
+              <p class="mt-4">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis nesciunt tempora quae inventore
+                  autem odio cum earum nisi, aliquid dolores?
+              </p>
+          </div>
+          <div class="col-12 col-sm-6 col-xl-3">
+              <h5>Links</h5>
+              <ul>
+                  <li>
+                      <a href="#">Mix sweets yourself</a>
+                  </li>
+                  <li>
+                      <a href="#">Our candy app</a>
+                  </li>
+                  <li>
+                      <a href="#">Candy gifts</a>
+                  </li>
+                  <li>
+                      <a href="#">Contact Us</a>
+                  </li>
+              </ul>
+          </div>
+          <div class="col-12 col-sm-6 col-xl-3">
+              <h5>Terms</h5>
+              <ul>
+                  <li>
+                      <a href="#">Mix sweets yourself</a>
+                  </li>
+                  <li>
+                      <a href="#">Our candy app</a>
+                  </li>
+                  <li>
+                      <a href="#">Candy gifts</a>
+                  </li>
+                  <li>
+                      <a href="#">Contact Us</a>
+                  </li>
+              </ul>
+          </div>
+          <div class="col-12 col-sm-6 col-xl-3">
+              <h5>Address</h5>
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Velit, esse. Similique recusandae omnis
+              nobis commodi excepturi doloribus sunt, quas iste!
+          </div>
       </div>
-      <div class="col-12 col-sm-6 col-xl-3">
-        <h5>Links</h5>
-        <ul>
-          {% render "menulinks" with menu : section.settings.menu %}
-        </ul>
+      <hr>
+      <div class="copyright text-center">
+          <b>© 2022. All Rights Reserved.</b>
       </div>
-      <div class="col-12 col-sm-6 col-xl-3">
-        <h5>Terms</h5>
-        <ul>
-          {% render "menulinks" with menu : section.settings.menu2 %}
-        </ul>
-      </div>
-      <div class="col-12 col-sm-6 col-xl-3">
-        <h5>Address</h5>
-
-        {{ section.settings.Addressdesc }}
-      </div>
-    </div>
-    <hr>
-    <div class="copyright text-center">
-      <b>{{ section.settings.copyrighttext }}</b>
-    </div>
   </div>
 </footer>
+
+
 
 {% javascript %}
   class LocalizationForm extends HTMLElement {
@@ -63,7 +90,7 @@
       this.elements.button.addEventListener('focusout', this.closeSelector.bind(this));
       this.addEventListener('keyup', this.onContainerKeyUp.bind(this));
 
-      this.querySelectorAll('a').forEach((item) => item.addEventListener('click', this.onItemClick.bind(this)));
+      this.querySelectorAll('a').forEach(item => item.addEventListener('click', this.onItemClick.bind(this)));
     }
 
     hidePanel() {
@@ -88,10 +115,7 @@
     openSelector() {
       this.elements.button.focus();
       this.elements.panel.toggleAttribute('hidden');
-      this.elements.button.setAttribute(
-        'aria-expanded',
-        (this.elements.button.getAttribute('aria-expanded') === 'false').toString()
-      );
+      this.elements.button.setAttribute('aria-expanded', (this.elements.button.getAttribute('aria-expanded') === 'false').toString());
     }
 
     closeSelector(event) {
@@ -108,41 +132,223 @@
 {% schema %}
 {
   "name": "t:sections.footer.name",
-
-  "settings": [
+  "blocks": [
+    {
+      "type": "link_list",
+      "name": "t:sections.footer.blocks.link_list.name",
+      "settings": [
+        {
+          "type": "text",
+          "id": "heading",
+          "default": "Quick links",
+          "label": "t:sections.footer.blocks.link_list.settings.heading.label"
+        },
+        {
+          "type": "link_list",
+          "id": "menu",
+          "default": "footer",
+          "label": "t:sections.footer.blocks.link_list.settings.menu.label",
+          "info": "t:sections.footer.blocks.link_list.settings.menu.info"
+        }
+      ]
+    },
     {
       "type": "text",
-      "id": "heading",
-      "default": "Quick links",
-      "label": "t:sections.footer.blocks.link_list.settings.heading.label"
+      "name": "t:sections.footer.blocks.text.name",
+      "settings": [
+        {
+          "type": "text",
+          "id": "heading",
+          "default": "Heading",
+          "label": "t:sections.footer.blocks.text.settings.heading.label"
+        },
+        {
+          "type": "richtext",
+          "id": "subtext",
+          "default": "<p>Share contact information, store details, and brand content with your customers.</p>",
+          "label": "t:sections.footer.blocks.text.settings.subtext.label"
+        }
+      ]
     },
     {
-      "type": "richtext",
-      "id": "aboutInfo",
-      "label": "About info"
-    },
-    {
-      "type": "link_list",
-      "id": "menu",
-      "label": "t:sections.footer.blocks.link_list.settings.menu.label",
-      "info": "t:sections.footer.blocks.link_list.settings.menu.info"
-    },
-    {
-      "type": "link_list",
-      "id": "menu2",
-      "label": "t:sections.footer.blocks.link_list.settings.menu.label",
-      "info": "t:sections.footer.blocks.link_list.settings.menu.info"
-    },
-    {
-      "type": "richtext",
-      "label": "Address",
-      "id": "Addressdesc"
-    },
-    {
-      "type": "richtext",
-      "label": "Copyright text",
-      "id": "copyrighttext"
+      "type": "image",
+      "name": "Image",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "range",
+          "id": "image_width",
+          "min": 50,
+          "max": 200,
+          "step": 5,
+          "unit": "px",
+          "label": "Image width",
+          "default": 100
+        },
+        {
+          "type": "select",
+          "id": "alignment",
+          "label": "Image alignment on large screen",
+          "options": [
+            {
+              "value": "",
+              "label": "Left"
+            },
+            {
+              "value": "center",
+              "label": "Center"
+            },
+            {
+              "value": "right",
+              "label": "Right"
+            }
+          ],
+          "default": "center"
+        }
+      ]
     }
-  ]
+  ],
+  "settings": [
+    {
+      "type": "select",
+      "id": "color_scheme",
+      "options": [
+        {
+          "value": "accent-1",
+          "label": "t:sections.all.colors.accent_1.label"
+        },
+        {
+          "value": "accent-2",
+          "label": "t:sections.all.colors.accent_2.label"
+        },
+        {
+          "value": "background-1",
+          "label": "t:sections.all.colors.background_1.label"
+        },
+        {
+          "value": "background-2",
+          "label": "t:sections.all.colors.background_2.label"
+        },
+        {
+          "value": "inverse",
+          "label": "t:sections.all.colors.inverse.label"
+        }
+      ],
+      "default": "background-1",
+      "label": "t:sections.all.colors.label"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.footer.settings.header__1.content",
+      "info": "t:sections.footer.settings.header__1.info"
+    },
+    {
+      "type": "checkbox",
+      "id": "newsletter_enable",
+      "default": true,
+      "label": "t:sections.footer.settings.newsletter_enable.label"
+    },
+    {
+      "type": "text",
+      "id": "newsletter_heading",
+      "default": "Subscribe to our emails",
+      "label": "t:sections.footer.settings.newsletter_heading.label"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.footer.settings.header__2.content",
+      "info": "t:sections.footer.settings.header__2.info"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_social",
+      "default": false,
+      "label": "t:sections.footer.settings.show_social.label"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.footer.settings.header__3.content",
+      "info": "t:sections.footer.settings.header__4.info"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_country_selector",
+      "default": true,
+      "label": "t:sections.footer.settings.enable_country_selector.label"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.footer.settings.header__5.content",
+      "info": "t:sections.footer.settings.header__6.info"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_language_selector",
+      "default": true,
+      "label": "t:sections.footer.settings.enable_language_selector.label"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.footer.settings.header__7.content"
+    },
+    {
+      "type": "checkbox",
+      "id": "payment_enable",
+      "default": true,
+      "label": "t:sections.footer.settings.payment_enable.label"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.spacing"
+    },
+    {
+      "type": "range",
+      "id": "margin_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.footer.settings.margin_top.label",
+      "default": 0
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 36
+    }
+  ],
+  "default": {
+    "blocks": [
+      {
+        "type": "link_list"
+      },
+      {
+        "type": "text"
+      }
+    ]
+  }
 }
 {% endschema %}
