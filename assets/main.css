@@ -335,6 +335,10 @@ button {
   border: none;
 }
 
+button:disabled {
+  cursor: not-allowed;
+}
+
 .modal .modal-header,
 .modal .modal-body,
 .modal .modal-footer {
@@ -1317,6 +1321,16 @@ footer p {
 
 @media (max-width: 700px) {
 
+  .item-container .qty-btn,
+  .product-detail .qty-btn,
+  .product-detail .btn-cta {
+    width: 90%;
+  }
+
+  .page-width {
+    padding: 0 0.5em;
+  }
+
   .mobile-facets__header {
     padding: 1rem 1.5rem;
   }
@@ -1342,14 +1356,7 @@ footer p {
 
 @media (max-width: 420px) {
 
-  .item-container .qty-btn,
-  .product-detail .qty-btn {
-    width: 90%;
-  }
 
-  .page-width {
-    padding: 0 0.5em;
-  }
 
   .mainHeader .logo-wrap img {
     width: 160px;
