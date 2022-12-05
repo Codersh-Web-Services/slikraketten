@@ -4,11 +4,11 @@
 		<div class="row">
 				<div class="col-12">
 						<div class="content">
-								<h1>Huge selection of Mix<br>
-										<strong> Even Candy brought directly</strong> <br>
-										to you - with express speed
+								<h1>
+
+									{{ section.settings.herotext }}
 								</h1>
-								<a href="{{ section.settings.herolink }}" class="btn-cta">ORDER HERE</a>
+								<a href="{{ section.settings.herolink }}" class="btn-cta">{{section.settings.ordertext}}</a>
 						</div>
 				</div>
 		</div>
@@ -18,8 +18,8 @@
 <div class="container">
 <div class="row">
                 <div class="product-title">
-                    <h2>Mix today —</h2>
-                    <h4>Get it delivered by express.</h4>
+                    <h2>{{ section.settings.mixtitle }}</h2>
+                    <h4>{{ section.settings.mixtitle2 }}</h4>
                 </div>
             </div>
 		<div class="row">
@@ -31,40 +31,20 @@
 		</div>
 </div>
 </section>
-{% render 'product-component'%}
+{% render 'product-component' %}
 <section class="logo-section">
 <div class="container-fluid">
 		<div class="row">
-				<div class="col-6 col-sm-4 col-md-2 text-center">
-						<div class="img-wrap">
-								<img loading="lazy" src="{{"toms.svg" | file_url}}" alt="image">
+			{% for block in section.blocks %}
+				{% case block.type %}
+					{% when 'logo' %}
+							<div class="col-6 col-sm-4 col-md-2 text-center">
+								<div class="img-wrap">
+								{{ block.settings.image | image_url: width: 200 | image_tag }}
+								</div>
 						</div>
-				</div>
-				<div class="col-6 col-sm-4 col-md-2 text-center">
-						<div class="img-wrap">
-								<img loading="lazy" src="{{"toms.svg" | file_url}}" alt="image">
-						</div>
-				</div>
-				<div class="col-6 col-sm-4 col-md-2 text-center">
-						<div class="img-wrap">
-								<img loading="lazy" src="{{"toms.svg" | file_url}}" alt="image">
-						</div>
-				</div>
-				<div class="col-6 col-sm-4 col-md-2 text-center">
-						<div class="img-wrap">
-								<img loading="lazy" src="{{"toms.svg" | file_url}}" alt="image">
-						</div>
-				</div>
-				<div class="col-6 col-sm-4 col-md-2 text-center">
-						<div class="img-wrap">
-								<img src="{{"toms.svg" | file_url}}" alt="image">
-						</div>
-				</div>
-				<div class="col-6 col-sm-4 col-md-2 text-center">
-						<div class="img-wrap">
-								<img src="{{"toms.svg" | file_url}}" alt="image">
-						</div>
-				</div>
+				{% endcase %}
+			{% endfor %}
 		</div>
 </div>
 </section>
@@ -112,28 +92,62 @@
 		</div>
 </div>
 </section>
-{% render 'bags-container'%}
+{% render 'bags-container' %}
 
 
 {% schema %}
 {
-"name": "home page",
-"settings":[{
-"type": "url",
-"id": "herolink",
-"label": "hero link"
-},
-{"type": "url",
-"id": "registerlink",
-"label" : "register link"
-}
-],
-"presets": [
-{
-"name": "Home Page",
-"category": "home"
-
-}
-]
+  "name": "home page",
+  "settings": [
+    {
+      "type": "richtext",
+      "label": "Home page",
+      "id": "herotext"
+    },
+    {
+      "type": "url",
+      "id": "herolink",
+      "label": "hero link"
+    },
+    {
+      "type": "url",
+      "id": "registerlink",
+      "label": "register link"
+    },
+    {
+      "type": "text",
+      "label": "Order text",
+      "id": "ordertext"
+    },
+    {
+      "type": "text",
+      "label": "Mix title",
+      "id": "mixtitle"
+    },
+    {
+      "type": "text",
+      "label": "Mix Subtitle",
+      "id": "mixtitle2"
+    }
+  ],
+  "blocks": [
+    {
+      "name": "Logos",
+      "type": "logo",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "logo",
+          "label": "Image"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Home Page",
+      "category": "home"
+    }
+  ]
 }
 {% endschema %}

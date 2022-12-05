@@ -14,48 +14,41 @@
 <noscript>{{ 'component-rte.css' | asset_url | stylesheet_tag }}</noscript>
 <noscript>{{ 'disclosure.css' | asset_url | stylesheet_tag }}</noscript>
 
-
-
 <footer class="footer">
   <div class="container">
-      <div class="row">
-          <div class="col-12 col-sm-6 col-xl-3">
-              <div class="f-logo">
-                  <img src="{{"logo1.png" | file_url }}" alt="logo">
-              </div>
-              <p class="mt-4">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis nesciunt tempora quae inventore
-                  autem odio cum earum nisi, aliquid dolores?
-              </p>
-          </div>
-          <div class="col-12 col-sm-6 col-xl-3">
-              <h5>Links</h5>
-              <ul>
-                {% render "menulinks" with menu : section.settings.menu %}
-
-              </ul>
-          </div>
-          <div class="col-12 col-sm-6 col-xl-3">
-              <h5>Terms</h5>
-              <ul>
-                {% render "menulinks" with menu : section.settings.menu2 %}
-
-              </ul>
-          </div>
-          <div class="col-12 col-sm-6 col-xl-3">
-              <h5>Address</h5>
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Velit, esse. Similique recusandae omnis
-              nobis commodi excepturi doloribus sunt, quas iste!
-          </div>
+    <div class="row">
+      <div class="col-12 col-sm-6 col-xl-3">
+        <div class="f-logo">
+          <img loading="lazy" src="{{"logo1.png" | file_url }}" alt="logo">
+        </div>
+        <p class="mt-4">
+          {{ section.settings.aboutInfo }}
+        </p>
       </div>
-      <hr>
-      <div class="copyright text-center">
-          <b>© 2022. All Rights Reserved.</b>
+      <div class="col-12 col-sm-6 col-xl-3">
+        <h5>Links</h5>
+        <ul>
+          {% render "menulinks" with menu : section.settings.menu %}
+        </ul>
       </div>
+      <div class="col-12 col-sm-6 col-xl-3">
+        <h5>Terms</h5>
+        <ul>
+          {% render "menulinks" with menu : section.settings.menu2 %}
+        </ul>
+      </div>
+      <div class="col-12 col-sm-6 col-xl-3">
+        <h5>Address</h5>
+
+        {{ section.settings.Addressdesc }}
+      </div>
+    </div>
+    <hr>
+    <div class="copyright text-center">
+      <b>{{ section.settings.copyrighttext }}</b>
+    </div>
   </div>
 </footer>
-
-
 
 {% javascript %}
   class LocalizationForm extends HTMLElement {
@@ -70,7 +63,7 @@
       this.elements.button.addEventListener('focusout', this.closeSelector.bind(this));
       this.addEventListener('keyup', this.onContainerKeyUp.bind(this));
 
-      this.querySelectorAll('a').forEach(item => item.addEventListener('click', this.onItemClick.bind(this)));
+      this.querySelectorAll('a').forEach((item) => item.addEventListener('click', this.onItemClick.bind(this)));
     }
 
     hidePanel() {
@@ -95,7 +88,10 @@
     openSelector() {
       this.elements.button.focus();
       this.elements.panel.toggleAttribute('hidden');
-      this.elements.button.setAttribute('aria-expanded', (this.elements.button.getAttribute('aria-expanded') === 'false').toString());
+      this.elements.button.setAttribute(
+        'aria-expanded',
+        (this.elements.button.getAttribute('aria-expanded') === 'false').toString()
+      );
     }
 
     closeSelector(event) {
@@ -114,26 +110,41 @@
   "name": "t:sections.footer.name",
 
   "settings": [
-      {
-        "type": "text",
-        "id": "heading",
-        "default": "Quick links",
-        "label": "t:sections.footer.blocks.link_list.settings.heading.label"
-      },
-      {
-        "type": "link_list",
-        "id": "menu",
-        "default": "footer",
-        "label": "t:sections.footer.blocks.link_list.settings.menu.label",
-        "info": "t:sections.footer.blocks.link_list.settings.menu.info"
-      },
-      {
-        "type": "link_list",
-        "id": "menu2",
-        "default": "footer",
-        "label": "t:sections.footer.blocks.link_list.settings.menu.label",
-        "info": "t:sections.footer.blocks.link_list.settings.menu.info"
-      }
-   ]
+    {
+      "type": "text",
+      "id": "heading",
+      "default": "Quick links",
+      "label": "t:sections.footer.blocks.link_list.settings.heading.label"
+    },
+    {
+      "type": "richtext",
+      "id": "aboutInfo",
+      "label": "About info"
+    },
+    {
+      "type": "link_list",
+      "id": "menu",
+      "default": "footer",
+      "label": "t:sections.footer.blocks.link_list.settings.menu.label",
+      "info": "t:sections.footer.blocks.link_list.settings.menu.info"
+    },
+    {
+      "type": "link_list",
+      "id": "menu2",
+      "default": "footer",
+      "label": "t:sections.footer.blocks.link_list.settings.menu.label",
+      "info": "t:sections.footer.blocks.link_list.settings.menu.info"
+    },
+    {
+      "type": "richtext",
+      "label": "Address",
+      "id": "Addressdesc"
+    },
+    {
+      "type": "richtext",
+      "label": "Copyright text",
+      "id": "copyrighttext"
+    }
+  ]
 }
 {% endschema %}
