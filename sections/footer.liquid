@@ -32,13 +32,13 @@
         </ul>
       </div>
       <div class="col-12 col-sm-6 col-xl-3">
-        <h5>Terms</h5>
+        <h5>{{ section.settings.footertitle2 }}</h5>
         <ul>
           {% render "menulinks" with menu : section.settings.menu2 %}
         </ul>
       </div>
       <div class="col-12 col-sm-6 col-xl-3">
-        <h5>Address</h5>
+        <h5>{{ section.settings.footertitle3 }}</h5>
 
         {{ section.settings.Addressdesc }}
       </div>
@@ -132,9 +132,19 @@
       "label": "Footer Menu 1"
     },
     {
+      "type": "text",
+      "id": "footertitle2",
+      "label": "Footer Title 2"
+    },
+    {
       "type": "link_list",
       "id": "menu2",
       "label": "Footer Menu 2"
+    },
+    {
+      "type": "text",
+      "id": "footertitle3",
+      "label": "Footer Title 3"
     },
     {
       "type": "richtext",
