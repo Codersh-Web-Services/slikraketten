@@ -5,10 +5,10 @@
         <div class="product-cart">
           <div class="weight">
             <span v-if="data.details.weight">Gram:${data.details.weight} g.</span>
-            <span v-if="data.details.total">Price: DKK ${data.details.total}.00.</span>
+            <span v-if="data.details.total">Pris: ${data.details.total}.00. Kr.</span>
           </div>
           <div v-if="data.details.total" class="btn-group">
-            <button class="outline-btn" data-bs-toggle="modal" data-bs-target="#AddProDuct"> WATCH YOUR BAG </button>
+            <button class="outline-btn" data-bs-toggle="modal" data-bs-target="#AddProDuct">SE DIN POSE</button>
 
             <button
               v-if="data.details.total >= 25"
@@ -16,9 +16,9 @@
               data-bs-toggle="modal"
               data-bs-target="#CloseBag"
             >
-              Close the Bag
+              LUK POSEN
             </button>
-            <button v-else class="solid-btn" disabled> BUY FOR ${25 - data.details.total}K MORE </button>
+            <button v-else class="solid-btn" disabled>KØB FOR ${25 - data.details.total} KR. MERE</button>
           </div>
         </div>
       </div>
@@ -52,42 +52,51 @@
               </div>
             </div>
             <div class="buttons">
-                <!-- Cart Information modal -->
-           <div class="cart-info" @click="product.mtoggle()" style="cursor: pointer">
-              <svg
-                class="Icon Icon--info"
-                width="15"
-                height="15"
-                viewBox="0 0 15 15"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <circle cx="7.5" cy="7.5" r="6.5" fill="#FFEEB0" stroke="#FBD754" stroke-width="2">
-                </circle>
-                <path fill-rule="evenodd" clip-rule="evenodd" d="M8 4H7V5H8V4ZM8 6H7V11H8V6Z" fill="black"></path>
-              </svg>
-            </div>
+              <!-- Cart Information modal -->
+              <div class="cart-info" @click="product.mtoggle()" style="cursor: pointer">
+                <svg
+                  class="Icon Icon--info"
+                  width="15"
+                  height="15"
+                  viewBox="0 0 15 15"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <circle cx="7.5" cy="7.5" r="6.5" fill="#FFEEB0" stroke="#FBD754" stroke-width="2">
+                  </circle>
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M8 4H7V5H8V4ZM8 6H7V11H8V6Z" fill="black"></path>
+                </svg>
+              </div>
               <div class="qty-btn">
-                <svg @click="product.decreaseQuantity()" class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                <svg
+                  @click="product.decreaseQuantity()"
+                  class="icon"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 448 512"
+                >
                   <path
                     d="M64 32C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64H64zm88 200H296c13.3 0 24 10.7 24 24s-10.7 24-24 24H152c-13.3 0-24-10.7-24-24s10.7-24 24-24z">
                   </path>
                 </svg>
                 <ul>
-                  <li>
-                   
-                  </li>
+                  <li></li>
                   <li>
                     <p class="mb-0">For ${product.weight} grams</p>
                   </li>
                 </ul>
-                <svg @click="product.increaseQuantity()" class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                <svg
+                  @click="product.increaseQuantity()"
+                  class="icon"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 448 512"
+                >
                   <path
                     d="M64 32C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64H64zM200 344V280H136c-13.3 0-24-10.7-24-24s10.7-24 24-24h64V168c0-13.3 10.7-24 24-24s24 10.7 24 24v64h64c13.3 0 24 10.7 24 24s-10.7 24-24 24H248v64c0 13.3-10.7 24-24 24s-24-10.7-24-24z">
                   </path>
                 </svg>
               </div>
-              <svg @click="product.removeProduct()"
+              <svg
+                @click="product.removeProduct()"
                 xmlns="http://www.w3.org/2000/svg"
                 width="24"
                 height="24"
@@ -124,23 +133,19 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body text-center pading">
-          <h3>moment :)</h3>
-          <p>You just have to name your bag so you can easily find it again</p>
-          <input class="mb-4" type="text" placeholder="Enter the name of the bag" v-model="data.bagName">
+          <h3>Øjeblik :)</h3>
+          <p>Du skal lige navngive din pose, så du har let ved at finde den igen</p>
+          <input class="mb-4" type="text" placeholder="Indtast navn på pose" v-model="data.bagName">
           <div class="modal-btn-group">
+            <button v-if="data.tbagName" @click="putInBasket()" class="put-basket-btn">PUT I KURV</button>
+            <button v-else disabled class="put-basket-btn">PUT I KURV</button>
 
-            <button v-if="data.bagName"  @click="putInBasket()" class="put-basket-btn">PUT IN BASKET</button>
-            <button  v-else disabled class="put-basket-btn">PUT IN BASKET</button>
-            
-            <button data-bs-dismiss="modal" class="put-bag-btn">...or put more in the bag</button>
-
-
+            <button data-bs-dismiss="modal" class="put-bag-btn">...eller put mere i posen</button>
           </div>
         </div>
       </div>
     </div>
   </div>
-
 
   <!-- <--------- SIDE PANEL ------ -->
 
@@ -161,7 +166,7 @@
         </div>
         <div class="modal-body">
           <div v-if="mainCart.total < 129" class="small-announcementbar">
-            <p class="mb-0"> ${data.mainCart}Buy forDKK 129.00. more to reach the minimum amount.</p>
+            <p class="mb-0">${data.mainCart}Buy forDKK 129.00. more to reach the minimum amount.</p>
           </div>
           <h3>Your candy bags</h3>
           <div v-if="mainCart.bags.length > 0" class="candy-content" v-for="bag in mainCart.bags">
@@ -170,7 +175,12 @@
               <div class="title">
                 <h6>${bag.bagName}</h6>
                 <div class="edit">
-                  <button type="button" @click="bag.editBag()" data-bs-toggle="modal" data-bs-target="#Slide-Left-Second">
+                  <button
+                    type="button"
+                    @click="bag.editBag()"
+                    data-bs-toggle="modal"
+                    data-bs-target="#Slide-Left-Second"
+                  >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       width="17"
@@ -213,7 +223,7 @@
         </div>
         <div class="modal-footer">
           <div class="mix-bag">
-            <button class="another-bag-btn" data-bs-dismiss="modal"> Mix Another Bags </button>
+            <button class="another-bag-btn" data-bs-dismiss="modal">Mix Another Bags</button>
             <p class="text-center">or fill more in one of the bags above</p>
             <div class="order">
               <h4>Your Order</h4>
@@ -221,16 +231,21 @@
                 <span>Subtotal</span>
                 <span>DKK ${mainCart.total}</span>
               </div>
-              {%- comment -%} <div class="d-flex align-items-center justify-content-between">
-                <span>Shipping (from price)</span>
-                <span>DKK 0.00DKK</span>
-              </div> {%- endcomment -%}
+              {%- comment -%}
+                 <div class="d-flex align-items-center justify-content-between">
+                  <span>Shipping (from price)</span>
+                  <span>DKK 0.00DKK</span>
+                </div>
+              {%- endcomment -%}
               <div class="d-flex align-items-center justify-content-between">
                 <b>Total</b>
                 <b>DKK ${mainCart.total}</b>
               </div>
-              <p v-if="mainCart.total < 129"  >The minimum order is DKK 129.00. Mix a little more :-)</p>
-              <a @click="checkOut()" href="#"  class="btn-checkout">Checkout</a>
+              <p v-if="mainCart.total < {{ minimumorderamount }}">{{ minimumorder }}</p>
+              <a disabled v-if="mainCart.total < {{ minimumorderamount }}" class="btn-checkout"
+                >Checkout {{ minimumorderamount -}}
+              </a>
+              <a v-else @click="checkOut()" href class="btn-checkout">Checkout</a>
             </div>
           </div>
         </div>
@@ -239,66 +254,65 @@
   </div>
 
   <div class="edit-item">
-  <div class="modal" id="Slide-Left-Second">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5>Back to basket</h5>
-          <button
-          @click="backToBasket()"
-            type="button"
-            class="btn-close"
-           
-            aria-label="Back to basket"
-          ></button>
-        </div>
-        <div class="modal-body">
-          <div class="edit-content">
-            <div class="title">
-              <h6>${editBag.bagName}'s Bag</h6>
-              <p>There are for DKK ${editBag.total}.00. in the bag</p>
+    <div class="modal" id="Slide-Left-Second">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5>Back to basket</h5>
+            <button
+              @click="backToBasket()"
+              type="button"
+              class="btn-close"
+              aria-label="Back to basket"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <div class="edit-content">
+              <div class="title">
+                <h6>${editBag.bagName}'s Bag</h6>
+                <p>There are for DKK ${editBag.total}.00. in the bag</p>
 
-              <button href="#" @click="backToBasket()" class="btn-add-candy">Add more candy</button>
-
-            </div>
-            <div class="edit-container" v-for="item in editBag.editProducts" >
-              <div class="img-name">
-                <svg
-                @click="item.removeItem()"
-                  class="delete"
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="16"
-                  style="cursor: pointer"
-                  height="18"
-                  viewBox="0 0 16 18"
-                  fill="none"
-                >
-                  <path
-                      d="M0.5 4.69231H15.5M6.33714 7.15385V14.5385M9.76571 7.15385V14.5385M2.85714 4.69231H13.1429V16C13.1429 16.5523 12.6951 17 12.1429 17H3.85714C3.30486 17 2.85714 16.5523 2.85714 16V4.69231ZM10.7017 4.69231V2C10.7017 1.44772 10.254 1 9.70171 1H5.98743C5.43514 1 4.98743 1.44772 4.98743 2V4.69231H10.7017Z"
-                      stroke="#9954C2" stroke-width="1.5" />
-                </svg>
-                <img :src="item.image" alt="image" width="52">
-                <div class="name">
-                  <h6>${item.title}</h6>
-                  <span style="color: #f280b2;">${item.amount}pcs</span>
-                  <span style="color: #bf3fb4; margin-left: 0.3rem;">${item.weight}g</span>
-                </div>
+                <button href="#" @click="backToBasket()" class="btn-add-candy">Add more candy</button>
               </div>
-              <div class="btn_group">
-                <button @click="item.decreaseQuantity()">
-                  <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
-                    <path fill="#c395c2"
-                        d="M64 32C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64H64zm88 200H296c13.3 0 24 10.7 24 24s-10.7 24-24 24H152c-13.3 0-24-10.7-24-24s10.7-24 24-24z">
-                    </path>
+              <div class="edit-container" v-for="item in editBag.editProducts">
+                <div class="img-name">
+                  <svg
+                    @click="item.removeItem()"
+                    class="delete"
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    style="cursor: pointer"
+                    height="18"
+                    viewBox="0 0 16 18"
+                    fill="none"
+                  >
+                    <path
+                        d="M0.5 4.69231H15.5M6.33714 7.15385V14.5385M9.76571 7.15385V14.5385M2.85714 4.69231H13.1429V16C13.1429 16.5523 12.6951 17 12.1429 17H3.85714C3.30486 17 2.85714 16.5523 2.85714 16V4.69231ZM10.7017 4.69231V2C10.7017 1.44772 10.254 1 9.70171 1H5.98743C5.43514 1 4.98743 1.44772 4.98743 2V4.69231H10.7017Z"
+                        stroke="#9954C2" stroke-width="1.5" />
                   </svg>
-                </button>
-                <button @click="item.increaseQuantity()">
-                  <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
-                    <path fill="#e891be"
-                        d="M64 32C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64H64zM200 344V280H136c-13.3 0-24-10.7-24-24s10.7-24 24-24h64V168c0-13.3 10.7-24 24-24s24 10.7 24 24v64h64c13.3 0 24 10.7 24 24s-10.7 24-24 24H248v64c0 13.3-10.7 24-24 24s-24-10.7-24-24z">
-                    </path>
-                  </svg>
-                </button>
+                  <img :src="item.image" alt="image" width="52">
+                  <div class="name">
+                    <h6>${item.title}</h6>
+                    <span style="color: #f280b2;">${item.amount}pcs</span>
+                    <span style="color: #bf3fb4; margin-left: 0.3rem;">${item.weight}g</span>
+                  </div>
+                </div>
+                <div class="btn_group">
+                  <button @click="item.decreaseQuantity()">
+                    <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                      <path fill="#c395c2"
+                          d="M64 32C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64H64zm88 200H296c13.3 0 24 10.7 24 24s-10.7 24-24 24H152c-13.3 0-24-10.7-24-24s10.7-24 24-24z">
+                      </path>
+                    </svg>
+                  </button>
+                  <button @click="item.increaseQuantity()">
+                    <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                      <path fill="#e891be"
+                          d="M64 32C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64H64zM200 344V280H136c-13.3 0-24-10.7-24-24s10.7-24 24-24h64V168c0-13.3 10.7-24 24-24s24 10.7 24 24v64h64c13.3 0 24 10.7 24 24s-10.7 24-24 24H248v64c0 13.3-10.7 24-24 24s-24-10.7-24-24z">
+                      </path>
+                    </svg>
+                  </button>
+                </div>
               </div>
             </div>
           </div>
@@ -306,26 +320,22 @@
       </div>
     </div>
   </div>
-</div>
 
-   <!-- Cart Information Modal -->
-   <div class="modal fade" id="InfoModal" tabindex="-1" aria-labelledby="infoModalLabel" aria-hidden="true">
+  <!-- Cart Information Modal -->
+  <div class="modal fade" id="InfoModal" tabindex="-1" aria-labelledby="infoModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
-        <div class="modal-content information">
-            <div class="modal-header">
-                <div class="title-img">
-                    <img :src="data.modalData.currentProductImg" alt="image" width="48">
-                </div>
-                <h3 class="modal-title">${data.modalData.currentProductTitle}</h3>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body" v-html="data.modalData.currentProductInfo">
-               
-            </div>
-
+      <div class="modal-content information">
+        <div class="modal-header">
+          <div class="title-img">
+            <img :src="data.modalData.currentProductImg" alt="image" width="48">
+          </div>
+          <h3 class="modal-title">${data.modalData.currentProductTitle}</h3>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
+        <div class="modal-body" v-html="data.modalData.currentProductInfo"></div>
+      </div>
     </div>
-</div>
+  </div>
 </div>
 
 <style>
@@ -464,7 +474,7 @@
     font-weight: 600;
     font-size: 20px;
     text-transform: uppercase;
-    transition: all .35s ease-in-out;
+    transition: all 0.35s ease-in-out;
   }
 
   .mix-bag .another-bag-btn:hover {
@@ -501,7 +511,7 @@
     font-weight: 700;
     color: #000;
     text-transform: uppercase;
-    transition: all .35s ease-in-out;
+    transition: all 0.35s ease-in-out;
   }
 
   .order .btn-checkout:hover {
@@ -551,12 +561,12 @@
     font-weight: 700;
     padding: 0.8rem 2rem;
     border-radius: 5px;
-    transition: all .35s ease-in-out;
+    transition: all 0.35s ease-in-out;
   }
 
   .edit-content .btn-add-candy:hover {
     background-color: var(--sr-light-pink-color);
-    transform: translateY(-2px); 
+    transform: translateY(-2px);
   }
 
   .edit-content .edit-container {
@@ -617,105 +627,102 @@
 
   /* <----- second slide ends-----> */
   /* <-------- Info Modal Starts--------> */
-.information {
-  position: relative;
-}
+  .information {
+    position: relative;
+  }
 
-.information::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  height: 3.25rem;
-  width: 100%;
-  border-bottom-right-radius: .375rem;
-  border-bottom-left-radius: .375rem;
-  background: linear-gradient(hsla(0,0%,100%,0),#fdebea96);
-}
+  .information::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 3.25rem;
+    width: 100%;
+    border-bottom-right-radius: 0.375rem;
+    border-bottom-left-radius: 0.375rem;
+    background: linear-gradient(hsla(0, 0%, 100%, 0), #fdebea96);
+  }
 
-.information .modal-header {
-  background-color: #fdebead9;
-  padding: 1rem 1.4rem;
-  opacity: 0.90;
-}
+  .information .modal-header {
+    background-color: #fdebead9;
+    padding: 1rem 1.4rem;
+    opacity: 0.9;
+  }
 
-.information h3 {
-  font-size: 1.375rem;
-  color: var(--sr-black-color);
-  font-weight: 700;
-  opacity: 0.95;
-  margin-left: 0.5rem;
-}
+  .information h3 {
+    font-size: 1.375rem;
+    color: var(--sr-black-color);
+    font-weight: 700;
+    opacity: 0.95;
+    margin-left: 0.5rem;
+  }
 
-.information .btn-close {
-  color: var(--sr-black-color);
-  opacity: 1;
-  transition: all .35s ease-in-out;
-}
+  .information .btn-close {
+    color: var(--sr-black-color);
+    opacity: 1;
+    transition: all 0.35s ease-in-out;
+  }
 
-.information .btn-close:hover {
-  opacity: 0.7;
-}
+  .information .btn-close:hover {
+    opacity: 0.7;
+  }
 
-.information .modal-body {
-  padding: 1rem 1.4rem;
-}
+  .information .modal-body {
+    padding: 1rem 1.4rem;
+  }
 
+  .information .modal-body::-webkit-scrollbar {
+    display: none;
+  }
 
-.information  .modal-body::-webkit-scrollbar {
-  display: none;
-}
+  .information .title-img {
+    outline: 1px solid #080808ba;
+    border-radius: 10px;
+    outline-offset: 0.5px;
+  }
 
-.information .title-img {
-  outline: 1px solid #080808ba;
-  border-radius: 10px;
-  outline-offset: 0.5px;
-}
+  .information .title-img img {
+    border-radius: 15px;
+  }
 
-.information .title-img img {
-  border-radius: 15px;
-}
+  .information .modal-body h4 {
+    margin-top: 1rem;
+    font-size: 1.275rem;
+    font-weight: 600;
+  }
 
-.information .modal-body h4 {
-  margin-top: 1rem;
-  font-size: 1.275rem;
-  font-weight: 600;
-}
+  .information .modal-body p {
+    font-size: 1.175rem;
+  }
 
-.information .modal-body p {
-  font-size: 1.175rem;
-}
+  .modal-body .click-here {
+    margin: 2rem 0;
+    font-size: 1.275rem;
+  }
 
-.modal-body .click-here {
-  margin: 2rem 0;
-  font-size: 1.275rem;
-}
+  .click-here a {
+    color: var(--sr-light-pink-color);
+    text-decoration: none;
+    transition: all 0.35s ease-in-out;
+  }
 
-.click-here a {
-  color: var(--sr-light-pink-color);
-  text-decoration: none;
-  transition: all .35s ease-in-out;
-}
+  .click-here a:hover {
+    text-decoration: underline;
+    color: var(--sr-black-color);
+  }
 
-.click-here a:hover {
-  text-decoration: underline;
-  color: var(--sr-black-color);
-}
+  .nutritional-value h5 {
+    font-size: 1.375rem;
+    margin-bottom: 0;
+  }
 
+  .nutritional-value p {
+    font-size: 1rem;
+  }
 
-.nutritional-value h5 {
-  font-size: 1.375rem;
-  margin-bottom: 0;
-}
-
-.nutritional-value p {
-  font-size: 1rem;
-}
-
-.nutritional-value p sub {
-  font-size: 0.95em;
-  bottom: -0.05em;
-}
- /* <-------- Info Modal Ends--------> */
-
+  .nutritional-value p sub {
+    font-size: 0.95em;
+    bottom: -0.05em;
+  }
+  /* <-------- Info Modal Ends--------> */
 </style>

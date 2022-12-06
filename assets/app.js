@@ -341,10 +341,18 @@ if (document.querySelector('#bags-container')) {
 					details: store.state.bottomCart,
 					bags: store.state.currentbagitems,
 					modalData: store.state.modalData,
-					bagName: ""
+					bagName: "",
+					tbagName: false
 				},
 				mainCart: store.state.mainCart,
 				editBag: store.state.editBag
+			}
+		},
+		watch: {
+			// check the correct bagName ie check for name validations 
+			'data.bagName'(newValue) {
+				let trimmedBag = this.data.bagName.trim()
+				this.data.tbagName = Boolean(trimmedBag) ? true : false
 			}
 		},
 		methods: {
@@ -355,6 +363,7 @@ if (document.querySelector('#bags-container')) {
 			removeBag(bag) {
 				store.removeBag(bag)
 			},
+
 
 			backToBasket() {
 				let prevmodal = new bootstrap.Modal('#Slide-Left-Second')
@@ -523,7 +532,7 @@ if (document.querySelector('#product-box')) {
 						product.added = true
 					}
 				})
-				
+
 				store.updatePricesAndWeights()
 
 			}
