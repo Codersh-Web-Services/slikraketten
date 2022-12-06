@@ -2,6 +2,24 @@
   "sections": {
     "4333adec-b447-4e7f-8f05-25fe3ce5c2a2": {
       "type": "home-page",
+      "blocks": {
+        "f553375f-52fc-4ed2-ab2c-694bd4b3b5ec": {
+          "type": "logo",
+          "settings": {
+            "logo": "shopify:\/\/shop_images\/toms.png"
+          }
+        },
+        "dcc039e9-df8e-4f67-b0c5-d7ffa8090d84": {
+          "type": "logo",
+          "settings": {
+            "logo": "shopify:\/\/shop_images\/toms.png"
+          }
+        }
+      },
+      "block_order": [
+        "f553375f-52fc-4ed2-ab2c-694bd4b3b5ec",
+        "dcc039e9-df8e-4f67-b0c5-d7ffa8090d84"
+      ],
       "settings": {
         "herotext": "<p>Mix Candies<\/p>",
         "herolink": "shopify:\/\/collections\/candies",
@@ -12,7 +30,28 @@
         "newslettertitle": "Newsletter",
         "newsletterdesc": "<p>Receive our <strong> Newsletter <\/strong> and get News and special discount codes, as one of the first.<\/p>",
         "registertitle": "Register",
-        "registerlink": "#"
+        "registerlink": "#",
+        "putinbagtext": "",
+        "grams": "",
+        "price": "",
+        "minimumbagamount": "",
+        "watchbag": "",
+        "watchbagtitle": "",
+        "closebag": "",
+        "closebagheading": "",
+        "closebagsubheading": "",
+        "closebaginputplaceholder": "",
+        "putinbaskettext": "",
+        "shoppingbaskettitle": "",
+        "orputmoreinbaskettext": "",
+        "emptybaskettext": "",
+        "conditionbag": "",
+        "minimumorderamount": "",
+        "viewedittext": "",
+        "minimumorder": "",
+        "yourcandybagstext": "",
+        "mixotherbagstext": "",
+        "fillyourbagstext": ""
       }
     }
   },
