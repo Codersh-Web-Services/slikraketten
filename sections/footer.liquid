@@ -26,7 +26,7 @@
         </p>
       </div>
       <div class="col-12 col-sm-6 col-xl-3">
-        <h5>Links</h5>
+        <h5>{{ section.settings.footertitle1 }}</h5>
         <ul>
           {% render "menulinks" with menu : section.settings.menu %}
         </ul>
@@ -120,6 +120,11 @@
       "type": "richtext",
       "id": "aboutInfo",
       "label": "About info"
+    },
+    {
+      "type": "text",
+      "id": "footertitle1",
+      "label": "Footer Title 1"
     },
     {
       "type": "link_list",
