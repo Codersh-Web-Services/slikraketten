@@ -519,14 +519,16 @@ ul.MainNav li a:hover {
 
 .hero-section .btn-cta {
   text-decoration: none;
-  padding: 0.6rem 3rem;
+  padding: 0.7rem 3rem;
   background: var(--sr-light-pink-color);
-  border-radius: 10px;
+  border-radius: 5px;
   font-weight: 700;
   color: var(--sr-white-color);
   transition: all .4s ease-in-out;
   display: inline-block;
   font-size: 1rem;
+  height: 50px;
+  text-transform: uppercase;
 }
 
 .hero-section .btn-cta:hover {
@@ -684,7 +686,7 @@ ul.MainNav li a:hover {
 
 .qty-btn ul li p {
   font-size: 1em;
-  color: var(--sr-black-color);
+  color: var(--sr-white-color);
   font-weight: 600;
   text-decoration: none;
   white-space: nowrap;
@@ -774,12 +776,13 @@ ul.MainNav li a:hover {
 .newsletter .btn-cta {
   display: inline-block;
   font-size: 1rem;
+  height: 50px;
   background-color: var(--sr-white-color);
   color: var(--sr-light-pink-color);
   font-weight: 700;
   text-transform: uppercase;
   padding: 0.7rem 6rem;
-  border-radius: 10px;
+  border-radius: 5px;
   text-decoration: none;
   transition: all .4s ease-in-out;
 }
