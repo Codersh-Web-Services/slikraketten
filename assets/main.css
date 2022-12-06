@@ -555,7 +555,8 @@ ul.MainNav li a:hover {
   transition: all .35s ease-in-out;
 }
 
-.product-box:hover {
+.product-box:hover,
+.product-box.active {
   transform: translateY(-2px);
   box-shadow: rgb(195 149 194 / 69%) 0px 18px 50px -10px;
   background: linear-gradient(to bottom, #c097c2, transparent);
@@ -875,9 +876,16 @@ footer p {
 
 .fixed-bottom {
   background-color: #fdebea;
-  padding: 1rem 0;
   z-index: 9999;
   padding-right: 0 !important;
+}
+
+.hidetemp {
+  display: none;
+}
+
+div[cartshow="show"] {
+  display: block !important;
 }
 
 .product-cart {
@@ -1545,12 +1553,12 @@ footer p {
 
   .product-detail .qty-btn ul li p {
     white-space: normal;
- 
-  } 
+
+  }
 
   .edit-container .btn_group svg {
     height: 25px;
     width: 25px;
- 
+
   }
 }
