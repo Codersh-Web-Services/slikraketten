@@ -5,10 +5,14 @@
       "settings": {
         "herotext": "<p>Mix Candies<\/p>",
         "herolink": "shopify:\/\/collections\/candies",
-        "registerlink": "",
         "ordertext": "OrderNow",
         "mixtitle": "Mix Candies",
-        "mixtitle2": "Mix more"
+        "mixtitle2": "Mix more",
+        "followtitle": "Follow SlikRaketten:",
+        "newslettertitle": "Newsletter",
+        "newsletterdesc": "<p>Receive our <strong> Newsletter <\/strong> and get News and special discount codes, as one of the first.<\/p>",
+        "registertitle": "Register",
+        "registerlink": "#"
       }
     }
   },
