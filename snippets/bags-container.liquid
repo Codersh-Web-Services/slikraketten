@@ -11,14 +11,16 @@
             <button class="outline-btn" data-bs-toggle="modal" data-bs-target="#AddProDuct">{{ watchbag }}</button>
 
             <button
-              v-if="data.details.total >= 25"
+              v-if="data.details.total >= {{minimumbagamount}}"
               class="solid-btn"
               data-bs-toggle="modal"
               data-bs-target="#CloseBag"
             >
               {{ closebagtext }}
             </button>
-            <button v-else class="solid-btn" disabled>KØB FOR ${25 - data.details.total} KR. MERE</button>
+            <button v-else class="solid-btn" disabled>
+              KØB FOR ${ {{ minimumbagamount }} - data.details.total} KR. MERE
+            </button>
           </div>
         </div>
       </div>
