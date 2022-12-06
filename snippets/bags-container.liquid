@@ -4,11 +4,11 @@
       <div class="col-12">
         <div class="product-cart">
           <div class="weight">
-            <span v-if="data.details.weight">Gram:${data.details.weight} g.</span>
-            <span v-if="data.details.total">Pris: ${data.details.total}.00. Kr.</span>
+            <span v-if="data.details.weight">{{ bottomcartWeight }}:${data.details.weight} g.</span>
+            <span v-if="data.details.total">{{ bottomCartPrice }}: ${data.details.total}.00. Kr.</span>
           </div>
           <div v-if="data.details.total" class="btn-group">
-            <button class="outline-btn" data-bs-toggle="modal" data-bs-target="#AddProDuct">SE DIN POSE</button>
+            <button class="outline-btn" data-bs-toggle="modal" data-bs-target="#AddProDuct">{{ watchbag }}</button>
 
             <button
               v-if="data.details.total >= 25"
@@ -16,7 +16,7 @@
               data-bs-toggle="modal"
               data-bs-target="#CloseBag"
             >
-              LUK POSEN
+              {{ closebagtext }}
             </button>
             <button v-else class="solid-btn" disabled>KØB FOR ${25 - data.details.total} KR. MERE</button>
           </div>
@@ -37,7 +37,7 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h3 class="modal-title" id="staticBackdropLabel">Your Bag</h3>
+          <h3 class="modal-title" id="staticBackdropLabel">{{ watchbagtitle }}</h3>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body custom">
@@ -48,7 +48,7 @@
               </div>
               <div class="item-name">
                 <h6>${product.title}</h6>
-                <h5>Approx ${product.amount} pieces</h5>
+                <h5>Ca ${product.amount} Stk.</h5>
               </div>
             </div>
             <div class="buttons">
@@ -133,14 +133,14 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body text-center pading">
-          <h3>Øjeblik :)</h3>
-          <p>Du skal lige navngive din pose, så du har let ved at finde den igen</p>
-          <input class="mb-4" type="text" placeholder="Indtast navn på pose" v-model="data.bagName">
+          <h3>{{ closebagheading }}</h3>
+          <p>{{ closebagsubheading }}</p>
+          <input class="mb-4" type="text" placeholder="{{closebaginputplaceholder}}" v-model="data.bagName">
           <div class="modal-btn-group">
-            <button v-if="data.tbagName" @click="putInBasket()" class="put-basket-btn">PUT I KURV</button>
-            <button v-else disabled class="put-basket-btn">PUT I KURV</button>
+            <button v-if="data.tbagName" @click="putInBasket()" class="put-basket-btn">{{ putinbaskettext }}</button>
+            <button v-else disabled class="put-basket-btn">{{ putinbaskettext }}</button>
 
-            <button data-bs-dismiss="modal" class="put-bag-btn">...eller put mere i posen</button>
+            <button data-bs-dismiss="modal" class="put-bag-btn">.{{ orputmoreinbaskettext }}</button>
           </div>
         </div>
       </div>
@@ -161,14 +161,14 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h1 class="modal-title" id="staticBackdropLabel">Your Shoping Basket</h1>
+          <h1 class="modal-title" id="staticBackdropLabel">{{ shoppingbaskettitle }}</h1>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
           <div v-if="mainCart.total < 129" class="small-announcementbar">
-            <p class="mb-0">${data.mainCart}Buy forDKK 129.00. more to reach the minimum amount.</p>
+            <p class="mb-0">{{ conditionbag }}</p>
           </div>
-          <h3>Your candy bags</h3>
+          <h3>{{ yourcandybagtexts }}</h3>
           <div v-if="mainCart.bags.length > 0" class="candy-content" v-for="bag in mainCart.bags">
             <div class="candy-container">
               <img :src="bag.bags[0].image" alt="image" width="52">
@@ -195,7 +195,7 @@
                           d="M16 2C15.7964 2 15.6011 2.08089 15.4571 2.22487L7.73632 9.94568L7.37439 11.3934L8.82211 11.0315L16.5429 3.31066C16.6869 3.16668 16.7678 2.97139 16.7678 2.76777C16.7678 2.56414 16.6869 2.36886 16.5429 2.22487C16.3989 2.08089 16.2036 2 16 2ZM14.0429 0.81066C14.562 0.291603 15.266 0 16 0C16.7341 0 17.4381 0.291603 17.9571 0.81066C18.4762 1.32972 18.7678 2.03371 18.7678 2.76777C18.7678 3.50182 18.4762 4.20582 17.9571 4.72487L10.0405 12.6415C9.9123 12.7697 9.75172 12.8606 9.57589 12.9046L6.24256 13.7379C5.90178 13.8231 5.54129 13.7233 5.29291 13.4749C5.04453 13.2265 4.94468 12.866 5.02988 12.5252L5.86321 9.1919C5.90717 9.01607 5.99809 8.85549 6.12625 8.72733L14.0429 0.81066Z"
                           fill="white" />
                     </svg>
-                    View & Edit
+                    {{ viewedittext }}
                   </button>
                   <svg
                     @click="removeBag(bag.bagName)"
@@ -219,12 +219,12 @@
               <b>DKK ${bag.total}</b>
             </div>
           </div>
-          <p v-else class="sub-title">Your basket is empty.</p>
+          <p v-else class="sub-title">{{ emptybaskettext }}</p>
         </div>
         <div class="modal-footer">
           <div class="mix-bag">
-            <button class="another-bag-btn" data-bs-dismiss="modal">Mix Another Bags</button>
-            <p class="text-center">or fill more in one of the bags above</p>
+            <button class="another-bag-btn" data-bs-dismiss="modal">{{ mixotherbagstext }}</button>
+            <p class="text-center">{{ fillyourbagstext }}</p>
             <div class="order">
               <h4>Your Order</h4>
               <div class="d-flex align-items-center justify-content-between">
@@ -272,7 +272,7 @@
                 <h6>${editBag.bagName}'s Bag</h6>
                 <p>There are for DKK ${editBag.total}.00. in the bag</p>
 
-                <button href="#" @click="backToBasket()" class="btn-add-candy">Add more candy</button>
+                <button @click="backToBasket()" class="btn-add-candy">Add more candy</button>
               </div>
               <div class="edit-container" v-for="item in editBag.editProducts">
                 <div class="img-name">

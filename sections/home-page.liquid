@@ -92,7 +92,15 @@
 			</div>
 	</div>
 	</section>
-	{% render 'bags-container' with minimumorderamount: 150 , minimumorder: 150 %}
+	{% render 'bags-container' with minimumorderamount: section.settings.minimumorderamount , minimumorder: section.settings.minimumorder , bottomcartWeight : section.settings.grams, bottomCartPrice : section.settings.price, minimumbagamount: section.settings.minimumbagamount, closebagtext: section.settings.closebag, closebagheading: section.settings.closebagheading, putinbaskettext: section.settings.putinbaskettext, closebaginputplaceholder: section.settings.closebaginputplaceholder, 
+	orputmoreinbaskettext : section.settings.orputmoreinbaskettext,
+	fillyourbagstext: section.settings.fillyourbagstext,
+	conditionbag: section.settings.conditionbag, yourcandybagstext : section.setttings.yourcandybagstext, mixotherbagstext : section.settings.mixotherbagstext,
+	emptybaskettext : section.settings.emptybaskettext, 
+	watchbag: section.settings.watchbag, viewedittext: section.settings.viewedittext,
+	closebagsubheading : section.settings.closebagsubheading,
+	shoppingbaskettitle: section.settings.shoppingbaskettitle
+	%}
 	
 	
 	{% schema %}
