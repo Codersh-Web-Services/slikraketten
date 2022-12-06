@@ -11,7 +11,7 @@
   	</svg>
   	<div class="product-detail">
   		<h4>${ title }</h4>
-  		<h3>From ${ vendor }</h3>
+  		<h3>Fra ${ vendor }</h3>
   		<div v-if="added" class="qty-btn">
   			<svg @click="decreaseQuantity()" class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
   				<path
@@ -20,11 +20,12 @@
   			<ul>
   				<li>
 
-  					<p class="mb-0">Approx. ${counter * amount} pieces</p>
+  					<p class="mb-0"> Ca.  ${keepcounter * amount}  stk.</p>
   				</li>
   				<li>
-  					<p class="mb-0">${counter * weight}  grams</p>
- 
+  					<p class="mb-0">${keepcounter * weight}   gram
+  			</p>
+
   				</li>
   			</ul>
   			<svg @click="increaseQuantity()" class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
@@ -32,7 +33,7 @@
   					d="M64 32C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64H64zM200 344V280H136c-13.3 0-24-10.7-24-24s10.7-24 24-24h64V168c0-13.3 10.7-24 24-24s24 10.7 24 24v64h64c13.3 0 24 10.7 24 24s-10.7 24-24 24H248v64c0 13.3-10.7 24-24 24s-24-10.7-24-24z" />
   			</svg>
   		</div>
-  		<button v-else="added" @click="putInBag()" class="btn-cta">PUT IN BAG</button>
+  		<button v-else="added" @click="putInBag()" class="btn-cta">PUT I POSE</button>
 
   		</div>
   </div>

@@ -23,7 +23,7 @@ padding-bottom: {{ section.settings.padding_bottom }}px;
     <aside aria-labelledby="verticalTitle" class="facets-wrapper" id="main-collection-filters"
       data-id="template--16973864698157__product-grid">
 
-      {% render 'facets', results: collection, enable_filtering: section.settings.enable_filtering, enable_sorting: section.settings.enable_sorting, filter_type: section.settings.filter_type %}
+      {% render 'facets', results: collection, enable_filtering: section.settings.enable_filtering, enable_sorting: true, filter_type: section.settings.filter_type %}
      
     </aside>
     <div class="product-grid-container" >
@@ -43,33 +43,103 @@ padding-bottom: {{ section.settings.padding_bottom }}px;
     </div>
   </div>
 </div>
-
-{% render 'product-component' %}
+{% render 'product-component' with grams: section.settings.grams %}
 {% render 'filter-component' %}
 
-{% render 'bags-container'%}
+{% render 'bags-container' with minimumorderamount: section.settings.minimumorderamount , minimumorder: section.settings.minimumorder %}
 {% schema %}
 {
   "name": "t:sections.main-collection-product-grid.name",
   "class": "section",
   "settings": [
     {
-      "type": "range",
-      "id": "products_per_page",
-      "min": 8,
-      "max": 24,
-      "step": 4,
-      "default": 16,
-      "label": "t:sections.main-collection-product-grid.settings.products_per_page.label"
+      "type": "header",
+      "content": "Bottom cart"
     },
     {
-      "type": "range",
-      "id": "columns_desktop",
-      "min": 1,
-      "max": 5,
-      "step": 1,
-      "default": 4,
-      "label": "t:sections.main-collection-product-grid.settings.columns_desktop.label"
+      "type": "text",
+      "id": "grams",
+      "label": "Weight text"
+    },
+    {
+      "type": "text",
+      "id": "price",
+      "label": "Price text"
+    },
+    {
+      "type": "text",
+      "id": "minimubagamount",
+      "label": "minimumbag amount(Number)"
+    },
+    {
+      "type": "text",
+      "id": "watchbag",
+      "label": "watchbag text"
+    },
+    {
+      "type": "text",
+      "id": "watchbagtitle",
+      "label": "watchbag title"
+    },
+    {
+      "type": "text",
+      "id": "closebag",
+      "label": "closebag text"
+    },
+    {
+      "type": "text",
+      "id": "closebagheading",
+      "label": "closebag heading"
+    }, 
+    {
+      "type": "text",
+      "id": "closebagsubheading",
+      "label": "closebag subheading"
+    }, 
+    {
+      "type": "text",
+      "id": "closebaginputplaceholder",
+      "label": "closebag input placeholder"
+    }, 
+    {
+      "type": "text",
+      "id": "putinbaskettext",
+      "label": "put in basket button text"
+    }, 
+    {
+      "type": "text",
+      "id": "orputmoreinbaskettext",
+      "label": "or put more in basket button text"
+    },  
+    {
+      "type": "text",
+      "id": "conditionbag",
+      "label": "Conditionbag text"
+    },
+    {
+      "type": "text",
+      "id": "minimumorderamount",
+      "label": "minimum order amount(Number)"
+    },
+    {
+      "type": "text",
+      "id": "minimumorder",
+      "label": "minimumorder text"
+    },
+    {
+      "type": "text",
+      "id": "yourcandybagstext",
+      "label": "yourcandybags text"
+    },
+    {
+      "type": "text",
+      "id": "mixotherbagstext",
+      "label": "yourcandybags text"
+    },
+    {
+      "type": "text",
+      "id": "fillyourbagstext",
+      "label": "fill your bags text"
     },
     {
       "type": "header",
@@ -153,12 +223,6 @@ padding-bottom: {{ section.settings.padding_bottom }}px;
       "info": "t:sections.main-collection-product-grid.settings.filter_type.info"
     },
     {
-      "type": "checkbox",
-      "id": "enable_sorting",
-      "default": true,
-      "label": "t:sections.main-collection-product-grid.settings.enable_sorting.label"
-    },
-    {
       "type": "header",
       "content": "t:sections.main-collection-product-grid.settings.header_mobile.content"
     },
@@ -177,30 +241,6 @@ padding-bottom: {{ section.settings.padding_bottom }}px;
           "label": "t:sections.main-collection-product-grid.settings.columns_mobile.options__2.label"
         }
       ]
-    },
-    {
-      "type": "header",
-      "content": "t:sections.all.padding.section_padding_heading"
-    },
-    {
-      "type": "range",
-      "id": "padding_top",
-      "min": 0,
-      "max": 100,
-      "step": 4,
-      "unit": "px",
-      "label": "t:sections.all.padding.padding_top",
-      "default": 36
-    },
-    {
-      "type": "range",
-      "id": "padding_bottom",
-      "min": 0,
-      "max": 100,
-      "step": 4,
-      "unit": "px",
-      "label": "t:sections.all.padding.padding_bottom",
-      "default": 36
     }
   ]
 }

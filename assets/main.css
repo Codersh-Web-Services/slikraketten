@@ -335,6 +335,10 @@ button {
   border: none;
 }
 
+button:disabled {
+  cursor: not-allowed;
+}
+
 .modal .modal-header,
 .modal .modal-body,
 .modal .modal-footer {
@@ -701,8 +705,11 @@ ul.MainNav li a:hover {
 .qty-btn .icon {
   height: 30px;
   width: 30px;
+  min-height: 30px;
+  min-width: 30px;
+
   fill: #fff;
-  margin: 0 0.3rem !important;
+  margin: 0 1px !important;
 }
 
 
@@ -1318,10 +1325,20 @@ footer p {
   .qty-btn ul li p {
     font-size: 0.8em;
   }
-  
+
 }
 
 @media (max-width: 700px) {
+
+  .item-container .qty-btn,
+  .product-detail .qty-btn,
+  .product-detail .btn-cta {
+    width: 90%;
+  }
+
+  .page-width {
+    padding: 0 0.5em;
+  }
 
   .mobile-facets__header {
     padding: 1rem 1.5rem;
@@ -1348,9 +1365,11 @@ footer p {
 
 @media (max-width: 420px) {
 
+
   .hero-section {
     margin-top: 7.5rem;
   }
+
 
   .mainHeader .logo-wrap img {
     width: 160px;
@@ -1475,6 +1494,8 @@ footer p {
   .qty-btn .icon {
     min-height: 20px;
     min-width: 20px;
+    height: 20px;
+    width: 20px;
   }
 
   .product-box svg.icon-info {
@@ -1524,10 +1545,12 @@ footer p {
 
   .product-detail .qty-btn ul li p {
     white-space: normal;
+ 
   } 
 
   .edit-container .btn_group svg {
     height: 25px;
     width: 25px;
+ 
   }
 }
