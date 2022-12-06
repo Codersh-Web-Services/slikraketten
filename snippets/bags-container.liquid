@@ -272,7 +272,7 @@
                 <h6>${editBag.bagName}'s Bag</h6>
                 <p>There are for DKK ${editBag.total}.00. in the bag</p>
 
-                <button @click="backToBasket()" class="btn-add-candy">Add more candy</button>
+                <button @click="addMoreCandy()" class="btn-add-candy">Add more candy</button>
               </div>
               <div class="edit-container" v-for="item in editBag.editProducts">
                 <div class="img-name">
@@ -613,8 +613,8 @@
   }
 
   .edit-container .btn_group button {
-    background:transparent;
-}
+    background: transparent;
+  }
 
   .btn_group a {
     text-decoration: none;

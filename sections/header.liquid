@@ -129,7 +129,7 @@
 <header class="fixed-top">
   <div class="anouncementbar" id="anouncementbar">
       <p  class="mb-0">
-          We will send sweets again on Monday😍
+         {{section.settings.announcementbartext}}
       </p>
   </div>
  <script>
@@ -147,7 +147,7 @@ let tomorrow = new Date();
   let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
   let seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-document.querySelector("#anouncementbar p").innerHTML = `We will send sweets in ${hours} : ${minutes} : ${seconds}`
+document.querySelector("#anouncementbar p").innerHTML = `{{section.settings.announcementbartext2}} ${hours} : ${minutes} : ${seconds}`
 
    }, 1000)
   
@@ -233,7 +233,20 @@ document.querySelector("#anouncementbar p").innerHTML = `We will send sweets in 
   "name": "t:sections.header.name",
   "class": "section-header",
   "settings": [
-  
+    
+    {
+
+      "type" : "text",
+      "id" : "announcementbartext",
+      "label" : "Default Announcment text"
+    },
+    {
+
+      "type" : "text",
+      "id" : "announcementbartext2",
+      "label" : "Announcment text when timer is counting down"
+    },
+
     {
       "type": "image_picker",
       "id": "logo",
