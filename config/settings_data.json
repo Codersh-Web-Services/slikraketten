@@ -156,7 +156,9 @@
           "aboutInfo": "<p><strong>Lorem Ipsum<\/strong>is simply dummy text of the printing and typesetting industry.<\/p>",
           "footertitle1": "Links",
           "menu": "footer",
+          "footertitle2": "Terms",
           "menu2": "terms",
+          "footertitle3": "Address",
           "Addressdesc": "<p><strong>Lorem Ipsum<\/strong>is simply dummy text of the printing and typesetting industry.<\/p>",
           "copyrighttext": "<p><strong>Lorem Ipsum<\/strong>is simply dummy text of the printing and typesetting industry.<\/p>"
         }
