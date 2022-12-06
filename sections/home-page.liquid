@@ -31,7 +31,7 @@
 			</div>
 	</div>
 	</section>
-	{% render 'product-component' %}
+	{% render 'product-component' with grams: section.settings.grams, putinbagtext: section.settings.putinbagtext %}
 	<section class="logo-section">
 	<div class="container-fluid">
 			<div class="row">
@@ -156,8 +156,122 @@
 				"type": "url",
 				"id": "registerlink",
 				"label": "Register link"
+			},
+			{
+				"type": "header",
+				"content": "Product grid"
+			},
+			{
+				"type": "text",
+				"id": "putinbagtext",
+				"label": "Put in bag/add to cart text"
+			},
+	
+			{
+				"type": "header",
+				"content": "Bottom cart"
+			},
+			{
+				"type": "text",
+				"id": "grams",
+				"label": "Weight text"
+			},
+			{
+				"type": "text",
+				"id": "price",
+				"label": "Price text"
+			},
+			{
+				"type": "text",
+				"id": "minimumbagamount",
+				"label": "minimumbag amount(Number)"
+			},
+			{
+				"type": "text",
+				"id": "watchbag",
+				"label": "watchbag text"
+			},
+			{
+				"type": "text",
+				"id": "watchbagtitle",
+				"label": "watchbag title"
+			},
+			{
+				"type": "text",
+				"id": "closebag",
+				"label": "closebag text"
+			},
+			{
+				"type": "text",
+				"id": "closebagheading",
+				"label": "closebag heading"
+			}, 
+			{
+				"type": "text",
+				"id": "closebagsubheading",
+				"label": "closebag subheading"
+			}, 
+			{
+				"type": "text",
+				"id": "closebaginputplaceholder",
+				"label": "closebag input placeholder"
+			}, 
+			{
+				"type": "text",
+				"id": "putinbaskettext",
+				"label": "put in basket button text"
+			},
+			{
+				"type": "text",
+				"id": "shoppingbaskettitle",
+				"label": "Shopping basket title"
+			},
+			
+			{
+				"type": "text",
+				"id": "orputmoreinbaskettext",
+				"label": "or put more in basket button text"
+			},  
+			{
+			"type": "text",
+			"id" : "emptybaskettext",
+			"label" : "empty basket text"
+			},
+			{
+				"type": "text",
+				"id": "conditionbag",
+				"label": "Conditionbag text"
+			},
+			{
+				"type": "text",
+				"id": "minimumorderamount",
+				"label": "minimum order amount(Number)"
+			},
+			{"type" : "text", 
+				"id" : "viewedittext",
+				"label" : "view edit btn text"
 			}
-
+			,
+			{
+				"type": "text",
+				"id": "minimumorder",
+				"label": "minimumorder text"
+			},
+			{
+				"type": "text",
+				"id": "yourcandybagstext",
+				"label": "yourcandybags text"
+			},
+			{
+				"type": "text",
+				"id": "mixotherbagstext",
+				"label": "yourcandybags text"
+			},
+			{
+				"type": "text",
+				"id": "fillyourbagstext",
+				"label": "fill your bags text"
+			}
 		],
 		"blocks": [
 			{

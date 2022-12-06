@@ -43,7 +43,7 @@ padding-bottom: {{ section.settings.padding_bottom }}px;
     </div>
   </div>
 </div>
-{% render 'product-component' with grams: section.settings.grams %}
+{% render 'product-component' with grams: section.settings.grams, putinbagtext: section.settings.putinbagtext %}
 {% render 'filter-component' %}
 
 {% render 'bags-container' with minimumorderamount: section.settings.minimumorderamount , minimumorder: section.settings.minimumorder , bottomcartWeight : section.settings.grams, bottomCartPrice : section.settings.price, minimumbagamount: section.settings.minimumbagamount, closebagtext: section.settings.closebag, closebagheading: section.settings.closebagheading, putinbaskettext: section.settings.putinbaskettext, closebaginputplaceholder: section.settings.closebaginputplaceholder, 
@@ -54,7 +54,6 @@ emptybaskettext : section.settings.emptybaskettext,
 watchbag: section.settings.watchbag, viewedittext: section.settings.viewedittext,
 closebagsubheading : section.settings.closebagsubheading,
 shoppingbaskettitle: section.settings.shoppingbaskettitle
-
 %}
 {% schema %}
 {
