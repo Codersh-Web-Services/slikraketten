@@ -52,7 +52,7 @@
 	<div class="container">
 			<div class="row">
 					<div class="col-md-6 d-flex align-items-center flex-wrap">
-							<h2>Follow SlikRaketten:</h2>
+							<h2>{{ section.settings.followtitle }}</h2>
 							<ul class="social-links">
 									<li>
 											<a href="#" target="_blank">
@@ -81,12 +81,12 @@
 							</ul>
 					</div>
 					<div class="col-md-6">
-							<h3>Newsletter</h3>
+							<h3>{{ section.settings.newslettertitle }}</h3>
 							<p>
-									Receive our <b> Newsletter </b> and get News and special discount codes, as one of the first.
+								{{ section.settings.newsletterdesc }}
 							</p>
 							<a href="{{ section.settings.registerlink }}" class="btn-cta">
-									Register
+									{{ section.settings.registertitle }}
 							</a>
 					</div>
 			</div>
@@ -110,25 +110,46 @@
 				"label": "hero link"
 			},
 			{
-				"type": "url",
-				"id": "registerlink",
-				"label": "register link"
-			},
-			{
 				"type": "text",
 				"label": "Order text",
 				"id": "ordertext"
 			},
 			{
 				"type": "text",
-				"label": "Mix title",
+				"label": "Mix Title",
 				"id": "mixtitle"
 			},
 			{
 				"type": "text",
 				"label": "Mix Subtitle",
 				"id": "mixtitle2"
+			},
+            {
+                "type": "text",
+				"label": "Follow Title",
+				"id": "followtitle"
+            },
+            {
+                "type": "text",
+				"label": "Newsletter Title",
+				"id": "newslettertitle"
+            },
+            {
+            	"type": "richtext",
+				"label": "Newsletter Description",
+				"id": "newsletterdesc"
+            },
+            {
+                "type": "text",
+				"label": "Register",
+				"id": "registertitle"
+            },
+			{
+				"type": "url",
+				"id": "registerlink",
+				"label": "Register link"
 			}
+
 		],
 		"blocks": [
 			{
