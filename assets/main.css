@@ -691,7 +691,7 @@ ul.MainNav li a:hover {
   text-transform: capitalize;
 }
 
-.qty-btn ul li:first-child a {
+.qty-btn ul li:first-child p {
   border-bottom: 1px solid #fff;
   color: #ffda3e;
 }
@@ -904,9 +904,10 @@ footer p {
 }
 
 .btn-group .outline-btn {
-  border: 1px solid;
+  border: 1px solid var(--sr-black-color);
   color: var(--sr-black-color);
   font-weight: 600;
+  background-color: transparent;
 }
 
 .btn-group .outline-btn:hover {
@@ -1095,7 +1096,7 @@ footer p {
 }
 
 .modal-body p {
-  font-size: 1.2rem;
+  font-size: 1rem;
   color: var(--sr-black-color);
   opacity: 0.95;
 }
@@ -1104,6 +1105,7 @@ footer p {
   display: block;
   width: 100%;
   padding: 0.90rem 0;
+  cursor: pointer;
 }
 
 .modal-body .put-basket-btn {
@@ -1127,6 +1129,7 @@ footer p {
   font-size: 1rem;
   transition: all .35s ease-in-out;
   margin-top: 1rem;
+  background-color: transparent;
 }
 
 .product-title h2 {
@@ -1326,21 +1329,25 @@ footer p {
   }
 
   .mobile-facets__close {
-    top: 0;
-    right: 0;
+    top: 0 !important;
+    right: 0 !important;
   }
 
   .mobile-facets__close svg {
-    width: 1.2rem;
+    width: 1.2rem !important;
   }
 
   .facets__item .facet-checkbox {
-    padding: 1rem 1.5rem;
+    padding: 1rem 1.5rem !important;
   }
 }
 
 
 @media (max-width: 420px) {
+
+  .hero-section {
+    margin-top: 7.5rem;
+  }
 
   .mainHeader .logo-wrap img {
     width: 160px;
@@ -1515,4 +1522,9 @@ footer p {
   .product-detail .qty-btn ul li p {
     white-space: normal;
   } 
+
+  .edit-container .btn_group svg {
+    height: 25px;
+    width: 25px;
+  }
 }

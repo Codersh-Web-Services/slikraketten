@@ -406,13 +406,13 @@
   }
 
   .candy-container .title {
-    margin-left: 1rem;
-    margin: 0rem 0 0.5rem !important;
+    margin: 0.2rem 0 0.5rem 0.4rem !important;
   }
 
   .candy-container .title h6 {
     font-size: 17px;
     font-weight: 700;
+    color: var(--sr-black-color);
   }
 
   .candy-container .edit button {
@@ -430,7 +430,7 @@
     margin-left: 0.5rem;
   }
 
-  .candy-container .price b {
+  .candy-content .price b {
     font-size: 1.3rem;
   }
 
@@ -515,7 +515,7 @@
   .edit-item .modal-dialog {
     position: fixed;
     margin: auto;
-    width: 440px;
+    max-width: 440px;
     height: 100%;
     right: -440px;
     left: auto;
@@ -548,7 +548,7 @@
     text-decoration: none;
     background-color: var(--sr-purple-color);
     color: var(--sr-black-color);
-    font-weight: 500;
+    font-weight: 700;
     padding: 0.8rem 2rem;
     border-radius: 5px;
     transition: all .35s ease-in-out;
@@ -583,6 +583,7 @@
     font-size: 14px;
     font-weight: 700;
     margin-bottom: 0.2rem;
+    color: var(--sr-black-color);
   }
 
   .img-name .name span {
@@ -600,6 +601,10 @@
     gap: 20px;
     padding-right: 1rem;
   }
+
+  .edit-container .btn_group button {
+    background:transparent;
+}
 
   .btn_group a {
     text-decoration: none;
