@@ -1125,7 +1125,7 @@ div[cartshow="show"] {
 }
 
 button:disabled {
-  cursor: not-allowed;
+  cursor: not-allowed !important;
 }
 
 .modal-body .put-basket-btn {
