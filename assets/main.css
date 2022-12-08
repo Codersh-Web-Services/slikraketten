@@ -1167,6 +1167,11 @@ div[cartshow="show"] {
   margin-left: 0.5rem;
 }
 
+/* checkout  */
+.order .btn-checkout {
+  width: 100%;
+}
+
 /*--- MEDIA QUERIES ---*/
 
 @media (max-width: 1200px) {

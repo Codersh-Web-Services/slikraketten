@@ -247,7 +247,7 @@
               <a disabled v-if="mainCart.total < {{ minimumorderamount }}" class="btn-checkout"
                 >Checkout {{ minimumorderamount -}}
               </a>
-              <a v-else @click="checkOut()" href class="btn-checkout">Checkout</a>
+              <button v-else @click="checkOut()" class="btn-checkout">Checkout</button>
             </div>
           </div>
         </div>
