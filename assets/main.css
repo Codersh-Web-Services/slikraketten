@@ -335,9 +335,7 @@ button {
   border: none;
 }
 
-button:disabled {
-  cursor: not-allowed;
-}
+
 
 .modal .modal-header,
 .modal .modal-body,
@@ -1124,6 +1122,10 @@ div[cartshow="show"] {
   width: 100%;
   padding: 0.90rem 0;
   cursor: pointer;
+}
+
+button:disabled {
+  cursor: not-allowed;
 }
 
 .modal-body .put-basket-btn {

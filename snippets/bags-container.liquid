@@ -139,7 +139,9 @@
           <p>{{ closebagsubheading }}</p>
           <input class="mb-4" type="text" placeholder="{{closebaginputplaceholder}}" v-model="data.bagName">
           <div class="modal-btn-group">
-            <button v-if="data.tbagName" @click="putInBasket()" class="put-basket-btn">{{ putinbaskettext }}</button>
+            <button v-if="data.tbagName" @click="putInBasket()" class="put-basket-btn">
+              {{ putinbaskettext }}
+            </button>
             <button v-else disabled class="put-basket-btn">{{ putinbaskettext }}</button>
 
             <button data-bs-dismiss="modal" class="put-bag-btn">.{{ orputmoreinbaskettext }}</button>
