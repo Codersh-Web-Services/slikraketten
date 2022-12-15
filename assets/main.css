@@ -542,76 +542,98 @@ ul.MainNav li a:hover {
 }
 
 /* <-------- HERO SECTION END ---------> */
+/* <-------- WELCOME SECTION CSS START -------> */
 
+.welcome-section {
+  background: url(../images/bg-3.webp) #ef92be;
+  background: url('https://cdn.shopify.com/s/files/1/0671/4471/2493/files/bg-3.webp?v=1671100086');
+  background-size: cover;
+  background-position: center center;
+  background-attachment: fixed;
+  padding: 190px 0;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ef92be;
+  background-blend-mode: overlay;
+}
+
+.welcome-section small {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  display: inline-block;
+  font-family: 'Lobster Two';
+  letter-spacing: 1px;
+  font-weight: 700;
+  color: var(--sr-light-pink-color);
+  font-style: italic;
+}
+
+.welcome-content h2 {
+  font-size: 3.5rem;
+  font-weight: 800;
+  color: #ef92be;
+  margin-bottom: 1.5rem;
+  font-family: 'Lobster Two';
+  font-style: italic;
+  margin-bottom: 20px;
+}
+
+.welcome-content p {
+  color: #959594;
+  font-weight: 600;
+}
+
+.welcome-content .btn-cta {
+  display: inline-block;
+  padding: 0.6rem 2.5rem;
+  margin-top: 1.5rem;
+  font-weight: 600;
+  background: var(--sr-purple-color);
+  border: 1px solid var(--sr-purple-color);
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* <-------- WELCOME SECTION CSS END -------> */
+
+/* <-------- PRODUCT SECTION CSS START -------> */
 .product {
-  padding: 5rem 0;
-  background-color: var(--sr-light-grey-color);
+  padding: 3.5rem 0;
 }
 
 .product-box {
-  position: relative;
-  cursor: pointer;
-  border-radius: 10px;
-  transition: all .35s ease-in-out;
-}
-
-.product-box:hover {
-  transform: translateY(-2px);
-  box-shadow: rgb(195 149 194 / 69%) 0px 18px 50px -10px;
-  background: linear-gradient(to bottom, #c097c2, transparent);
-}
-
-.product-box::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  margin-top: 50%;
-  width: 100%;
-  border-radius: 10px;
-  background-color: var(--sr-light-yellow-color);
-  transition-property: background;
-  transition-timing-function: cubic-bezier(.4, 0, .2, 1);
-  transition-duration: .15s;
-  transition-duration: .2s;
-  transition-timing-function: cubic-bezier(0, 0, .2, 1);
-  z-index: -1;
+  margin: 0 0 2rem 0;
 }
 
 .product-box .img-wrap {
-  text-align: center;
+  width: 100%;
 }
 
 .product-box .img-wrap img {
   height: auto;
-  max-width: 90%;
-  margin: 0 auto;
+  max-width: 100%;
 }
 
-
-.product-box .product-detail {
-  padding-bottom: 1.5rem;
+.product-detail {
   text-align: center;
-  border-bottom: 2px solid #c295c2cc;
-  border-radius: 10px;
-  box-shadow: rgb(195 149 194 / 33%) 0px 18px 50px -10px;
-  transition: all .35s ease-in-out;
 }
 
 .product-detail h4 {
-  font-size: 15px;
-  color: var(--sr-black-color);
-  margin: 1.5rem 0 0.5rem 0;
-  text-transform: capitalize;
+  font-size: 1.5rem;
   font-weight: 600;
+  color: #030002d4;
+  text-transform: capitalize;
+  text-align: center;
+  margin: 1.5rem 0 0.5rem 0;
 }
 
 .product-detail h3 {
-  font-size: 18px;
-  color: var(--sr-light-pink-color);
-  margin-bottom: 1.5rem;
+  font-size: 0.95rem;
   font-weight: 600;
+  color: #c493c8;
+  text-align: center;
 }
 
 .product-detail .btn-cta {
