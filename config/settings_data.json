@@ -162,8 +162,8 @@
           "footertitle2": "Terms",
           "menu2": "terms",
           "footertitle3": "Address",
-          "Addressdesc": "<p><strong>Lorem Ipsum<\/strong>is simply dummy text of the printing and typesetting industry.<\/p>",
-          "copyrighttext": "<p><strong>Lorem Ipsum<\/strong>is simply dummy text of the printing and typesetting industry.<\/p>"
+          "Addressdesc": "<p>Lorem Ipsumis simply dummy text of the printing and typesetting industry.<\/p>",
+          "copyrighttext": "<p>Lorem Ipsumis simply dummy text of the printing and typesetting industry.<\/p>"
         }
       },
       "main-password-header": {
