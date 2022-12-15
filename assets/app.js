@@ -1,8 +1,7 @@
 
-// Reactive State 
+// Reactive State | global store
 const store = Vue.reactive({
 	state: {
-		cartState: [],
 		bottomCart: {
 			total: 0,
 			weight: 0,
@@ -24,15 +23,7 @@ const store = Vue.reactive({
 			editProducts: []
 		}
 	},
-	getCart() {
-		axios.get('/cart.js')
-			.then(response => {
-				this.state.cartState.unshift(response.data)
-			})
-			.catch(error => {
-				console.log(error)
-			})
-	},
+
 	calculateCartTotal() {
 		this.state.mainCart.total = 0
 		// calculate the total 
@@ -190,6 +181,7 @@ const store = Vue.reactive({
 							}
 						})
 						store.updatePricesAndWeights()
+
 						store.state.mainCart.bags.forEach(bag => {
 							if (bag.bagName == bagName) {
 								bag.total = store.state.bottomCart.total
@@ -199,25 +191,12 @@ const store = Vue.reactive({
 
 					} else {
 						this.qty--
+						this.amount = this.orginalAmount * this.qty
+						this.weight = this.orginalWeight * this.qty
 						store.state.mainCart.total -= Number(this.price)
 						store.state.editBag.total -= Number(this.price)
 						store.state.editBag.editProducts.map((el, i) => {
 							el.productId == this.productId ? store.state.editBag.editProducts.splice(i, 1) : false
-						})
-
-						store.state.mainCart.bags.forEach(bag => {
-							if (bag.bagName == bagName) {
-								bag.total = store.state.bottomCart.total
-							}
-						})
-						store.state.mainCart.bags.map(bag => {
-							if (bagName == bag.bagName) {
-								bag.bags.map((el, i) => {
-									if (bag.bags.length == 1) {
-										store.state.mainCart.bags.splice(0, 1)
-									}
-								})
-							}
 						})
 						store.state.filteredProducts.map((product, i) => {
 							if (product.id == this.productId) {
@@ -226,6 +205,25 @@ const store = Vue.reactive({
 						})
 
 						store.updatePricesAndWeights()
+
+						store.state.mainCart.bags.forEach(bag => {
+							if (bag.bagName == bagName) {
+								if (bag.bags.length == 1) {
+									store.state.mainCart.bags.splice(0, 1)
+								} else {
+									bag.bags.map((product, i) => {
+										product.productId == this.productId ? bag.bags.splice(i, 1) : false
+									})
+								}
+
+
+								bag.total = store.state.bottomCart.total
+
+							}
+						})
+
+
+
 					}
 				},
 				removeItem() {
@@ -324,7 +322,8 @@ const store = Vue.reactive({
 
 		let modal = new bootstrap.Modal('#InfoModal')
 		modal.toggle()
-	},
+	}
+
 })
 
 
@@ -334,6 +333,7 @@ const store = Vue.reactive({
 if (document.querySelector('#bags-container')) {
 
 	const BagsContainer = Vue.createApp({
+		// add a delimiter to replace shopify's liquid output syntax
 		delimiters: ['${', '}'],
 		data() {
 			return {
@@ -357,6 +357,7 @@ if (document.querySelector('#bags-container')) {
 		},
 		methods: {
 			putInBasket() {
+				// Set the current bag 
 				store.setBag(this.data.bagName)
 				// after the bags are set remove the currentbag items using pop
 			},
@@ -368,6 +369,13 @@ if (document.querySelector('#bags-container')) {
 			backToBasket() {
 				let prevmodal = new bootstrap.Modal('#Slide-Left-Second')
 				prevmodal._hideModal()
+
+			},
+			addMoreCandy() {
+				let prevmodal = new bootstrap.Modal('#Slide-Left-Second')
+				prevmodal._hideModal()
+				let prevmodal2 = new bootstrap.Modal('#Slide-Left')
+				prevmodal2._hideModal()
 
 			},
 
@@ -470,7 +478,6 @@ if (document.querySelector('#product-box')) {
 
 		methods: {
 			increaseQuantity() {
-				console.log(this.keepcounter)
 				store.state.filteredProducts.map((product, i) => {
 					if (product.id == this.productid) {
 						product.keepcounter++
@@ -490,7 +497,6 @@ if (document.querySelector('#product-box')) {
 			},
 			decreaseQuantity() {
 				if (this.keepcounter == 1) {
-
 					store.state.currentbagitems.map((el, i) => {
 						el.title == this.title ? store.state.currentbagitems.splice(i, 1) : false
 					})
@@ -521,6 +527,7 @@ if (document.querySelector('#product-box')) {
 				store.updatePricesAndWeights()
 
 			},
+			// modal trigger
 			mtoggle() {
 				store.mtoggle(this.productid)
 			},

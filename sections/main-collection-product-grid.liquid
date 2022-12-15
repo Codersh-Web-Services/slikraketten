@@ -43,15 +43,33 @@ padding-bottom: {{ section.settings.padding_bottom }}px;
     </div>
   </div>
 </div>
-{% render 'product-component' with grams: section.settings.grams %}
+{% render 'product-component' with grams: section.settings.grams, putinbagtext: section.settings.putinbagtext %}
 {% render 'filter-component' %}
 
-{% render 'bags-container' with minimumorderamount: section.settings.minimumorderamount , minimumorder: section.settings.minimumorder %}
+{% render 'bags-container' with minimumorderamount: section.settings.minimumorderamount , minimumorder: section.settings.minimumorder , bottomcartWeight : section.settings.grams, bottomCartPrice : section.settings.price, minimumbagamount: section.settings.minimumbagamount, closebagtext: section.settings.closebag, closebagheading: section.settings.closebagheading, putinbaskettext: section.settings.putinbaskettext, closebaginputplaceholder: section.settings.closebaginputplaceholder, 
+orputmoreinbaskettext : section.settings.orputmoreinbaskettext,
+fillyourbagstext: section.settings.fillyourbagstext,
+conditionbag: section.settings.conditionbag, yourcandybagstext : section.setttings.yourcandybagstext, mixotherbagstext : section.settings.mixotherbagstext,
+emptybaskettext : section.settings.emptybaskettext, 
+watchbag: section.settings.watchbag, viewedittext: section.settings.viewedittext,
+closebagsubheading : section.settings.closebagsubheading,
+shoppingbaskettitle: section.settings.shoppingbaskettitle
+%}
 {% schema %}
 {
   "name": "t:sections.main-collection-product-grid.name",
   "class": "section",
   "settings": [
+    {
+      "type": "header",
+      "content": "Product grid"
+    },
+    {
+      "type": "text",
+      "id": "putinbagtext",
+      "label": "Put in bag/add to cart text"
+    },
+
     {
       "type": "header",
       "content": "Bottom cart"
@@ -68,7 +86,7 @@ padding-bottom: {{ section.settings.padding_bottom }}px;
     },
     {
       "type": "text",
-      "id": "minimubagamount",
+      "id": "minimumbagamount",
       "label": "minimumbag amount(Number)"
     },
     {
@@ -105,12 +123,23 @@ padding-bottom: {{ section.settings.padding_bottom }}px;
       "type": "text",
       "id": "putinbaskettext",
       "label": "put in basket button text"
-    }, 
+    },
+    {
+      "type": "text",
+      "id": "shoppingbaskettitle",
+      "label": "Shopping basket title"
+    },
+    
     {
       "type": "text",
       "id": "orputmoreinbaskettext",
       "label": "or put more in basket button text"
     },  
+    {
+    "type": "text",
+    "id" : "emptybaskettext",
+    "label" : "empty basket text"
+    },
     {
       "type": "text",
       "id": "conditionbag",
@@ -121,6 +150,11 @@ padding-bottom: {{ section.settings.padding_bottom }}px;
       "id": "minimumorderamount",
       "label": "minimum order amount(Number)"
     },
+    {"type" : "text", 
+      "id" : "viewedittext",
+      "label" : "view edit btn text"
+    }
+    ,
     {
       "type": "text",
       "id": "minimumorder",

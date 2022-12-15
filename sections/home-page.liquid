@@ -51,7 +51,7 @@
 			</div>
 	</div>
 	</section>
-	{% render 'product-component' %}
+	{% render 'product-component' with grams: section.settings.grams, putinbagtext: section.settings.putinbagtext %}
 	<section class="logo-section">
 	<div class="container-fluid">
 			<div class="row">
@@ -60,7 +60,7 @@
 						{% when 'logo' %}
 								<div class="col-6 col-sm-4 col-md-2 text-center">
 									<div class="img-wrap">
-									{{ block.settings.image | image_url: width: 200 | image_tag }}
+									{{ block.settings.logo | image_url: width: 82 | image_tag }}
 									</div>
 							</div>
 					{% endcase %}
@@ -72,7 +72,7 @@
 	<div class="container">
 			<div class="row">
 					<div class="col-md-6 d-flex align-items-center flex-wrap">
-							<h2>Follow SlikRaketten:</h2>
+							<h2>{{ section.settings.followtitle }}</h2>
 							<ul class="social-links">
 									<li>
 											<a href="#" target="_blank">
@@ -101,18 +101,26 @@
 							</ul>
 					</div>
 					<div class="col-md-6">
-							<h3>Newsletter</h3>
+							<h3>{{ section.settings.newslettertitle }}</h3>
 							<p>
-									Receive our <b> Newsletter </b> and get News and special discount codes, as one of the first.
+								{{ section.settings.newsletterdesc }}
 							</p>
 							<a href="{{ section.settings.registerlink }}" class="btn-cta">
-									Register
+									{{ section.settings.registertitle }}
 							</a>
 					</div>
 			</div>
 	</div>
 	</section>
-	{% render 'bags-container' with minimumorderamount: 150 , minimumorder: 150 %}
+	{% render 'bags-container' with minimumorderamount: section.settings.minimumorderamount , minimumorder: section.settings.minimumorder , bottomcartWeight : section.settings.grams, bottomCartPrice : section.settings.price, minimumbagamount: section.settings.minimumbagamount, closebagtext: section.settings.closebag, closebagheading: section.settings.closebagheading, putinbaskettext: section.settings.putinbaskettext, closebaginputplaceholder: section.settings.closebaginputplaceholder, 
+	orputmoreinbaskettext : section.settings.orputmoreinbaskettext,
+	fillyourbagstext: section.settings.fillyourbagstext,
+	conditionbag: section.settings.conditionbag, yourcandybagstext : section.setttings.yourcandybagstext, mixotherbagstext : section.settings.mixotherbagstext,
+	emptybaskettext : section.settings.emptybaskettext, 
+	watchbag: section.settings.watchbag, viewedittext: section.settings.viewedittext,
+	closebagsubheading : section.settings.closebagsubheading,
+	shoppingbaskettitle: section.settings.shoppingbaskettitle
+	%}
 	
 	
 	{% schema %}
@@ -130,24 +138,159 @@
 				"label": "hero link"
 			},
 			{
-				"type": "url",
-				"id": "registerlink",
-				"label": "register link"
-			},
-			{
 				"type": "text",
 				"label": "Order text",
 				"id": "ordertext"
 			},
 			{
 				"type": "text",
-				"label": "Mix title",
+				"label": "Mix Title",
 				"id": "mixtitle"
 			},
 			{
 				"type": "text",
 				"label": "Mix Subtitle",
 				"id": "mixtitle2"
+			},
+            {
+                "type": "text",
+				"label": "Follow Title",
+				"id": "followtitle"
+            },
+            {
+                "type": "text",
+				"label": "Newsletter Title",
+				"id": "newslettertitle"
+            },
+            {
+            	"type": "richtext",
+				"label": "Newsletter Description",
+				"id": "newsletterdesc"
+            },
+            {
+                "type": "text",
+				"label": "Register",
+				"id": "registertitle"
+            },
+			{
+				"type": "url",
+				"id": "registerlink",
+				"label": "Register link"
+			},
+			{
+				"type": "header",
+				"content": "Product grid"
+			},
+			{
+				"type": "text",
+				"id": "putinbagtext",
+				"label": "Put in bag/add to cart text"
+			},
+	
+			{
+				"type": "header",
+				"content": "Bottom cart"
+			},
+			{
+				"type": "text",
+				"id": "grams",
+				"label": "Weight text"
+			},
+			{
+				"type": "text",
+				"id": "price",
+				"label": "Price text"
+			},
+			{
+				"type": "text",
+				"id": "minimumbagamount",
+				"label": "minimumbag amount(Number)"
+			},
+			{
+				"type": "text",
+				"id": "watchbag",
+				"label": "watchbag text"
+			},
+			{
+				"type": "text",
+				"id": "watchbagtitle",
+				"label": "watchbag title"
+			},
+			{
+				"type": "text",
+				"id": "closebag",
+				"label": "closebag text"
+			},
+			{
+				"type": "text",
+				"id": "closebagheading",
+				"label": "closebag heading"
+			}, 
+			{
+				"type": "text",
+				"id": "closebagsubheading",
+				"label": "closebag subheading"
+			}, 
+			{
+				"type": "text",
+				"id": "closebaginputplaceholder",
+				"label": "closebag input placeholder"
+			}, 
+			{
+				"type": "text",
+				"id": "putinbaskettext",
+				"label": "put in basket button text"
+			},
+			{
+				"type": "text",
+				"id": "shoppingbaskettitle",
+				"label": "Shopping basket title"
+			},
+			
+			{
+				"type": "text",
+				"id": "orputmoreinbaskettext",
+				"label": "or put more in basket button text"
+			},  
+			{
+			"type": "text",
+			"id" : "emptybaskettext",
+			"label" : "empty basket text"
+			},
+			{
+				"type": "text",
+				"id": "conditionbag",
+				"label": "Conditionbag text"
+			},
+			{
+				"type": "text",
+				"id": "minimumorderamount",
+				"label": "minimum order amount(Number)"
+			},
+			{"type" : "text", 
+				"id" : "viewedittext",
+				"label" : "view edit btn text"
+			}
+			,
+			{
+				"type": "text",
+				"id": "minimumorder",
+				"label": "minimumorder text"
+			},
+			{
+				"type": "text",
+				"id": "yourcandybagstext",
+				"label": "yourcandybags text"
+			},
+			{
+				"type": "text",
+				"id": "mixotherbagstext",
+				"label": "yourcandybags text"
+			},
+			{
+				"type": "text",
+				"id": "fillyourbagstext",
+				"label": "fill your bags text"
 			}
 		],
 		"blocks": [

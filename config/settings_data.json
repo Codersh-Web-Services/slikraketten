@@ -117,6 +117,7 @@
     "predictive_search_enabled": true,
     "predictive_search_show_vendor": false,
     "predictive_search_show_price": false,
+    "favicon": "shopify:\/\/shop_images\/favicon.jpg",
     "currency_code_enabled": true,
     "cart_type": "notification",
     "show_vendor": false,
@@ -144,6 +145,8 @@
       "header": {
         "type": "header",
         "settings": {
+          "announcementbartext": "Vi sender dit slik om monday",
+          "announcementbartext2": "Vi sender dit slik om",
           "logo": "shopify:\/\/shop_images\/silkraketten_logo_final_1-01.jpg",
           "menu": "main-menu",
           "timer": "13"
@@ -152,6 +155,15 @@
       "footer": {
         "type": "footer",
         "settings": {
+          "heading": "Quick links",
+          "aboutInfo": "<p><strong>Lorem Ipsum<\/strong>is simply dummy text of the printing and typesetting industry.<\/p>",
+          "footertitle1": "Links",
+          "menu": "footer",
+          "footertitle2": "Terms",
+          "menu2": "terms",
+          "footertitle3": "Address",
+          "Addressdesc": "<p><strong>Lorem Ipsum<\/strong>is simply dummy text of the printing and typesetting industry.<\/p>",
+          "copyrighttext": "<p><strong>Lorem Ipsum<\/strong>is simply dummy text of the printing and typesetting industry.<\/p>"
         }
       },
       "main-password-header": {

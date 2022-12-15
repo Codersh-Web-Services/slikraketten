@@ -335,9 +335,7 @@ button {
   border: none;
 }
 
-button:disabled {
-  cursor: not-allowed;
-}
+
 
 .modal .modal-header,
 .modal .modal-body,
@@ -596,11 +594,13 @@ ul.MainNav li a:hover {
   cursor: pointer;
 }
 
+
 /* <-------- WELCOME SECTION CSS END -------> */
 
 /* <-------- PRODUCT SECTION CSS START -------> */
 .product {
   padding: 3.5rem 0;
+
 }
 
 .product-box {
@@ -897,9 +897,16 @@ footer p {
 
 .fixed-bottom {
   background-color: #fdebea;
-  padding: 1rem 0;
   z-index: 9999;
   padding-right: 0 !important;
+}
+
+.hidetemp {
+  display: none;
+}
+
+div[cartshow="show"] {
+  display: block !important;
 }
 
 .product-cart {
@@ -1140,6 +1147,10 @@ footer p {
   cursor: pointer;
 }
 
+button:disabled {
+  cursor: not-allowed !important;
+}
+
 .modal-body .put-basket-btn {
   border-radius: 10px;
   text-decoration: none;
@@ -1179,6 +1190,11 @@ footer p {
 
 .modal-header strong {
   margin-left: 0.5rem;
+}
+
+/* checkout  */
+.order .btn-checkout {
+  width: 100%;
 }
 
 /*--- MEDIA QUERIES ---*/
@@ -1567,12 +1583,12 @@ footer p {
 
   .product-detail .qty-btn ul li p {
     white-space: normal;
- 
-  } 
+
+  }
 
   .edit-container .btn_group svg {
     height: 25px;
     width: 25px;
- 
+
   }
 }
