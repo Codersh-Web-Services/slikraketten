@@ -318,7 +318,7 @@ html,
 body {
   font-size: 16px !important;
   font-family: 'AmsiPro', sans-serif !important;
-  background-color: var(--sr-light-grey-color) !important;
+  /* background-color: var(--sr-light-grey-color) !important; */
 }
 
 h1,
@@ -534,16 +534,16 @@ ul.MainNav li a:hover {
 }
 
 .hero-section .btn-cta:hover {
-  background-color: #a13f9f;
+  background-color: var(--sr-purple-color);
   transform: translateY(-2px);
   box-shadow: 0.1rem 1rem 2rem #bc99be4f;
+  color: var(--sr-black-color);
 }
 
 /* <-------- HERO SECTION END ---------> */
 /* <-------- WELCOME SECTION CSS START -------> */
 
 .welcome-section {
-  background: url(../images/bg-3.webp) #ef92be;
   background: url('https://cdn.shopify.com/s/files/1/0671/4471/2493/files/bg-3.webp?v=1671100086');
   background-size: cover;
   background-position: center center;
@@ -561,7 +561,7 @@ ul.MainNav li a:hover {
   font-size: 1.5rem;
   margin-bottom: 20px;
   display: inline-block;
-  font-family: 'Lobster Two';
+  font-family: 'Lobster Two', sans-serif;
   letter-spacing: 1px;
   font-weight: 700;
   color: var(--sr-light-pink-color);
@@ -573,7 +573,7 @@ ul.MainNav li a:hover {
   font-weight: 800;
   color: #ef92be;
   margin-bottom: 1.5rem;
-  font-family: 'Lobster Two';
+  font-family: 'Lobster Two', sans-serif !important;
   font-style: italic;
   margin-bottom: 20px;
 }
@@ -621,7 +621,7 @@ ul.MainNav li a:hover {
 }
 
 .product-detail h4 {
-  font-size: 1.5rem;
+  font-size: 1.45rem;
   font-weight: 600;
   color: #030002d4;
   text-transform: capitalize;
@@ -632,8 +632,9 @@ ul.MainNav li a:hover {
 .product-detail h3 {
   font-size: 0.95rem;
   font-weight: 600;
-  color: #c493c8;
+  color: var(--sr-purple-color);
   text-align: center;
+  margin-bottom: 2rem;
 }
 
 .product-detail .btn-cta {
@@ -641,7 +642,7 @@ ul.MainNav li a:hover {
   width: 80%;
   height: 50px;
   padding: 11px 20px;
-  background: #c367c1;
+  background: var(--sr-light-pink-color);
   color: #fff;
   font-size: 15px;
   font-weight: 700;
@@ -660,7 +661,7 @@ ul.MainNav li a:hover {
 }
 
 .product-detail .btn-cta:hover {
-  background-color: #a13f9f;
+  background-color: var(--sr-purple-color);
   transform: translateY(-2px);
   box-shadow: 0.1rem 1rem 2rem #bc99be4f;
 }
@@ -680,7 +681,7 @@ ul.MainNav li a:hover {
   justify-content: space-between;
   width: 80%;
   height: 50px;
-  background: #c367c1;
+  background: var(--sr-light-pink-color);
   color: #fff;
   font-size: 0.95em;
   font-weight: 700;
@@ -1030,7 +1031,6 @@ div[cartshow="show"] {
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
-
 
 .modal-backdrop {
   opacity: 0.2 !important;
@@ -1403,6 +1403,9 @@ button:disabled {
 
 @media (max-width: 420px) {
 
+  .anouncementbar p {
+    font-size: 15px;
+  }
 
   .hero-section {
     margin-top: 7.5rem;
@@ -1536,10 +1539,54 @@ button:disabled {
     width: 20px;
   }
 
+  .product .mb-5 {
+    margin-bottom: 2rem;
+  }
+
+  .product-box {
+    margin-bottom: 0;
+  }
+
+  .product-detail h3 {
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .product-detail h4 {
+    font-size: 0.95rem;
+    margin: 1rem 0 0.5rem;
+  }
+
   .product-box svg.icon-info {
     top: 5px;
     right: 4px;
   }
+
+  .welcome-section {
+    padding: 100px 0;
+  }
+
+  .welcome-section small {
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+  }
+
+  .welcome-content h2 {
+    font-size: 2.1rem;
+  }
+
+  .welcome-content p {
+    font-size: 0.85rem;
+  }
+
+  .welcome-content .btn-cta {
+    margin-top: 1rem;
+  }
+
+  .copyright p {
+    font-size: 0.90rem;
+  }
+  
 }
 
 @media (max-width: 320px) {
@@ -1567,8 +1614,13 @@ button:disabled {
     width: 12px;
   }
 
+  .product-detail h4 {
+    margin: 1rem 0 0.5rem;
+    font-size: 0.95rem;
+  }
+
   .product-detail h3 {
-    font-size: 0.9rem;
+    font-size: 0.75rem;
   }
 
   .product-box .product-detail {
