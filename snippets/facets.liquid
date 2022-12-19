@@ -1,14 +1,14 @@
 {% comment %}
-    Renders facets (filtering and sorting)
+  Renders facets (filtering and sorting)
 
-    Accepts:
-    - results: {Object} Collection or Search object
-    - enable_filtering: {Boolean} Show filtering when true
-    - enable_sorting: {Boolean} Show sorting when true
-    - filter_type: {String} Type of filter
+  Accepts:
+  - results: {Object} Collection or Search object
+  - enable_filtering: {Boolean} Show filtering when true
+  - enable_sorting: {Boolean} Show sorting when true
+  - filter_type: {String} Type of filter
 
-    Usage:
-    {% render 'facets', results: collection, enable_filtering: true, enable_sorting: true, filter_type: 'vertical' %}
+  Usage:
+  {% render 'facets', results: collection, enable_filtering: true, enable_sorting: true, filter_type: 'vertical' %}
 {% endcomment %}
 
 {{ 'component-show-more.css' | asset_url | stylesheet_tag }}
@@ -26,49 +26,67 @@
 
 <div class="facets-container{% if filter_type == 'drawer' %} facets-container-drawer{% endif %}">
   {%- if filter_type == 'vertical' or filter_type == 'horizontal' -%}
-      <facet-filters-form class="facets small-hide">
-          <form id="FacetFiltersForm" class="facets__form-vertical">
-
-            <div id="FacetsWrapperDesktop">
-              <div class="active-facets active-facets-desktop">
-                <div class="active-facets-vertical-filter">
-                  <h2 class="facets__heading facets__heading--vertical caption-large text-body" id="verticalTitle"
-                    tabindex="-1">Filter:</h2>
-                </div>
-              </div>
-
-              <details id="Details-1-template--16973864698157__product-grid"
-                class=" facets__disclosure-vertical js-filter" data-index="1" open="">
-                <summary class="facets__summary caption-large focus-offset" aria-label="Availability (0 selected)"
-                  role="button" aria-expanded="true" aria-controls="Facet-1-template--16973864698157__product-grid">
-                  <div>
-                    <span>Availability<span class="facets__selected no-js-hidden hidden"> (0)</span></span>
-                    <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-caret"
-                      viewBox="0 0 10 6">
-                      <path fill-rule="evenodd" clip-rule="evenodd"
-                        d="M9.354.646a.5.5 0 00-.708 0L5 4.293 1.354.646a.5.5 0 00-.708.708l4 4a.5.5 0 00.708 0l4-4a.5.5 0 000-.708z"
-                        fill="currentColor">
-                      </path>
-                    </svg>
-
-                  </div>
-                </summary>
-                <div id="Facet-1-template--16973864698157__product-grid"
-                  class="parent-display facets__display-vertical">
-                  <fieldset class="facets-wrap parent-wrap  facets-wrap-vertical">
-                    <legend class="visually-hidden">Availability</legend>
-                    <ul class=" list-unstyled " role="list">
-                      <li v-for="filtername in filterNames" class="list-menu__item facets__item">
-                        <filter-component :name="filtername"> </filter-component>
-                      </li>
-                    </ul>
-                  </fieldset>
-                </div>
-              </details>
-
+    <facet-filters-form class="facets small-hide">
+      <form id="FacetFiltersForm" class="facets__form-vertical">
+        <div id="FacetsWrapperDesktop">
+          <div class="active-facets active-facets-desktop">
+            <div class="active-facets-vertical-filter">
+              <h2
+                class="facets__heading facets__heading--vertical caption-large text-body"
+                id="verticalTitle"
+                tabindex="-1"
+              >
+                Filter:
+              </h2>
             </div>
-          </form>
-        </facet-filters-form>
+          </div>
+
+          <details
+            id="Details-1-template--16973864698157__product-grid"
+            class=" facets__disclosure-vertical js-filter"
+            data-index="1"
+            open=""
+          >
+            <summary
+              class="facets__summary caption-large focus-offset"
+              aria-label="Availability (0 selected)"
+              role="button"
+              aria-expanded="true"
+              aria-controls="Facet-1-template--16973864698157__product-grid"
+            >
+              <div>
+                <span>Availability<span class="facets__selected no-js-hidden hidden"> (0)</span></span>
+                <svg
+                  aria-hidden="true"
+                  focusable="false"
+                  role="presentation"
+                  class="icon icon-caret"
+                  viewBox="0 0 10 6"
+                >
+                  <path fill-rule="evenodd" clip-rule="evenodd"
+                    d="M9.354.646a.5.5 0 00-.708 0L5 4.293 1.354.646a.5.5 0 00-.708.708l4 4a.5.5 0 00.708 0l4-4a.5.5 0 000-.708z"
+                    fill="currentColor">
+                  </path>
+                </svg>
+              </div>
+            </summary>
+            <div
+              id="Facet-1-template--16973864698157__product-grid"
+              class="parent-display facets__display-vertical"
+            >
+              <fieldset class="facets-wrap parent-wrap  facets-wrap-vertical">
+                <legend class="visually-hidden">Availability</legend>
+                <ul class=" list-unstyled " role="list">
+                  <li v-for="filtername in filterNames" class="list-menu__item facets__item">
+                    <filter-component :name="filtername"> </filter-component>
+                  </li>
+                </ul>
+              </fieldset>
+            </div>
+          </details>
+        </div>
+      </form>
+    </facet-filters-form>
     {% comment %} Sorting for vertical filter are grouped with filter when no JS{% endcomment %}
     {%- if enable_sorting and filter_type == 'vertical' -%}
       <facet-filters-form class="small-hide">
@@ -80,9 +98,21 @@
               </h2>
               <div class="select">
                 {%- assign sort_by = results.sort_by | default: results.default_sort_by -%}
-                <select name="sort_by" class="facet-filters__sort select__select caption-large" id="SortBy" aria-describedby="a11y-refresh-page-message">
+                <select
+                  name="sort_by"
+                  class="facet-filters__sort select__select caption-large"
+                  id="SortBy"
+                  aria-describedby="a11y-refresh-page-message"
+                >
                   {%- for option in results.sort_options -%}
-                    <option value="{{ option.value | escape }}"{% if option.value == sort_by %} selected="selected"{% endif %}>{{ option.name | escape }}</option>
+                    <option
+                      value="{{ option.value | escape }}"
+                      {% if option.value == sort_by %}
+                        selected="selected"
+                      {% endif %}
+                    >
+                      {{ option.name | escape }}
+                    </option>
                   {%- endfor -%}
                 </select>
                 {% render 'icon-caret' %}
@@ -90,7 +120,9 @@
             </div>
 
             <noscript>
-              <button type="submit" class="facets__button-no-js button button--secondary">{{ 'products.facets.sort_button' | t }}</button>
+              <button type="submit" class="facets__button-no-js button button--secondary">
+                {{ 'products.facets.sort_button' | t }}
+              </button>
             </noscript>
           </div>
 
@@ -107,7 +139,10 @@
     {%- endif -%}
   {%- endif -%}
   {% comment %}  Drawer and mobile filter {% endcomment %}
-  <menu-drawer class="mobile-facets__wrapper{% if filter_type == 'horizontal' or filter_type == 'vertical' %} medium-hide large-up-hide{% endif %}" data-breakpoint="mobile">
+  <menu-drawer
+    class="mobile-facets__wrapper{% if filter_type == 'horizontal' or filter_type == 'vertical' %} medium-hide large-up-hide{% endif %}"
+    data-breakpoint="mobile"
+  >
     <details class="mobile-facets__disclosure disclosure-has-popup">
       <summary class="mobile-facets__open-wrapper focus-offset">
         <span class="mobile-facets__open{% if filter_type == 'drawer' and enable_filtering == false %} medium-hide large-up-hide{% endif %}">
@@ -148,34 +183,21 @@
                     {{ 'products.facets.filter_button' | t }}
                   {%- endif -%}
                 </h2>
-               
               </div>
             </div>
             <div class="mobile-facets__main has-submenu gradient">
-              
-<div id="mobile-filter-facet"
-                  class="parent-display facets__display-vertical">
-                  <fieldset class="facets-wrap parent-wrap  facets-wrap-vertical">
-                    <legend class="visually-hidden">Availability</legend>
-                    <ul class=" list-unstyled " role="list">
-                      <li v-for="filtername in filterNames" class="list-menu__item facets__item">
-                        <filter-component :name="filtername"> </filter-component>
-                      </li>
-                    </ul>
-                  </fieldset>
-                </div>
-             
-
+              <div
+                id="mobile-filter-facet"
+                class="parent-display facets__display-vertical"
+              >
+                <legend class="visually-hidden">Availability</legend>
+                <ul class=" list-unstyled " role="list">
+                  <li v-for="filtername in filterNames" class="list-menu__item facets__item">
+                    <filter-component :name="filtername"> </filter-component>
+                  </li>
+                </ul>
+              </div>
             </div>
-
-            {% if results.current_vendor or results.current_type %}
-              <input type="hidden" name="q" value="{{ results.current_vendor }}{{ results.current_type }}">
-            {% endif %}
-
-            {%- if results.terms -%}
-              <input type="hidden" name="q" value="{{ results.terms | escape }}">
-              <input name="options[prefix]" type="hidden" value="last">
-            {%- endif -%}
           </div>
         </form>
       </facet-filters-form>
@@ -196,12 +218,22 @@
         </facet-remove>
       {%- endfor -%}
 
-      {%- if filter.type == "price_range" -%}
-        {%- if filter.min_value.value != nil or filter.max_value.value != nil -%}
+      {%- if filter.type == 'price_range' -%}
+        {%- if filter.min_value.value != null or filter.max_value.value != null -%}
           <facet-remove>
             <a href="{{ filter.url_to_remove }}" class="active-facets__button active-facets__button--light">
               <span class="active-facets__button-inner button button--tertiary">
-                {%- if filter.min_value.value -%}{{ filter.min_value.value | money }}{%- else -%}{{ 0 | money }}{%- endif -%}-{%- if filter.max_value.value -%}{{ filter.max_value.value | money }}{%- else -%}{{ filter.range_max | money }}{%- endif -%}
+                {%- if filter.min_value.value -%}
+                  {{ filter.min_value.value | money }}
+                {%- else -%}
+                  {{ 0 | money }}
+                {%- endif -%}
+                -
+                {%- if filter.max_value.value -%}
+                  {{ filter.max_value.value | money }}
+                {%- else -%}
+                  {{ filter.range_max | money }}
+                {%- endif -%}
                 {% render 'icon-close-small' %}
                 <span class="visually-hidden">{{ 'products.facets.clear_filter' | t }}</span>
               </span>
@@ -219,50 +251,67 @@
   {% comment %} Sort, product count and filter pills at the end when filter is type of Drawer for the correct tabbing order {% endcomment %}
   {%- if enable_sorting and filter_type == 'drawer' -%}
     <facet-filters-form class="facets small-hide">
-          <form id="FacetFiltersForm" class="facets__form-vertical">
-
-            <div id="FacetsWrapperDesktop">
-              <div class="active-facets active-facets-desktop">
-                <div class="active-facets-vertical-filter">
-                  <h2 class="facets__heading facets__heading--vertical caption-large text-body" id="verticalTitle"
-                    tabindex="-1">Filter:</h2>
-                </div>
-              </div>
-
-              <details id="Details-1-template--16973864698157__product-grid"
-                class=" facets__disclosure-vertical js-filter" data-index="1" open="">
-                <summary class="facets__summary caption-large focus-offset" aria-label="Availability (0 selected)"
-                  role="button" aria-expanded="true" aria-controls="Facet-1-template--16973864698157__product-grid">
-                  <div>
-                    <span>Availability<span class="facets__selected no-js-hidden hidden"> (0)</span></span>
-                    <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-caret"
-                      viewBox="0 0 10 6">
-                      <path fill-rule="evenodd" clip-rule="evenodd"
-                        d="M9.354.646a.5.5 0 00-.708 0L5 4.293 1.354.646a.5.5 0 00-.708.708l4 4a.5.5 0 00.708 0l4-4a.5.5 0 000-.708z"
-                        fill="currentColor">
-                      </path>
-                    </svg>
-
-                  </div>
-                </summary>
-                <div id="Facet-1-template--16973864698157__product-grid"
-                  class="parent-display facets__display-vertical">
-                  <fieldset class="facets-wrap parent-wrap  facets-wrap-vertical">
-                    <legend class="visually-hidden">Availability</legend>
-                    <ul class=" list-unstyled " role="list">
-                      <li v-for="filtername in filterNames" class="list-menu__item facets__item">
-                        <filter-component :name="filtername"> </filter-component>
-                      </li>
-                    </ul>
-                  </fieldset>
-                </div>
-              </details>
-
+      <form id="FacetFiltersForm" class="facets__form-vertical">
+        <div id="FacetsWrapperDesktop">
+          <div class="active-facets active-facets-desktop">
+            <div class="active-facets-vertical-filter">
+              <h2
+                class="facets__heading facets__heading--vertical caption-large text-body"
+                id="verticalTitle"
+                tabindex="-1"
+              >
+                Filter:
+              </h2>
             </div>
-          </form>
-        </facet-filters-form>
+          </div>
+
+          <details
+            id="Details-1-template--16973864698157__product-grid"
+            class=" facets__disclosure-vertical js-filter"
+            data-index="1"
+            open=""
+          >
+            <summary
+              class="facets__summary caption-large focus-offset"
+              aria-label="Availability (0 selected)"
+              role="button"
+              aria-expanded="true"
+              aria-controls="Facet-1-template--16973864698157__product-grid"
+            >
+              <div>
+                <span>Availability<span class="facets__selected no-js-hidden hidden"> (0)</span></span>
+                <svg
+                  aria-hidden="true"
+                  focusable="false"
+                  role="presentation"
+                  class="icon icon-caret"
+                  viewBox="0 0 10 6"
+                >
+                  <path fill-rule="evenodd" clip-rule="evenodd"
+                    d="M9.354.646a.5.5 0 00-.708 0L5 4.293 1.354.646a.5.5 0 00-.708.708l4 4a.5.5 0 00.708 0l4-4a.5.5 0 000-.708z"
+                    fill="currentColor">
+                  </path>
+                </svg>
+              </div>
+            </summary>
+            <div
+              id="Facet-1-template--16973864698157__product-grid"
+              class="parent-display facets__display-vertical"
+            >
+              <fieldset class="facets-wrap parent-wrap  facets-wrap-vertical">
+                <legend class="visually-hidden">Availability</legend>
+               
+              </fieldset>
+            </div>
+          </details>
+        </div>
+      </form>
+    </facet-filters-form>
   {%- endif -%}
-  <div class="product-count light{% if filter_type == 'vertical' or filter_type == 'horizontal' %} medium-hide large-up-hide{% endif %}" role="status">
+  <div
+    class="product-count light{% if filter_type == 'vertical' or filter_type == 'horizontal' %} medium-hide large-up-hide{% endif %}"
+    role="status"
+  >
     <h2 class="product-count__text text-body">
       <span id="ProductCount">
         {%- if results.results_count -%}
@@ -270,12 +319,22 @@
         {%- elsif results.products_count == results.all_products_count -%}
           {{ 'products.facets.product_count_simple' | t: count: results.products_count }}
         {%- else -%}
-          {{ 'products.facets.product_count' | t: product_count: results.products_count, count: results.all_products_count }}
+          {{
+            'products.facets.product_count'
+            | t: product_count: results.products_count, count: results.all_products_count
+          }}
         {%- endif -%}
       </span>
     </h2>
     <div class="loading-overlay__spinner">
-      <svg aria-hidden="true" focusable="false" role="presentation" class="spinner" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
+      <svg
+        aria-hidden="true"
+        focusable="false"
+        role="presentation"
+        class="spinner"
+        viewBox="0 0 66 66"
+        xmlns="http://www.w3.org/2000/svg"
+      >
         <circle class="path" fill="none" stroke-width="6" cx="33" cy="33" r="30"></circle>
       </svg>
     </div>
@@ -297,12 +356,22 @@
               </facet-remove>
             {%- endfor -%}
 
-            {%- if filter.type == "price_range" -%}
-              {%- if filter.min_value.value != nil or filter.max_value.value != nil -%}
+            {%- if filter.type == 'price_range' -%}
+              {%- if filter.min_value.value != null or filter.max_value.value != null -%}
                 <facet-remove>
                   <a href="{{ filter.url_to_remove }}" class="active-facets__button active-facets__button--light">
                     <span class="active-facets__button-inner button button--tertiary">
-                      {%- if filter.min_value.value -%}{{ filter.min_value.value | money }}{%- else -%}{{ 0 | money }}{%- endif -%}-{%- if filter.max_value.value -%}{{ filter.max_value.value | money }}{%- else -%}{{ filter.range_max | money }}{%- endif -%}
+                      {%- if filter.min_value.value -%}
+                        {{ filter.min_value.value | money }}
+                      {%- else -%}
+                        {{ 0 | money }}
+                      {%- endif -%}
+                      -
+                      {%- if filter.max_value.value -%}
+                        {{ filter.max_value.value | money }}
+                      {%- else -%}
+                        {{ filter.range_max | money }}
+                      {%- endif -%}
                       {% render 'icon-close-small' %}
                       <span class="visually-hidden">{{ 'products.facets.clear_filter' | t }}</span>
                     </span>

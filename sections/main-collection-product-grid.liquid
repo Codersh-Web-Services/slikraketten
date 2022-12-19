@@ -18,13 +18,15 @@ padding-bottom: {{ section.settings.padding_bottom }}px;
 
 
   <div class="custom-padding {% if section.settings.filter_type == 'vertical' %} facets-vertical page-width{% endif %}" id="product-box" >
-    {{ 'component-facets.css' | asset_url | stylesheet_tag }}
 
-    <aside aria-labelledby="verticalTitle" class="facets-wrapper" id="main-collection-filters"
-      data-id="template--16973864698157__product-grid">
+    <aside  class="facets-wrapper"  >
 
-      {% render 'facets', results: collection, enable_filtering: section.settings.enable_filtering, enable_sorting: true, filter_type: section.settings.filter_type %}
-     
+
+      <ul class="collection-filters" role="list">
+                  <li v-for="filtername in filterNames" class="list-menu__item facets__item">
+                    <filter-component :name="filtername"> </filter-component>
+                  </li>
+                </ul>
     </aside>
     <div class="product-grid-container" >
       <div class="collection{% if section.settings.filter_type != 'vertical' %} page-width{% endif %}">
