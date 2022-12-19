@@ -158,7 +158,7 @@ document.querySelector("#anouncementbar p").innerHTML = `{{section.settings.anno
           <a href="/"><img src="{{"logo1.png" | file_url}}" alt="logo"></a>
       </div>
       <nav>
-          <ul class="MainNav">
+          <ul class="MainNav" id="navbar">
            {% render "menulinks" with menu : section.settings.menu%}
               <li><a href="#" data-bs-toggle="modal" data-bs-target="#Slide-Left">Basket
                       <span>
@@ -168,6 +168,10 @@ document.querySelector("#anouncementbar p").innerHTML = `{{section.settings.anno
                                   d="M5.1 13.6C4.165 13.6 3.4 14.365 3.4 15.3C3.4 16.235 4.165 17 5.1 17C6.035 17 6.8 16.235 6.8 15.3C6.8 14.365 6.035 13.6 5.1 13.6ZM0 0V1.7H1.7L4.76 8.16L3.57 10.2C3.485 10.455 3.4 10.795 3.4 11.05C3.4 11.985 4.165 12.75 5.1 12.75H15.3V11.05H5.44C5.355 11.05 5.27 10.965 5.27 10.88V10.795L6.035 9.34997H12.325C13.005 9.34997 13.515 9.00997 13.77 8.49997L16.83 2.975C17 2.805 17 2.72 17 2.55C17 2.04 16.66 1.7 16.15 1.7H3.57L2.805 0H0ZM13.6 13.6C12.665 13.6 11.9 14.365 11.9 15.3C11.9 16.235 12.665 17 13.6 17C14.535 17 15.3 16.235 15.3 15.3C15.3 14.365 14.535 13.6 13.6 13.6Z">
                               </path>
                           </svg>
+                          <span :id="currentbagsid" class="currentbags"> 
+                          ( ${bags.length} )
+                        </span>
+
                       </span>
                   </a>
               </li>

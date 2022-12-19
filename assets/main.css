@@ -540,6 +540,15 @@ ul.MainNav li a:hover {
   color: var(--sr-black-color);
 }
 
+.currentbags {
+  display: none;
+}
+
+#currentbagsid {
+  display: inline-block;
+  margin-left: 4px;
+}
+
 /* <-------- HERO SECTION END ---------> */
 /* <-------- WELCOME SECTION CSS START -------> */
 
@@ -1211,6 +1220,7 @@ button:disabled {
     color: #FFF;
   }
 
+
   .navigationActive ul.MainNav {
     -webkit-transform: translateX(0);
     transform: translateX(0);
@@ -1586,7 +1596,7 @@ button:disabled {
   .copyright p {
     font-size: 0.90rem;
   }
-  
+
 }
 
 @media (max-width: 320px) {

@@ -11,7 +11,7 @@
             <button class="outline-btn" data-bs-toggle="modal" data-bs-target="#AddProDuct">{{ watchbag }}</button>
 
             <button
-              v-if="data.details.total >= {{minimumbagamount}}"
+              v-if="data.details.total >= 0"
               class="solid-btn"
               data-bs-toggle="modal"
               data-bs-target="#CloseBag"
@@ -169,7 +169,7 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <div v-if="mainCart.total < 129" class="small-announcementbar">
+          <div v-if="mainCart.total < 99" class="small-announcementbar">
             <p class="mb-0">{{ conditionbag }}</p>
           </div>
           <h3>{{ yourcandybagtexts }}</h3>

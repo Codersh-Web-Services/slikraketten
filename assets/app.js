@@ -547,3 +547,13 @@ if (document.querySelector('#product-box')) {
 	})
 	productbox.mount("#product-box")
 }
+
+const header = Vue.createApp({
+		delimiters: ['${', '}'],
+		data: function () {
+			return {
+				bags: store.state.mainCart.bags,
+				currentbagsid: "currentbagsid"
+			}
+		},
+	}).mount("#navbar")
