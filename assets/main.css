@@ -605,6 +605,7 @@ ul.MainNav li a:hover {
 
 .product-box {
   margin: 0 0 2rem 0;
+  position: relative;
 }
 
 .product-box .img-wrap {
@@ -670,6 +671,7 @@ ul.MainNav li a:hover {
   position: absolute;
   top: 13px;
   right: 12px;
+  z-index: 1;
 }
 
 /* quantity selector */
