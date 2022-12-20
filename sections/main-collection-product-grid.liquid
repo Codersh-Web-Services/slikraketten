@@ -18,8 +18,18 @@ padding-bottom: {{ section.settings.padding_bottom }}px;
 
 
   <div class="custom-padding {% if section.settings.filter_type == 'vertical' %} facets-vertical page-width{% endif %}" id="product-box" >
-
+<div class="page-filters">
+  <div class="container">
     <aside  class="facets-wrapper"  >
+    <ul class="collection-filters" role="list">
+                <li v-for="filtername in filterNames" class="list-menu__item facets__item active">
+                  <filter-component :name="filtername"> </filter-component>
+                </li>
+              </ul>
+  </aside>
+  </div>
+</div>
+    {% comment %} <aside  class="facets-wrapper"  >
 
 
       <ul class="collection-filters" role="list">
@@ -27,7 +37,7 @@ padding-bottom: {{ section.settings.padding_bottom }}px;
                     <filter-component :name="filtername"> </filter-component>
                   </li>
                 </ul>
-    </aside>
+    </aside> {% endcomment %}
     <div class="product-grid-container" >
       <div class="collection{% if section.settings.filter_type != 'vertical' %} page-width{% endif %}">
         <div class="loading-overlay gradient"></div>
