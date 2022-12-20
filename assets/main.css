@@ -680,6 +680,7 @@ ul.MainNav li a:hover {
   position: absolute;
   top: 13px;
   right: 12px;
+  cursor: pointer;
   z-index: 1;
 }
 
@@ -1226,7 +1227,7 @@ button:disabled {
   gap: 20px;
 }
 
-.page-filters .list-menu__item {
+.page-filters label {
   justify-content: center;
   flex-wrap: wrap;
   padding: 0.8rem 2rem;
@@ -1234,12 +1235,13 @@ button:disabled {
   border-radius: 5px;
   font-weight: 600;
   text-transform: capitalize;
-  width: 190px;
+  cursor: pointer;
+  width: auto;
   color: #000;
   box-shadow: 0.1rem 0.2rem 2rem 0.2rem #c395c27a;
 }
 
-.page-filters .list-menu__item.active {
+.page-filters label.active {
   background-color: var(--sr-light-pink-color);
   color: var(--sr-white-color);
   box-shadow: 0.1rem 0.2rem 2rem 0.2rem #ef92be52;
@@ -1616,6 +1618,7 @@ button:disabled {
   .product-box svg.icon-info {
     top: 5px;
     right: 4px;
+    cursor: pointer;
   }
 
   .welcome-section {
