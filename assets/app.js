@@ -506,6 +506,7 @@ if ( document.querySelector( '#product-box' ) )
 			return {
 				products: store.state.filteredProducts,
 				filterNames: [ "Chocolate", "Marshmallow", "peanuts", "Sugarfree" ],
+				bags: store.state.currentbagitems,
 			};
 		},
 		created ()

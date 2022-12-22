@@ -7,8 +7,10 @@
             <span v-if="data.details.weight">{{ bottomcartWeight }}:${data.details.weight} g.</span>
             <span v-if="data.details.total">{{ bottomCartPrice }}: ${data.details.total}.00. Kr.</span>
           </div>
-          <div v-if="data.details.total" class="btn-group">
-            <button class="outline-btn" data-bs-toggle="modal" data-bs-target="#AddProDuct">{{ watchbag }}</button>
+          <div v-if="data.details.total" class="btn-group ">
+            <button class="d-none outline-btn" data-bs-toggle="modal" data-bs-target="#AddProDuct">
+              {{ watchbag }}
+            </button>
 
             <button
               v-if="data.details.total >= 0"
