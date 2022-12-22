@@ -1355,6 +1355,28 @@ button:disabled {
   margin: 0.8rem 0 0 0;
 }
 
+.inner-content .close-bag-btn {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  display: block;
+  left: 0;
+  padding: 0.8rem 0;
+  background: var(--sr-purple-color);
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: var(--sr-white-color);
+  transition: all.3s ease-in-out;
+}
+
+.inner-content .close-bag-btn:hover {
+  background-color: var(--sr-light-pink-color);
+}
+
+.item-container .candy-info {
+  margin-left: 2rem;
+}
+
 /* SIDEBAR CSS  End - COLLECTION PAGE  */
 
 /*--- MEDIA QUERIES ---*/
