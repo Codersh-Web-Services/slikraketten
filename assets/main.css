@@ -616,13 +616,13 @@ ul.MainNav li a:hover {
   margin: 0 0 2rem 0;
   cursor: pointer;
   position: relative;
-  background: rgba( 255, 255, 255, 0.25 );
-box-shadow: 0 8px 32px -0.5rem rgba( 31, 38, 135, 0.37 );
-backdrop-filter: blur( 150px );
--webkit-backdrop-filter: blur( 150px );
-border-radius: 5px;
-border: 1px solid transparent;
-transition: all .3s ease;
+  background: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 8px 32px -0.5rem rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(150px);
+  -webkit-backdrop-filter: blur(150px);
+  border-radius: 5px;
+  border: 1px solid transparent;
+  transition: all .3s ease;
 }
 
 .product-box:hover {
@@ -1275,12 +1275,12 @@ button:disabled {
   position: sticky;
   top: 150px;
   overflow: hidden;
-  background: rgba( 255, 255, 255, 0.25 );
-box-shadow: 0 8px 32px -0.5rem rgba( 31, 38, 135, 0.37 );
-backdrop-filter: blur( 150px );
--webkit-backdrop-filter: blur( 150px );
-border-radius: 5px;
-border: 1px solid rgba( 255, 255, 255, 0.18 );
+  background: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 8px 32px -0.5rem rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(150px);
+  -webkit-backdrop-filter: blur(150px);
+  border-radius: 5px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
 }
 
 .sidebar-inner {
@@ -1306,7 +1306,7 @@ border: 1px solid rgba( 255, 255, 255, 0.18 );
   position: sticky;
   top: 0;
   text-align: center;
- box-shadow: 0.1rem 0.1rem 1rem #c394c294;
+  box-shadow: 0.1rem 0.1rem 1rem #c394c294;
 }
 
 .inner-content .bag-title h3 {
@@ -1340,7 +1340,8 @@ border: 1px solid rgba( 255, 255, 255, 0.18 );
 
 .bag-text .added-product,
 .bag-text .buttons,
-.bag-text .qty-btn  {
+.bag-text .qty-btn,
+.bag-text .btn-cta {
   width: 100%;
 }
 
@@ -1348,6 +1349,10 @@ border: 1px solid rgba( 255, 255, 255, 0.18 );
   border-left: 0;
   margin-top: 0.8rem;
   padding-left: 0;
+}
+
+.bag-text .btn-cta {
+  margin: 0.8rem 0 0 0;
 }
 
 /* SIDEBAR CSS  End - COLLECTION PAGE  */
@@ -1430,6 +1435,7 @@ border: 1px solid rgba( 255, 255, 255, 0.18 );
   }
 
 }
+
 @media screen and (min-width: 850px) {
   .product .custom-box .side-section {
     position: absolute;
@@ -1463,6 +1469,9 @@ border: 1px solid rgba( 255, 255, 255, 0.18 );
 }
 
 @media (max-width: 768px) {
+  .hero-section {
+    margin-top: 6.5rem;
+  }
 
   .hero-section h1 {
     font-size: 2.2rem;
