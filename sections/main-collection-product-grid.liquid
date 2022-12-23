@@ -98,7 +98,9 @@ padding-bottom: {{ section.settings.padding_bottom }}px;
                                 </div>  
                           </div>
                           
-                        <button @click="putInBasket()" class="close-bag-btn">Luk Posen</button>
+                        <button  
+              data-bs-toggle="modal"
+              data-bs-target="#CloseBag" class="close-bag-btn">Luk Posen</button>
                         </div>
                       </div>
                   </div>

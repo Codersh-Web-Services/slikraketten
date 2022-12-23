@@ -172,7 +172,7 @@
         </div>
         <div class="modal-body">
           <div v-if="mainCart.total < 99" class="small-announcementbar">
-            <p class="mb-0">{{ conditionbag }}</p>
+            <p class="mb-0">Buy for DKK ${99 - mainCart.total }.00. {{ conditionbag }}</p>
           </div>
           <h3>{{ yourcandybagtexts }}</h3>
           <div v-if="mainCart.bags.length > 0" class="candy-content" v-for="bag in mainCart.bags">
