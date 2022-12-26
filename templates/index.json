@@ -49,11 +49,11 @@
         "0b221683-5bf0-4d3f-bb1d-8d922739d9b1"
       ],
       "settings": {
-        "herotext": "<p>Mix Candies<\/p>",
+        "herotext": "<p>Bland selv slik<\/p>",
         "herolink": "shopify:\/\/collections\/candies",
-        "ordertext": "OrderNow",
-        "mixtitle": "Mix Candies",
-        "mixtitle2": "Mix more",
+        "ordertext": "Bestil nu",
+        "mixtitle": "Bland selv slik",
+        "mixtitle2": "Bland mere",
         "followtitle": "Følg SlikRaketten:",
         "newslettertitle": "Klub Slikraketten",
         "newsletterdesc": "<p>Bliv medlem af Klub Slikraketten og få særlige rabatter og tilbud<\/p>",
