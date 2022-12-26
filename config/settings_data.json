@@ -156,14 +156,14 @@
         "type": "footer",
         "settings": {
           "heading": "Quick links",
-          "aboutInfo": "<p><strong>Lorem Ipsum<\/strong>is simply dummy text of the printing and typesetting industry.<\/p>",
+          "aboutInfo": "<p>Bland din slik og få den leveret hjem til dig selv.<\/p>",
           "footertitle1": "Links",
           "menu": "footer",
           "footertitle2": "Terms",
           "menu2": "terms",
-          "footertitle3": "Address",
-          "Addressdesc": "<p>Lorem Ipsumis simply dummy text of the printing and typesetting industry.<\/p>",
-          "copyrighttext": "<p>Lorem Ipsumis simply dummy text of the printing and typesetting industry.<\/p>"
+          "footertitle3": "Adresse",
+          "Addressdesc": "<p>Slikraketten<br\/>Stensmosevej 24F<br\/>2620 Albertslund<\/p>",
+          "copyrighttext": "<p>© 2023 Slikraketten<\/p>"
         }
       },
       "main-password-header": {
