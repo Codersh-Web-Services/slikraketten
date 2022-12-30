@@ -255,7 +255,7 @@
               </label>
               <br>
               <br>
-              <a disabled v-if="mainCart.total < {{ minimumorderamount }} && acceptterms" class="btn-checkout"
+              <a disabled v-if="mainCart.total < {{ minimumorderamount }} && !acceptterms" class="btn-checkout"
                 >Checkout
               </a>
               <button v-else @click="checkOut()" class="btn-checkout">Checkout</button>
