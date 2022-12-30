@@ -248,7 +248,16 @@
                 <b>DKK ${mainCart.total}</b>
               </div>
               <p v-if="mainCart.total < {{ minimumorderamount }}">{{ minimumorder }}</p>
-              <a disabled v-if="mainCart.total < {{ minimumorderamount }}" class="btn-checkout">Checkout </a>
+              <label>
+                <input type="checkbox" v-model="acceptterms">
+                Acceptér <a href="/pages/handelsbetingelser">handelsbetingelser</a> og
+                <a href="/pages/persondatapolitik">persondatapolitik</a>
+              </label>
+              <br>
+              <br>
+              <a disabled v-if="mainCart.total < {{ minimumorderamount }} && acceptterms" class="btn-checkout"
+                >Checkout
+              </a>
               <button v-else @click="checkOut()" class="btn-checkout">Checkout</button>
             </div>
           </div>
