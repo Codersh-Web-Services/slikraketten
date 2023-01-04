@@ -17,16 +17,11 @@
 @font-face {
   font-family: "AmsiPro";
   src: url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiPro-BlackItalic.eot");
-  src: url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/A")
-      format("embedded-opentype"),
-    url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiPro-BlackItalic.woff2")
-      format("woff2"),
-    url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiPro-BlackItalic.woff")
-      format("woff"),
-    url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiPro-BlackItalic.ttf")
-      format("truetype"),
-    url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiPro-BlackItalic.svg#AmsiPro-BlackItalic")
-      format("svg");
+  src: url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/A") format("embedded-opentype"),
+    url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiPro-BlackItalic.woff2") format("woff2"),
+    url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiPro-BlackItalic.woff") format("woff"),
+    url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiPro-BlackItalic.ttf") format("truetype"),
+    url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiPro-BlackItalic.svg#AmsiPro-BlackItalic") format("svg");
   font-weight: 900;
   font-style: italic;
   font-display: swap;
@@ -35,16 +30,11 @@
 @font-face {
   font-family: "AmsiPro";
   src: url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiPro-Bold.eot");
-  src: url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiPro-Bold.eot?#iefix")
-      format("embedded-opentype"),
-    url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiPro-Bold.woff2")
-      format("woff2"),
-    url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiPro-Bold.woff")
-      format("woff"),
-    url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiPro-Bold.ttf")
-      format("truetype"),
-    url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiPro-Bold.svg#AmsiPro-Bold")
-      format("svg");
+  src: url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiPro-Bold.eot?#iefix") format("embedded-opentype"),
+    url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiPro-Bold.woff2") format("woff2"),
+    url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiPro-Bold.woff") format("woff"),
+    url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiPro-Bold.ttf") format("truetype"),
+    url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiPro-Bold.svg#AmsiPro-Bold") format("svg");
   font-weight: bold;
   font-style: normal;
   font-display: swap;
@@ -53,16 +43,11 @@
 @font-face {
   font-family: "AmsiProCond";
   src: url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiProCond-BlackItalic.eot");
-  src: url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiProCond-BlackItalic.eot?#iefix")
-      format("embedded-opentype"),
-    url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiProCond-BlackItalic.woff2")
-      format("woff2"),
-    url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiProCond-BlackItalic.woff")
-      format("woff"),
-    url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiProCond-BlackItalic.ttf")
-      format("truetype"),
-    url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiProCond-BlackItalic.svg#AmsiProCond-BlackItalic")
-      format("svg");
+  src: url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiProCond-BlackItalic.eot?#iefix") format("embedded-opentype"),
+    url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiProCond-BlackItalic.woff2") format("woff2"),
+    url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiProCond-BlackItalic.woff") format("woff"),
+    url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiProCond-BlackItalic.ttf") format("truetype"),
+    url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiProCond-BlackItalic.svg#AmsiProCond-BlackItalic") format("svg");
   font-weight: 900;
   font-style: italic;
   font-display: swap;
@@ -71,16 +56,11 @@
 @font-face {
   font-family: "AmsiProCond";
   src: url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiProCond-Black.eot");
-  src: url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiProCond-Black.eot?#iefix")
-      format("embedded-opentype"),
-    url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiProCond-Black.woff2")
-      format("woff2"),
-    url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiProCond-Black.woff")
-      format("woff"),
-    url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiProCond-Black.ttf")
-      format("truetype"),
-    url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiProCond-Black.svg#AmsiProCond-Black")
-      format("svg");
+  src: url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiProCond-Black.eot?#iefix") format("embedded-opentype"),
+    url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiProCond-Black.woff2") format("woff2"),
+    url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiProCond-Black.woff") format("woff"),
+    url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiProCond-Black.ttf") format("truetype"),
+    url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiProCond-Black.svg#AmsiProCond-Black") format("svg");
   font-weight: 900;
   font-style: normal;
   font-display: swap;
@@ -89,16 +69,11 @@
 @font-face {
   font-family: "AmsiPro";
   src: url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiPro-BoldItalic.eot");
-  src: url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiPro-BoldItalic.eot?#iefix")
-      format("embedded-opentype"),
-    url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiPro-BoldItalic.woff2")
-      format("woff2"),
-    url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiPro-BoldItalic.woff")
-      format("woff"),
-    url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiPro-BoldItalic.ttf")
-      format("truetype"),
-    url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiPro-BoldItalic.svg#AmsiPro-BoldItalic")
-      format("svg");
+  src: url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiPro-BoldItalic.eot?#iefix") format("embedded-opentype"),
+    url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiPro-BoldItalic.woff2") format("woff2"),
+    url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiPro-BoldItalic.woff") format("woff"),
+    url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiPro-BoldItalic.ttf") format("truetype"),
+    url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiPro-BoldItalic.svg#AmsiPro-BoldItalic") format("svg");
   font-weight: bold;
   font-style: italic;
   font-display: swap;
@@ -107,16 +82,11 @@
 @font-face {
   font-family: "AmsiPro";
   src: url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiPro-Black.eot");
-  src: url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiPro-Black.eot?#iefix")
-      format("embedded-opentype"),
-    url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiPro-Black.woff2")
-      format("woff2"),
-    url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiPro-Black.woff")
-      format("woff"),
-    url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiPro-Black.ttf")
-      format("truetype"),
-    url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiPro-Black.svg#AmsiPro-Black")
-      format("svg");
+  src: url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiPro-Black.eot?#iefix") format("embedded-opentype"),
+    url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiPro-Black.woff2") format("woff2"),
+    url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiPro-Black.woff") format("woff"),
+    url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiPro-Black.ttf") format("truetype"),
+    url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiPro-Black.svg#AmsiPro-Black") format("svg");
   font-weight: 900;
   font-style: normal;
   font-display: swap;
@@ -125,16 +95,11 @@
 @font-face {
   font-family: "AmsiProCond";
   src: url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiProCond-BoldItalic.eot");
-  src: url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiProCond-BoldItalic.eot?#iefix")
-      format("embedded-opentype"),
-    url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiProCond-BoldItalic.woff2")
-      format("woff2"),
-    url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiProCond-BoldItalic.woff")
-      format("woff"),
-    url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiProCond-BoldItalic.ttf")
-      format("truetype"),
-    url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiProCond-BoldItalic.svg#AmsiProCond-BoldItalic")
-      format("svg");
+  src: url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiProCond-BoldItalic.eot?#iefix") format("embedded-opentype"),
+    url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiProCond-BoldItalic.woff2") format("woff2"),
+    url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiProCond-BoldItalic.woff") format("woff"),
+    url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiProCond-BoldItalic.ttf") format("truetype"),
+    url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiProCond-BoldItalic.svg#AmsiProCond-BoldItalic") format("svg");
   font-weight: bold;
   font-style: italic;
   font-display: swap;
@@ -143,16 +108,11 @@
 @font-face {
   font-family: "AmsiProCond";
   src: url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiProCond-LightItalic.eot");
-  src: url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiProCond-LightItalic.eot?#iefix")
-      format("embedded-opentype"),
-    url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiProCond-LightItalic.woff2")
-      format("woff2"),
-    url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiProCond-LightItalic.woff")
-      format("woff"),
-    url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiProCond-LightItalic.ttf")
-      format("truetype"),
-    url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiProCond-LightItalic.svg#AmsiProCond-LightItalic")
-      format("svg");
+  src: url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiProCond-LightItalic.eot?#iefix") format("embedded-opentype"),
+    url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiProCond-LightItalic.woff2") format("woff2"),
+    url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiProCond-LightItalic.woff") format("woff"),
+    url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiProCond-LightItalic.ttf") format("truetype"),
+    url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiProCond-LightItalic.svg#AmsiProCond-LightItalic") format("svg");
   font-weight: 300;
   font-style: italic;
   font-display: swap;
@@ -161,16 +121,11 @@
 @font-face {
   font-family: "AmsiProCond";
   src: url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiProCond-Bold.eot");
-  src: url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiProCond-Bold.eot?#iefix")
-      format("embedded-opentype"),
-    url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiProCond-Bold.woff2")
-      format("woff2"),
-    url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiProCond-Bold.woff")
-      format("woff"),
-    url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiProCond-Bold.ttf")
-      format("truetype"),
-    url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiProCond-Bold.svg#AmsiProCond-Bold")
-      format("svg");
+  src: url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiProCond-Bold.eot?#iefix") format("embedded-opentype"),
+    url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiProCond-Bold.woff2") format("woff2"),
+    url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiProCond-Bold.woff") format("woff"),
+    url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiProCond-Bold.ttf") format("truetype"),
+    url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiProCond-Bold.svg#AmsiProCond-Bold") format("svg");
   font-weight: bold;
   font-style: normal;
   font-display: swap;
@@ -179,16 +134,11 @@
 @font-face {
   font-family: "AmsiProCond";
   src: url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiProCond-Italic.eot");
-  src: url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiProCond-Italic.eot?#iefix")
-      format("embedded-opentype"),
-    url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiProCond-Italic.woff2")
-      format("woff2"),
-    url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiProCond-Italic.woff")
-      format("woff"),
-    url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiProCond-Italic.ttf")
-      format("truetype"),
-    url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiProCond-Italic.svg#AmsiProCond-Italic")
-      format("svg");
+  src: url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiProCond-Italic.eot?#iefix") format("embedded-opentype"),
+    url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiProCond-Italic.woff2") format("woff2"),
+    url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiProCond-Italic.woff") format("woff"),
+    url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiProCond-Italic.ttf") format("truetype"),
+    url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiProCond-Italic.svg#AmsiProCond-Italic") format("svg");
   font-weight: normal;
   font-style: italic;
   font-display: swap;
@@ -197,16 +147,11 @@
 @font-face {
   font-family: "AmsiProCond";
   src: url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiProCond-Regular.eot");
-  src: url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiProCond-Regular.eot?#iefix")
-      format("embedded-opentype"),
-    url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiProCond-Regular.woff2")
-      format("woff2"),
-    url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiProCond-Regular.woff")
-      format("woff"),
-    url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiProCond-Regular.ttf")
-      format("truetype"),
-    url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiProCond-Regular.svg#AmsiProCond-Regular")
-      format("svg");
+  src: url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiProCond-Regular.eot?#iefix") format("embedded-opentype"),
+    url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiProCond-Regular.woff2") format("woff2"),
+    url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiProCond-Regular.woff") format("woff"),
+    url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiProCond-Regular.ttf") format("truetype"),
+    url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiProCond-Regular.svg#AmsiProCond-Regular") format("svg");
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -215,16 +160,11 @@
 @font-face {
   font-family: "AmsiProCond";
   src: url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiProCond-Light.eot");
-  src: url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiProCond-Light.eot?#iefix")
-      format("embedded-opentype"),
-    url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiProCond-Light.woff2")
-      format("woff2"),
-    url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiProCond-Light.woff")
-      format("woff"),
-    url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiProCond-Light.ttf")
-      format("truetype"),
-    url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiProCond-Light.svg#AmsiProCond-Light")
-      format("svg");
+  src: url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiProCond-Light.eot?#iefix") format("embedded-opentype"),
+    url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiProCond-Light.woff2") format("woff2"),
+    url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiProCond-Light.woff") format("woff"),
+    url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiProCond-Light.ttf") format("truetype"),
+    url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiProCond-Light.svg#AmsiProCond-Light") format("svg");
   font-weight: 300;
   font-style: normal;
   font-display: swap;
@@ -233,16 +173,11 @@
 @font-face {
   font-family: "AmsiProCond";
   src: url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiProCond-SemiBold.eot");
-  src: url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiProCond-SemiBold.eot?#iefix")
-      format("embedded-opentype"),
-    url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiProCond-SemiBold.woff2")
-      format("woff2"),
-    url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiProCond-SemiBold.woff")
-      format("woff"),
-    url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiProCond-SemiBold.ttf")
-      format("truetype"),
-    url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiProCond-SemiBold.svg#AmsiProCond-SemiBold")
-      format("svg");
+  src: url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiProCond-SemiBold.eot?#iefix") format("embedded-opentype"),
+    url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiProCond-SemiBold.woff2") format("woff2"),
+    url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiProCond-SemiBold.woff") format("woff"),
+    url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiProCond-SemiBold.ttf") format("truetype"),
+    url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiProCond-SemiBold.svg#AmsiProCond-SemiBold") format("svg");
   font-weight: 600;
   font-style: normal;
   font-display: swap;
@@ -251,16 +186,11 @@
 @font-face {
   font-family: "AmsiProCond";
   src: url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiProCond-Thin.eot");
-  src: url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiProCond-Thin.eot?#iefix")
-      format("embedded-opentype"),
-    url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiProCond-Thin.woff2")
-      format("woff2"),
-    url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiProCond-Thin.woff")
-      format("woff"),
-    url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiProCond-Thin.ttf")
-      format("truetype"),
-    url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiProCond-Thin.svg#AmsiProCond-Thin")
-      format("svg");
+  src: url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiProCond-Thin.eot?#iefix") format("embedded-opentype"),
+    url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiProCond-Thin.woff2") format("woff2"),
+    url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiProCond-Thin.woff") format("woff"),
+    url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiProCond-Thin.ttf") format("truetype"),
+    url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiProCond-Thin.svg#AmsiProCond-Thin") format("svg");
   font-weight: 100;
   font-style: normal;
   font-display: swap;
@@ -269,16 +199,11 @@
 @font-face {
   font-family: "AmsiProCond";
   src: url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiProCond-SemiBoldItalic.eot");
-  src: url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiProCond-SemiBoldItalic.eot?#iefix")
-      format("embedded-opentype"),
-    url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiProCond-SemiBoldItalic.woff2")
-      format("woff2"),
-    url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiProCond-SemiBoldItalic.woff")
-      format("woff"),
-    url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiProCond-SemiBoldItalic.ttf")
-      format("truetype"),
-    url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiProCond-SemiBoldItalic.svg#AmsiProCond-SemiBoldItalic")
-      format("svg");
+  src: url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiProCond-SemiBoldItalic.eot?#iefix") format("embedded-opentype"),
+    url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiProCond-SemiBoldItalic.woff2") format("woff2"),
+    url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiProCond-SemiBoldItalic.woff") format("woff"),
+    url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiProCond-SemiBoldItalic.ttf") format("truetype"),
+    url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiProCond-SemiBoldItalic.svg#AmsiProCond-SemiBoldItalic") format("svg");
   font-weight: 600;
   font-style: italic;
   font-display: swap;
@@ -287,16 +212,11 @@
 @font-face {
   font-family: "AmsiProCond-Ultra";
   src: url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiProCond-Ultra.eot");
-  src: url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiProCond-Ultra.eot?#iefix")
-      format("embedded-opentype"),
-    url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiProCond-Ultra.woff2")
-      format("woff2"),
-    url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiProCond-Ultra.woff")
-      format("woff"),
-    url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiProCond-Ultra.ttf")
-      format("truetype"),
-    url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiProCond-Ultra.svg#AmsiProCond-Ultra")
-      format("svg");
+  src: url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiProCond-Ultra.eot?#iefix") format("embedded-opentype"),
+    url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiProCond-Ultra.woff2") format("woff2"),
+    url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiProCond-Ultra.woff") format("woff"),
+    url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiProCond-Ultra.ttf") format("truetype"),
+    url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiProCond-Ultra.svg#AmsiProCond-Ultra") format("svg");
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -305,16 +225,11 @@
 @font-face {
   font-family: "AmsiProCond";
   src: url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiProCond-ThinItalic.eot");
-  src: url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiProCond-ThinItalic.eot?#iefix")
-      format("embedded-opentype"),
-    url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiProCond-ThinItalic.woff2")
-      format("woff2"),
-    url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiProCond-ThinItalic.woff")
-      format("woff"),
-    url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiProCond-ThinItalic.ttf")
-      format("truetype"),
-    url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiProCond-ThinItalic.svg#AmsiProCond-ThinItalic")
-      format("svg");
+  src: url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiProCond-ThinItalic.eot?#iefix") format("embedded-opentype"),
+    url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiProCond-ThinItalic.woff2") format("woff2"),
+    url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiProCond-ThinItalic.woff") format("woff"),
+    url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiProCond-ThinItalic.ttf") format("truetype"),
+    url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiProCond-ThinItalic.svg#AmsiProCond-ThinItalic") format("svg");
   font-weight: 100;
   font-style: italic;
   font-display: swap;
@@ -323,16 +238,11 @@
 @font-face {
   font-family: "AmsiProCond-XLight";
   src: url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiProCond-XLight.eot");
-  src: url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiProCond-XLight.eot?#iefix")
-      format("embedded-opentype"),
-    url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiProCond-XLight.woff2")
-      format("woff2"),
-    url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiProCond-XLight.woff")
-      format("woff"),
-    url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiProCond-XLight.ttf")
-      format("truetype"),
-    url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiProCond-XLight.svg#AmsiProCond-XLight")
-      format("svg");
+  src: url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiProCond-XLight.eot?#iefix") format("embedded-opentype"),
+    url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiProCond-XLight.woff2") format("woff2"),
+    url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiProCond-XLight.woff") format("woff"),
+    url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiProCond-XLight.ttf") format("truetype"),
+    url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiProCond-XLight.svg#AmsiProCond-XLight") format("svg");
   font-weight: 300;
   font-style: normal;
   font-display: swap;
@@ -341,16 +251,11 @@
 @font-face {
   font-family: "AmsiPro";
   src: url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiPro-Italic.eot");
-  src: url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiPro-Italic.eot?#iefix")
-      format("embedded-opentype"),
-    url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiPro-Italic.woff2")
-      format("woff2"),
-    url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiPro-Italic.woff")
-      format("woff"),
-    url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiPro-Italic.ttf")
-      format("truetype"),
-    url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiPro-Italic.svg#AmsiPro-Italic")
-      format("svg");
+  src: url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiPro-Italic.eot?#iefix") format("embedded-opentype"),
+    url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiPro-Italic.woff2") format("woff2"),
+    url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiPro-Italic.woff") format("woff"),
+    url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiPro-Italic.ttf") format("truetype"),
+    url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiPro-Italic.svg#AmsiPro-Italic") format("svg");
   font-weight: normal;
   font-style: italic;
   font-display: swap;
@@ -359,16 +264,11 @@
 @font-face {
   font-family: "AmsiPro";
   src: url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiPro-LightItalic.eot");
-  src: url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiPro-LightItalic.eot?#iefix")
-      format("embedded-opentype"),
-    url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiPro-LightItalic.woff2")
-      format("woff2"),
-    url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiPro-LightItalic.woff")
-      format("woff"),
-    url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiPro-LightItalic.ttf")
-      format("truetype"),
-    url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiPro-LightItalic.svg#AmsiPro-LightItalic")
-      format("svg");
+  src: url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiPro-LightItalic.eot?#iefix") format("embedded-opentype"),
+    url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiPro-LightItalic.woff2") format("woff2"),
+    url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiPro-LightItalic.woff") format("woff"),
+    url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiPro-LightItalic.ttf") format("truetype"),
+    url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiPro-LightItalic.svg#AmsiPro-LightItalic") format("svg");
   font-weight: 300;
   font-style: italic;
   font-display: swap;
@@ -377,16 +277,11 @@
 @font-face {
   font-family: "AmsiPro";
   src: url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiPro-Light.eot");
-  src: url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiPro-Light.eot?#iefix")
-      format("embedded-opentype"),
-    url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiPro-Light.woff2")
-      format("woff2"),
-    url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiPro-Light.woff")
-      format("woff"),
-    url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiPro-Light.ttf")
-      format("truetype"),
-    url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiPro-Light.svg#AmsiPro-Light")
-      format("svg");
+  src: url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiPro-Light.eot?#iefix") format("embedded-opentype"),
+    url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiPro-Light.woff2") format("woff2"),
+    url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiPro-Light.woff") format("woff"),
+    url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiPro-Light.ttf") format("truetype"),
+    url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiPro-Light.svg#AmsiPro-Light") format("svg");
   font-weight: 300;
   font-style: normal;
   font-display: swap;
@@ -395,16 +290,11 @@
 @font-face {
   font-family: "AmsiProCond-XLightItalic";
   src: url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiProCond-XLightItalic.eot");
-  src: url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiProCond-XLightItalic.eot?#iefix")
-      format("embedded-opentype"),
-    url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiProCond-XLightItalic.woff2")
-      format("woff2"),
-    url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiProCond-XLightItalic.woff")
-      format("woff"),
-    url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiProCond-XLightItalic.ttf")
-      format("truetype"),
-    url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiProCond-XLightItalic.svg#AmsiProCond-XLightItalic")
-      format("svg");
+  src: url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiProCond-XLightItalic.eot?#iefix") format("embedded-opentype"),
+    url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiProCond-XLightItalic.woff2") format("woff2"),
+    url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiProCond-XLightItalic.woff") format("woff"),
+    url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiProCond-XLightItalic.ttf") format("truetype"),
+    url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiProCond-XLightItalic.svg#AmsiProCond-XLightItalic") format("svg");
   font-weight: 300;
   font-style: italic;
   font-display: swap;
@@ -413,16 +303,11 @@
 @font-face {
   font-family: "AmsiProCond-UltraItalic";
   src: url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiProCond-UltraItalic.eot");
-  src: url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiProCond-UltraItalic.eot?#iefix")
-      format("embedded-opentype"),
-    url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiProCond-UltraItalic.woff2")
-      format("woff2"),
-    url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiProCond-UltraItalic.woff")
-      format("woff"),
-    url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiProCond-UltraItalic.ttf")
-      format("truetype"),
-    url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiProCond-UltraItalic.svg#AmsiProCond-UltraItalic")
-      format("svg");
+  src: url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiProCond-UltraItalic.eot?#iefix") format("embedded-opentype"),
+    url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiProCond-UltraItalic.woff2") format("woff2"),
+    url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiProCond-UltraItalic.woff") format("woff"),
+    url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiProCond-UltraItalic.ttf") format("truetype"),
+    url("https://cdn.shopify.com/s/files/1/0671/4471/2493/t/4/assets/AmsiProCond-UltraItalic.svg#AmsiProCond-UltraItalic") format("svg");
   font-weight: normal;
   font-style: italic;
   font-display: swap;
@@ -744,7 +629,7 @@ ul.MainNav li a:hover {
 
 .product-box .img-wrap img {
   height: auto;
-  max-width: 100%;
+  width: 100%;
 }
 
 .product-detail {
@@ -965,8 +850,7 @@ ul.MainNav li a:hover {
 /* <---------- NEWSLETTER SECTION END ----------> */
 
 .footer {
-  background: url("https://cdn.shopify.com/s/files/1/0671/4471/2493/files/footer-candy-bg.jpg?v=1669975172")
-    #000;
+  background: url("https://cdn.shopify.com/s/files/1/0671/4471/2493/files/footer-candy-bg.jpg?v=1669975172") #000;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
@@ -1063,7 +947,7 @@ div[cartshow="show"] {
   font-size: 0.95rem;
 }
 
-.product-cart .weight span + span {
+.product-cart .weight span+span {
   font-size: 1.2rem;
 }
 
@@ -1684,6 +1568,7 @@ button:disabled {
 }
 
 @media (max-width: 700px) {
+
   .item-container .qty-btn,
   .product-detail .qty-btn,
   .product-detail .btn-cta {
@@ -1843,7 +1728,7 @@ button:disabled {
     font-size: 0.9rem;
   }
 
-  .product-cart .weight span + span {
+  .product-cart .weight span+span {
     font-size: 0.95rem;
   }
 
