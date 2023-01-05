@@ -23,7 +23,6 @@ const store = Vue.reactive( {
 			editProducts: []
 		}
 	},
-
 	calculateCartTotal ()
 	{
 		this.state.mainCart.total = 0;
@@ -147,6 +146,8 @@ const store = Vue.reactive( {
 		axios.get( '/collections/frontpage/products.json' )
 			.then( ( response ) =>
 			{
+				console.log( "second" );
+
 				response.data.products.forEach( element =>
 				{
 					let { body_html: desc, title, variants, images, vendor, tags, id } = element;
@@ -154,12 +155,40 @@ const store = Vue.reactive( {
 					this.state.products.unshift( { desc, id, title, variants, images, vendor, tags, show: true, keepcounter: 0, added: false } );
 				} );
 			} )
+			.then( () =>
+			{
+				// fetching products from the localStorage
+
+
+				// do the update to the product data 
+				let bagsfromStorage = JSON.parse( localStorage.bags || '[]' );
+				// initialize the bag recreation
+				bagsfromStorage.forEach( ( storedBags ) =>
+				{
+					storedBags.bags.forEach( ( item ) =>
+					{
+						store.state.filteredProducts.forEach( ( filterProduct ) =>
+						{
+							if ( item.id == filterProduct.variants[ 0 ].id )
+							{
+								filterProduct.added = true;
+								filterProduct.keepcounter = item.qty;
+							}
+						} );
+					} );
+					store.updatePricesAndWeights();
+					this.setBag( storedBags.bagName, false );
+				} );
+
+
+			} )
 			.catch( error =>
 				console.log( error ) );
 	},
 	// bag mutations
-	setBag ( bagName )
+	setBag ( bagName, shouldUpdateLocalStore = true )
 	{
+
 		let newBag = [];
 		store.state.currentbagitems.map( item =>
 		{
@@ -196,6 +225,8 @@ const store = Vue.reactive( {
 							bag.total = store.state.bottomCart.total;
 						}
 					} );
+					store.updateLocalStore();
+
 				}
 				,
 				decreaseQuantity ()
@@ -225,6 +256,7 @@ const store = Vue.reactive( {
 								bag.total = store.state.bottomCart.total;
 							}
 						} );
+						store.updateLocalStore();
 
 
 					} else
@@ -268,6 +300,7 @@ const store = Vue.reactive( {
 
 							}
 						} );
+						store.updateLocalStore();
 
 
 
@@ -308,6 +341,8 @@ const store = Vue.reactive( {
 					store.updatePricesAndWeights();
 
 					store.calculateCartTotal();
+					store.updateLocalStore();
+
 				},
 			} );
 		} );
@@ -333,7 +368,10 @@ const store = Vue.reactive( {
 		let modal = new bootstrap.Modal( '#Slide-Left' );
 		modal.toggle();
 		store.calculateCartTotal();
+		store.updateLocalStore( shouldUpdateLocalStore );
+
 	},
+
 	editBag ( bagName )
 	{
 		this.state.editBag.bagName = bagName;
@@ -363,14 +401,21 @@ const store = Vue.reactive( {
 				store.updatePricesAndWeights();
 			}
 		} );
+
 	},
 	removeBag ( bagName )
 	{
+		let updates = {};
+
 		this.state.mainCart.bags.map( ( bag, i ) =>
 		{
 
 			if ( bagName == bag.bagName )
 			{
+				bag.bags.forEach( item =>
+				{
+					updates[ item.id ] = 0;
+				} );
 				this.state.mainCart.total -= bag.total;
 				this.state.mainCart.bags.splice( i, 1 );
 			}
@@ -378,6 +423,7 @@ const store = Vue.reactive( {
 		this.state.filteredProducts.forEach( product => product.keepcounter = 0 );
 		store.updatePricesAndWeights();
 
+		store.updateLocalStore();
 	},
 	mtoggle ( productID )
 	{
@@ -394,7 +440,16 @@ const store = Vue.reactive( {
 
 		let modal = new bootstrap.Modal( '#InfoModal' );
 		modal.toggle();
-	}
+	},
+	updateLocalStore ( shouldUpdateLocalStore = true )
+	{
+		// push the bags to localStorage
+		if ( shouldUpdateLocalStore )
+		{
+
+			localStorage.bags = JSON.stringify( store.state.mainCart.bags );
+		}
+	},
 
 } );
 
@@ -411,6 +466,7 @@ if ( document.querySelector( '#bags-container' ) )
 		data ()
 		{
 			return {
+				acceptterms: false,
 				data: {
 					details: store.state.bottomCart,
 					bags: store.state.currentbagitems,
@@ -422,6 +478,7 @@ if ( document.querySelector( '#bags-container' ) )
 				editBag: store.state.editBag
 			};
 		},
+
 		watch: {
 			// check the correct bagName ie check for name validations 
 			'data.bagName' ( newValue )
@@ -431,6 +488,7 @@ if ( document.querySelector( '#bags-container' ) )
 			}
 		},
 		methods: {
+
 			putInBasket ()
 			{
 				// Set the current bag 
@@ -460,7 +518,7 @@ if ( document.querySelector( '#bags-container' ) )
 
 			checkOut ()
 			{
-				finalCheckoutData = {
+				let finalCheckoutData = {
 					items: []
 				};
 				store.state.mainCart.bags.map( ( currentBag ) =>
@@ -506,6 +564,7 @@ if ( document.querySelector( '#product-box' ) )
 			return {
 				products: store.state.filteredProducts,
 				filterNames: [ "Chocolate", "Marshmallow", "peanuts", "Sugarfree" ],
+				bags: store.state.currentbagitems,
 			};
 		},
 		created ()
@@ -515,6 +574,7 @@ if ( document.querySelector( '#product-box' ) )
 				await store.getProducts();
 			} )();
 		},
+
 
 	} );
 	productbox.component( 'filter-component',
