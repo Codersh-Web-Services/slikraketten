@@ -8,7 +8,11 @@
             <span v-if="data.details.total">{{ bottomCartPrice }}: ${data.details.total}.00. Kr.</span>
           </div>
           <div v-if="data.details.total" class="btn-group ">
-            <button class="d-none outline-btn" data-bs-toggle="modal" data-bs-target="#AddProDuct">
+            <button
+              class="d-sm-block d-md-none outline-btn"
+              data-bs-toggle="modal"
+              data-bs-target="#AddProDuct"
+            >
               {{ watchbag }}
             </button>
 
@@ -250,15 +254,19 @@
               <p v-if="mainCart.total < {{ minimumorderamount }}">{{ minimumorder }}</p>
               <label>
                 <input type="checkbox" v-model="acceptterms">
-                Acceptér <a href="/pages/handelsbetingelser">handelsbetingelser</a> og
-                <a href="/pages/persondatapolitik">persondatapolitik</a>
+                Acceptér <a href="/policies/privacy-policy">handelsbetingelser</a> og
+                <a href="/policies/privacy-policy">persondatapolitik</a>
               </label>
               <br>
               <br>
-              <a disabled v-if="mainCart.total < {{ minimumorderamount }} && !acceptterms" class="btn-checkout"
-                >Checkout
-              </a>
-              <button v-else @click="checkOut()" class="btn-checkout">Checkout</button>
+              <button
+                v-if=" (acceptterms) && (mainCart.total > {{ minimumorderamount }})"
+                @click="checkOut()"
+                class="btn-checkout"
+              >
+                Checkout
+              </button>
+              <a disabled v-else class="btn-checkout">Checkout </a>
             </div>
           </div>
         </div>

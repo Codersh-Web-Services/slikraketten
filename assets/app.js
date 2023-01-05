@@ -23,22 +23,6 @@ const store = Vue.reactive( {
 			editProducts: []
 		}
 	},
-
-	watch: {
-		state: {
-			handler ( newValue, oldValue )
-			{
-				// Note: `newValue` will be equal to `oldValue` here
-				// on nested mutations as long as the object itself
-				// hasn't been replaced.
-				console.log( "newValue", newValue );
-			},
-			// force eager callback execution
-			immediate: true,
-			deep: true
-		}
-
-	},
 	calculateCartTotal ()
 	{
 		this.state.mainCart.total = 0;
@@ -173,36 +157,27 @@ const store = Vue.reactive( {
 			} )
 			.then( () =>
 			{
-				// fetching products from the cart
+				// fetching products from the localStorage
 
-				axios.get( '/cart.js' ).then( ( response ) =>
+
+				// do the update to the product data 
+				let bagsfromStorage = JSON.parse( localStorage.bags || '[]' );
+				// initialize the bag recreation
+				bagsfromStorage.forEach( ( storedBags ) =>
 				{
-					let { data: { items } } = response;
-
-					// do the update to the product data 
-					let bagsfromStorage = JSON.parse( localStorage.bags || '[]' );
-					// initialize the bag recreation
-					bagsfromStorage.forEach( ( bagName ) =>
+					storedBags.bags.forEach( ( item ) =>
 					{
-
-						items.forEach( ( item ) =>
+						store.state.filteredProducts.forEach( ( filterProduct ) =>
 						{
-							if ( item.properties[ 'Bag Name' ] == bagName )
+							if ( item.id == filterProduct.variants[ 0 ].id )
 							{
-								store.state.filteredProducts.forEach( ( filterProduct ) =>
-								{
-									if ( item.variant_id == filterProduct.variants[ 0 ].id )
-									{
-										filterProduct.added = true;
-										filterProduct.keepcounter = item.quantity;
-									}
-								} );
-							};
-
+								filterProduct.added = true;
+								filterProduct.keepcounter = item.qty;
+							}
 						} );
-						store.updatePricesAndWeights();
-						this.setBag( bagName, false );
 					} );
+					store.updatePricesAndWeights();
+					this.setBag( storedBags.bagName, false );
 				} );
 
 
@@ -211,7 +186,7 @@ const store = Vue.reactive( {
 				console.log( error ) );
 	},
 	// bag mutations
-	setBag ( bagName, updateAjax = true )
+	setBag ( bagName, shouldUpdateLocalStore = true )
 	{
 
 		let newBag = [];
@@ -250,6 +225,8 @@ const store = Vue.reactive( {
 							bag.total = store.state.bottomCart.total;
 						}
 					} );
+					store.updateLocalStore();
+
 				}
 				,
 				decreaseQuantity ()
@@ -279,6 +256,7 @@ const store = Vue.reactive( {
 								bag.total = store.state.bottomCart.total;
 							}
 						} );
+						store.updateLocalStore();
 
 
 					} else
@@ -322,6 +300,7 @@ const store = Vue.reactive( {
 
 							}
 						} );
+						store.updateLocalStore();
 
 
 
@@ -362,6 +341,8 @@ const store = Vue.reactive( {
 					store.updatePricesAndWeights();
 
 					store.calculateCartTotal();
+					store.updateLocalStore();
+
 				},
 			} );
 		} );
@@ -387,50 +368,10 @@ const store = Vue.reactive( {
 		let modal = new bootstrap.Modal( '#Slide-Left' );
 		modal.toggle();
 		store.calculateCartTotal();
+		store.updateLocalStore( shouldUpdateLocalStore );
 
-		// add bag to the cart via AJAX
-		if ( updateAjax )
-		{
-			axios.post( window.Shopify.routes.root + 'cart/clear.js' ).then( ( res ) => console.log( res ) );
-			let incrementalCheckoutData = {
-				items: []
-			};
-			store.state.mainCart.bags.map( ( currentBag ) =>
-			{
-				currentBag.bags.map( ( orderProduct ) =>
-				{
-					incrementalCheckoutData.items.unshift( {
-						id: orderProduct.id,
-						quantity: orderProduct.qty,
-						properties: {
-							'Bag Name': currentBag.bagName
-						}
-					} );
-				} );
-			} );
-
-			axios.post( '/cart/add.js', incrementalCheckoutData ).then( ( response ) =>
-			{
-				console.log( response );
-				axios.get( '/cart.js' ).then( ( response ) =>
-				{
-					console.log( response );
-				} );
-
-			} ).catch( ( er ) =>
-			{
-				console.log( er );
-			} );
-		}
-
-		// push the bags to localStorage
-		let bags = [];
-		store.state.mainCart.bags.map( ( bag ) =>
-		{
-			bags.push( bag.bagName );
-		} );
-		localStorage.bags = JSON.stringify( bags );
 	},
+
 	editBag ( bagName )
 	{
 		this.state.editBag.bagName = bagName;
@@ -460,6 +401,7 @@ const store = Vue.reactive( {
 				store.updatePricesAndWeights();
 			}
 		} );
+
 	},
 	removeBag ( bagName )
 	{
@@ -481,7 +423,7 @@ const store = Vue.reactive( {
 		this.state.filteredProducts.forEach( product => product.keepcounter = 0 );
 		store.updatePricesAndWeights();
 
-		axios.post( window.Shopify.routes.root + 'cart/clear.js' ).then( () => localStorage.bags = '[]' );
+		store.updateLocalStore();
 	},
 	mtoggle ( productID )
 	{
@@ -498,7 +440,16 @@ const store = Vue.reactive( {
 
 		let modal = new bootstrap.Modal( '#InfoModal' );
 		modal.toggle();
-	}
+	},
+	updateLocalStore ( shouldUpdateLocalStore = true )
+	{
+		// push the bags to localStorage
+		if ( shouldUpdateLocalStore )
+		{
+
+			localStorage.bags = JSON.stringify( store.state.mainCart.bags );
+		}
+	},
 
 } );
 
@@ -515,7 +466,7 @@ if ( document.querySelector( '#bags-container' ) )
 		data ()
 		{
 			return {
-				acceptterms: "",
+				acceptterms: false,
 				data: {
 					details: store.state.bottomCart,
 					bags: store.state.currentbagitems,
