@@ -24,7 +24,21 @@ const store = Vue.reactive( {
 		}
 	},
 
+	watch: {
+		state: {
+			handler ( newValue, oldValue )
+			{
+				// Note: `newValue` will be equal to `oldValue` here
+				// on nested mutations as long as the object itself
+				// hasn't been replaced.
+				console.log( "newValue", newValue );
+			},
+			// force eager callback execution
+			immediate: true,
+			deep: true
+		}
 
+	},
 	calculateCartTotal ()
 	{
 		this.state.mainCart.total = 0;
