@@ -1365,6 +1365,15 @@ button:disabled {
 
 /* SIDEBAR CSS  End - COLLECTION PAGE  */
 
+/*POLICY PAGE CSS START  */
+
+.shopify-policy__container {
+  padding-top: 170px;
+  padding-bottom: 50px;
+}
+
+/*POLICY PAGE CSS END  */
+
 /*--- MEDIA QUERIES ---*/
 
 @media (max-width: 1200px) {
