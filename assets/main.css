@@ -643,6 +643,7 @@ ul.MainNav li a:hover {
   text-transform: capitalize;
   text-align: center;
   margin: 1.5rem 0 0.5rem 0;
+  min-height: 50px;
 }
 
 .product-detail h3 {
