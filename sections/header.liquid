@@ -212,13 +212,14 @@
   
   
   
+  
  
 
   let today = new Date() 
   if(today.getDay() != 0 || today.getDay() != 6 ){ 
 let tomorrow = new Date() ;
     tomorrow.setDate(tomorrow.getDate()+1);
-    tomorrow.setHours({{ section.settings.timer }})	
+    tomorrow.setHours({{ section.settings.timer }},0,0)	
     tomorrowtime = tomorrow.getTime()
    setInterval(function() {
   let currentDate = new Date().getTime()
@@ -233,6 +234,7 @@ document.querySelector("#anouncementbar p").innerHTML = `{{ section.settings.ann
    }, 1000)
   
   }
+
 
 
 
