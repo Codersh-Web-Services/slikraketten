@@ -55,6 +55,10 @@
             {%- endfor -%}
           </ul>
         </div>
+      {% else %}
+        <div class="payments_icons">
+          <img src="{{section.settings.payments_icons }}">
+        </div>
       {%- endif -%}
     </div>
     <hr>
@@ -175,6 +179,11 @@
       "id": "payment_enable",
       "default": true,
       "label": "t:sections.footer.settings.payment_enable.label"
+    },
+    {
+      "type": "image_picker",
+      "id": "payments_icons",
+      "label": "Custom payments group icons"
     }
   ]
 }
