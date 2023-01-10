@@ -163,7 +163,9 @@
           "menu2": "terms",
           "footertitle3": "Adresse",
           "Addressdesc": "<p>Slikraketten<br\/>Stensmosevej 24F<br\/>2620 Albertslund<\/p><p>CVR nr. 37263605<br\/>(Slikraketten er en del af RR Agency)<\/p>",
-          "copyrighttext": "<p>© 2023 Slikraketten<\/p>"
+          "copyrighttext": "<p>© 2023 Slikraketten<\/p>",
+          "payment_enable": false,
+          "payments_icons": "shopify:\/\/shop_images\/imgpsh_fullsize_anim.png"
         }
       },
       "main-password-header": {
