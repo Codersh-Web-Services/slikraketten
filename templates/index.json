@@ -38,6 +38,16 @@
           "settings": {
             "logo": "shopify:\/\/shop_images\/toms.png"
           }
+        },
+        "24c4b5b2-fc56-4525-9cba-4c55555e2563": {
+          "type": "logo",
+          "settings": {
+          }
+        },
+        "93ef0f84-bf8c-4d3f-b175-3cc0bc3e5d6f": {
+          "type": "logo",
+          "settings": {
+          }
         }
       },
       "block_order": [
@@ -46,7 +56,9 @@
         "2985f904-47a2-4d11-bfcd-05ba61ec1c67",
         "8500f322-6698-40ec-a7bf-40bb40f02cf9",
         "57935003-8aae-4e4a-8070-82c5faa7fc80",
-        "0b221683-5bf0-4d3f-bb1d-8d922739d9b1"
+        "0b221683-5bf0-4d3f-bb1d-8d922739d9b1",
+        "24c4b5b2-fc56-4525-9cba-4c55555e2563",
+        "93ef0f84-bf8c-4d3f-b175-3cc0bc3e5d6f"
       ],
       "settings": {
         "herotext": "<p>Bland selv slik<\/p>",
