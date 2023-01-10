@@ -57,7 +57,7 @@
         </div>
       {% else %}
         <div class="payments_icons">
-          <img src="{{section.settings.payments_icons }}">
+          <img src="{{section.settings.payments_icons | img_url : "master" }}">
         </div>
       {%- endif -%}
     </div>
