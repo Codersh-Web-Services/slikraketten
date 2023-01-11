@@ -1,20 +1,34 @@
 <link rel="stylesheet" href="{{ 'component-list-menu.css' | asset_url }}" media="print" onload="this.media='all'">
 <link rel="stylesheet" href="{{ 'component-search.css' | asset_url }}" media="print" onload="this.media='all'">
 <link rel="stylesheet" href="{{ 'component-menu-drawer.css' | asset_url }}" media="print" onload="this.media='all'">
-<link rel="stylesheet" href="{{ 'component-cart-notification.css' | asset_url }}" media="print" onload="this.media='all'">
+<link
+  rel="stylesheet"
+  href="{{ 'component-cart-notification.css' | asset_url }}"
+  media="print"
+  onload="this.media='all'"
+>
 <link rel="stylesheet" href="{{ 'component-cart-items.css' | asset_url }}" media="print" onload="this.media='all'">
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
-  integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+<link
+  href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+  rel="stylesheet"
+  integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
+  crossorigin="anonymous"
+>
 
 {%- if settings.predictive_search_enabled -%}
   <link rel="stylesheet" href="{{ 'component-price.css' | asset_url }}" media="print" onload="this.media='all'">
-  <link rel="stylesheet" href="{{ 'component-loading-overlay.css' | asset_url }}" media="print" onload="this.media='all'">
+  <link
+    rel="stylesheet"
+    href="{{ 'component-loading-overlay.css' | asset_url }}"
+    media="print"
+    onload="this.media='all'"
+  >
 {%- endif -%}
 {%- if section.settings.menu_type_desktop == 'mega' -%}
   <link rel="stylesheet" href="{{ 'component-mega-menu.css' | asset_url }}" media="print" onload="this.media='all'">
   <noscript>{{ 'component-mega-menu.css' | asset_url | stylesheet_tag }}</noscript>
 {%- endif -%}
-{%- if settings.cart_type == "drawer" -%}
+{%- if settings.cart_type == 'drawer' -%}
   {{ 'component-cart-drawer.css' | asset_url | stylesheet_tag }}
   {{ 'component-cart.css' | asset_url | stylesheet_tag }}
   {{ 'component-totals.css' | asset_url | stylesheet_tag }}
@@ -113,7 +127,7 @@
 <script src="{{ 'details-modal.js' | asset_url }}" defer="defer"></script>
 <script src="{{ 'cart-notification.js' | asset_url }}" defer="defer"></script>
 
-{%- if settings.cart_type == "drawer" -%}
+{%- if settings.cart_type == 'drawer' -%}
   <script src="{{ 'cart-drawer.js' | asset_url }}" defer="defer"></script>
 {%- endif -%}
 
@@ -128,69 +142,49 @@
 </svg>
 <header class="fixed-top">
   <div class="anouncementbar" id="anouncementbar">
-      <p  class="mb-0">
-         {{section.settings.announcementbartext}}
-      </p>
+    <p class="mb-0">
+      {{ section.settings.announcementbartext }}
+    </p>
   </div>
- <script>
-  let today = new Date()
-  if(today.getDay() != 0 || today.getDay() != 6 ){ 
-let tomorrow = new Date();
-    tomorrow.setDate(tomorrow.getDate()+1);
-    tomorrow.setHours({{section.settings.timer}})	
-    tomorrowtime = tomorrow.getTime()
-   setInterval(function() {
-  let currentDate = new Date().getTime()
-    
-    let  distance = tomorrowtime - currentDate;
- let hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-  let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-  let seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-document.querySelector("#anouncementbar p").innerHTML = `{{section.settings.announcementbartext2}} ${hours} : ${minutes} : ${seconds}`
-
-   }, 1000)
-  
-  }
- </script>
   <div class="mainHeader container">
-      <div class="logo-wrap">
-          <a href="/"><img src="{{"logo1.png" | file_url}}" alt="logo"></a>
-      </div>
-      <nav>
-          <ul class="MainNav" id="navbar">
-           {% render "menulinks" with menu : section.settings.menu%}
-              <li><a href="#" data-bs-toggle="modal" data-bs-target="#Slide-Left">Basket
-                      <span>
-                          <svg class="Icon Icon--cart cart-icons" width="17" height="17" viewBox="0 0 17 17"
-                              fill="#000" xmlns="http://www.w3.org/2000/svg">
-                              <path class="cart-icons"
-                                  d="M5.1 13.6C4.165 13.6 3.4 14.365 3.4 15.3C3.4 16.235 4.165 17 5.1 17C6.035 17 6.8 16.235 6.8 15.3C6.8 14.365 6.035 13.6 5.1 13.6ZM0 0V1.7H1.7L4.76 8.16L3.57 10.2C3.485 10.455 3.4 10.795 3.4 11.05C3.4 11.985 4.165 12.75 5.1 12.75H15.3V11.05H5.44C5.355 11.05 5.27 10.965 5.27 10.88V10.795L6.035 9.34997H12.325C13.005 9.34997 13.515 9.00997 13.77 8.49997L16.83 2.975C17 2.805 17 2.72 17 2.55C17 2.04 16.66 1.7 16.15 1.7H3.57L2.805 0H0ZM13.6 13.6C12.665 13.6 11.9 14.365 11.9 15.3C11.9 16.235 12.665 17 13.6 17C14.535 17 15.3 16.235 15.3 15.3C15.3 14.365 14.535 13.6 13.6 13.6Z">
-                              </path>
-                          </svg>
-                          <span :id="currentbagsid" class="currentbags"> 
-                          ( ${bags.length} )
-                        </span>
-
-                      </span>
-                  </a>
-              </li>
-          </ul>
-      </nav>
-      <div class="navMobile">
-          <a href="#" id="navButton">
-              <div></div>
+    <div class="logo-wrap">
+      <a href="/"><img src="{{ "logo1.png" | file_url }}" alt="logo"></a>
+    </div>
+    <nav>
+      <ul class="MainNav" id="navbar">
+        {% render "menulinks" with menu : section.settings.menu %}
+        <li>
+          <a href="#" data-bs-toggle="modal" data-bs-target="#Slide-Left"
+            >Basket
+            <span>
+              <svg
+                class="Icon Icon--cart cart-icons"
+                width="17"
+                height="17"
+                viewBox="0 0 17 17"
+                fill="#000"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path class="cart-icons"
+                    d="M5.1 13.6C4.165 13.6 3.4 14.365 3.4 15.3C3.4 16.235 4.165 17 5.1 17C6.035 17 6.8 16.235 6.8 15.3C6.8 14.365 6.035 13.6 5.1 13.6ZM0 0V1.7H1.7L4.76 8.16L3.57 10.2C3.485 10.455 3.4 10.795 3.4 11.05C3.4 11.985 4.165 12.75 5.1 12.75H15.3V11.05H5.44C5.355 11.05 5.27 10.965 5.27 10.88V10.795L6.035 9.34997H12.325C13.005 9.34997 13.515 9.00997 13.77 8.49997L16.83 2.975C17 2.805 17 2.72 17 2.55C17 2.04 16.66 1.7 16.15 1.7H3.57L2.805 0H0ZM13.6 13.6C12.665 13.6 11.9 14.365 11.9 15.3C11.9 16.235 12.665 17 13.6 17C14.535 17 15.3 16.235 15.3 15.3C15.3 14.365 14.535 13.6 13.6 13.6Z">
+                </path>
+              </svg>
+              <span :id="currentbagsid" class="currentbags"> ( ${bags.length} ) </span>
+            </span>
           </a>
-      </div>
-      </a>
+        </li>
+      </ul>
+    </nav>
+    <div class="navMobile">
+      <a href="#" id="navButton"> </a>
+    </div>
   </div>
 </header>
 
-{%- if settings.cart_type == "notification" -%}
+{%- if settings.cart_type == 'notification' -%}
   {%- render 'cart-notification', color_scheme: section.settings.color_scheme -%}
 {%- endif -%}
-
-
 
 <script type="application/ld+json">
   {
@@ -214,9 +208,40 @@ document.querySelector("#anouncementbar p").innerHTML = `{{section.settings.anno
     "url": {{ request.origin | append: page.url | json }}
   }
 </script>
+<script>
+  
+  
+  
+  
+ 
 
+  let today = new Date() 
+  if(today.getDay() != 0 || today.getDay() != 6 ){ 
+let tomorrow = new Date() ;
+    tomorrow.setDate(tomorrow.getDate()+1);
+    tomorrow.setHours({{ section.settings.timer }},0,0)	
+    tomorrowtime = tomorrow.getTime()
+   setInterval(function() {
+  let currentDate = new Date().getTime()
+    
+    let  distance = tomorrowtime - currentDate;
+ let hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  let seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+document.querySelector("#anouncementbar p").innerHTML = `{{ section.settings.announcementbartext2 }} ${hours} : ${minutes} : ${seconds}`
+
+   }, 1000)
+  
+  }
+
+
+
+
+
+</script>
 {%- if request.page_type == 'index' -%}
-  {% assign potential_action_target = request.origin | append: routes.search_url | append: "?q={search_term_string}" %}
+  {% assign potential_action_target = request.origin | append: routes.search_url | append: '?q={search_term_string}' %}
   <script type="application/ld+json">
     {
       "@context": "http://schema.org",
@@ -237,26 +262,21 @@ document.querySelector("#anouncementbar p").innerHTML = `{{section.settings.anno
   "name": "t:sections.header.name",
   "class": "section-header",
   "settings": [
-    
     {
-
-      "type" : "text",
-      "id" : "announcementbartext",
-      "label" : "Default Announcment text"
+      "type": "text",
+      "id": "announcementbartext",
+      "label": "Default Announcment text"
     },
     {
-
-      "type" : "text",
-      "id" : "announcementbartext2",
-      "label" : "Announcment text when timer is counting down"
+      "type": "text",
+      "id": "announcementbartext2",
+      "label": "Announcment text when timer is counting down"
     },
-
     {
       "type": "image_picker",
       "id": "logo",
       "label": "t:sections.header.settings.logo.label"
     },
-   
     {
       "type": "link_list",
       "id": "menu",
@@ -264,12 +284,10 @@ document.querySelector("#anouncementbar p").innerHTML = `{{section.settings.anno
       "label": "t:sections.header.settings.menu.label"
     },
     {
-
-      "type" : "text",
-      "id" : "timer",
-      "label" : "Enter the time you want the timer to countdown in 24hrs format"
+      "type": "text",
+      "id": "timer",
+      "label": "Enter the time you want the timer to countdown in 24hrs format"
     }
-   
   ]
 }
 {% endschema %}

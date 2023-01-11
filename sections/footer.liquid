@@ -43,6 +43,24 @@
         {{ section.settings.Addressdesc }}
       </div>
     </div>
+    <div class="footer__column footer__column--info">
+      {%- if section.settings.payment_enable -%}
+        <div class="footer__payment">
+          <span class="visually-hidden">{{ 'sections.footer.payment' | t }}</span>
+          <ul class="list list-payment" role="list">
+            {%- for type in shop.enabled_payment_types -%}
+              <li class="list-payment__item">
+                {{ type | payment_type_svg_tag: class: 'icon icon--full-color' }}
+              </li>
+            {%- endfor -%}
+          </ul>
+        </div>
+      {% else %}
+        <div class="payments_icons">
+          <img src="{{section.settings.payments_icons | img_url : "master" }}">
+        </div>
+      {%- endif -%}
+    </div>
     <hr>
     <div class="copyright text-center">
       <b>{{ section.settings.copyrighttext }}</b>
@@ -155,6 +173,17 @@
       "type": "richtext",
       "label": "Copyright text",
       "id": "copyrighttext"
+    },
+    {
+      "type": "checkbox",
+      "id": "payment_enable",
+      "default": true,
+      "label": "t:sections.footer.settings.payment_enable.label"
+    },
+    {
+      "type": "image_picker",
+      "id": "payments_icons",
+      "label": "Custom payments group icons"
     }
   ]
 }
