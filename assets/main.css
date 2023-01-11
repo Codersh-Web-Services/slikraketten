@@ -1366,15 +1366,6 @@ button:disabled {
 
 /* SIDEBAR CSS  End - COLLECTION PAGE  */
 
-/*POLICY PAGE CSS START  */
-
-.shopify-policy__container {
-  padding-top: 170px;
-  padding-bottom: 50px;
-}
-
-/*POLICY PAGE CSS END  */
-
 /*--- MEDIA QUERIES ---*/
 
 @media (max-width: 1200px) {
@@ -1572,9 +1563,9 @@ button:disabled {
     white-space: nowrap;
   }
 
-  .qty-btn ul li p {
+  /* .qty-btn ul li p {
     font-size: 0.8em;
-  }
+  } */
 }
 
 @media (max-width: 700px) {
@@ -1637,9 +1628,9 @@ button:disabled {
     padding: 0.8rem 0.4rem;
   }
 
-  .qty-btn ul li p {
+  /* .qty-btn ul li p {
     font-size: 0.9em;
-  }
+  } */
 
   .product-cart {
     flex-direction: column;
@@ -1796,6 +1787,22 @@ button:disabled {
 
   .copyright p {
     font-size: 0.9rem;
+  }
+
+  .product-detail h4 {
+    min-height: auto;
+  }
+
+  .qty-btn ul li p {
+    font-size: 1.4em;
+  }
+
+  .custom .item-container .qty-btn p {
+    font-size: 1rem;
+  }
+
+  .product-detail .qty-btn {
+    height: 40px;
   }
 }
 

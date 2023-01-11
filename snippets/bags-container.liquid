@@ -547,7 +547,8 @@
   .edit-item .modal-dialog {
     position: fixed;
     margin: auto;
-    width: 440px;
+    width: 100%;
+    max-width: 440px;
     height: 100%;
     right: -440px;
     left: auto;
@@ -754,10 +755,6 @@
   /* <-------- Info Modal Ends--------> */
 
   @media (max-width: 420px) {
-    .edit-item .modal-dialog {
-      max-width: 440px;
-    }
-
     .mix-bag .another-bag-btn {
       font-size: 18px;
     }
@@ -767,6 +764,14 @@
     }
 
     .candy-container .price {
+      font-size: 1rem;
+    }
+
+    .information .modal-body p {
+      font-size: 0.8rem;
+    }
+
+    .candy-content .price b {
       font-size: 1rem;
     }
   }
