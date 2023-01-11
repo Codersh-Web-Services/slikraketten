@@ -1801,9 +1801,6 @@ button:disabled {
     font-size: 1rem;
   }
 
-  .product-detail .qty-btn {
-    height: 40px;
-  }
 }
 
 @media (max-width: 320px) {
