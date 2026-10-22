@@ -30,13 +30,13 @@
       <div class="col-12 col-sm-6 col-xl-3">
         <h5>{{ section.settings.footertitle1 }}</h5>
         <ul>
-          {% render "menulinks" with menu : section.settings.menu %}
+          {% render "menulinks" with menu, menu: section.settings.menu %}
         </ul>
       </div>
       <div class="col-12 col-sm-6 col-xl-3">
         <h5>{{ section.settings.footertitle2 }}</h5>
         <ul>
-          {% render "menulinks" with menu : section.settings.menu2 %}
+          {% render "menulinks" with menu, menu: section.settings.menu2 %}
         </ul>
       </div>
       <div class="col-12 col-sm-6 col-xl-3">
@@ -190,3 +190,16 @@
   ]
 }
 {% endschema %}
+{% comment %}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: '{% render "menulinks" with menu : section.settings.menu %}'
+  to: '{% render "menulinks" with menu, menu: section.settings.menu %}'
+  position: 1777..1840
+- from: '{% render "menulinks" with menu : section.settings.menu2 %}'
+  to: '{% render "menulinks" with menu, menu: section.settings.menu2 %}'
+  position: 1989..2053
+{% endcomment %}

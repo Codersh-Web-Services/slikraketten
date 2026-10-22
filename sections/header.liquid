@@ -153,7 +153,7 @@
     </div>
     <nav>
       <ul class="MainNav" id="navbar">
-        {% render "menulinks" with menu : section.settings.menu %}
+        {% render "menulinks" with menu, menu: section.settings.menu %}
         <li>
           <a href="#" data-bs-toggle="modal" data-bs-target="#Slide-Left"
             >Basket
@@ -293,3 +293,13 @@ document.querySelector("#anouncementbar p").innerHTML = `{{ section.settings.ann
   ]
 }
 {% endschema %}
+{% comment %}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: '{% render "menulinks" with menu : section.settings.menu %}'
+  to: '{% render "menulinks" with menu, menu: section.settings.menu %}'
+  position: 5265..5328
+{% endcomment %}
